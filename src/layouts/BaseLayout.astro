@@ -8,10 +8,12 @@ import '../styles/global.css';
 interface Props {
   content: SiteContent;
   pageKey: PageKey;
+  activePage?: PageKey | null;
   localeRoutes?: Record<Locale, string>;
   seo?: SeoCopy;
   faviconHref?: string;
   markSrc?: string;
+  indexable?: boolean;
 }
 
 const defaultFaviconHref = '/brand/xuanheng-mark.svg';
@@ -20,10 +22,12 @@ const defaultMarkSrc = '/brand/xuanheng-mark.svg';
 const {
   content,
   pageKey,
+  activePage = pageKey,
   localeRoutes,
   seo,
   faviconHref = defaultFaviconHref,
   markSrc = defaultMarkSrc,
+  indexable = true,
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
@@ -47,10 +51,16 @@ const { title, description } = seo ?? content.seo[pageKey];
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={zhUrl} />
+    {indexable ? (
+      <>
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="x-default" href={zhUrl} />
+      </>
+    ) : (
+      <meta name="robots" content="noindex, nofollow" />
+    )}
     <link rel="icon" href={faviconHref} type="image/svg+xml" />
 
     <meta property="og:type" content="website" />
@@ -58,7 +68,7 @@ const { title, description } = seo ?? content.seo[pageKey];
     <meta property="og:locale" content={content.ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    {indexable && <meta property="og:url" content={canonicalUrl} />}
     <meta name="twitter:card" content="summary" />
   </head>
   <body id="top">
@@ -66,6 +76,7 @@ const { title, description } = seo ?? content.seo[pageKey];
     <Header
       content={content}
       pageKey={pageKey}
+      activePage={activePage}
       markSrc={markSrc}
       languageRoutes={localizedRoutes}
     />

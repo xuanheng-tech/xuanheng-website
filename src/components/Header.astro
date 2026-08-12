@@ -5,11 +5,12 @@ import type { Locale, PageKey, SiteContent } from '../i18n/types';
 interface Props {
   content: SiteContent;
   pageKey: PageKey;
+  activePage?: PageKey | null;
   markSrc?: string;
   languageRoutes?: Record<Locale, string>;
 }
 
-const { content, pageKey, markSrc, languageRoutes } = Astro.props;
+const { content, pageKey, activePage = pageKey, markSrc, languageRoutes } = Astro.props;
 const zhHref = languageRoutes?.zh ?? routeFor('zh', pageKey);
 const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
 ---
@@ -43,7 +44,7 @@ const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
             <li>
               <a
                 href={routeFor(content.locale, item)}
-                aria-current={item === pageKey ? 'page' : undefined}
+                aria-current={item === activePage ? 'page' : undefined}
               >
                 {content.navigation[item]}
               </a>
@@ -79,7 +80,7 @@ const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
               <li>
                 <a
                   href={routeFor(content.locale, item)}
-                  aria-current={item === pageKey ? 'page' : undefined}
+                  aria-current={item === activePage ? 'page' : undefined}
                 >
                   {content.navigation[item]}
                 </a>

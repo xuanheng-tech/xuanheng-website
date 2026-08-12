@@ -49,12 +49,15 @@ export interface ProjectCopy {
     nextDirection: string;
   };
   principles?: string[];
-  media?: Array<{
-    src: string;
-    alt: string;
-    kind: 'image' | 'screenshot' | 'diagram';
-    caption?: string;
-  }>;
+  media?: ProjectMediaAsset[];
+}
+
+export interface ProjectMediaAsset {
+  src: string;
+  alt: string;
+  placement: 'hero' | 'system' | 'gallery';
+  kind: 'image' | 'screenshot' | 'diagram';
+  caption?: string;
 }
 
 export interface ResearchAreaCopy {
