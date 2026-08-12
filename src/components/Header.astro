@@ -1,0 +1,93 @@
+---
+import { pageOrder, routeFor } from '../i18n/routes';
+import type { Locale, PageKey, SiteContent } from '../i18n/types';
+
+interface Props {
+  content: SiteContent;
+  pageKey: PageKey;
+  markSrc?: string;
+  languageRoutes?: Record<Locale, string>;
+}
+
+const { content, pageKey, markSrc, languageRoutes } = Astro.props;
+const zhHref = languageRoutes?.zh ?? routeFor('zh', pageKey);
+const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
+---
+
+<header class="site-header">
+  <div class="container header__inner">
+    <a
+      class="brand"
+      href={routeFor(content.locale, 'home')}
+      aria-label={content.chrome.brandHomeLabel}
+    >
+      {markSrc && (
+        <img
+          class="brand__mark"
+          src={markSrc}
+          alt=""
+          width="1002"
+          height="1576"
+        />
+      )}
+      <span class="brand__text">
+        <span class="brand__zh">玄衡科技</span>
+        <span class="brand__en" lang="en">XUANHENG TECHNOLOGY</span>
+      </span>
+    </a>
+
+    <div class="header__actions">
+      <nav class="desktop-nav" aria-label={content.chrome.mainNavigationLabel}>
+        <ul>
+          {pageOrder.map((item) => (
+            <li>
+              <a
+                href={routeFor(content.locale, item)}
+                aria-current={item === pageKey ? 'page' : undefined}
+              >
+                {content.navigation[item]}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="language-switch" aria-label={content.chrome.languageSwitcherLabel}>
+        <a
+          href={zhHref}
+          hreflang="zh-CN"
+          lang="zh-CN"
+          aria-current={content.locale === 'zh' ? 'page' : undefined}
+        >中</a>
+        <span aria-hidden="true">|</span>
+        <a
+          href={enHref}
+          hreflang="en"
+          lang="en"
+          aria-current={content.locale === 'en' ? 'page' : undefined}
+        >EN</a>
+      </nav>
+
+      <details class="mobile-menu">
+        <summary aria-label={content.chrome.mobileMenuLabel}>
+          <span class="mobile-menu__label" lang="en">MENU</span>
+          <span class="mobile-menu__icon" aria-hidden="true"></span>
+        </summary>
+        <nav aria-label={content.chrome.mobileNavigationLabel}>
+          <ul>
+            {pageOrder.map((item) => (
+              <li>
+                <a
+                  href={routeFor(content.locale, item)}
+                  aria-current={item === pageKey ? 'page' : undefined}
+                >
+                  {content.navigation[item]}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

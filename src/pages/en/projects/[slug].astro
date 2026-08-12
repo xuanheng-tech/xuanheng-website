@@ -1,0 +1,20 @@
+---
+import ProjectDetailPage from '../../../components/ProjectDetailPage.astro';
+import { en } from '../../../i18n/en';
+import type { ProjectCopy } from '../../../i18n/types';
+
+export function getStaticPaths() {
+  return en.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: ProjectCopy;
+}
+
+const { project } = Astro.props;
+---
+
+<ProjectDetailPage content={en} project={project} />

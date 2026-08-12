@@ -1,0 +1,30 @@
+---
+import type { ProjectCopy } from '../i18n/types';
+
+interface Props {
+  title: string;
+  capabilities: ProjectCopy['capabilities'];
+}
+
+const { title, capabilities } = Astro.props;
+---
+
+<section class="project-section project-capabilities" aria-labelledby="project-capabilities-title">
+  <div class="container">
+    <header class="project-section__heading project-section__heading--row">
+      <div>
+        <p class="eyebrow" lang="en">02 · Capabilities</p>
+        <h2 id="project-capabilities-title">{title}</h2>
+      </div>
+    </header>
+    <ol class="project-capabilities__list">
+      {capabilities.map((capability, index) => (
+        <li>
+          <span class="project-list-number">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{capability.name}</h3>
+          <p>{capability.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

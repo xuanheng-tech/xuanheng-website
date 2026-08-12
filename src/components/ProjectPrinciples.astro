@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  principles: string[];
+}
+
+const { title, principles } = Astro.props;
+---
+
+<section class="project-section project-principles" aria-labelledby="project-principles-title">
+  <div class="container project-section__grid">
+    <header class="project-section__heading">
+      <p class="eyebrow" lang="en">06 · Principles</p>
+      <h2 id="project-principles-title">{title}</h2>
+    </header>
+    <ol class="project-principles__list">
+      {principles.map((principle, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <p>{principle}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

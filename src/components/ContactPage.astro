@@ -1,0 +1,30 @@
+---
+import type { SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { contact } = content;
+---
+
+<BaseLayout content={content} pageKey="contact">
+  <section class="contact-page" aria-labelledby="contact-page-title">
+    <div class="container contact-page__inner">
+      <p class="eyebrow">{contact.kicker}</p>
+      <h1 id="contact-page-title">{contact.title}</h1>
+
+      <div class="contact-page__card">
+        <div class="contact-page__company">
+          {contact.companyLines.map((line) => <p>{line}</p>)}
+        </div>
+        <a class="contact-page__email" href="mailto:contact@xuanhengtech.cn">
+          <span>contact@xuanhengtech.cn</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

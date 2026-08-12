@@ -1,0 +1,36 @@
+---
+import type { ProjectCopy, ProjectDetailLabels } from '../i18n/types';
+
+interface Props {
+  labels: ProjectDetailLabels;
+  allProjectsPath: string;
+  previous?: ProjectCopy;
+  next?: ProjectCopy;
+}
+
+const { labels, allProjectsPath, previous, next } = Astro.props;
+---
+
+<nav class="project-navigation" aria-label={labels.projectNavigationLabel}>
+  <div class="container project-navigation__grid">
+    {previous ? (
+      <a class="project-navigation__project project-navigation__project--previous" href={previous.detailPath}>
+        <span>{labels.previousProject}</span>
+        <strong><span aria-hidden="true">←</span> {previous.name}</strong>
+      </a>
+    ) : (
+      <span class="project-navigation__empty" aria-hidden="true"></span>
+    )}
+
+    <a class="project-navigation__all" href={allProjectsPath}>{labels.allProjects}</a>
+
+    {next ? (
+      <a class="project-navigation__project project-navigation__project--next" href={next.detailPath}>
+        <span>{labels.nextProject}</span>
+        <strong>{next.name} <span aria-hidden="true">→</span></strong>
+      </a>
+    ) : (
+      <span class="project-navigation__empty" aria-hidden="true"></span>
+    )}
+  </div>
+</nav>

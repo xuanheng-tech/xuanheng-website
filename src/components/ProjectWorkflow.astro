@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  steps: string[];
+}
+
+const { title, steps } = Astro.props;
+---
+
+<section class="project-section project-workflow" aria-labelledby="project-workflow-title">
+  <div class="container">
+    <header class="project-section__heading project-section__heading--row">
+      <div>
+        <p class="eyebrow" lang="en">03 · Workflow</p>
+        <h2 id="project-workflow-title">{title}</h2>
+      </div>
+    </header>
+    <ol class="project-workflow__steps">
+      {steps.map((step, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <p>{step}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

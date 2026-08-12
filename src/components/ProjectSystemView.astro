@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  layers: string[];
+}
+
+const { title, layers } = Astro.props;
+---
+
+<section class="project-system-view" aria-labelledby="project-system-view-title">
+  <div class="container">
+    <header class="project-section__heading project-section__heading--light">
+      <p class="eyebrow" lang="en">04 · System View</p>
+      <h2 id="project-system-view-title">{title}</h2>
+    </header>
+    <ol class="project-system-view__layers">
+      {layers.map((layer, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <p>{layer}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+---
+import type { SiteContent } from '../i18n/types';
+import { routeFor } from '../i18n/routes';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { about } = content;
+---
+
+<BaseLayout content={content} pageKey="about">
+  <header class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">{about.hero.kicker}</p>
+        <h1>{about.hero.title[0]}<br />{about.hero.title[1]}</h1>
+      </div>
+      <p class="page-hero__lead">{about.hero.lead}</p>
+    </div>
+  </header>
+
+  <section class="fact-strip" aria-label={about.factsLabel}>
+    <div class="container fact-strip__grid">
+      <dl>
+        {about.facts.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section about-intro" aria-labelledby="company-title">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow" lang="en">{about.company.kicker}</p>
+        <h2 id="company-title">{about.company.title}</h2>
+      </div>
+      <div class="prose prose--large">
+        {about.company.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section research-belief" aria-labelledby="belief-title">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow" lang="en">{about.philosophy.kicker}</p>
+        <h2 id="belief-title">{about.philosophy.title}</h2>
+      </div>
+      <blockquote>
+        <p>{about.philosophy.statements[0]}</p>
+        <p>{about.philosophy.statements[1]}</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section directions" aria-labelledby="directions-title">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" lang="en">{about.directions.kicker}</p>
+          <h2 id="directions-title">{about.directions.title}</h2>
+        </div>
+        <p class="section-heading__lead">{about.directions.lead}</p>
+      </div>
+
+      <div class="directions__list">
+        {about.directions.items.map((direction) => (
+          <article>
+            <span>{direction.index}</span>
+            <h3>{direction.title}</h3>
+            <p>{direction.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="container page-next__inner">
+      <p>{about.next.label}</p>
+      <a href={routeFor(content.locale, 'projects')}>
+        <span>{about.next.linkLabel}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

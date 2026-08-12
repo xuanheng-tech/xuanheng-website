@@ -1,0 +1,41 @@
+---
+import type { ProjectCopy, ProjectLabels } from '../i18n/types';
+
+interface Props {
+  project: ProjectCopy;
+  labels: ProjectLabels;
+}
+
+const { project, labels } = Astro.props;
+---
+
+<article class="project-card">
+  <a
+    class="project-card__link"
+    href={project.detailPath}
+    aria-label={`${project.name} · ${labels.viewProject}`}
+  >
+    <div class="project-card__meta">
+      <span class="project-card__index" lang="en">{labels.project} {project.number}</span>
+      <span class="project-card__status">
+        <span aria-hidden="true"></span>
+        {project.status}
+      </span>
+    </div>
+    <h3>{project.name}</h3>
+    <div class="project-card__description">
+      <p>{project.summary}</p>
+      <p>{project.overview[0]}</p>
+    </div>
+    <div class="project-card__focus">
+      <p lang="en">{labels.focus}</p>
+      <ul aria-label={`${project.name} ${labels.focusAriaSuffix}`}>
+        {project.focus.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <span class="project-card__action">
+      <span>{labels.viewProject}</span>
+      <span aria-hidden="true">→</span>
+    </span>
+  </a>
+</article>

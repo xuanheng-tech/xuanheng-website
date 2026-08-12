@@ -1,0 +1,33 @@
+---
+import type { SiteContent } from '../i18n/types';
+
+interface FilingLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  content: SiteContent;
+}
+
+// V1 暂不展示备案信息；取得真实备案号后向此列表添加条目即可。
+const filingLinks: FilingLink[] = [];
+const { content } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container footer__inner">
+    <p>© 2026 Xuanheng Technology</p>
+    {filingLinks.length > 0 && (
+      <nav class="footer__filings" aria-label={content.chrome.filingNavigationLabel}>
+        {filingLinks.map((filing) => (
+          <a href={filing.href} rel="nofollow">{filing.label}</a>
+        ))}
+      </nav>
+    )}
+    <a class="footer__top" href="#top">
+      <span>{content.chrome.backToTop}</span>
+      <span aria-hidden="true">↑</span>
+    </a>
+  </div>
+</footer>

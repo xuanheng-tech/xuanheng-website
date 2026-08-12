@@ -1,0 +1,49 @@
+---
+import type { SiteContent } from '../i18n/types';
+import { routeFor } from '../i18n/routes';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { projectsPage } = content;
+---
+
+<BaseLayout content={content} pageKey="projects">
+  <header class="page-hero page-hero--projects">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">{projectsPage.hero.kicker}</p>
+        <h1>{projectsPage.hero.title[0]}<br />{projectsPage.hero.title[1]}</h1>
+      </div>
+      <p class="page-hero__lead">{projectsPage.hero.lead}</p>
+    </div>
+  </header>
+
+  <section class="section projects-page" aria-labelledby="projects-list-title">
+    <div class="container">
+      <div class="projects-page__heading">
+        <p class="eyebrow">{projectsPage.listing.kicker}</p>
+        <h2 id="projects-list-title">{projectsPage.listing.title}</h2>
+      </div>
+      <div class="project-grid project-grid--page">
+        {content.projects.map((project) => (
+          <ProjectCard project={project} labels={content.projectLabels} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="container page-next__inner">
+      <p>{projectsPage.next.label}</p>
+      <a href={routeFor(content.locale, 'about')}>
+        <span>{projectsPage.next.linkLabel}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

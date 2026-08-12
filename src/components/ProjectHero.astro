@@ -1,0 +1,41 @@
+---
+import type { ProjectCopy, ProjectLabels } from '../i18n/types';
+
+interface Props {
+  project: ProjectCopy;
+  labels: ProjectLabels;
+}
+
+const { project, labels } = Astro.props;
+const showEnglishName = project.englishName !== project.name;
+---
+
+<header class="project-hero">
+  <div class="container">
+    <p class="eyebrow" lang="en">
+      {labels.project} {project.number} · {project.category}
+    </p>
+    <div class="project-hero__grid">
+      <div class="project-hero__copy">
+        <h1>{project.name}</h1>
+        {showEnglishName && (
+          <p class="project-hero__english-name" lang="en">{project.englishName}</p>
+        )}
+        <p class="project-hero__summary">{project.summary}</p>
+      </div>
+
+      <div class="project-hero__meta">
+        <p class="project-hero__status">
+          <span aria-hidden="true"></span>
+          {project.status}
+        </p>
+        <div class="project-hero__focus">
+          <p class="eyebrow" lang="en">{labels.focus}</p>
+          <ul aria-label={`${project.name} ${labels.focusAriaSuffix}`}>
+            {project.focus.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

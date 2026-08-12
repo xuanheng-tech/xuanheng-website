@@ -1,0 +1,77 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { routeFor } from '../i18n/routes';
+import type { Locale, PageKey, SeoCopy, SiteContent } from '../i18n/types';
+import '../styles/global.css';
+
+interface Props {
+  content: SiteContent;
+  pageKey: PageKey;
+  localeRoutes?: Record<Locale, string>;
+  seo?: SeoCopy;
+  faviconHref?: string;
+  markSrc?: string;
+}
+
+const defaultFaviconHref = '/brand/xuanheng-mark.svg';
+const defaultMarkSrc = '/brand/xuanheng-mark.svg';
+
+const {
+  content,
+  pageKey,
+  localeRoutes,
+  seo,
+  faviconHref = defaultFaviconHref,
+  markSrc = defaultMarkSrc,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
+const localizedRoutes = localeRoutes ?? {
+  zh: routeFor('zh', pageKey),
+  en: routeFor('en', pageKey),
+};
+const canonicalUrl = new URL(localizedRoutes[content.locale], siteUrl);
+const zhUrl = new URL(localizedRoutes.zh, siteUrl);
+const enUrl = new URL(localizedRoutes.en, siteUrl);
+const { title, description } = seo ?? content.seo[pageKey];
+---
+
+<!doctype html>
+<html lang={content.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#F6F1E8" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={zhUrl} />
+    <link rel="icon" href={faviconHref} type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="玄衡科技 | Xuanheng Technology" />
+    <meta property="og:locale" content={content.ogLocale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">{content.chrome.skipToContent}</a>
+    <Header
+      content={content}
+      pageKey={pageKey}
+      markSrc={markSrc}
+      languageRoutes={localizedRoutes}
+    />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer content={content} />
+  </body>
+</html>

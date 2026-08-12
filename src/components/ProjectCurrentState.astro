@@ -1,0 +1,35 @@
+---
+import type { ProjectCopy, ProjectDetailLabels } from '../i18n/types';
+
+interface Props {
+  title: string;
+  labels: ProjectDetailLabels;
+  state: ProjectCopy['currentState'];
+}
+
+const { title, labels, state } = Astro.props;
+const columns = [
+  { label: labels.implemented, text: state.implemented },
+  { label: labels.currentFocus, text: state.currentFocus },
+  { label: labels.nextDirection, text: state.nextDirection },
+];
+---
+
+<section class="project-section project-current-state" aria-labelledby="project-current-state-title">
+  <div class="container">
+    <header class="project-section__heading project-section__heading--row">
+      <div>
+        <p class="eyebrow" lang="en">05 · Current State</p>
+        <h2 id="project-current-state-title">{title}</h2>
+      </div>
+    </header>
+    <div class="project-current-state__grid">
+      {columns.map((column) => (
+        <article>
+          <h3>{column.label}</h3>
+          <p>{column.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

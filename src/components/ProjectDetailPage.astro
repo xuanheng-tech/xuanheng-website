@@ -1,0 +1,67 @@
+---
+import { projectRouteFor, routeFor } from '../i18n/routes';
+import type { ProjectCopy, SeoCopy, SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCapabilities from './ProjectCapabilities.astro';
+import ProjectCurrentState from './ProjectCurrentState.astro';
+import ProjectHero from './ProjectHero.astro';
+import ProjectNavigation from './ProjectNavigation.astro';
+import ProjectOverview from './ProjectOverview.astro';
+import ProjectPrinciples from './ProjectPrinciples.astro';
+import ProjectSystemView from './ProjectSystemView.astro';
+import ProjectWorkflow from './ProjectWorkflow.astro';
+
+interface Props {
+  content: SiteContent;
+  project: ProjectCopy;
+}
+
+const { content, project } = Astro.props;
+const localeRoutes = {
+  zh: projectRouteFor('zh', project.slug),
+  en: projectRouteFor('en', project.slug),
+};
+const titleSuffix = content.locale === 'zh' ? '玄衡科技' : 'Xuanheng Technology';
+const seo: SeoCopy = {
+  title: `${project.name} | ${titleSuffix}`,
+  description: `${project.summary} ${project.overview[0]}`,
+};
+const currentIndex = content.projects.findIndex((item) => item.slug === project.slug);
+
+if (currentIndex < 0) {
+  throw new Error(`Project ${project.slug} is not present in locale content`);
+}
+
+const previous = content.projects[currentIndex - 1];
+const next = content.projects[currentIndex + 1];
+const labels = content.projectDetailLabels;
+---
+
+<BaseLayout
+  content={content}
+  pageKey="projects"
+  localeRoutes={localeRoutes}
+  seo={seo}
+>
+  <article class="project-detail">
+    <ProjectHero project={project} labels={content.projectLabels} />
+    <ProjectOverview title={labels.overview} paragraphs={project.overview} />
+    <ProjectCapabilities title={labels.capabilities} capabilities={project.capabilities} />
+    <ProjectWorkflow title={labels.workflow} steps={project.workflow} />
+    <ProjectSystemView title={labels.systemView} layers={project.systemLayers} />
+    <ProjectCurrentState
+      title={labels.currentState}
+      labels={labels}
+      state={project.currentState}
+    />
+    {project.principles && project.principles.length > 0 && (
+      <ProjectPrinciples title={labels.principles} principles={project.principles} />
+    )}
+    <ProjectNavigation
+      labels={labels}
+      allProjectsPath={routeFor(content.locale, 'projects')}
+      previous={previous}
+      next={next}
+    />
+  </article>
+</BaseLayout>
