@@ -1,10 +1,10 @@
 ---
-import LegacyRedirect from '../../../components/LegacyRedirect.astro';
-import { en } from '../../../i18n/en';
+import ProjectDetailPage from '../../../components/ProjectDetailPage.astro';
+import { zh } from '../../../i18n/zh';
 import type { ProjectCopy } from '../../../i18n/types';
 
 export function getStaticPaths() {
-  return en.projects.map((project) => ({
+  return zh.projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
@@ -17,4 +17,4 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<LegacyRedirect target={project.detailPath} />
+<ProjectDetailPage content={zh} project={project} />

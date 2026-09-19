@@ -1,0 +1,24 @@
+---
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
+const targetUrl = new URL(target, siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={targetUrl} />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <title>Page moved | Xuanheng Technology</title>
+  </head>
+  <body>
+    <p>This page has moved to <a href={target}>{target}</a>.</p>
+  </body>
+</html>

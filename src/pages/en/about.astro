@@ -1,6 +1,6 @@
 ---
-import AboutPage from '../../components/AboutPage.astro';
-import { en } from '../../i18n/en';
+import LegacyRedirect from '../../components/LegacyRedirect.astro';
+import { routeFor } from '../../i18n/routes';
 ---
 
-<AboutPage content={en} />
+<LegacyRedirect target={routeFor('en', 'about')} />

@@ -55,18 +55,18 @@ const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
 
       <nav class="language-switch" aria-label={content.chrome.languageSwitcherLabel}>
         <a
-          href={zhHref}
-          hreflang="zh-CN"
-          lang="zh-CN"
-          aria-current={content.locale === 'zh' ? 'page' : undefined}
-        >中</a>
-        <span aria-hidden="true">|</span>
-        <a
           href={enHref}
           hreflang="en"
           lang="en"
           aria-current={content.locale === 'en' ? 'page' : undefined}
         >EN</a>
+        <span aria-hidden="true">|</span>
+        <a
+          href={zhHref}
+          hreflang="zh-CN"
+          lang="zh-CN"
+          aria-current={content.locale === 'zh' ? 'page' : undefined}
+        >中文</a>
       </nav>
 
       <details class="mobile-menu">

@@ -3,17 +3,17 @@ import type { Locale, PageKey, ProjectSlug } from './types';
 export const pageOrder: PageKey[] = ['home', 'about', 'projects', 'contact'];
 
 export const routes: Record<Locale, Record<PageKey, string>> = {
-  zh: {
+  en: {
     home: '/',
     about: '/about/',
     projects: '/projects/',
     contact: '/contact/',
   },
-  en: {
-    home: '/en/',
-    about: '/en/about/',
-    projects: '/en/projects/',
-    contact: '/en/contact/',
+  zh: {
+    home: '/zh-cn/',
+    about: '/zh-cn/about/',
+    projects: '/zh-cn/projects/',
+    contact: '/zh-cn/contact/',
   },
 };
 

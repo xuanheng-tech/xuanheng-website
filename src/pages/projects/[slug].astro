@@ -1,10 +1,10 @@
 ---
 import ProjectDetailPage from '../../components/ProjectDetailPage.astro';
-import { zh } from '../../i18n/zh';
+import { en } from '../../i18n/en';
 import type { ProjectCopy } from '../../i18n/types';
 
 export function getStaticPaths() {
-  return zh.projects.map((project) => ({
+  return en.projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
@@ -17,4 +17,4 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<ProjectDetailPage content={zh} project={project} />
+<ProjectDetailPage content={en} project={project} />

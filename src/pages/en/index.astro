@@ -1,6 +1,6 @@
 ---
-import HomePage from '../../components/HomePage.astro';
-import { en } from '../../i18n/en';
+import LegacyRedirect from '../../components/LegacyRedirect.astro';
+import { routeFor } from '../../i18n/routes';
 ---
 
-<HomePage content={en} />
+<LegacyRedirect target={routeFor('en', 'home')} />
