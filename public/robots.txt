@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xuanhengtech.cn/sitemap.xml
+Sitemap: https://www.xuanhengtech.cn/sitemap.xml

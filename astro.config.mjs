@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://xuanhengtech.cn',
+  site: 'https://www.xuanhengtech.cn',
   output: 'static',
   trailingSlash: 'always',
   build: {

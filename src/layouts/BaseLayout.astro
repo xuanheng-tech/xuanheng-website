@@ -34,7 +34,7 @@ const {
   indexable = true,
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
+const siteUrl = Astro.site ?? new URL('https://www.xuanhengtech.cn');
 const canonicalPath = canonicalPathOverride ?? routeFor(content.locale, pageKey);
 const englishPath = englishPathOverride ?? routeFor('en', pageKey);
 const chinesePath = chinesePathOverride ?? routeFor('zh', pageKey);

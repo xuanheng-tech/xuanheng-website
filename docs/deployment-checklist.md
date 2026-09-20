@@ -46,7 +46,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 
 ## Production domain gate
 
-- 正式 canonical 为 `https://xuanhengtech.cn`；`https://www.xuanhengtech.cn` 预期做单向 301/308 重定向到 apex，并保留 path 与 query。精确语法由最终托管平台决定。
+- 正式 canonical 为 `https://www.xuanhengtech.cn`；`https://xuanhengtech.cn` 预期做单向 301/308 重定向到 www，并保留 path 与 query。精确语法由最终托管平台决定。
 - 绑定域名前确认两个 hostname 都能获得有效 HTTPS 证书，且不存在 HTTP/HTTPS 或 apex/www 重定向循环。
 - DNS 切换前保存当前 zone 记录，确认托管平台目标、证书要求和回滚值；切换后从公共解析器核对 A/AAAA/CNAME、HTTPS、redirect、canonical、sitemap 与核心页面。
 - 网站记录调整不得删除或覆盖 MX，以及 SPF、DKIM、DMARC 等邮件相关 TXT。若更换 nameserver，必须先完整迁移并复核这些记录，避免影响 `contact@xuanhengtech.cn`。
