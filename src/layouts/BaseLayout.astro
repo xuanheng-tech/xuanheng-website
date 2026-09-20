@@ -11,6 +11,7 @@ interface Props {
   activePage?: PageKey | null;
   canonicalPath?: string;
   englishPath?: string;
+  chinesePath?: string;
   seo?: SeoCopy;
   faviconHref?: string;
   markSrc?: string;
@@ -26,6 +27,7 @@ const {
   activePage = pageKey,
   canonicalPath: canonicalPathOverride,
   englishPath: englishPathOverride,
+  chinesePath: chinesePathOverride,
   seo,
   faviconHref = defaultFaviconHref,
   markSrc = defaultMarkSrc,
@@ -35,8 +37,10 @@ const {
 const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
 const canonicalPath = canonicalPathOverride ?? routeFor(content.locale, pageKey);
 const englishPath = englishPathOverride ?? routeFor('en', pageKey);
+const chinesePath = chinesePathOverride ?? routeFor('zh', pageKey);
 const canonicalUrl = new URL(canonicalPath, siteUrl);
 const englishUrl = new URL(englishPath, siteUrl);
+const chineseUrl = new URL(chinesePath, siteUrl);
 const { title, description } = seo ?? content.seo[pageKey];
 ---
 
@@ -54,6 +58,7 @@ const { title, description } = seo ?? content.seo[pageKey];
       <>
         <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hreflang="en" href={englishUrl} />
+        <link rel="alternate" hreflang="zh-CN" href={chineseUrl} />
         <link rel="alternate" hreflang="x-default" href={englishUrl} />
       </>
     ) : (
@@ -75,6 +80,8 @@ const { title, description } = seo ?? content.seo[pageKey];
       content={content}
       pageKey={pageKey}
       activePage={activePage}
+      englishPath={englishPath}
+      chinesePath={chinesePath}
       markSrc={markSrc}
     />
     <main id="main-content">

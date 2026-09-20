@@ -1,4 +1,4 @@
-# Cloudflare Workers Static Assets permanent redirects for the retired English-prefixed routes.
+# Permanent redirects for the retired English-prefixed routes.
 /en / 301
 /en/ / 301
 /en/about /about/ 301

@@ -1,13 +1,13 @@
 # Static deployment checklist
 
-本项目是平台无关的 Astro 纯静态站。选择托管平台后再把下列要求映射到该平台的实际配置，
-不要预先提交未经验证的平台专用文件。
+本项目是通过 GitHub mirror 接入 Netlify 的 Astro 纯静态双语站。Netlify 是唯一的
+Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测试，不属于主发布链路。
 
 ## Current readiness
 
-- Launch preparation 基于 Website V1 RC `5fcac56588cae6c3f02af7e01d3f410662b783e0`。
-- 2026-08-13 本机只读检查未发现可直接使用的静态托管 CLI、认证环境或仓库平台配置；本轮未创建项目、未部署，也未接触正式域名。
-- 完成 Preview 的最小人工动作：用户在选定托管平台创建并授权一个静态 Preview 项目，按下方 Build contract 完成首次部署，再提供实际 Preview URL。
+- Netlify Production 使用 GitHub `xuanheng-tech/xuanheng-website` 的 `main` 分支自动部署。
+- 同一个 Netlify deployment 同时提供英文根路径与 `/zh-cn/` 简体中文路径；正式内容不复制页面实现。
+- 发布前以当前 commit 重新执行下方 Build contract 与双语 smoke，Netlify URL 以实际部署结果为准。
 
 ## Build contract
 
@@ -20,27 +20,28 @@
 
 ## Hosting configuration
 
-- 将 `dist/` 作为唯一发布目录。
-- Global Production：`xuanhengtech.cn` → Cloudflare Workers Static Assets → 英文根路径站点。
-- Future China：`cn.xuanhengtech.cn` → 中国大陆托管 → 中文站点；Global build 不生成 `/zh-cn/...`。
-- 一个源码仓库继续保留共享组件、`src/i18n/zh.ts` 中文内容，以及 `src/future/zh-cn/` 中文路由壳，供未来 China build 复用。
+- Netlify Production：GitHub `xuanheng-tech/xuanheng-website` `main` → `netlify.toml` → `npm ci` / `npm run build` → `dist/`；一个 deployment 提供英文与中文正式路由。
+- ChatGPT Sites / Cloudflare Workers Static Assets：仅非正式备用或测试，不作为 Production source of truth；不应绕过 Netlify 发布正式版本。
+- 一个源码仓库继续保留共享组件、`src/i18n/en.ts`、`src/i18n/zh.ts` 与 `src/pages/zh-cn/` 正式中文路由壳。
+- `public/_redirects` 由 Netlify 读取，为旧 `/en/...` 路径提供无 JS 的 HTTP 301 到英文根路径；必须在在线环境验证。
 - 确认平台会把未知路径映射到 `dist/404.html`，并返回真实 HTTP 404；若不会，按平台文档配置 custom 404。
-- Global 正式英文页面只使用根路径；旧 `/en/...` 在静态产物中保留 no-JS `noindex` 兼容页，并由 Cloudflare Workers Static Assets 的 `public/_redirects` 提供直达 HTTP 301 到新英文 URL。若最终 Production 使用其他托管层，必须配置等价的 HTTP 301/308，并验证不会产生循环或多跳。另按下方定义配置 www → apex。
+- 正式英文页面使用根路径，中文页面使用 `/zh-cn/`；旧 `/en/...` 保留 no-JS 兼容页并由 Netlify `public/_redirects` 提供直达 HTTP 301 到新英文 URL，验证不得产生循环或多跳。另按下方定义配置 www → apex。
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
 - 按平台文档评估并验证安全响应头；至少检查 CSP、HSTS、`X-Content-Type-Options`、`Referrer-Policy`。在确定 Preview/Production 平台前不提交猜测的语法或策略。
 
 ## Metadata and assets
 
-- 验证英文页面上的 canonical、`hreflang="en"` 与 `x-default` 均使用正式站点 URL，且 `x-default` 指向当前英文 URL；Global 页面不输出 `hreflang="zh-CN"`。
-- 验证 `sitemap.xml` 仅覆盖 7 个英文正式 URL，`robots.txt` 指向正式 sitemap。
+- 验证每个英文与中文页面的 canonical 指向当前语言正式 URL，`hreflang="en"`、`hreflang="zh-CN"` 与 `x-default` 均指向对应页面；`x-default` 始终指向英文 URL。
+- 验证 `sitemap.xml` 覆盖 14 个英文与中文正式 URL，不包含旧 `/en/...` 兼容路径；`robots.txt` 指向正式 sitemap。
 - 验证 SVG favicon、品牌 SVG、Open Graph 基础 metadata 与 404 `noindex`。
 - 检查产物不存在 localhost、工作站绝对路径、debug 信息或 secret。
 
-## Preview smoke check
+## Netlify smoke check
 
-- 使用非正式域名创建 Preview 项目，不绑定 `xuanhengtech.cn` 或 `www.xuanhengtech.cn`。
-- 在线打开 `/`、`/about/`、`/projects/`、`/contact/`、三个英文项目详情页和一个不存在的路径；确认 `/zh-cn/...` 不重定向且返回真实 404，旧 `/en/...` 只作为兼容跳转入口。
-- 验证纯英文 Header、项目导航、静态资产、真实 404 状态、移动端 Header 与无横向溢出。
+- 通过 GitHub `main` 自动部署到 Netlify，不绑定或修改正式 DNS，记录实际 Netlify URL 与部署 commit。
+- 在线打开 `/`、`/about/`、`/projects/`、`/contact/`、三个英文项目详情页及对应的 `/zh-cn/...` 页面；确认 `/en/...` 为 301，随机不存在路径返回真实 404。
+- 验证 `EN | 中文` 在首页、列表页和项目详情页保持当前页面 counterpart，检查项目导航、CSS、SVG、favicon、HTTPS、trailing slash、压缩、缓存与安全响应头。
+- 在 390px 与 1440px 视口检查英文/中文首页、列表页和详情页无横向溢出；同时确认产物无客户端 script。
 - 核对 HTTPS、trailing slash、压缩和实际缓存响应；记录 Preview URL，供最后人工视觉验收使用。
 
 ## Production domain gate
@@ -91,9 +92,9 @@
 ### Release
 
 1. 在 Node `24.19.0` 环境执行 `npm ci`、`npm run build`，并完成最终 link / SEO / privacy 检查。
-2. 将同一 commit 的 `dist/` 发布到已验收的平台，先核对平台 URL，再绑定 apex 与 www。
-3. 按平台已验证配置完成 www → apex、custom 404、cache/security headers；随后执行 DNS 与 HTTPS 验证。
-4. 在线 smoke Global 英文首页、About、Projects、Contact、三个项目详情页、旧 `/en/...`、`/zh-cn/...` 404、404、favicon 与静态资产；未来 China 站单独部署后再验证中文路由。
+2. 将同一 commit 推送到 GitHub `main`，由 Netlify Git integration 自动部署并记录实际 Netlify URL。
+3. 在 Netlify 上核对 custom 404、`public/_redirects`、cache/security headers 与 HTTPS；正式域名绑定前不修改 DNS。
+4. 在线 smoke 英文与中文首页、About、Projects、Contact、三个项目详情页、旧 `/en/...`、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
 
 ### Post-release and rollback
 

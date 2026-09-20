@@ -6,10 +6,19 @@ interface Props {
   content: SiteContent;
   pageKey: PageKey;
   activePage?: PageKey | null;
+  englishPath: string;
+  chinesePath: string;
   markSrc?: string;
 }
 
-const { content, pageKey, activePage = pageKey, markSrc } = Astro.props;
+const {
+  content,
+  pageKey,
+  activePage = pageKey,
+  englishPath,
+  chinesePath,
+  markSrc,
+} = Astro.props;
 ---
 
 <header class="site-header">
@@ -70,6 +79,20 @@ const { content, pageKey, activePage = pageKey, markSrc } = Astro.props;
           </ul>
         </nav>
       </details>
+
+      <nav class="language-switch" aria-label={content.chrome.languageSwitcherLabel}>
+        <a
+          href={englishPath}
+          lang="en"
+          aria-current={content.locale === 'en' ? 'page' : undefined}
+        >EN</a>
+        <span aria-hidden="true">|</span>
+        <a
+          href={chinesePath}
+          lang="zh-CN"
+          aria-current={content.locale === 'zh' ? 'page' : undefined}
+        >中文</a>
+      </nav>
     </div>
   </div>
 </header>
