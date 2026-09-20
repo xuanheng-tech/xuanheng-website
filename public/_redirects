@@ -1,0 +1,15 @@
+# Cloudflare Pages permanent redirects for the retired English-prefixed routes.
+/en / 301
+/en/ / 301
+/en/about /about/ 301
+/en/about/ /about/ 301
+/en/projects /projects/ 301
+/en/projects/ /projects/ 301
+/en/projects/agent-workspace /projects/agent-workspace/ 301
+/en/projects/agent-workspace/ /projects/agent-workspace/ 301
+/en/projects/policy-intelligence /projects/policy-intelligence/ 301
+/en/projects/policy-intelligence/ /projects/policy-intelligence/ 301
+/en/projects/quantitative-research-platform /projects/quantitative-research-platform/ 301
+/en/projects/quantitative-research-platform/ /projects/quantitative-research-platform/ 301
+/en/contact /contact/ 301
+/en/contact/ /contact/ 301

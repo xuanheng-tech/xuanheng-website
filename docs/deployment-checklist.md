@@ -22,7 +22,7 @@
 
 - 将 `dist/` 作为唯一发布目录。
 - 确认平台会把未知路径映射到 `dist/404.html`，并返回真实 HTTP 404；若不会，按平台文档配置 custom 404。
-- 正式英文页面使用根路径，简体中文页面使用 `/zh-cn/`；旧 `/en/...` 仅保留静态 no-JS `noindex` 跳转页。Preview 不猜平台专用语法；Production 如需真实 HTTP 301/308，必须在最终托管层配置旧 `/en/...` → 新英文 URL，并验证不会产生循环或多跳。另按下方定义配置 www → apex。
+- 正式英文页面使用根路径，简体中文页面使用 `/zh-cn/`；旧 `/en/...` 在静态产物中保留 no-JS `noindex` 兼容页，并由 Cloudflare Pages 的 `public/_redirects` 提供直达 HTTP 301 到新英文 URL。若最终 Production 使用其他托管层，必须配置等价的 HTTP 301/308，并验证不会产生循环或多跳。另按下方定义配置 www → apex。
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
 - 按平台文档评估并验证安全响应头；至少检查 CSP、HSTS、`X-Content-Type-Options`、`Referrer-Policy`。在确定 Preview/Production 平台前不提交猜测的语法或策略。
 
