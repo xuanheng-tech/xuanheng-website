@@ -2,14 +2,15 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { routeFor } from '../i18n/routes';
-import type { Locale, PageKey, SeoCopy, SiteContent } from '../i18n/types';
+import type { PageKey, SeoCopy, SiteContent } from '../i18n/types';
 import '../styles/global.css';
 
 interface Props {
   content: SiteContent;
   pageKey: PageKey;
   activePage?: PageKey | null;
-  localeRoutes?: Record<Locale, string>;
+  canonicalPath?: string;
+  englishPath?: string;
   seo?: SeoCopy;
   faviconHref?: string;
   markSrc?: string;
@@ -23,7 +24,8 @@ const {
   content,
   pageKey,
   activePage = pageKey,
-  localeRoutes,
+  canonicalPath: canonicalPathOverride,
+  englishPath: englishPathOverride,
   seo,
   faviconHref = defaultFaviconHref,
   markSrc = defaultMarkSrc,
@@ -31,13 +33,10 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL('https://xuanhengtech.cn');
-const localizedRoutes = localeRoutes ?? {
-  zh: routeFor('zh', pageKey),
-  en: routeFor('en', pageKey),
-};
-const canonicalUrl = new URL(localizedRoutes[content.locale], siteUrl);
-const zhUrl = new URL(localizedRoutes.zh, siteUrl);
-const enUrl = new URL(localizedRoutes.en, siteUrl);
+const canonicalPath = canonicalPathOverride ?? routeFor(content.locale, pageKey);
+const englishPath = englishPathOverride ?? routeFor('en', pageKey);
+const canonicalUrl = new URL(canonicalPath, siteUrl);
+const englishUrl = new URL(englishPath, siteUrl);
 const { title, description } = seo ?? content.seo[pageKey];
 ---
 
@@ -54,9 +53,8 @@ const { title, description } = seo ?? content.seo[pageKey];
     {indexable ? (
       <>
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hreflang="en" href={enUrl} />
-        <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
-        <link rel="alternate" hreflang="x-default" href={enUrl} />
+        <link rel="alternate" hreflang="en" href={englishUrl} />
+        <link rel="alternate" hreflang="x-default" href={englishUrl} />
       </>
     ) : (
       <meta name="robots" content="noindex, nofollow" />
@@ -78,7 +76,6 @@ const { title, description } = seo ?? content.seo[pageKey];
       pageKey={pageKey}
       activePage={activePage}
       markSrc={markSrc}
-      languageRoutes={localizedRoutes}
     />
     <main id="main-content">
       <slot />

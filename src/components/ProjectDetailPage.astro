@@ -17,10 +17,6 @@ interface Props {
 }
 
 const { content, project } = Astro.props;
-const localeRoutes = {
-  zh: projectRouteFor('zh', project.slug),
-  en: projectRouteFor('en', project.slug),
-};
 const titleSuffix = content.locale === 'zh' ? '玄衡科技' : 'Xuanheng Technology';
 const seo: SeoCopy = {
   title: `${project.name} | ${titleSuffix}`,
@@ -40,7 +36,8 @@ const labels = content.projectDetailLabels;
 <BaseLayout
   content={content}
   pageKey="projects"
-  localeRoutes={localeRoutes}
+  canonicalPath={project.detailPath}
+  englishPath={projectRouteFor('en', project.slug)}
   seo={seo}
 >
   <article class="project-detail">

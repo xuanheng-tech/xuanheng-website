@@ -1,18 +1,15 @@
 ---
 import { pageOrder, routeFor } from '../i18n/routes';
-import type { Locale, PageKey, SiteContent } from '../i18n/types';
+import type { PageKey, SiteContent } from '../i18n/types';
 
 interface Props {
   content: SiteContent;
   pageKey: PageKey;
   activePage?: PageKey | null;
   markSrc?: string;
-  languageRoutes?: Record<Locale, string>;
 }
 
-const { content, pageKey, activePage = pageKey, markSrc, languageRoutes } = Astro.props;
-const zhHref = languageRoutes?.zh ?? routeFor('zh', pageKey);
-const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
+const { content, pageKey, activePage = pageKey, markSrc } = Astro.props;
 ---
 
 <header class="site-header">
@@ -51,22 +48,6 @@ const enHref = languageRoutes?.en ?? routeFor('en', pageKey);
             </li>
           ))}
         </ul>
-      </nav>
-
-      <nav class="language-switch" aria-label={content.chrome.languageSwitcherLabel}>
-        <a
-          href={enHref}
-          hreflang="en"
-          lang="en"
-          aria-current={content.locale === 'en' ? 'page' : undefined}
-        >EN</a>
-        <span aria-hidden="true">|</span>
-        <a
-          href={zhHref}
-          hreflang="zh-CN"
-          lang="zh-CN"
-          aria-current={content.locale === 'zh' ? 'page' : undefined}
-        >中文</a>
       </nav>
 
       <details class="mobile-menu">

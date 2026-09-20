@@ -21,23 +21,26 @@
 ## Hosting configuration
 
 - 将 `dist/` 作为唯一发布目录。
+- Global Production：`xuanhengtech.cn` → Cloudflare Workers Static Assets → 英文根路径站点。
+- Future China：`cn.xuanhengtech.cn` → 中国大陆托管 → 中文站点；Global build 不生成 `/zh-cn/...`。
+- 一个源码仓库继续保留共享组件、`src/i18n/zh.ts` 中文内容，以及 `src/future/zh-cn/` 中文路由壳，供未来 China build 复用。
 - 确认平台会把未知路径映射到 `dist/404.html`，并返回真实 HTTP 404；若不会，按平台文档配置 custom 404。
-- 正式英文页面使用根路径，简体中文页面使用 `/zh-cn/`；旧 `/en/...` 在静态产物中保留 no-JS `noindex` 兼容页，并由 Cloudflare Pages 的 `public/_redirects` 提供直达 HTTP 301 到新英文 URL。若最终 Production 使用其他托管层，必须配置等价的 HTTP 301/308，并验证不会产生循环或多跳。另按下方定义配置 www → apex。
+- Global 正式英文页面只使用根路径；旧 `/en/...` 在静态产物中保留 no-JS `noindex` 兼容页，并由 Cloudflare Workers Static Assets 的 `public/_redirects` 提供直达 HTTP 301 到新英文 URL。若最终 Production 使用其他托管层，必须配置等价的 HTTP 301/308，并验证不会产生循环或多跳。另按下方定义配置 www → apex。
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
 - 按平台文档评估并验证安全响应头；至少检查 CSP、HSTS、`X-Content-Type-Options`、`Referrer-Policy`。在确定 Preview/Production 平台前不提交猜测的语法或策略。
 
 ## Metadata and assets
 
-- 验证英文根路径与 `/zh-cn/` 页面上的 canonical、`hreflang="en"`、`hreflang="zh-CN"` 与 `x-default` 均使用正式站点 URL，且 `x-default` 指向英文对应页。
-- 验证 `sitemap.xml` 覆盖 14 个正式 URL，`robots.txt` 指向正式 sitemap。
+- 验证英文页面上的 canonical、`hreflang="en"` 与 `x-default` 均使用正式站点 URL，且 `x-default` 指向当前英文 URL；Global 页面不输出 `hreflang="zh-CN"`。
+- 验证 `sitemap.xml` 仅覆盖 7 个英文正式 URL，`robots.txt` 指向正式 sitemap。
 - 验证 SVG favicon、品牌 SVG、Open Graph 基础 metadata 与 404 `noindex`。
 - 检查产物不存在 localhost、工作站绝对路径、debug 信息或 secret。
 
 ## Preview smoke check
 
 - 使用非正式域名创建 Preview 项目，不绑定 `xuanhengtech.cn` 或 `www.xuanhengtech.cn`。
-- 在线打开 `/`、`/zh-cn/`、`/projects/`、`/zh-cn/projects/`、中英文项目详情页和一个不存在的路径；确认旧 `/en/...` 只作为兼容跳转入口，不作为正式内容路由。
-- 验证语言切换、项目导航、静态资产、真实 404 状态、移动端 Header 与无横向溢出。
+- 在线打开 `/`、`/about/`、`/projects/`、`/contact/`、三个英文项目详情页和一个不存在的路径；确认 `/zh-cn/...` 不重定向且返回真实 404，旧 `/en/...` 只作为兼容跳转入口。
+- 验证纯英文 Header、项目导航、静态资产、真实 404 状态、移动端 Header 与无横向溢出。
 - 核对 HTTPS、trailing slash、压缩和实际缓存响应；记录 Preview URL，供最后人工视觉验收使用。
 
 ## Production domain gate
@@ -90,7 +93,7 @@
 1. 在 Node `24.19.0` 环境执行 `npm ci`、`npm run build`，并完成最终 link / SEO / privacy 检查。
 2. 将同一 commit 的 `dist/` 发布到已验收的平台，先核对平台 URL，再绑定 apex 与 www。
 3. 按平台已验证配置完成 www → apex、custom 404、cache/security headers；随后执行 DNS 与 HTTPS 验证。
-4. 在线 smoke 中文/English 首页、Projects、三个项目详情页、语言切换、404、favicon 与静态资产。
+4. 在线 smoke Global 英文首页、About、Projects、Contact、三个项目详情页、旧 `/en/...`、`/zh-cn/...` 404、404、favicon 与静态资产；未来 China 站单独部署后再验证中文路由。
 
 ### Post-release and rollback
 

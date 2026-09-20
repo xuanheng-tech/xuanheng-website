@@ -2,14 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { en } from '../i18n/en';
 
-const homeRoutes = {
-  en: '/',
-  zh: '/zh-cn/',
-};
-
 const seo = {
-  title: '页面未找到 | Page Not Found | 玄衡科技',
-  description: '你访问的页面不存在或已移动。The page you requested could not be found.',
+  title: 'Page Not Found | Xuanheng Technology',
+  description: 'The page you requested could not be found.',
 };
 ---
 
@@ -17,7 +12,6 @@ const seo = {
   content={en}
   pageKey="home"
   activePage={null}
-  localeRoutes={homeRoutes}
   seo={seo}
   indexable={false}
 >
@@ -27,19 +21,13 @@ const seo = {
         <p class="eyebrow" lang="en">404 · PAGE NOT FOUND</p>
         <p class="not-found__code" aria-hidden="true">404</p>
         <h1 id="not-found-title">Page Not Found</h1>
-        <p class="not-found__english-title" lang="zh-CN">页面未找到</p>
       </div>
 
       <div class="not-found__copy">
         <p>The page you requested could not be found.</p>
-        <p lang="zh-CN">你访问的页面不存在或已移动。</p>
         <div class="not-found__actions">
           <a class="button button--primary" href="/">
             <span>English Home</span>
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="button button--secondary" href="/zh-cn/" lang="zh-CN">
-            <span>中文首页</span>
             <span aria-hidden="true">→</span>
           </a>
         </div>
