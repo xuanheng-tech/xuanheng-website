@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="760" height="880" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="15" fill="#68645E">
+    <rect x="56" y="46" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="74" y="56">Daily path</text>
+    <rect x="170" y="46" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="188" y="56" fill="#B43A32">Optional advanced path</text>
+    <text x="704" y="56" text-anchor="end" fill="#68645E">2026-09</text>
+  </g>
+  <line x1="56" y1="72" x2="704" y2="72" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- 01 -->
+  <g>
+    <rect x="56" y="96" width="3" height="64" fill="#171717"/>
+    <text class="num" x="72" y="122" font-size="24" fill="#B43A32">01</text>
+    <text class="t" x="112" y="122" font-size="26" fill="#171717">Pick a workspace</text>
+    <text class="t" x="112" y="146" font-size="16" fill="#68645E">Workspaces and sessions sit in the left rail; the default is set in Settings</text>
+    <path d="M 74 168 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 02 -->
+  <g>
+    <rect x="56" y="188" width="3" height="64" fill="#171717"/>
+    <text class="num" x="72" y="214" font-size="24" fill="#B43A32">02</text>
+    <text class="t" x="112" y="214" font-size="26" fill="#171717">Choose a provider, open a named session</text>
+    <text class="t" x="112" y="238" font-size="16" fill="#68645E">Codex · Claude Code · Antigravity · StepFun</text>
+    <path d="M 74 260 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 03 -->
+  <g>
+    <rect x="56" y="280" width="3" height="64" fill="#171717"/>
+    <text class="num" x="72" y="306" font-size="24" fill="#B43A32">03</text>
+    <text class="t" x="112" y="306" font-size="26" fill="#171717">Work in the native terminal</text>
+    <text class="t" x="112" y="330" font-size="16" fill="#68645E">CLI providers keep their own input, models, commands and permission menus</text>
+    <path d="M 74 352 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 04 -->
+  <g>
+    <rect x="56" y="372" width="3" height="64" fill="#171717"/>
+    <text class="num" x="72" y="398" font-size="24" fill="#B43A32">04</text>
+    <text class="t" x="112" y="398" font-size="26" fill="#171717">Switch, reconnect or take over</text>
+    <text class="t" x="112" y="422" font-size="16" fill="#68645E">Views and refreshes keep the process; a second tab takes control explicitly</text>
+    <path d="M 74 444 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 05 -->
+  <g>
+    <rect x="56" y="464" width="3" height="64" fill="#171717"/>
+    <text class="num" x="72" y="490" font-size="24" fill="#B43A32">05</text>
+    <text class="t" x="112" y="490" font-size="26" fill="#171717">End the session on purpose</text>
+    <text class="t" x="112" y="514" font-size="16" fill="#68645E">Termination needs confirmation; exits are logged from process facts</text>
+  </g>
+
+  <!-- optional branch -->
+  <g>
+    <path d="M 92 536 L 92 560 L 112 560" fill="none" stroke="#B43A32" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <rect x="112" y="540" width="592" height="96" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="t" x="136" y="570" font-size="20" font-weight="600" fill="#B43A32">Optional: task handoff &amp; continuation</text>
+    <text class="t" x="136" y="596" font-size="16" fill="#68645E">Goal · authorizations · verified state · acceptance criteria, immutable</text>
+    <text class="t" x="136" y="620" font-size="16" fill="#68645E">After review a fresh session continues; daily sessions register nothing</text>
+  </g>
+
+  <!-- architecture band -->
+  <line x1="56" y1="668" x2="704" y2="668" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="698" font-size="16" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="16" fill="#68645E">
+    <text x="56" y="728" fill="#171717" font-weight="600">Interaction</text>
+    <text x="176" y="728">Workspaces, session navigation, terminal rendering</text>
+    <text x="56" y="760" fill="#171717" font-weight="600">Provider</text>
+    <text x="176" y="760">Thin CLI adapters · first-party StepFun session</text>
+    <text x="56" y="792" fill="#171717" font-weight="600">Execution</text>
+    <text x="176" y="792">PTY · process lifecycle · resource coordination</text>
+    <text x="56" y="824" fill="#171717" font-weight="600">Governance</text>
+    <text x="176" y="824">Permissions · records · handoff documents</text>
+  </g>
+  <line x1="56" y1="852" x2="704" y2="852" stroke="#171717" stroke-width="1" opacity="0.25"/>
+</svg>

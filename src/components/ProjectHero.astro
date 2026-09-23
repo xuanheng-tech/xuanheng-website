@@ -53,10 +53,15 @@ const heroMedia = media.filter((asset) => asset.placement === 'hero');
     </div>
 
     {heroMedia.map((asset) => (
-      <figure class="project-figure">
+      <figure class:list={['project-figure', asset.kind === 'screenshot' && 'project-figure--shot']}>
         <picture>
           {asset.mobileSrc && (
-            <source media="(max-width: 760px)" srcset={asset.mobileSrc} width="600" height="700" />
+            <source
+              media="(max-width: 1023px)"
+              srcset={asset.mobileSrc}
+              width={asset.mobileWidth}
+              height={asset.mobileHeight}
+            />
           )}
           <img
             src={asset.src}

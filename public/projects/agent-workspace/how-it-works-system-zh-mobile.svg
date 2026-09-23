@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 810" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, "Songti SC", serif; }
+    </style>
+  </defs>
+  <rect width="460" height="810" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="13" font-weight="600">
+    <rect x="40" y="36" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="58" y="46" fill="#171717">日常主路径</text>
+    <rect x="146" y="36" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="164" y="46" fill="#B43A32">可选高级路径</text>
+    <text x="420" y="46" text-anchor="end" fill="#68645E" font-weight="400">2026-09</text>
+  </g>
+  <line x1="40" y1="60" x2="420" y2="60" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- steps -->
+  <g class="t">
+    <text class="num" x="40" y="98" font-size="20" fill="#B43A32">01</text>
+    <text x="74" y="98" font-size="23" fill="#171717">选择工作区</text>
+    <text x="74" y="121" font-size="15" fill="#68645E">左侧列表 · 默认工作区在设置中管理</text>
+    <path d="M 52 134 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="172" font-size="20" fill="#B43A32">02</text>
+    <text x="74" y="172" font-size="23" fill="#171717">选择 Provider 建立会话</text>
+    <text x="74" y="195" font-size="15" fill="#68645E">Codex · Claude Code · Antigravity · StepFun</text>
+    <path d="M 52 208 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="246" font-size="20" fill="#B43A32">03</text>
+    <text x="74" y="246" font-size="23" fill="#171717">在原生终端里工作</text>
+    <text x="74" y="269" font-size="15" fill="#68645E">CLI 的输入、模型与权限归 Provider</text>
+    <path d="M 52 282 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="320" font-size="20" fill="#B43A32">04</text>
+    <text x="74" y="320" font-size="23" fill="#171717">切换、重连或接管</text>
+    <text x="74" y="343" font-size="15" fill="#68645E">视图与刷新不终止进程 · 标签页明确接管</text>
+    <path d="M 52 356 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="394" font-size="20" fill="#B43A32">05</text>
+    <text x="74" y="394" font-size="23" fill="#171717">显式结束会话</text>
+    <text x="74" y="417" font-size="15" fill="#68645E">确认后终止 · 退出事实来自进程</text>
+  </g>
+
+  <!-- optional branch -->
+  <g class="t">
+    <rect x="40" y="442" width="380" height="86" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="58" y="468" font-size="17" font-weight="600" fill="#B43A32">可选：任务交接与继续</text>
+    <text x="58" y="491" font-size="14" fill="#68645E">目标 · 授权 · 已核验状态固化为不可变记录</text>
+    <text x="58" y="512" font-size="14" fill="#68645E">经核对后由新会话按同一合同继续</text>
+  </g>
+
+  <!-- layers -->
+  <line x1="40" y1="556" x2="420" y2="556" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="586" font-size="15" font-weight="600" fill="#171717">四层结构</text>
+  <g class="t" font-size="14" fill="#68645E">
+    <text x="40" y="616" fill="#171717" font-weight="600">交互层</text>
+    <text x="120" y="616">工作区与会话导航 · 终端呈现</text>
+    <text x="40" y="646" fill="#171717" font-weight="600">Provider 层</text>
+    <text x="140" y="646">薄 CLI 适配 · 第一方 StepFun 会话</text>
+    <text x="40" y="676" fill="#171717" font-weight="600">执行层</text>
+    <text x="120" y="676">PTY · 进程生命周期 · 资源协调</text>
+    <text x="40" y="706" fill="#171717" font-weight="600">治理层</text>
+    <text x="120" y="706">权限 · 记录 · 交接文档</text>
+  </g>
+  <line x1="40" y1="736" x2="420" y2="736" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="766" font-size="13" fill="#68645E">日常会话无需登记任务；交接与继续是独立能力。</text>
+</svg>

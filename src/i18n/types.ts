@@ -65,6 +65,8 @@ export interface ProjectMediaAsset {
   width: number;
   height: number;
   mobileSrc?: string;
+  mobileWidth?: number;
+  mobileHeight?: number;
   alt: string;
   placement: 'hero' | 'system' | 'gallery';
   kind: 'image' | 'screenshot' | 'diagram';

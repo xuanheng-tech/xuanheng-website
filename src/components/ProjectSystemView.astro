@@ -27,10 +27,15 @@ const systemMedia = media.filter((asset) => asset.placement === 'system');
     </ol>
 
     {systemMedia.map((asset) => (
-      <figure class="project-figure project-figure--plate">
+      <figure class:list={['project-figure', 'project-figure--plate', asset.kind === 'screenshot' && 'project-figure--shot']}>
         <picture>
           {asset.mobileSrc && (
-            <source media="(max-width: 760px)" srcset={asset.mobileSrc} width="460" height="880" />
+            <source
+              media="(max-width: 1023px)"
+              srcset={asset.mobileSrc}
+              width={asset.mobileWidth}
+              height={asset.mobileHeight}
+            />
           )}
           <img
             src={asset.src}

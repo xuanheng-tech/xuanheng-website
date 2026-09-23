@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 810" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="460" height="810" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="13" font-weight="600">
+    <rect x="40" y="36" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="58" y="46" fill="#171717">Daily path</text>
+    <rect x="146" y="36" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="164" y="46" fill="#B43A32">Optional advanced path</text>
+    <text x="420" y="46" text-anchor="end" fill="#68645E" font-weight="400">2026-09</text>
+  </g>
+  <line x1="40" y1="60" x2="420" y2="60" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- steps -->
+  <g class="t">
+    <text class="num" x="40" y="98" font-size="20" fill="#B43A32">01</text>
+    <text x="74" y="98" font-size="22" fill="#171717">Pick a workspace</text>
+    <text x="74" y="121" font-size="15" fill="#68645E">left rail · default in Settings</text>
+    <path d="M 52 134 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="172" font-size="20" fill="#B43A32">02</text>
+    <text x="74" y="172" font-size="22" fill="#171717">Choose a provider, open a session</text>
+    <text x="74" y="195" font-size="15" fill="#68645E">Codex · Claude Code · Antigravity · StepFun</text>
+    <path d="M 52 208 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="246" font-size="20" fill="#B43A32">03</text>
+    <text x="74" y="246" font-size="22" fill="#171717">Work in the native terminal</text>
+    <text x="74" y="269" font-size="15" fill="#68645E">CLI providers keep their own prompts</text>
+    <path d="M 52 282 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="320" font-size="20" fill="#B43A32">04</text>
+    <text x="74" y="320" font-size="22" fill="#171717">Switch, reconnect or take over</text>
+    <text x="74" y="343" font-size="15" fill="#68645E">refresh keeps the process; tabs take over</text>
+    <path d="M 52 356 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="394" font-size="20" fill="#B43A32">05</text>
+    <text x="74" y="394" font-size="22" fill="#171717">End the session on purpose</text>
+    <text x="74" y="417" font-size="15" fill="#68645E">confirmed exit · logged from process facts</text>
+  </g>
+
+  <!-- optional branch -->
+  <g class="t">
+    <rect x="40" y="442" width="380" height="86" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="58" y="468" font-size="17" font-weight="600" fill="#B43A32">Optional: task handoff &amp; continuation</text>
+    <text x="58" y="491" font-size="14" fill="#68645E">goal · authorizations · verified state, immutable</text>
+    <text x="58" y="512" font-size="14" fill="#68645E">a reviewed session continues under it</text>
+  </g>
+
+  <!-- layers -->
+  <line x1="40" y1="556" x2="420" y2="556" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="586" font-size="15" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="14" fill="#68645E">
+    <text x="40" y="616" fill="#171717" font-weight="600">Interaction</text>
+    <text x="140" y="616">workspaces, sessions, rendering</text>
+    <text x="40" y="646" fill="#171717" font-weight="600">Provider</text>
+    <text x="140" y="646">thin CLI adapters · StepFun session</text>
+    <text x="40" y="676" fill="#171717" font-weight="600">Execution</text>
+    <text x="140" y="676">PTY · processes · resource coordination</text>
+    <text x="40" y="706" fill="#171717" font-weight="600">Governance</text>
+    <text x="140" y="706">permissions · records · handoffs</text>
+  </g>
+  <line x1="40" y1="736" x2="420" y2="736" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="766" font-size="13" fill="#68645E">Daily sessions register no task; handoff is optional.</text>
+</svg>
