@@ -203,16 +203,16 @@ export const zh = {
       ],
       media: [
         {
-          src: '/projects/agent-workspace/hero-workspace-home-zh.png',
+          src: '/projects/agent-workspace/hero-native-session-zh.png',
           width: 2880,
-          height: 1800,
-          mobileSrc: '/projects/agent-workspace/hero-workspace-home-zh-mobile.png',
+          height: 1560,
+          mobileSrc: '/projects/agent-workspace/hero-native-session-zh-mobile.png',
           mobileWidth: 780,
-          mobileHeight: 1160,
-          alt: '真实产品界面的新建会话主页：在一个页面上完成选择工作区、选择 Provider 并启动原生会话。',
+          mobileHeight: 1688,
+          alt: '本机演示工作区中正在运行的真实原生会话：Agent 在终端里读取仓库、汇报未提交改动并总结仓库结构。',
           placement: 'hero',
           kind: 'screenshot',
-          caption: '原生会话主页，截取自本机演示工作区。',
+          caption: '真实原生会话（Claude Code），截取自本机演示工作区。',
         },
         {
           src: '/projects/agent-workspace/how-it-works-system-zh.svg',

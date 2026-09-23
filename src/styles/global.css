@@ -1161,6 +1161,11 @@ summary {
   box-shadow: 0 12px 30px rgba(23, 23, 23, 0.08);
 }
 
+.project-hero .project-figure--shot {
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
 .project-figure--plate {
   max-width: 760px;
   margin-inline: auto;

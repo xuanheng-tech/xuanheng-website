@@ -213,16 +213,16 @@ export const en = {
       ],
       media: [
         {
-          src: '/projects/agent-workspace/hero-workspace-home-en.png',
+          src: '/projects/agent-workspace/hero-native-session-en.png',
           width: 2880,
-          height: 1800,
-          mobileSrc: '/projects/agent-workspace/hero-workspace-home-en-mobile.png',
+          height: 1560,
+          mobileSrc: '/projects/agent-workspace/hero-native-session-en-mobile.png',
           mobileWidth: 780,
-          mobileHeight: 1160,
-          alt: 'The real Agent Workspace new-session home: pick a workspace, choose a provider and launch a native session from one screen.',
+          mobileHeight: 1688,
+          alt: 'A live native session in a local demo workspace: the agent reads the repository, reports uncommitted changes and summarizes its structure inside the terminal.',
           placement: 'hero',
           kind: 'screenshot',
-          caption: 'Native session home from a local demo workspace; the in-app brand reads Xuan.',
+          caption: 'A live native session (Claude Code) captured from a local demo workspace; the in-app brand reads Xuan.',
         },
         {
           src: '/projects/agent-workspace/how-it-works-system-en.svg',
