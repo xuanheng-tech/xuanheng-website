@@ -1,10 +1,14 @@
 ---
+import type { ProjectMediaAsset } from '../i18n/types';
+
 interface Props {
   title: string;
   layers: string[];
+  media?: ProjectMediaAsset[];
 }
 
-const { title, layers } = Astro.props;
+const { title, layers, media = [] } = Astro.props;
+const systemMedia = media.filter((asset) => asset.placement === 'system');
 ---
 
 <section class="project-system-view" aria-labelledby="project-system-view-title">
@@ -21,5 +25,24 @@ const { title, layers } = Astro.props;
         </li>
       ))}
     </ol>
+
+    {systemMedia.map((asset) => (
+      <figure class="project-figure project-figure--plate">
+        <picture>
+          {asset.mobileSrc && (
+            <source media="(max-width: 760px)" srcset={asset.mobileSrc} width="460" height="880" />
+          )}
+          <img
+            src={asset.src}
+            alt={asset.alt}
+            width={asset.width}
+            height={asset.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        {asset.caption && <figcaption>{asset.caption}</figcaption>}
+      </figure>
+    ))}
   </div>
 </section>

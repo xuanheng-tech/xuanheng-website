@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 970" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, "Songti SC", serif; }
+    </style>
+  </defs>
+  <rect width="760" height="970" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="15" fill="#68645E">
+    <rect x="56" y="46" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="74" y="56">已就位</text>
+    <rect x="150" y="46" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="3 2.4"/>
+    <text x="168" y="56">建设中</text>
+    <rect x="248" y="46" width="10" height="10" fill="none" stroke="#68645E" stroke-width="1.5" stroke-dasharray="1.5 3"/>
+    <text x="266" y="56">目标架构</text>
+    <text x="704" y="56" text-anchor="end" fill="#68645E">2026-09</text>
+  </g>
+  <line x1="56" y1="72" x2="704" y2="72" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- 01 -->
+  <g>
+    <rect x="56" y="96" width="3" height="68" fill="#171717"/>
+    <text class="num" x="72" y="122" font-size="24" fill="#B43A32">01</text>
+    <text class="t" x="112" y="122" font-size="26" fill="#171717">研究问题</text>
+    <circle cx="116" cy="145" r="3" fill="#68645E"/>
+    <text class="t" x="128" y="149" font-size="16" fill="#68645E">人主导 · 假设与范围界定</text>
+    <path d="M 74 176 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 02 -->
+  <g>
+    <rect x="56" y="196" width="3" height="90" fill="#171717"/>
+    <text class="num" x="72" y="222" font-size="24" fill="#B43A32">02</text>
+    <text class="t" x="112" y="222" font-size="26" fill="#171717">数据与投资域</text>
+    <rect x="112" y="240" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="249" font-size="16" fill="#68645E">数据合同 · 采集 · 发布 · 只读 PIT 访问</text>
+    <rect x="112" y="262" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="271" font-size="16" fill="#68645E">投资域：经人工复核的 ETF 时点成分</text>
+    <path d="M 74 298 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 03 -->
+  <g>
+    <rect x="56" y="318" width="3" height="112" fill="#171717"/>
+    <text class="num" x="72" y="344" font-size="24" fill="#B43A32">03</text>
+    <text class="t" x="112" y="344" font-size="26" fill="#171717">因子研究与挖掘</text>
+    <rect x="112" y="362" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="371" font-size="16" fill="#68645E">数值原语 · 算子与正式因子注册表</text>
+    <rect x="112" y="384" width="8" height="8" fill="none" stroke="#B43A32" stroke-width="1.2" stroke-dasharray="3 2.2"/>
+    <text class="t" x="128" y="393" font-size="16" fill="#68645E">公式表示（第一阶段已合入，编译与运行建设中）</text>
+    <rect x="112" y="406" width="8" height="8" fill="none" stroke="#68645E" stroke-width="1.2" stroke-dasharray="1.5 3"/>
+    <text class="t" x="128" y="415" font-size="16" fill="#68645E">搜索与因子挖掘</text>
+    <path d="M 74 442 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 04 -->
+  <g>
+    <rect x="56" y="462" width="3" height="68" fill="#171717"/>
+    <text class="num" x="72" y="488" font-size="24" fill="#B43A32">04</text>
+    <text class="t" x="112" y="488" font-size="26" fill="#171717">因子检验与筛选</text>
+    <rect x="112" y="506" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="515" font-size="16" fill="#68645E">因子评估 · 筛选 · 集成</text>
+    <path d="M 74 542 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 05 -->
+  <g>
+    <rect x="56" y="562" width="3" height="90" fill="#171717"/>
+    <text class="num" x="72" y="588" font-size="24" fill="#B43A32">05</text>
+    <text class="t" x="112" y="588" font-size="26" fill="#171717">组合构建与回测</text>
+    <rect x="112" y="606" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="615" font-size="16" fill="#68645E">目标组合与再平衡决策</text>
+    <rect x="112" y="628" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="637" font-size="16" fill="#68645E">回测框架 · 仿真与绩效分析</text>
+    <path d="M 74 664 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 06 -->
+  <g>
+    <rect x="56" y="684" width="3" height="112" fill="#171717"/>
+    <text class="num" x="72" y="710" font-size="24" fill="#B43A32">06</text>
+    <text class="t" x="112" y="710" font-size="26" fill="#171717">模拟/实盘执行与风险控制</text>
+    <rect x="112" y="728" width="8" height="8" fill="none" stroke="#171717" stroke-width="1.2"/>
+    <text class="t" x="128" y="737" font-size="16" fill="#68645E">执行运行时 · 订单与对账</text>
+    <rect x="112" y="750" width="8" height="8" fill="none" stroke="#B43A32" stroke-width="1.2" stroke-dasharray="3 2.2"/>
+    <text class="t" x="128" y="759" font-size="16" fill="#68645E">实盘按阶段准入</text>
+    <rect x="112" y="772" width="8" height="8" fill="none" stroke="#68645E" stroke-width="1.2" stroke-dasharray="1.5 3"/>
+    <text class="t" x="128" y="781" font-size="16" fill="#68645E">风险模型与限制</text>
+  </g>
+
+  <!-- support band: five domains -->
+  <line x1="56" y1="830" x2="704" y2="830" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="862" font-size="16" fill="#171717" font-weight="600">五域支撑</text>
+  <g class="t" font-size="15" fill="#171717">
+    <rect x="56" y="878" width="86" height="28" fill="none" stroke="#171717" stroke-width="1" opacity="0.55"/>
+    <text x="99" y="897" text-anchor="middle">数据</text>
+    <rect x="152" y="878" width="86" height="28" fill="none" stroke="#171717" stroke-width="1" opacity="0.55"/>
+    <text x="195" y="897" text-anchor="middle">研究</text>
+    <rect x="248" y="878" width="86" height="28" fill="none" stroke="#171717" stroke-width="1" opacity="0.55"/>
+    <text x="291" y="897" text-anchor="middle">交易</text>
+    <rect x="344" y="878" width="86" height="28" fill="none" stroke="#171717" stroke-width="1" opacity="0.55"/>
+    <text x="387" y="897" text-anchor="middle">运营</text>
+    <rect x="440" y="878" width="86" height="28" fill="none" stroke="#171717" stroke-width="1" opacity="0.55"/>
+    <text x="483" y="897" text-anchor="middle">平台</text>
+  </g>
+  <text class="t" x="56" y="942" font-size="15" fill="#68645E">投资运营 · 调度与业务工作台 · 项目手册 · 共享基础设施</text>
+</svg>

@@ -62,6 +62,9 @@ export interface ProjectCopy {
 
 export interface ProjectMediaAsset {
   src: string;
+  width: number;
+  height: number;
+  mobileSrc?: string;
   alt: string;
   placement: 'hero' | 'system' | 'gallery';
   kind: 'image' | 'screenshot' | 'diagram';

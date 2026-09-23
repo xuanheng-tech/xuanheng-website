@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img">
+  <rect width="1200" height="420" fill="#F6F1E8"/>
+
+  <!-- structural frame -->
+  <line x1="80" y1="56" x2="1120" y2="56" stroke="#171717" stroke-width="1" opacity="0.32"/>
+  <line x1="80" y1="356" x2="1120" y2="356" stroke="#171717" stroke-width="1" opacity="0.32"/>
+  <line x1="340" y1="56" x2="340" y2="356" stroke="#171717" stroke-width="1" opacity="0.16"/>
+  <line x1="600" y1="56" x2="600" y2="356" stroke="#171717" stroke-width="1" opacity="0.16"/>
+  <line x1="860" y1="56" x2="860" y2="356" stroke="#171717" stroke-width="1" opacity="0.16"/>
+
+  <!-- registration mark -->
+  <rect x="1108" y="48" width="9" height="9" fill="#B43A32"/>
+
+  <!-- main axis -->
+  <line x1="120" y1="252" x2="1080" y2="252" stroke="#171717" stroke-width="1.5"/>
+  <line x1="1080" y1="252" x2="1144" y2="252" stroke="#171717" stroke-width="1.5" stroke-dasharray="7 7" opacity="0.55"/>
+
+  <!-- station 1 · data: governed grid of records (panel centre 210) -->
+  <g>
+    <g fill="#171717">
+      <circle cx="174" cy="140" r="2.6"/><circle cx="192" cy="140" r="2.6"/><circle cx="210" cy="140" r="2.6"/><circle cx="228" cy="140" r="2.6"/><circle cx="246" cy="140" r="2.6"/>
+      <circle cx="174" cy="158" r="2.6"/><circle cx="192" cy="158" r="2.6"/><circle cx="210" cy="158" r="2.6"/><circle cx="228" cy="158" r="2.6"/><circle cx="246" cy="158" r="2.6"/>
+      <circle cx="174" cy="176" r="2.6"/><circle cx="192" cy="176" r="2.6"/><circle cx="210" cy="176" r="2.6"/><circle cx="228" cy="176" r="2.6"/><circle cx="246" cy="176" r="2.6"/>
+      <circle cx="174" cy="194" r="2.6"/><circle cx="192" cy="194" r="2.6"/><circle cx="210" cy="194" r="2.6"/><circle cx="228" cy="194" r="2.6"/><circle cx="246" cy="194" r="2.6"/>
+    </g>
+    <rect x="159" y="126" width="102" height="82" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <line x1="210" y1="208" x2="210" y2="247" stroke="#171717" stroke-width="1"/>
+    <circle cx="210" cy="252" r="5" fill="#B43A32"/>
+  </g>
+
+  <!-- station 2 · research: branching hypotheses (panel centre 470) -->
+  <g stroke="#171717" stroke-width="1.5" fill="none">
+    <line x1="470" y1="214" x2="470" y2="190"/>
+    <path d="M 470 190 L 424 162"/>
+    <path d="M 470 190 L 470 146"/>
+    <path d="M 470 190 L 516 162"/>
+    <path d="M 424 162 L 402 136"/>
+    <path d="M 424 162 L 432 132"/>
+  </g>
+  <g fill="#F6F1E8" stroke="#171717" stroke-width="1.5">
+    <circle cx="470" cy="220" r="6"/>
+    <circle cx="424" cy="162" r="5"/>
+    <circle cx="470" cy="140" r="5"/>
+    <circle cx="516" cy="162" r="5"/>
+    <circle cx="402" cy="130" r="5"/>
+  </g>
+  <circle cx="432" cy="126" r="5" fill="#B43A32"/>
+  <line x1="470" y1="226" x2="470" y2="247" stroke="#171717" stroke-width="1"/>
+  <circle cx="470" cy="252" r="5" fill="#B43A32"/>
+
+  <!-- station 3 · portfolio: weights hung off a post (panel centre 730) -->
+  <g>
+    <line x1="665" y1="126" x2="665" y2="224" stroke="#171717" stroke-width="1.2"/>
+    <rect x="665" y="134" width="130" height="12" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="665" y="160" width="86" height="12" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="665" y="186" width="54" height="12" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="665" y="212" width="22" height="12" fill="#B43A32"/>
+    <line x1="730" y1="224" x2="730" y2="247" stroke="#171717" stroke-width="1"/>
+    <circle cx="730" cy="252" r="5" fill="#B43A32"/>
+  </g>
+
+  <!-- station 4 · trading: gated boundary (panel centre 990) -->
+  <g>
+    <line x1="962" y1="126" x2="962" y2="210" stroke="#171717" stroke-width="1.5"/>
+    <line x1="1018" y1="126" x2="1018" y2="210" stroke="#171717" stroke-width="1.5"/>
+    <path d="M 990 148 L 1002 168 L 990 188 L 978 168 Z" fill="#B43A32"/>
+    <line x1="930" y1="168" x2="960" y2="168" stroke="#171717" stroke-width="1" opacity="0.5"/>
+    <line x1="1020" y1="168" x2="1050" y2="168" stroke="#171717" stroke-width="1" opacity="0.5"/>
+    <line x1="990" y1="210" x2="990" y2="247" stroke="#171717" stroke-width="1"/>
+    <circle cx="990" cy="252" r="5" fill="#B43A32"/>
+  </g>
+
+  <!-- baseline ticks -->
+  <g stroke="#171717" stroke-width="1" opacity="0.45">
+    <line x1="210" y1="258" x2="210" y2="270"/>
+    <line x1="470" y1="258" x2="470" y2="270"/>
+    <line x1="730" y1="258" x2="730" y2="270"/>
+    <line x1="990" y1="258" x2="990" y2="270"/>
+  </g>
+</svg>

@@ -120,6 +120,28 @@ export const zh = {
         '研究、仿真与实盘分阶段推进，交易决策始终由人做出。',
         '系统职责与交付状态分开呈现：未经检验，不称完成。',
       ],
+      media: [
+        {
+          src: '/projects/quantitative-research-platform/hero-infrastructure-layers.svg',
+          width: 1200,
+          height: 420,
+          mobileSrc: '/projects/quantitative-research-platform/hero-infrastructure-layers-mobile.svg',
+          alt: '一条墨色横轴上的四个站点——受治理的点阵、分叉的研究树、悬于立柱的配重与带闸门的边界——以朱砂节点标出，轴线以虚线向右延伸：数据经研究、组合抵达受闸门的交易。',
+          placement: 'hero',
+          kind: 'diagram',
+          caption: '从数据到交易：同一根轴线上的四个环节。',
+        },
+        {
+          src: '/projects/quantitative-research-platform/research-lifecycle-system-zh.svg',
+          width: 760,
+          height: 970,
+          mobileSrc: '/projects/quantitative-research-platform/research-lifecycle-system-zh-mobile.svg',
+          alt: '研究链路六步逐级推进，从研究问题到执行与风险控制，每项标注已就位、建设中或目标架构，底部为五域支撑带。',
+          placement: 'system',
+          kind: 'diagram',
+          caption: '研究链路与系统职责全景；状态标注截至 2026 年 9 月。',
+        },
+      ],
     },
     {
       slug: PROJECT_SLUGS.agentWorkspace,

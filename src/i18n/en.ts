@@ -125,6 +125,28 @@ export const en = {
         'Research, simulation and live trading advance in stages; trading decisions remain human.',
         'Platform responsibility is distinct from delivery status: nothing is presented as complete before it is proven.',
       ],
+      media: [
+        {
+          src: '/projects/quantitative-research-platform/hero-infrastructure-layers.svg',
+          width: 1200,
+          height: 420,
+          mobileSrc: '/projects/quantitative-research-platform/hero-infrastructure-layers-mobile.svg',
+          alt: 'One ink axis with four stations — a governed dot grid, a branching tree, weights hung on a post and a gated boundary — marked by vermilion nodes and continuing as a dashed line: data flowing through research and portfolio into gated execution.',
+          placement: 'hero',
+          kind: 'diagram',
+          caption: 'From data to trading: four stages on one axis.',
+        },
+        {
+          src: '/projects/quantitative-research-platform/research-lifecycle-system-en.svg',
+          width: 760,
+          height: 988,
+          mobileSrc: '/projects/quantitative-research-platform/research-lifecycle-system-en-mobile.svg',
+          alt: 'The research lifecycle runs as six sequential steps from research question to execution and risk control, each item marked in place, under construction or target architecture, above a band of five supporting domains.',
+          placement: 'system',
+          kind: 'diagram',
+          caption: 'The research lifecycle and system responsibilities; status marks as of September 2026.',
+        },
+      ],
     },
     {
       slug: PROJECT_SLUGS.agentWorkspace,

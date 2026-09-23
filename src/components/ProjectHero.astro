@@ -1,13 +1,15 @@
 ---
-import type { ProjectCopy, ProjectLabels } from '../i18n/types';
+import type { ProjectCopy, ProjectLabels, ProjectMediaAsset } from '../i18n/types';
 
 interface Props {
   project: ProjectCopy;
   labels: ProjectLabels;
+  media?: ProjectMediaAsset[];
 }
 
-const { project, labels } = Astro.props;
+const { project, labels, media = [] } = Astro.props;
 const showEnglishName = project.englishName !== project.name;
+const heroMedia = media.filter((asset) => asset.placement === 'hero');
 ---
 
 <header class="project-hero">
@@ -49,5 +51,25 @@ const showEnglishName = project.englishName !== project.name;
         </div>
       </div>
     </div>
+
+    {heroMedia.map((asset) => (
+      <figure class="project-figure">
+        <picture>
+          {asset.mobileSrc && (
+            <source media="(max-width: 760px)" srcset={asset.mobileSrc} width="600" height="700" />
+          )}
+          <img
+            src={asset.src}
+            alt={asset.alt}
+            width={asset.width}
+            height={asset.height}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        {asset.caption && <figcaption>{asset.caption}</figcaption>}
+      </figure>
+    ))}
   </div>
 </header>

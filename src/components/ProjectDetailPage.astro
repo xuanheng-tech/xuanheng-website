@@ -42,7 +42,7 @@ const labels = content.projectDetailLabels;
   seo={seo}
 >
   <article class="project-detail">
-    <ProjectHero project={project} labels={content.projectLabels} />
+    <ProjectHero project={project} labels={content.projectLabels} media={project.media} />
     <ProjectOverview title={labels.overview} paragraphs={project.overview} />
     <ProjectCapabilities title={labels.capabilities} capabilities={project.capabilities} />
     <ProjectWorkflow
@@ -50,7 +50,7 @@ const labels = content.projectDetailLabels;
       eyebrow={project.workflowEyebrow}
       steps={project.workflow}
     />
-    <ProjectSystemView title={labels.systemView} layers={project.systemLayers} />
+    <ProjectSystemView title={labels.systemView} layers={project.systemLayers} media={project.media} />
     <ProjectCurrentState
       title={labels.currentState}
       labels={labels}

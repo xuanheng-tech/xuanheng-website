@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 690" role="img">
+  <rect width="600" height="690" fill="#F6F1E8"/>
+
+  <!-- frame -->
+  <line x1="56" y1="56" x2="544" y2="56" stroke="#171717" stroke-width="1" opacity="0.32"/>
+  <line x1="56" y1="634" x2="544" y2="634" stroke="#171717" stroke-width="1" opacity="0.32"/>
+  <rect x="532" y="48" width="9" height="9" fill="#B43A32"/>
+
+  <!-- vertical rail -->
+  <line x1="120" y1="100" x2="120" y2="600" stroke="#171717" stroke-width="1.5"/>
+  <line x1="120" y1="600" x2="120" y2="628" stroke="#171717" stroke-width="1.5" stroke-dasharray="7 7" opacity="0.55"/>
+
+  <!-- station 1 · data -->
+  <g>
+    <circle cx="120" cy="140" r="5" fill="#B43A32"/>
+    <line x1="126" y1="140" x2="180" y2="140" stroke="#171717" stroke-width="1" opacity="0.45"/>
+    <g fill="#171717">
+      <circle cx="210" cy="112" r="3"/><circle cx="232" cy="112" r="3"/><circle cx="254" cy="112" r="3"/><circle cx="276" cy="112" r="3"/><circle cx="298" cy="112" r="3"/>
+      <circle cx="210" cy="133" r="3"/><circle cx="232" cy="133" r="3"/><circle cx="254" cy="133" r="3"/><circle cx="276" cy="133" r="3"/><circle cx="298" cy="133" r="3"/>
+      <circle cx="210" cy="154" r="3"/><circle cx="232" cy="154" r="3"/><circle cx="254" cy="154" r="3"/><circle cx="276" cy="154" r="3"/><circle cx="298" cy="154" r="3"/>
+      <circle cx="210" cy="175" r="3"/><circle cx="232" cy="175" r="3"/><circle cx="254" cy="175" r="3"/><circle cx="276" cy="175" r="3"/><circle cx="298" cy="175" r="3"/>
+    </g>
+    <rect x="194" y="96" width="118" height="94" fill="none" stroke="#171717" stroke-width="1.5"/>
+  </g>
+
+  <!-- station 2 · research -->
+  <g>
+    <circle cx="120" cy="280" r="5" fill="#B43A32"/>
+    <line x1="126" y1="280" x2="180" y2="280" stroke="#171717" stroke-width="1" opacity="0.45"/>
+    <g stroke="#171717" stroke-width="1.5" fill="none">
+      <line x1="256" y1="252" x2="256" y2="278"/>
+      <path d="M 256 278 L 212 304"/>
+      <path d="M 256 278 L 256 318"/>
+      <path d="M 256 278 L 300 304"/>
+      <path d="M 212 304 L 192 328"/>
+      <path d="M 212 304 L 220 332"/>
+    </g>
+    <g fill="#F6F1E8" stroke="#171717" stroke-width="1.5">
+      <circle cx="256" cy="246" r="6"/>
+      <circle cx="212" cy="304" r="5"/>
+      <circle cx="256" cy="324" r="5"/>
+      <circle cx="300" cy="304" r="5"/>
+      <circle cx="190" cy="332" r="5"/>
+    </g>
+    <circle cx="221" cy="337" r="5" fill="#B43A32"/>
+  </g>
+
+  <!-- station 3 · portfolio -->
+  <g>
+    <circle cx="120" cy="420" r="5" fill="#B43A32"/>
+    <line x1="126" y1="420" x2="180" y2="420" stroke="#171717" stroke-width="1" opacity="0.45"/>
+    <line x1="200" y1="372" x2="200" y2="466" stroke="#171717" stroke-width="1.2"/>
+    <rect x="200" y="380" width="150" height="14" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="200" y="408" width="100" height="14" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="200" y="436" width="62" height="14" fill="#F6F1E8" stroke="#171717" stroke-width="1.5"/>
+    <rect x="200" y="464" width="26" height="14" fill="#B43A32"/>
+  </g>
+
+  <!-- station 4 · trading -->
+  <g>
+    <circle cx="120" cy="560" r="5" fill="#B43A32"/>
+    <line x1="126" y1="560" x2="180" y2="560" stroke="#171717" stroke-width="1" opacity="0.45"/>
+    <line x1="240" y1="512" x2="240" y2="596" stroke="#171717" stroke-width="1.5"/>
+    <line x1="304" y1="512" x2="304" y2="596" stroke="#171717" stroke-width="1.5"/>
+    <path d="M 272 534 L 286 554 L 272 574 L 258 554 Z" fill="#B43A32"/>
+    <line x1="204" y1="554" x2="238" y2="554" stroke="#171717" stroke-width="1" opacity="0.5"/>
+    <line x1="306" y1="554" x2="340" y2="554" stroke="#171717" stroke-width="1" opacity="0.5"/>
+  </g>
+</svg>

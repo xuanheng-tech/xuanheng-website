@@ -1139,6 +1139,36 @@ summary {
   padding: clamp(5.25rem, 7vw, 6.75rem) 0;
 }
 
+.project-figure {
+  margin: clamp(36px, 4.5vw, 56px) 0 0;
+  min-width: 0;
+}
+
+.project-figure img {
+  width: 100%;
+  height: auto;
+}
+
+.project-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.project-figure--plate {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.project-figure--plate img {
+  border: 1px solid rgba(246, 241, 232, 0.4);
+}
+
+.project-figure--plate figcaption {
+  color: #aaa49c;
+}
+
 .project-section {
   border-bottom: 1px solid var(--line);
 }
