@@ -47,6 +47,8 @@ export interface ProjectCopy {
     description: string;
   }>;
   workflow: string[];
+  workflowLabel?: string;
+  workflowEyebrow?: string;
   systemLayers: string[];
   currentState: {
     implemented: string;

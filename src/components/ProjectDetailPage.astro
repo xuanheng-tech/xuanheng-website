@@ -45,7 +45,11 @@ const labels = content.projectDetailLabels;
     <ProjectHero project={project} labels={content.projectLabels} />
     <ProjectOverview title={labels.overview} paragraphs={project.overview} />
     <ProjectCapabilities title={labels.capabilities} capabilities={project.capabilities} />
-    <ProjectWorkflow title={labels.workflow} steps={project.workflow} />
+    <ProjectWorkflow
+      title={project.workflowLabel ?? labels.workflow}
+      eyebrow={project.workflowEyebrow}
+      steps={project.workflow}
+    />
     <ProjectSystemView title={labels.systemView} layers={project.systemLayers} />
     <ProjectCurrentState
       title={labels.currentState}
