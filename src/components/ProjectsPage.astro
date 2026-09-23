@@ -2,7 +2,7 @@
 import type { SiteContent } from '../i18n/types';
 import { routeFor } from '../i18n/routes';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from './ProjectCard.astro';
+import ProjectGroups from './ProjectGroups.astro';
 
 interface Props {
   content: SiteContent;
@@ -29,11 +29,7 @@ const { projectsPage } = content;
         <p class="eyebrow">{projectsPage.listing.kicker}</p>
         <h2 id="projects-list-title">{projectsPage.listing.title}</h2>
       </div>
-      <div class="project-grid project-grid--page">
-        {content.projects.map((project) => (
-          <ProjectCard project={project} labels={content.projectLabels} />
-        ))}
-      </div>
+      <ProjectGroups content={content} titleIdPrefix="projects-group" />
     </div>
   </section>
 

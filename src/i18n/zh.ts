@@ -45,6 +45,10 @@ export const zh = {
     focusAriaSuffix: '研究重点',
     viewProject: '查看详情',
     backToProjects: '返回全部项目',
+    groups: {
+      researchSystem: '自研系统',
+      openSourceTool: '开源工具',
+    },
   },
   projectDetailLabels: {
     overview: '项目概述',
@@ -66,6 +70,7 @@ export const zh = {
       slug: PROJECT_SLUGS.quantitativeResearchPlatform,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.quantitativeResearchPlatform),
       number: '01',
+      group: 'researchSystem',
       category: 'QUANTITATIVE RESEARCH',
       name: '玄衡量化',
       englishName: 'Quantitative Research Platform',
@@ -112,6 +117,7 @@ export const zh = {
       slug: PROJECT_SLUGS.agentWorkspace,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.agentWorkspace),
       number: '02',
+      group: 'researchSystem',
       category: 'AGENT SYSTEM',
       name: '玄衡智枢',
       englishName: 'Agent Workspace',
@@ -158,10 +164,12 @@ export const zh = {
       slug: PROJECT_SLUGS.snapshotRunner,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.snapshotRunner),
       number: '03',
+      group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT EVIDENCE',
       name: 'Snapshot Runner',
       englishName: 'Snapshot Runner',
       summary: '为编码 Agent 与自动化提供确定性的只读 Git 证据。',
+      cardSummary: '为编码 Agent 与自动化流程收集仓库证据。',
       status: '状态：开源',
       repositoryUrl: 'https://github.com/xuanheng-tech/snapshot-runner',
       focus: ['Git 证据', '只读采集', 'Agent 工具链'],
@@ -205,10 +213,12 @@ export const zh = {
       slug: PROJECT_SLUGS.contextLoader,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.contextLoader),
       number: '04',
+      group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT CONTEXT',
       name: 'Context Loader',
       englishName: 'Context Loader',
       summary: '将本地 Git 工作树上下文确定、有界地渲染为 Markdown 或 JSON。',
+      cardSummary: '为编码 Agent 准备本地仓库上下文。',
       status: '状态：开源',
       repositoryUrl: 'https://github.com/xuanheng-tech/context-loader',
       focus: ['仓库上下文', '确定性输出', 'Agent 工具链'],
@@ -260,25 +270,22 @@ export const zh = {
       brandMarkLabel: '玄衡品牌标志',
     },
     philosophy: {
-      kicker: '01 · Philosophy',
-      title: '玄衡之道',
       lead: '以探索理解未知，以度量认识复杂。',
       concepts: [
         {
           symbol: '玄',
-          description: '玄，代表对未知结构的探索。',
+          description: '代表对未知结构的探索。',
         },
         {
           symbol: '衡',
-          description: '衡，代表对复杂系统的度量和平衡。',
+          description: '代表对复杂系统的度量和平衡。',
         },
       ],
-      summary: '玄衡科技致力于利用数学、计算与人工智能方法，研究复杂系统中的规律，并构建面向未来的技术工具。',
     },
     research: {
       kicker: '02 · Research',
       title: '研究方向',
-      lead: ['跨越数据、人工智能与计算基础设施的研究。'],
+      lead: ['围绕量化研究、人工智能和计算基础设施开展研发。'],
       areas: [
         {
           index: '01',
@@ -298,12 +305,12 @@ export const zh = {
       ],
     },
     selectedProjects: {
-      kicker: '03 · Selected Work',
+      kicker: '01 · Selected Work',
       title: '精选项目',
       viewAll: '查看全部项目',
     },
     aboutPreview: {
-      kicker: '04 · About',
+      kicker: '03 · About',
       title: '关于玄衡',
       lead: '玄衡科技成立于 2026 年，位于江苏苏州。',
       paragraphs: [
@@ -313,8 +320,8 @@ export const zh = {
       linkLabel: '了解我们的研究理念',
     },
     contact: {
-      kicker: '05 · Contact',
-      title: '保持联系',
+      kicker: '04 · Contact',
+      title: '联系我们',
     },
   },
   about: {
@@ -377,7 +384,7 @@ export const zh = {
     hero: {
       kicker: 'PROJECTS · 研究与项目',
       title: ['从问题出发，', '构建研究系统。'],
-      lead: '以下项目是玄衡科技围绕复杂研究任务持续建设的研究原型与内部系统。',
+      lead: '以下项目包括自研系统与已公开的开源工具：前者支撑玄衡在量化与 Agent 方向的长期研究，后者供开发者和编码 Agent 直接使用。',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',
@@ -392,6 +399,7 @@ export const zh = {
     kicker: 'CONTACT · 联系',
     title: '联系玄衡',
     companyLines: ['苏州玄衡科技有限公司', 'Suzhou Xuanheng Technology Co., Ltd.'],
+    emailLabel: '邮箱',
     wechat: {
       label: '微信公众号',
       caption: '微信扫码关注「玄衡科技」公众号。',

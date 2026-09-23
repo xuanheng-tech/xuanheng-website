@@ -1,0 +1,29 @@
+---
+import type { ProjectGroup, SiteContent } from '../i18n/types';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  content: SiteContent;
+  titleIdPrefix: string;
+}
+
+const { content, titleIdPrefix } = Astro.props;
+const groups: ProjectGroup[] = ['researchSystem', 'openSourceTool'];
+---
+
+<div class="project-groups">
+  {groups.map((group) => (
+    <section class="project-group" aria-labelledby={`${titleIdPrefix}-${group}`}>
+      <h3 class="project-group__title" id={`${titleIdPrefix}-${group}`}>
+        {content.projectLabels.groups[group]}
+      </h3>
+      <div class="project-group__list">
+        {content.projects
+          .filter((project) => project.group === group)
+          .map((project) => (
+            <ProjectCard project={project} labels={content.projectLabels} />
+          ))}
+      </div>
+    </section>
+  ))}
+</div>

@@ -45,6 +45,10 @@ export const en = {
     focusAriaSuffix: 'focus areas',
     viewProject: 'View Project',
     backToProjects: 'Back to Projects',
+    groups: {
+      researchSystem: 'Research Systems',
+      openSourceTool: 'Open-source Tools',
+    },
   },
   projectDetailLabels: {
     overview: 'Overview',
@@ -66,6 +70,7 @@ export const en = {
       slug: PROJECT_SLUGS.quantitativeResearchPlatform,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.quantitativeResearchPlatform),
       number: '01',
+      group: 'researchSystem',
       category: 'QUANTITATIVE RESEARCH',
       name: 'Quantitative Research Platform',
       englishName: 'Quantitative Research Platform',
@@ -117,6 +122,7 @@ export const en = {
       slug: PROJECT_SLUGS.agentWorkspace,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.agentWorkspace),
       number: '02',
+      group: 'researchSystem',
       category: 'AGENT SYSTEM',
       name: 'Agent Workspace',
       englishName: 'Agent Workspace',
@@ -168,10 +174,12 @@ export const en = {
       slug: PROJECT_SLUGS.snapshotRunner,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.snapshotRunner),
       number: '03',
+      group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT EVIDENCE',
       name: 'Snapshot Runner',
       englishName: 'Snapshot Runner',
       summary: 'Deterministic, read-only Git evidence for coding agents and automation.',
+      cardSummary: 'Collect repository evidence for coding agents and automation.',
       status: 'Status: Open Source',
       repositoryUrl: 'https://github.com/xuanheng-tech/snapshot-runner',
       focus: ['Git Evidence', 'Read-only Collection', 'Agent Tooling'],
@@ -220,10 +228,12 @@ export const en = {
       slug: PROJECT_SLUGS.contextLoader,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.contextLoader),
       number: '04',
+      group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT CONTEXT',
       name: 'Context Loader',
       englishName: 'Context Loader',
       summary: 'Deterministic, bounded local Git context as Markdown or JSON.',
+      cardSummary: 'Prepare local repository context for coding agents.',
       status: 'Status: Open Source',
       repositoryUrl: 'https://github.com/xuanheng-tech/context-loader',
       focus: ['Repository Context', 'Deterministic Output', 'Agent Tooling'],
@@ -285,27 +295,24 @@ export const en = {
       brandMarkLabel: 'Xuanheng brand mark',
     },
     philosophy: {
-      kicker: '01 · Philosophy',
-      title: 'The Meaning of Xuanheng',
       lead: 'Exploring the unknown. Measuring complexity.',
       concepts: [
         {
           symbol: 'Xuan',
-          description: '“Xuan” represents the exploration of structures that remain unknown.',
+          description: 'Represents the exploration of structures that remain unknown.',
         },
         {
           symbol: 'Heng',
-          description: '“Heng” represents measurement and balance within complex systems.',
+          description: 'Represents measurement and balance within complex systems.',
         },
       ],
-      summary: 'Xuanheng Technology applies mathematics, computation and artificial intelligence to study patterns in complex systems and build technologies for future research.',
     },
     research: {
       kicker: '02 · Research',
       title: 'Research Areas',
       lead: [
-        'Research across data, artificial intelligence',
-        'and computational infrastructure.',
+        'Quantitative research, artificial intelligence',
+        'and computational systems.',
       ],
       areas: [
         {
@@ -326,12 +333,12 @@ export const en = {
       ],
     },
     selectedProjects: {
-      kicker: '03 · Selected Work',
+      kicker: '01 · Selected Work',
       title: 'Selected Projects',
       viewAll: 'View All Projects',
     },
     aboutPreview: {
-      kicker: '04 · About',
+      kicker: '03 · About',
       title: 'About Xuanheng',
       lead: 'Xuanheng Technology is based in Suzhou, China.',
       paragraphs: [
@@ -341,8 +348,8 @@ export const en = {
       linkLabel: 'Our Research Philosophy',
     },
     contact: {
-      kicker: '05 · Contact',
-      title: 'Stay in Touch',
+      kicker: '04 · Contact',
+      title: 'Contact',
     },
   },
   about: {
@@ -405,7 +412,7 @@ export const en = {
     hero: {
       kicker: 'PROJECTS',
       title: ['Built from questions,', 'designed for research.'],
-      lead: 'These projects are research prototypes and internal systems developed around complex research tasks.',
+      lead: 'Two kinds of work live here: proprietary research systems built for our own long-term questions, and open-source developer tools published for coding agents.',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',
@@ -420,8 +427,10 @@ export const en = {
     kicker: 'CONTACT',
     title: 'Contact Xuanheng',
     companyLines: ['Suzhou Xuanheng Technology Co., Ltd.'],
+    emailLabel: 'Email',
     x: {
-      label: 'X @xuanhengtech',
+      label: 'X',
+      value: '@xuanhengtech',
       href: 'https://x.com/xuanhengtech',
     },
   },

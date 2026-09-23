@@ -3,7 +3,7 @@
   --paper-light: #fbf8f2;
   --red: #b43a32;
   --ink: #171717;
-  --muted: #77736d;
+  --muted: #68645e;
   --line: rgba(23, 23, 23, 0.18);
   --line-strong: rgba(23, 23, 23, 0.4);
   --line-light: rgba(246, 241, 232, 0.2);
@@ -53,6 +53,7 @@ h3,
 p,
 dl,
 dd,
+figure,
 blockquote {
   margin: 0;
 }
@@ -112,7 +113,7 @@ summary {
 
 .eyebrow {
   color: var(--red);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.18em;
   line-height: 1.4;
@@ -223,7 +224,7 @@ summary {
   align-items: center;
   gap: 6px;
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   line-height: 1;
   white-space: nowrap;
@@ -267,7 +268,7 @@ summary {
 }
 
 .mobile-menu__label {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.13em;
 }
@@ -475,7 +476,7 @@ summary {
 }
 
 .section {
-  padding: clamp(5.25rem, 8vw, 7.5rem) 0;
+  padding: clamp(4.25rem, 6vw, 6rem) 0;
 }
 
 .section-heading {
@@ -504,51 +505,6 @@ summary {
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   letter-spacing: -0.025em;
   line-height: 1.4;
-}
-
-.philosophy__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 0.72fr)) minmax(260px, 1fr);
-  border-top: 1px solid var(--ink);
-}
-
-.philosophy__grid article,
-.philosophy__summary {
-  min-height: 256px;
-  padding: 32px 28px 28px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.philosophy__grid article + article,
-.philosophy__summary {
-  padding-left: 28px;
-  border-left: 1px solid var(--line);
-}
-
-.philosophy__grid article > span {
-  color: var(--red);
-  font-family: var(--font-serif);
-  font-size: 3.35rem;
-  line-height: 1;
-}
-
-.philosophy__grid article p {
-  max-width: 13ch;
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2vw, 1.85rem);
-  line-height: 1.45;
-}
-
-.philosophy__summary {
-  justify-content: flex-end;
-}
-
-.philosophy__summary p {
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.9;
 }
 
 .research {
@@ -586,7 +542,7 @@ summary {
 
 .research__number {
   color: #d85a50;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -628,15 +584,35 @@ summary {
   color: var(--red);
 }
 
-.project-grid {
+.project-groups {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.project-group {
+  min-width: 0;
+}
+
+.project-group__title {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.project-group__list {
+  margin-top: 20px;
+  display: grid;
   gap: 16px;
 }
 
 .project-card {
   min-width: 0;
-  min-height: 500px;
   border: 1px solid var(--line-strong);
   background: transparent;
   transition: transform 220ms var(--ease), border-color 180ms ease,
@@ -652,8 +628,7 @@ summary {
 }
 
 .project-card__link {
-  min-height: inherit;
-  padding: 26px;
+  padding: 20px 22px 16px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -665,92 +640,48 @@ summary {
 
 .project-card__meta {
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 20px;
+  gap: 8px 20px;
   color: var(--muted);
-  font-size: 0.57rem;
+  font-size: 0.75rem;
   font-weight: 650;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
 }
 
 .project-card__status {
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 8px;
-  text-align: right;
-}
-
-.project-card__status > span {
-  width: 5px;
-  height: 5px;
-  margin-top: 2px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: var(--red);
+  color: var(--ink);
 }
 
 .project-card h3 {
-  min-height: 2.3em;
-  margin-top: 58px;
+  margin-top: 14px;
   font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 2.35vw, 2.5rem);
+  font-size: clamp(1.5rem, 1.9vw, 1.85rem);
   font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1.12;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
-.project-card__description {
-  margin-top: 28px;
+.project-card__purpose {
+  margin-top: 8px;
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.project-card__description p + p {
-  margin-top: 7px;
-}
-
-.project-card__focus {
-  margin-top: auto;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-}
-
-.project-card__focus > p {
-  margin-bottom: 12px;
-  color: var(--red);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.project-card__focus ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.project-card__focus li {
-  padding: 4px 7px;
-  border: 1px solid rgba(23, 23, 23, 0.13);
-  background: rgba(23, 23, 23, 0.025);
-  color: var(--muted);
-  font-size: 0.6rem;
-  line-height: 1.35;
+  font-size: 0.92rem;
+  line-height: 1.7;
 }
 
 .project-card__action {
-  margin-top: 20px;
-  display: inline-flex;
+  margin-top: 18px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  display: flex;
   align-items: center;
-  align-self: flex-start;
+  justify-content: space-between;
   gap: 18px;
   color: var(--ink);
-  font-size: 0.68rem;
+  font-size: 0.8125rem;
   font-weight: 650;
   letter-spacing: 0.04em;
   transition: gap 220ms var(--ease), color 180ms ease;
@@ -799,15 +730,39 @@ summary {
   margin-top: 40px;
 }
 
+.philosophy-concepts {
+  margin: 22px 0 26px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 32px;
+}
+
+.philosophy-concepts__item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.philosophy-concepts__symbol {
+  flex: 0 0 auto;
+  color: var(--red);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
 .contact-band {
-  padding: clamp(3.5rem, 5vw, 4.75rem) 0;
-  background: var(--red);
-  color: var(--paper-light);
+  padding: clamp(3.25rem, 4.5vw, 4.25rem) 0;
+  border-top: 1px solid var(--line);
+  background: var(--paper-light);
+  color: var(--ink);
 }
 
 .contact-band .eyebrow {
-  color: var(--paper-light);
-  opacity: 0.72;
+  color: var(--red);
 }
 
 .contact-band__inner {
@@ -818,32 +773,33 @@ summary {
 }
 
 .contact-band h2 {
-  margin-top: 16px;
+  margin-top: 14px;
   font-family: var(--font-serif);
-  font-size: clamp(2.45rem, 4.2vw, 4rem);
+  font-size: clamp(2rem, 3.4vw, 3rem);
   font-weight: 500;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .contact-band a {
   min-width: 0;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.7vw, 2.45rem);
+  border-bottom: 1px solid var(--line);
+  color: var(--red);
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  font-weight: 600;
   overflow-wrap: anywhere;
-  transition: padding 220ms var(--ease), border-color 180ms ease;
+  transition: color 180ms ease, border-color 180ms ease;
 }
 
 .contact-band a:hover {
-  padding-right: 10px;
-  padding-left: 10px;
-  border-color: var(--paper-light);
+  border-color: var(--red);
+  color: var(--ink);
 }
 
 .site-footer {
@@ -851,7 +807,7 @@ summary {
   border-top: 1px solid var(--line);
   background: var(--paper);
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
 }
 
@@ -935,7 +891,7 @@ summary {
 
 .fact-strip dt {
   color: #aaa49c;
-  font-size: 0.61rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1013,7 +969,7 @@ summary {
 
 .directions__list article > span {
   color: var(--red);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 
 .directions__list h3 {
@@ -1042,7 +998,7 @@ summary {
 
 .page-next__inner > p {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
 
@@ -1072,10 +1028,6 @@ summary {
 
 .projects-page__heading h2 {
   margin-top: 0;
-}
-
-.project-grid--page .project-card {
-  min-height: 530px;
 }
 
 .project-hero {
@@ -1129,7 +1081,7 @@ summary {
   align-items: flex-start;
   gap: 10px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.08em;
 }
@@ -1151,7 +1103,7 @@ summary {
   padding-bottom: 3px;
   border-bottom: 1px solid var(--line);
   color: var(--red);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.08em;
   transition: color 180ms ease;
@@ -1176,13 +1128,13 @@ summary {
   padding: 6px 9px;
   border: 1px solid rgba(23, 23, 23, 0.16);
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   line-height: 1.35;
 }
 
 .project-section,
 .project-system-view {
-  padding: clamp(7.5rem, 9vw, 9.25rem) 0;
+  padding: clamp(5.25rem, 7vw, 6.75rem) 0;
 }
 
 .project-section {
@@ -1242,7 +1194,7 @@ summary {
 .project-list-number,
 .project-system-view__layers span {
   color: var(--red);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1289,7 +1241,7 @@ summary {
 
 .project-workflow__steps li > span {
   color: var(--red);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 .project-workflow__steps p {
@@ -1348,7 +1300,7 @@ summary {
 
 .project-current-state__grid h3 {
   color: var(--red);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -1375,7 +1327,7 @@ summary {
 .project-principles__list span {
   padding-top: 8px;
   color: var(--red);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 .project-principles__list p {
@@ -1406,7 +1358,7 @@ summary {
 
 .project-navigation__project > span {
   color: var(--muted);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
 
@@ -1426,7 +1378,7 @@ summary {
 .project-navigation__all {
   padding-bottom: 5px;
   border-bottom: 1px solid currentColor;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 650;
 }
 
@@ -1465,15 +1417,6 @@ summary {
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 1.05;
-}
-
-.not-found__english-title {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .not-found__copy {
@@ -1539,7 +1482,7 @@ summary {
   margin-top: 5px;
   color: var(--muted);
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
 }
 
@@ -1565,78 +1508,66 @@ html[lang="en"] .project-hero h1 {
   letter-spacing: -0.05em;
 }
 
-.contact-page__email {
-  min-width: 0;
-  padding-bottom: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid var(--line);
-  color: var(--red);
-  font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 3.75vw, 3.85rem);
-  letter-spacing: -0.035em;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-  transition: padding 220ms var(--ease), color 180ms ease;
-}
-
-.contact-page__email:hover {
-  padding-right: 10px;
-  padding-left: 10px;
-  color: var(--ink);
-}
-
 .contact-page__channels {
   min-width: 0;
   display: grid;
   align-content: start;
-  gap: clamp(26px, 3.5vw, 40px);
+  gap: clamp(28px, 3.5vw, 40px);
 }
 
-.contact-page__social {
+.contact-channel {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.contact-channel__label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
+.contact-channel__value {
+  min-width: 0;
+  padding-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
   color: var(--red);
-  font-size: 0.95rem;
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  transition: color 180ms ease;
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  transition: color 180ms ease, border-color 180ms ease;
 }
 
-.contact-page__social:hover {
+.contact-channel__value:hover {
+  border-color: var(--red);
   color: var(--ink);
 }
 
-.contact-page__wechat {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+.contact-channel__qr {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
 }
 
-.contact-page__wechat img {
-  width: min(200px, 55vw);
+.contact-channel__qr img {
+  width: min(180px, 50vw);
   height: auto;
   border: 1px solid var(--line);
   background: #fff;
 }
 
-.contact-page__wechat figcaption {
-  display: grid;
-  gap: 6px;
+.contact-channel__qr figcaption {
   color: var(--muted);
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
-.contact-page__wechat figcaption strong {
-  color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
 }
 
 @keyframes fade-up {
@@ -1680,22 +1611,9 @@ html[lang="en"] .project-hero h1 {
     gap: 24px;
   }
 
-  .project-grid {
+  .project-groups {
     grid-template-columns: 1fr;
-  }
-
-  .project-card,
-  .project-grid--page .project-card {
-    min-height: auto;
-  }
-
-  .project-card h3 {
-    min-height: 0;
-    margin-top: 46px;
-  }
-
-  .project-card__focus {
-    margin-top: 48px;
+    gap: 36px;
   }
 }
 
@@ -1799,7 +1717,7 @@ html[lang="en"] .project-hero h1 {
   }
 
   .section {
-    padding: 4.75rem 0;
+    padding: 4rem 0;
   }
 
   .section-heading,
@@ -1820,27 +1738,6 @@ html[lang="en"] .project-hero h1 {
 
   .section-heading--action .text-link {
     justify-self: start;
-  }
-
-  .philosophy__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .philosophy__grid article,
-  .philosophy__summary {
-    min-height: 205px;
-    padding: 28px 0;
-  }
-
-  .philosophy__grid article + article,
-  .philosophy__summary {
-    padding-left: 0;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
-  .philosophy__summary {
-    min-height: 0;
   }
 
   .research__item,
@@ -1864,13 +1761,11 @@ html[lang="en"] .project-hero h1 {
   }
 
   .project-card__link {
-    min-height: 440px;
-    padding: 24px;
+    padding: 18px 20px 14px;
   }
 
-  .project-card h3 {
-    margin-top: 46px;
-    font-size: clamp(2rem, 10vw, 2.75rem);
+  .philosophy-concepts {
+    grid-template-columns: 1fr;
   }
 
   .about-preview__content {
@@ -1879,10 +1774,6 @@ html[lang="en"] .project-hero h1 {
 
   .contact-band__inner {
     align-items: start;
-  }
-
-  .contact-band a {
-    font-size: clamp(1.3rem, 6.2vw, 2rem);
   }
 
   .page-hero {
@@ -1947,7 +1838,7 @@ html[lang="en"] .project-hero h1 {
 
   .project-section,
   .project-system-view {
-    padding: 4.75rem 0;
+    padding: 4.25rem 0;
   }
 
   .project-section__heading--row,
@@ -2066,19 +1957,6 @@ html[lang="en"] .project-hero h1 {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-
-  .contact-page__email {
-    font-size: clamp(1.45rem, 7vw, 2.35rem);
-  }
-
-  .contact-page__wechat {
-    gap: 18px;
-  }
-
-  .contact-page__wechat img {
-    width: min(164px, 42vw);
-    height: auto;
-  }
 }
 
 @media (max-width: 440px) {
@@ -2096,12 +1974,9 @@ html[lang="en"] .project-hero h1 {
   }
 
   .project-card__meta {
-    align-items: flex-start;
     flex-direction: column;
-  }
-
-  .project-card h3 {
-    margin-top: 44px;
+    align-items: flex-start;
+    gap: 4px;
   }
 
   .footer__inner {
@@ -2112,6 +1987,33 @@ html[lang="en"] .project-hero h1 {
   .footer__top {
     display: none;
   }
+}
+
+html[lang="zh-CN"] .hero h1,
+html[lang="zh-CN"] .page-hero h1,
+html[lang="zh-CN"] .project-hero h1,
+html[lang="zh-CN"] .contact-page h1,
+html[lang="zh-CN"] .not-found h1,
+html[lang="zh-CN"] .section-heading h2,
+html[lang="zh-CN"] .about-preview h2,
+html[lang="zh-CN"] .editorial-grid h2,
+html[lang="zh-CN"] .projects-page__heading h2,
+html[lang="zh-CN"] .contact-band h2,
+html[lang="zh-CN"] .project-section__heading h2,
+html[lang="zh-CN"] .research__item h3,
+html[lang="zh-CN"] .directions__list h3,
+html[lang="zh-CN"] .project-card h3,
+html[lang="zh-CN"] .hero__statement,
+html[lang="zh-CN"] .section-heading__lead,
+html[lang="zh-CN"] .about-preview__lead,
+html[lang="zh-CN"] .project-hero__summary,
+html[lang="zh-CN"] .research-belief blockquote,
+html[lang="zh-CN"] .project-principles__list p {
+  letter-spacing: -0.01em;
+}
+
+html[lang="zh-CN"] .research .section-heading__lead {
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {

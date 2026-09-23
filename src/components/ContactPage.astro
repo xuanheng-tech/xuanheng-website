@@ -21,34 +21,40 @@ const { contact } = content;
           {contact.companyLines.map((line) => <p>{line}</p>)}
         </div>
         <div class="contact-page__channels">
-          <a class="contact-page__email" href="mailto:contact@xuanhengtech.cn">
-            <span>contact@xuanhengtech.cn</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-          {contact.x && (
-            <a
-              class="contact-page__social"
-              href={contact.x.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span lang="en">{contact.x.label}</span>
+          <div class="contact-channel">
+            <p class="contact-channel__label">{contact.emailLabel}</p>
+            <a class="contact-channel__value" href="mailto:contact@xuanhengtech.cn">
+              <span>contact@xuanhengtech.cn</span>
               <span aria-hidden="true">↗</span>
             </a>
+          </div>
+          {contact.x && (
+            <div class="contact-channel">
+              <p class="contact-channel__label" lang="en">{contact.x.label}</p>
+              <a
+                class="contact-channel__value"
+                href={contact.x.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span lang="en">{contact.x.value}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           )}
           {contact.wechat && (
-            <figure class="contact-page__wechat">
-              <img
-                src={contact.wechat.image}
-                width="430"
-                height="430"
-                alt={contact.wechat.imageAlt}
-              />
-              <figcaption>
-                <strong>{contact.wechat.label}</strong>
-                <span>{contact.wechat.caption}</span>
-              </figcaption>
-            </figure>
+            <div class="contact-channel">
+              <p class="contact-channel__label">{contact.wechat.label}</p>
+              <figure class="contact-channel__qr">
+                <img
+                  src={contact.wechat.image}
+                  width="430"
+                  height="430"
+                  alt={contact.wechat.imageAlt}
+                />
+                <figcaption>{contact.wechat.caption}</figcaption>
+              </figure>
+            </div>
           )}
         </div>
       </div>

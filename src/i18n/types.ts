@@ -27,14 +27,18 @@ export interface ChromeCopy {
   backToTop: string;
 }
 
+export type ProjectGroup = 'researchSystem' | 'openSourceTool';
+
 export interface ProjectCopy {
   slug: ProjectSlug;
   detailPath: string;
   number: string;
+  group: ProjectGroup;
   category: string;
   name: string;
   englishName: string;
   summary: string;
+  cardSummary?: string;
   status: string;
   focus: string[];
   overview: string[];
@@ -79,14 +83,11 @@ export interface HomeCopy {
     brandMarkLabel: string;
   };
   philosophy: {
-    kicker: string;
-    title: string;
     lead: string;
     concepts: Array<{
       symbol: string;
       description: string;
     }>;
-    summary: string;
   };
   research: {
     kicker: string;
@@ -165,8 +166,10 @@ export interface ContactCopy {
   kicker: string;
   title: string;
   companyLines: string[];
+  emailLabel: string;
   x?: {
     label: string;
+    value: string;
     href: string;
   };
   wechat?: {
@@ -183,6 +186,7 @@ export interface ProjectLabels {
   focusAriaSuffix: string;
   viewProject: string;
   backToProjects: string;
+  groups: Record<ProjectGroup, string>;
 }
 
 export interface ProjectDetailLabels {
