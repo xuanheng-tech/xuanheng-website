@@ -7,9 +7,19 @@
 /en/projects/ /projects/ 301!
 /en/projects/agent-workspace /projects/agent-workspace/ 301!
 /en/projects/agent-workspace/ /projects/agent-workspace/ 301!
-/en/projects/policy-intelligence /projects/policy-intelligence/ 301!
-/en/projects/policy-intelligence/ /projects/policy-intelligence/ 301!
 /en/projects/quantitative-research-platform /projects/quantitative-research-platform/ 301!
 /en/projects/quantitative-research-platform/ /projects/quantitative-research-platform/ 301!
+/en/projects/snapshot-runner /projects/snapshot-runner/ 301!
+/en/projects/snapshot-runner/ /projects/snapshot-runner/ 301!
+/en/projects/context-loader /projects/context-loader/ 301!
+/en/projects/context-loader/ /projects/context-loader/ 301!
 /en/contact /contact/ 301!
 /en/contact/ /contact/ 301!
+
+# Retired Policy Intelligence detail pages redirect to the Projects index.
+/en/projects/policy-intelligence /projects/ 301!
+/en/projects/policy-intelligence/ /projects/ 301!
+/projects/policy-intelligence /projects/ 301!
+/projects/policy-intelligence/ /projects/ 301!
+/zh-cn/projects/policy-intelligence /zh-cn/projects/ 301!
+/zh-cn/projects/policy-intelligence/ /zh-cn/projects/ 301!

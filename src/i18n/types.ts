@@ -3,9 +3,10 @@ export type Locale = 'zh' | 'en';
 export type PageKey = 'home' | 'about' | 'projects' | 'contact';
 
 export const PROJECT_SLUGS = {
-  agentWorkspace: 'agent-workspace',
-  policyIntelligence: 'policy-intelligence',
   quantitativeResearchPlatform: 'quantitative-research-platform',
+  agentWorkspace: 'agent-workspace',
+  snapshotRunner: 'snapshot-runner',
+  contextLoader: 'context-loader',
 } as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[keyof typeof PROJECT_SLUGS];
@@ -49,6 +50,7 @@ export interface ProjectCopy {
     nextDirection: string;
   };
   principles?: string[];
+  repositoryUrl?: string;
   media?: ProjectMediaAsset[];
 }
 
@@ -163,6 +165,16 @@ export interface ContactCopy {
   kicker: string;
   title: string;
   companyLines: string[];
+  x?: {
+    label: string;
+    href: string;
+  };
+  wechat?: {
+    label: string;
+    caption: string;
+    image: string;
+    imageAlt: string;
+  };
 }
 
 export interface ProjectLabels {

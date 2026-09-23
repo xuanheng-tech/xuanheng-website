@@ -1,6 +1,7 @@
 # Project media specification
 
-本规范用于三个项目详情页后续接入正式媒体。现有 `ProjectMediaAsset` 已支持
+本规范用于项目详情页后续接入正式媒体（当前公开项目为玄衡量化、玄衡智枢、Snapshot Runner
+与 Context Loader，两个开源项目暂无媒体计划）。现有 `ProjectMediaAsset` 已支持
 `hero`、`system`、`gallery` 三种位置，以及必填 `alt` 和可选 `caption`；没有媒体数据时，
 页面不渲染媒体区域，也不使用占位内容。
 
@@ -57,7 +58,7 @@
 
 推荐首批保留 Hero、System Diagram，以及前两张 Gallery；第三张仅在版面确实需要说明工作区边界时加入。
 
-### 玄衡策知 / Policy Intelligence
+### 玄衡策知 / Policy Intelligence（已下线：不再公开展示，以下计划不再执行）
 
 | 素材 | 目的 | 来源 | 制作方式 | 敏感信息清理 | Slot |
 | --- | --- | --- | --- | --- | --- |
@@ -69,7 +70,7 @@
 
 推荐首批保留 Hero、System Diagram、政策详情与人工复核两张 Gallery；覆盖视图仅在需要强调时间序列研究时加入。
 
-### 玄衡量研 / Quantitative Research Platform
+### 玄衡量化 / Quantitative Research Platform
 
 | 素材 | 目的 | 来源 | 制作方式 | 敏感信息清理 | Slot |
 | --- | --- | --- | --- | --- | --- |

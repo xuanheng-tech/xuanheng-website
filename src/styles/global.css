@@ -1143,6 +1143,24 @@ summary {
   background: var(--red);
 }
 
+.project-hero__repo {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--line);
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  transition: color 180ms ease;
+}
+
+.project-hero__repo:hover {
+  color: var(--ink);
+}
+
 .project-hero__focus {
   margin-top: 38px;
 }
@@ -1568,6 +1586,57 @@ html[lang="en"] .project-hero h1 {
   padding-right: 10px;
   padding-left: 10px;
   color: var(--ink);
+}
+
+.contact-page__channels {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: clamp(26px, 3.5vw, 40px);
+}
+
+.contact-page__social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--red);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  transition: color 180ms ease;
+}
+
+.contact-page__social:hover {
+  color: var(--ink);
+}
+
+.contact-page__wechat {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-page__wechat img {
+  width: min(200px, 55vw);
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.contact-page__wechat figcaption {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.contact-page__wechat figcaption strong {
+  color: var(--ink);
+  font-size: 0.95rem;
 }
 
 @keyframes fade-up {
@@ -2000,6 +2069,15 @@ html[lang="en"] .project-hero h1 {
 
   .contact-page__email {
     font-size: clamp(1.45rem, 7vw, 2.35rem);
+  }
+
+  .contact-page__wechat {
+    gap: 18px;
+  }
+
+  .contact-page__wechat img {
+    width: min(164px, 42vw);
+    height: auto;
   }
 }
 

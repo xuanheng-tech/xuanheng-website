@@ -23,7 +23,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 - Netlify Production：GitHub `xuanheng-tech/xuanheng-website` `main` → `netlify.toml` → `npm ci` / `npm run build` → `dist/`；一个 deployment 提供英文与中文正式路由。
 - ChatGPT Sites / Cloudflare Workers Static Assets：仅非正式备用或测试，不作为 Production source of truth；不应绕过 Netlify 发布正式版本。
 - 一个源码仓库继续保留共享组件、`src/i18n/en.ts`、`src/i18n/zh.ts` 与 `src/pages/zh-cn/` 正式中文路由壳。
-- `public/_redirects` 由 Netlify 读取，为旧 `/en/...` 路径提供无 JS 的 HTTP 301 到英文根路径；必须在在线环境验证。
+- `public/_redirects` 由 Netlify 读取，为旧 `/en/...` 路径提供无 JS 的 HTTP 301 到英文根路径，并承载已下线 `policy-intelligence` 详情页到对应语言 Projects 列表页的 301；必须在在线环境验证。
 - 确认平台会把未知路径映射到 `dist/404.html`，并返回真实 HTTP 404；若不会，按平台文档配置 custom 404。
 - 正式英文页面使用根路径，中文页面使用 `/zh-cn/`；旧 `/en/...` 保留 no-JS 兼容页并由 Netlify `public/_redirects` 提供直达 HTTP 301 到新英文 URL，验证不得产生循环或多跳。另按下方定义配置 www → apex。
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
@@ -32,14 +32,14 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 ## Metadata and assets
 
 - 验证每个英文与中文页面的 canonical 指向当前语言正式 URL，`hreflang="en"`、`hreflang="zh-CN"` 与 `x-default` 均指向对应页面；`x-default` 始终指向英文 URL。
-- 验证 `sitemap.xml` 覆盖 14 个英文与中文正式 URL，不包含旧 `/en/...` 兼容路径；`robots.txt` 指向正式 sitemap。
+- 验证 `sitemap.xml` 覆盖 16 个英文与中文正式 URL，不包含旧 `/en/...` 兼容路径与已下线的 `policy-intelligence` 详情页；`robots.txt` 指向正式 sitemap。
 - 验证 SVG favicon、品牌 SVG、Open Graph 基础 metadata 与 404 `noindex`。
 - 检查产物不存在 localhost、工作站绝对路径、debug 信息或 secret。
 
 ## Netlify smoke check
 
 - 通过 GitHub `main` 自动部署到 Netlify，不绑定或修改正式 DNS，记录实际 Netlify URL 与部署 commit。
-- 在线打开 `/`、`/about/`、`/projects/`、`/contact/`、三个英文项目详情页及对应的 `/zh-cn/...` 页面；确认 `/en/...` 为 301，随机不存在路径返回真实 404。
+- 在线打开 `/`、`/about/`、`/projects/`、`/contact/`、四个英文项目详情页及对应的 `/zh-cn/...` 页面；确认 `/en/...` 为 301，已下线的 `policy-intelligence` 详情页 301 到对应语言的 Projects 列表页，随机不存在路径返回真实 404。
 - 验证 `EN | 中文` 在首页、列表页和项目详情页保持当前页面 counterpart，检查项目导航、CSS、SVG、favicon、HTTPS、trailing slash、压缩、缓存与安全响应头。
 - 在 390px 与 1440px 视口检查英文/中文首页、列表页和详情页无横向溢出；同时确认产物无客户端 script。
 - 核对 HTTPS、trailing slash、压缩和实际缓存响应；记录 Preview URL，供最后人工视觉验收使用。
@@ -94,7 +94,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 1. 在 Node `24.19.0` 环境执行 `npm ci`、`npm run build`，并完成最终 link / SEO / privacy 检查。
 2. 将同一 commit 推送到 GitHub `main`，由 Netlify Git integration 自动部署并记录实际 Netlify URL。
 3. 在 Netlify 上核对 custom 404、`public/_redirects`、cache/security headers 与 HTTPS；正式域名绑定前不修改 DNS。
-4. 在线 smoke 英文与中文首页、About、Projects、Contact、三个项目详情页、旧 `/en/...`、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
+4. 在线 smoke 英文与中文首页、About、Projects、Contact、四个项目详情页、旧 `/en/...`、已下线 `policy-intelligence` 重定向、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
 
 ### Post-release and rollback
 

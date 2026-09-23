@@ -20,10 +20,37 @@ const { contact } = content;
         <div class="contact-page__company">
           {contact.companyLines.map((line) => <p>{line}</p>)}
         </div>
-        <a class="contact-page__email" href="mailto:contact@xuanhengtech.cn">
-          <span>contact@xuanhengtech.cn</span>
-          <span aria-hidden="true">↗</span>
-        </a>
+        <div class="contact-page__channels">
+          <a class="contact-page__email" href="mailto:contact@xuanhengtech.cn">
+            <span>contact@xuanhengtech.cn</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          {contact.x && (
+            <a
+              class="contact-page__social"
+              href={contact.x.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span lang="en">{contact.x.label}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+          {contact.wechat && (
+            <figure class="contact-page__wechat">
+              <img
+                src={contact.wechat.image}
+                width="430"
+                height="430"
+                alt={contact.wechat.imageAlt}
+              />
+              <figcaption>
+                <strong>{contact.wechat.label}</strong>
+                <span>{contact.wechat.caption}</span>
+              </figcaption>
+            </figure>
+          )}
+        </div>
       </div>
     </div>
   </section>

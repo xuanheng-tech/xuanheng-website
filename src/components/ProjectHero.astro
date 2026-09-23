@@ -29,6 +29,18 @@ const showEnglishName = project.englishName !== project.name;
           <span aria-hidden="true"></span>
           {project.status}
         </p>
+        {project.repositoryUrl && (
+          <a
+            class="project-hero__repo"
+            href={project.repositoryUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            lang="en"
+          >
+            <span>GitHub</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
         <div class="project-hero__focus">
           <p class="eyebrow" lang="en">{labels.focus}</p>
           <ul aria-label={`${project.name} ${labels.focusAriaSuffix}`}>
