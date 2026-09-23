@@ -309,6 +309,7 @@ export const en = {
       primaryCta: 'Explore Projects',
       secondaryCta: 'About Xuanheng',
       brandMarkLabel: 'Xuanheng brand mark',
+      signature: ['XUANHENG TECHNOLOGY', 'Structure · Intelligence · Complexity'],
     },
     philosophy: {
       lead: 'Exploring the unknown. Measuring complexity.',

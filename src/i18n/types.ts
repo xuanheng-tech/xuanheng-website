@@ -83,6 +83,7 @@ export interface HomeCopy {
     primaryCta: string;
     secondaryCta: string;
     brandMarkLabel: string;
+    signature: [string, string];
   };
   philosophy: {
     lead: string;

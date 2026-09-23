@@ -16,7 +16,7 @@ const { home } = content;
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow hero__eyebrow" lang="en">
+        <p class="eyebrow hero__eyebrow" lang={content.locale === 'en' ? 'en' : undefined}>
           <span aria-hidden="true"></span>
           {home.hero.kicker}
         </p>
@@ -58,9 +58,8 @@ const { home } = content;
             height="1576"
           />
         </div>
-        <div class="hero__signature" lang="en">
-          <p>XUANHENG TECHNOLOGY</p>
-          <p>Structure · Intelligence · Complexity</p>
+        <div class="hero__signature" lang={content.locale === 'en' ? 'en' : undefined}>
+          {home.hero.signature.map((line) => <p>{line}</p>)}
         </div>
       </aside>
     </div>

@@ -277,13 +277,14 @@ export const zh = {
   ],
   home: {
     hero: {
-      kicker: 'Independent Research & Technology · Suzhou',
+      kicker: '独立研究与技术 · 苏州',
       title: '玄衡科技',
       statement: ['探索复杂系统中的', '结构、规律与智能。'],
-      intro: ['玄衡科技是一家独立科技公司，', '专注于量化研究、人工智能与计算系统。'],
+      intro: ['玄衡科技专注于量化研究、人工智能与计算系统的研发。'],
       primaryCta: '探索项目',
       secondaryCta: '了解玄衡',
       brandMarkLabel: '玄衡品牌标志',
+      signature: ['玄衡科技', '结构 · 规律 · 智能'],
     },
     philosophy: {
       lead: '以探索理解未知，以度量认识复杂。',

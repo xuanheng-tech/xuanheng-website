@@ -11,6 +11,8 @@
     "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", "Songti SC",
     "STSong", "SimSun", serif;
+  --font-serif-cjk: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC",
+    "STSong", "SimSun", serif;
   --container: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -2014,6 +2016,52 @@ html[lang="zh-CN"] .project-principles__list p {
 
 html[lang="zh-CN"] .research .section-heading__lead {
   text-wrap: balance;
+}
+
+html[lang="zh-CN"] .hero h1 {
+  font-family: var(--font-serif-cjk);
+  letter-spacing: 0;
+}
+
+html[lang="zh-CN"] .hero__statement {
+  letter-spacing: 0;
+}
+
+@media (min-width: 1021px) {
+  html[lang="zh-CN"] .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+  }
+
+  html[lang="zh-CN"] .hero h1 {
+    font-size: clamp(4.2rem, 8vw, 7.2rem);
+  }
+
+  html[lang="zh-CN"] .hero__statement {
+    line-height: 1.45;
+  }
+
+  html[lang="zh-CN"] .hero__intro {
+    margin-top: 42px;
+    line-height: 1.75;
+  }
+
+  html[lang="zh-CN"] .hero__actions {
+    margin-top: 44px;
+  }
+
+  html[lang="zh-CN"] .hero__mark-frame {
+    min-height: 350px;
+  }
+
+  html[lang="zh-CN"] .hero__mark {
+    height: clamp(264px, 23vw, 340px);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1020px) {
+  html[lang="zh-CN"] .hero__mark {
+    height: 195px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
