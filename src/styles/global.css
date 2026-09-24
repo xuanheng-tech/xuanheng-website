@@ -2205,3 +2205,98 @@ html[lang="zh-CN"] .directions__list h3 {
   line-height: 1.25;
   font-size: 1.59rem;
 }
+
+/* Phase 3 — Section Marker: larger, solid, less airy; tighter gap to the title. */
+.section-heading .eyebrow,
+.about-preview .eyebrow,
+.contact-band .eyebrow,
+.projects-page__heading .eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.4;
+}
+
+.section-heading h2,
+.about-preview h2,
+.projects-page__heading h2 {
+  margin-top: 14px;
+}
+
+@media (max-width: 767px) {
+  .section-heading .eyebrow,
+  .about-preview .eyebrow,
+  .contact-band .eyebrow,
+  .projects-page__heading .eyebrow {
+    font-size: 0.8rem;
+  }
+}
+
+/* Phase 3 — Chinese large headings go modern sans; only the home brand wordmark
+   (.hero h1) stays serif as the single Chinese serif anchor. zh-CN only. */
+html[lang="zh-CN"] .hero__statement {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  font-size: clamp(1.75rem, 3vw, 2.9rem);
+}
+
+html[lang="zh-CN"] .project-hero h1 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  font-size: clamp(3.2rem, 6.2vw, 6rem);
+}
+
+html[lang="zh-CN"] .page-hero h1 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  font-size: clamp(3.2rem, 6.2vw, 6.1rem);
+}
+
+html[lang="zh-CN"] .contact-page h1 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  font-size: clamp(3.4rem, 6.8vw, 6.5rem);
+}
+
+html[lang="zh-CN"] .not-found h1 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Phase 4 — final Chinese serif consolidation (zh-CN only): every non-brand
+   Chinese display/lead/quote/prose now uses the modern sans; only the home
+   brand wordmark (.hero h1), Latin subtitles (.project-hero__english-name),
+   the 玄/衡 brand glyphs and the numeric 404 code stay serif. */
+html[lang="zh-CN"] .page-hero__lead,
+html[lang="zh-CN"] .about-preview__lead,
+html[lang="zh-CN"] .research-belief blockquote,
+html[lang="zh-CN"] .project-principles__list p,
+html[lang="zh-CN"] .project-workflow__steps p,
+html[lang="zh-CN"] .project-system-view__layers p,
+html[lang="zh-CN"] .project-current-state__grid p,
+html[lang="zh-CN"] .fact-strip dd,
+html[lang="zh-CN"] .prose--large,
+html[lang="zh-CN"] .page-next__inner a,
+html[lang="zh-CN"] .not-found__copy > p,
+html[lang="zh-CN"] .contact-page__company p {
+  font-family: var(--sans-cjk);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+html[lang="zh-CN"] .project-capabilities__list h3,
+html[lang="zh-CN"] .project-navigation__project strong {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.25;
+}

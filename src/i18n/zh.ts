@@ -46,16 +46,16 @@ export const zh = {
     viewProject: '查看详情',
     backToProjects: '返回全部项目',
     groups: {
-      researchSystem: '自研系统',
+      researchSystem: '研发系统',
       openSourceTool: '开源工具',
     },
   },
   projectDetailLabels: {
     overview: '项目概述',
-    capabilities: '核心能力',
+    capabilities: '主要功能',
     workflow: '工作流程',
-    systemView: '系统视图',
-    currentState: '当前状态',
+    systemView: '系统架构',
+    currentState: '当前进展',
     principles: '设计原则',
     implemented: '已实现',
     currentFocus: '当前阶段',
@@ -158,7 +158,7 @@ export const zh = {
       summary: '本机、单用户的 Native Agent 工作区，多个编码 Agent 按本机终端的执行合同运行。',
       cardSummary: '以原生终端会话为核心的本机多 Provider Agent 工作区。',
       status: '状态：研究原型',
-      focus: ['AI Agent', '人机协作', '知识管理'],
+      focus: ['AI Agent', '人机协作', '任务连续性'],
       overview: [
         '玄衡智枢是本机、单用户的 Native Agent 工作区。Codex、Claude Code 与 Antigravity 在主区域以各自原生界面呈现；StepFun 是工作区自带的 Provider，通过内置会话直连模型 API。工作区负责工作区、会话与进程管理。',
         'CLI 会话沿用本机终端的执行合同：继承当前用户的环境与配置，不做额外封装或限制；StepFun 的工具调用同样经过统一的权限与记录机制。会话在视图切换与刷新中保持存活，只有用户确认才会结束；意外退出按实际观察如实记录。',
@@ -385,8 +385,8 @@ export const zh = {
       title: '玄衡科技',
       statement: ['探索复杂系统中的', '结构、规律与智能。'],
       intro: ['玄衡科技专注于量化研究、人工智能与计算系统的研发。'],
-      primaryCta: '探索项目',
-      secondaryCta: '了解玄衡',
+      primaryCta: '查看项目',
+      secondaryCta: '关于玄衡',
       brandMarkLabel: '玄衡品牌标志',
       signature: ['玄衡科技', '结构 · 规律 · 智能'],
     },
@@ -404,8 +404,8 @@ export const zh = {
       ],
     },
     research: {
-      kicker: '02 · Research',
-      title: '研究方向',
+      kicker: '02 · 研究方向',
+      title: '研究领域',
       lead: ['围绕量化研究、人工智能和计算基础设施开展研发。'],
       areas: [
         {
@@ -426,13 +426,13 @@ export const zh = {
       ],
     },
     selectedProjects: {
-      kicker: '01 · Selected Work',
-      title: '精选项目',
+      kicker: '01 · 项目',
+      title: '系统与工具',
       viewAll: '查看全部项目',
     },
     aboutPreview: {
-      kicker: '03 · About',
-      title: '关于玄衡',
+      kicker: '03 · 关于玄衡',
+      title: '我们是谁',
       lead: '玄衡科技成立于 2026 年，位于江苏苏州。',
       paragraphs: [
         '公司关注人工智能、计算技术以及复杂系统研究。',
@@ -441,8 +441,8 @@ export const zh = {
       linkLabel: '了解我们的研究理念',
     },
     contact: {
-      kicker: '04 · Contact',
-      title: '联系我们',
+      kicker: '04 · 联系',
+      title: '邮件联系',
     },
   },
   about: {

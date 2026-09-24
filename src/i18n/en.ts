@@ -163,7 +163,7 @@ export const en = {
       summary: 'A local, single-user native agent workspace where coding agents run under a local-terminal execution contract.',
       cardSummary: 'A local agent workspace built around native terminal sessions with multiple providers.',
       status: 'Status: Research Prototype',
-      focus: ['AI Agent', 'Human-AI Collaboration', 'Knowledge Management'],
+      focus: ['AI Agent', 'Human-AI Collaboration', 'Task Continuity'],
       overview: [
         'Agent Workspace is a local, single-user native agent workspace. Codex, Claude Code and Antigravity appear in its main area exactly as their own native interfaces; StepFun is the workspace’s own provider, calling its model API directly through a built-in session. The app takes care of workspaces, sessions and process management.',
         'CLI sessions follow the local-terminal contract: they inherit your environment and configuration without extra wrapping or restrictions, and StepFun tool calls run under the same permission and evidence rules. A session survives view switches and refreshes, and the app ends it only when you confirm; unexpected exits are recorded as they are observed.',
@@ -410,7 +410,7 @@ export const en = {
       intro: [
         'Independent research and technology studio focused on quantitative research, artificial intelligence and computational systems.',
       ],
-      primaryCta: 'Explore Projects',
+      primaryCta: 'View Projects',
       secondaryCta: 'About Xuanheng',
       brandMarkLabel: 'Xuanheng brand mark',
       signature: ['XUANHENG TECHNOLOGY', 'Structure · Intelligence · Complexity'],
@@ -430,7 +430,7 @@ export const en = {
     },
     research: {
       kicker: '02 · Research',
-      title: 'Research Areas',
+      title: 'Research domains',
       lead: [
         'Quantitative research, artificial intelligence',
         'and computational systems.',
@@ -454,13 +454,13 @@ export const en = {
       ],
     },
     selectedProjects: {
-      kicker: '01 · Selected Work',
-      title: 'Selected Projects',
+      kicker: '01 · Projects',
+      title: 'Systems and tools',
       viewAll: 'View All Projects',
     },
     aboutPreview: {
       kicker: '03 · About',
-      title: 'About Xuanheng',
+      title: 'Who we are',
       lead: 'Xuanheng Technology is based in Suzhou, China.',
       paragraphs: [
         'Our work focuses on artificial intelligence, quantitative research and computational systems.',
@@ -470,7 +470,7 @@ export const en = {
     },
     contact: {
       kicker: '04 · Contact',
-      title: 'Contact',
+      title: 'Email us',
     },
   },
   about: {
