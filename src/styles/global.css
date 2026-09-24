@@ -131,6 +131,8 @@ summary {
 }
 
 .header__inner {
+  /* Anchor for the mobile navigation panel; see .mobile-menu nav. */
+  position: relative;
   min-height: 80px;
   display: flex;
   align-items: center;
@@ -250,7 +252,10 @@ summary {
 }
 
 .mobile-menu {
-  position: relative;
+  /* Static on purpose: the panel below anchors to .header__inner, not to this
+     control. As a containing block it sat left of the language switch, so a
+     viewport-sized panel hung off the left edge at <=360px. */
+  position: static;
   display: none;
 }
 
@@ -305,7 +310,10 @@ summary {
 
 .mobile-menu nav {
   position: absolute;
-  top: calc(100% + 14px);
+  /* .header__inner is 72px tall on mobile, so 100% lands the panel on the
+     header's bottom border exactly where the old summary-anchored
+     calc(100% + 14px) did. */
+  top: 100%;
   right: 0;
   width: min(320px, calc(100vw - 32px));
   border: 1px solid var(--ink);
@@ -2334,17 +2342,30 @@ html[lang="zh-CN"] .contact-page .eyebrow {
   letter-spacing: 0.08em;
 }
 
-/* The language switch was the only control under the 24x24 target minimum
-   (WCAG 2.2 AA 2.5.8); at 20x28 and 26x28 the spacing exception cannot rescue
-   it. Height is free to grow inside the 72px mobile header. Width is not: the
-   switch is the last item in .header__actions, so every pixel it gains pushes
-   .mobile-menu left, and that panel is right-anchored at a fixed 320px — a 44px
-   wide target cost +42px and moved the open menu labels off-canvas at 390.
-   min-width 24 with no inline padding costs +4px, which keeps the first label
-   at x=+6.88 instead of production's +10.88. */
+/* The language switch was the only control under the target-size minimum:
+   20x28 and 26x28, below the 24x24 WCAG 2.2 AA floor, and too far apart for the
+   spacing exception. Height is free to grow inside the 72px mobile header; the
+   base rule sets the 24px width floor and the media query below raises it to the
+   44px touch guideline where the header row can absorb it. */
 .language-switch a {
   min-width: 24px;
   padding: 16px 0;
+}
+
+/* 44x44 from 390px up, inside the touch range only. Measured against the live
+   production stylesheet on identical HTML: at 360 and 375 a 44px-wide switch
+   squeezes .brand enough to wrap its "XUANHENG TECHNOLOGY" sub-line onto two
+   lines, and at 320-350px it overflows the document by 19-3px and clips 中文 to
+   6/9, because brand + MENU + switch exceed the container. 390px is the first
+   width where the brand box is byte-identical to production (170.1px, one
+   line). Capped at the site's 760px mobile boundary: growing the switch on
+   desktop would shift the nav cluster 38px left for no gain under a pointer.
+   24x24, the WCAG 2.2 AA target minimum, holds at every width. */
+@media (min-width: 390px) and (max-width: 760px) {
+  .language-switch a {
+    min-width: 44px;
+    padding: 16px 6px;
+  }
 }
 
 /* Chinese strands one- or two-character last lines because it can break between
