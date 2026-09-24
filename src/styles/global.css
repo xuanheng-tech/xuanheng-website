@@ -2119,3 +2119,38 @@ html[lang="zh-CN"] .hero__statement {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Phase 1 — soften oversized serif CJK prose (zh-CN only).
+   Latin stays on the serif stack; only the CJK slot moves to the modern
+   system sans, so English typography is unchanged. */
+html[lang="zh-CN"] .project-overview__copy,
+html[lang="zh-CN"] .section-heading__lead,
+html[lang="zh-CN"] .project-hero__summary {
+  font-family: "Iowan Old Style", "Baskerville", "Times New Roman",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
+html[lang="zh-CN"] .section-heading__lead,
+html[lang="zh-CN"] .project-hero__summary {
+  line-height: 1.65;
+}
+
+html[lang="zh-CN"] .project-overview__copy {
+  line-height: 1.72;
+}
+
+/* Nudge size down ~3% so the wider CJK sans keeps the serif line breaks. */
+html[lang="zh-CN"] .section-heading__lead {
+  font-size: clamp(1.36rem, 2.13vw, 1.94rem);
+}
+
+html[lang="zh-CN"] .project-hero__summary {
+  font-size: clamp(1.36rem, 2.23vw, 1.94rem);
+}
+
+html[lang="zh-CN"] .project-overview__copy {
+  font-size: clamp(1.41rem, 2.52vw, 2.09rem);
+}
