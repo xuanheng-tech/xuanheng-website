@@ -9,6 +9,8 @@ interface Props {
 
 const { project, labels, media = [] } = Astro.props;
 const showEnglishName = project.englishName !== project.name;
+// Latin-script product names keep the serif face so the name looks identical in both locales.
+const latinTitle = !/[\u3400-\u9fff]/.test(project.name);
 const heroMedia = media.filter((asset) => asset.placement === 'hero');
 ---
 
@@ -19,7 +21,7 @@ const heroMedia = media.filter((asset) => asset.placement === 'hero');
     </p>
     <div class="project-hero__grid">
       <div class="project-hero__copy">
-        <h1>{project.name}</h1>
+        <h1 class:list={{ 'project-hero__title--latin': latinTitle }}>{project.name}</h1>
         {showEnglishName && (
           <p class="project-hero__english-name" lang="en">{project.englishName}</p>
         )}

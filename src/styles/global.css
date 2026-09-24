@@ -1545,7 +1545,8 @@ html[lang="en"] .page-hero h1 {
   letter-spacing: -0.045em;
 }
 
-html[lang="en"] .project-hero h1 {
+html[lang="en"] .project-hero h1,
+html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
   font-size: clamp(3.2rem, 5.2vw, 5.4rem);
   letter-spacing: -0.05em;
 }
@@ -1870,7 +1871,8 @@ html[lang="en"] .project-hero h1 {
     font-size: clamp(3rem, 15vw, 4.8rem);
   }
 
-  html[lang="en"] .project-hero h1 {
+  html[lang="en"] .project-hero h1,
+  html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
     font-size: clamp(3rem, 13.5vw, 4.25rem);
   }
 
@@ -2033,7 +2035,7 @@ html[lang="en"] .project-hero h1 {
 
 html[lang="zh-CN"] .hero h1,
 html[lang="zh-CN"] .page-hero h1,
-html[lang="zh-CN"] .project-hero h1,
+html[lang="zh-CN"] .project-hero h1:not(.project-hero__title--latin),
 html[lang="zh-CN"] .contact-page h1,
 html[lang="zh-CN"] .not-found h1,
 html[lang="zh-CN"] .section-heading h2,
@@ -2242,7 +2244,7 @@ html[lang="zh-CN"] .hero__statement {
   font-size: clamp(1.75rem, 3vw, 2.9rem);
 }
 
-html[lang="zh-CN"] .project-hero h1 {
+html[lang="zh-CN"] .project-hero h1:not(.project-hero__title--latin) {
   font-family: var(--sans-cjk);
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -2299,4 +2301,67 @@ html[lang="zh-CN"] .project-navigation__project strong {
   font-weight: 500;
   letter-spacing: 0.012em;
   line-height: 1.25;
+}
+
+/* Production audit — section markers. Phase 3 raised the home markers to the
+   0.85rem/600/0.07em scale, but the detail-page and About intro markers live in
+   other wrappers, so the About page rendered two marker styles at once. */
+.project-section__heading .eyebrow,
+.editorial-grid .eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+}
+
+.project-section__heading h2,
+.editorial-grid h2 {
+  margin-top: 14px;
+}
+
+@media (max-width: 767px) {
+  .project-section__heading .eyebrow,
+  .editorial-grid .eyebrow {
+    font-size: 0.8rem;
+  }
+}
+
+/* Chinese kickers mix Latin and Han; the 0.18em page-hero tracking reads as
+   spaced-out characters on Chinese strings. The contact page has no .page-hero,
+   so its bare p.eyebrow needs its own entry or the site renders two trackings. */
+html[lang="zh-CN"] .hero__eyebrow,
+html[lang="zh-CN"] .page-hero .eyebrow,
+html[lang="zh-CN"] .contact-page .eyebrow {
+  letter-spacing: 0.08em;
+}
+
+/* The language switch was the only control under the 24x24 target minimum
+   (WCAG 2.2 AA 2.5.8); at 20x28 and 26x28 the spacing exception cannot rescue
+   it. Height is free to grow inside the 72px mobile header. Width is not: the
+   switch is the last item in .header__actions, so every pixel it gains pushes
+   .mobile-menu left, and that panel is right-anchored at a fixed 320px — a 44px
+   wide target cost +42px and moved the open menu labels off-canvas at 390.
+   min-width 24 with no inline padding costs +4px, which keeps the first label
+   at x=+6.88 instead of production's +10.88. */
+.language-switch a {
+  min-width: 24px;
+  padding: 16px 0;
+}
+
+/* Chinese strands one- or two-character last lines because it can break between
+   any two Han characters. text-wrap: pretty absorbs those stubs into the
+   previous line. word-break: keep-all is NOT used: Chrome removes every Han
+   break opportunity under it rather than segmenting words, which measured up to
+   225px of horizontal overflow at 390 on the Chinese project pages. */
+html[lang="zh-CN"] p,
+html[lang="zh-CN"] dd,
+html[lang="zh-CN"] li {
+  text-wrap: pretty;
+}
+
+/* The English hero kicker wrapped so the second line opened with the "·"
+   separator; balancing splits it into two even lines instead. Scoped to English
+   because the zh-CN p rule above wins on specificity and the Chinese kicker is a
+   single line at every audited width. */
+html[lang="en"] .hero__eyebrow {
+  text-wrap: balance;
 }
