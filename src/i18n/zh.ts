@@ -339,7 +339,7 @@ export const zh = {
           description: '以固定路径的 Git 可执行文件（不通过 PATH 解析）与净化环境运行，忽略系统级、全局与每条命令的配置、attributes 及钩子。',
         },
       ],
-      workflow: ['定位 Git 根', '采集有界根文件', '渲染 Markdown / JSON', '复核状态与哈希'],
+      workflow: ['定位项目根', '收集固定根文件', '选择适用 AGENTS', '渲染上下文', '输出状态与哈希'],
       systemLayers: ['CLI 与契约层', '仓库采集层', '渲染与选择层', '机器可读输出层'],
       currentState: {
         implemented: '1.3.0 已发布至 PyPI（context-loader 发行版，project-context 命令），提供 Markdown、JSON 与精简 JSON 三种输出格式，运行时零第三方依赖。',

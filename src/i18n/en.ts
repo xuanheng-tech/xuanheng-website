@@ -354,7 +354,7 @@ export const en = {
           description: 'Running Git from a fixed executable with a sanitized environment that ignores system, global and per-command configuration, attributes and hooks.',
         },
       ],
-      workflow: ['Locate Git Root', 'Collect Bounded Root Files', 'Render Markdown or JSON', 'Review Statuses & Hashes'],
+      workflow: ['Locate Project Root', 'Collect Fixed Root Files', 'Select Relevant AGENTS', 'Render Context', 'Report Statuses & Hashes'],
       systemLayers: [
         'CLI & Contract Layer',
         'Repository Collector Layer',
