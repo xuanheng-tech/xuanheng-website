@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="760" height="880" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="15" fill="#68645E">
+    <rect x="56" y="42" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="74" y="52">Context pipeline</text>
+    <rect x="210" y="42" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="228" y="52" fill="#B43A32">Boundary — what never happens</text>
+    <text x="704" y="52" text-anchor="end" fill="#68645E">2026-09</text>
+  </g>
+  <line x1="56" y1="66" x2="704" y2="66" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- stage boxes, row 1 -->
+  <g class="t">
+    <rect x="56" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="72" y="114" font-size="18" fill="#B43A32">01</text>
+    <text x="72" y="140" font-size="16" font-weight="600" fill="#171717">Locate Git Root</text>
+    <text x="72" y="164" font-size="12" fill="#68645E">absolute path required;</text>
+    <text x="72" y="180" font-size="12" fill="#68645E">canonical worktree root</text>
+
+    <path d="M 256 148 h 24 M 274 143 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="280" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="296" y="114" font-size="18" fill="#B43A32">02</text>
+    <text x="296" y="140" font-size="16" font-weight="600" fill="#171717">Read Fixed</text>
+    <text x="296" y="158" font-size="16" font-weight="600" fill="#171717">Root Files</text>
+    <text x="296" y="180" font-size="12" fill="#68645E">AGENTS.md · README.md</text>
+    <text x="296" y="196" font-size="12" fill="#68645E">+ declared entry files</text>
+
+    <path d="M 480 148 h 24 M 498 143 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="504" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="520" y="114" font-size="18" fill="#B43A32">03</text>
+    <text x="520" y="140" font-size="16" font-weight="600" fill="#171717">Bounded AGENTS</text>
+    <text x="520" y="158" font-size="16" font-weight="600" fill="#171717">Selection</text>
+    <text x="520" y="180" font-size="12" fill="#68645E">head + --focus hits</text>
+    <text x="520" y="196" font-size="12" fill="#68645E">other headings: index only</text>
+  </g>
+
+  <!-- elbow 03 -> 04 -->
+  <path d="M 604 208 L 604 224 L 156 224 L 156 232" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+  <path d="M 151 226 l 5 6 l 5 -6" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+  <!-- stage boxes, row 2 -->
+  <g class="t">
+    <rect x="56" y="232" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="72" y="258" font-size="18" fill="#B43A32">04</text>
+    <text x="72" y="284" font-size="16" font-weight="600" fill="#171717">Render Markdown</text>
+    <text x="72" y="302" font-size="16" font-weight="600" fill="#171717">or JSON</text>
+    <text x="72" y="324" font-size="12" fill="#68645E">seven fixed sections, in order;</text>
+    <text x="72" y="340" font-size="12" fill="#68645E">no timestamps or summaries</text>
+
+    <path d="M 256 292 h 24 M 274 287 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="280" y="232" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="296" y="258" font-size="18" fill="#B43A32">05</text>
+    <text x="296" y="284" font-size="16" font-weight="600" fill="#171717">Statuses &amp; Hashes</text>
+    <text x="296" y="306" font-size="12" fill="#68645E">context_sha256</text>
+    <text x="296" y="322" font-size="12" fill="#68645E">content_sha256 · statuses</text>
+    <text x="296" y="338" font-size="12" fill="#68645E">nested_context · exit 0/1/2</text>
+  </g>
+
+  <!-- boundary band -->
+  <g>
+    <rect x="56" y="380" width="648" height="136" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="t" x="80" y="410" font-size="19" font-weight="600" fill="#B43A32">Boundary — never happens</text>
+    <text class="t" x="80" y="436" font-size="16" fill="#68645E">no fetch · no repository code execution · no network · no writes to target</text>
+    <text class="t" x="80" y="460" font-size="16" fill="#68645E">no Git mutation · no test runs · no timestamps · no random identifiers</text>
+    <text class="t" x="80" y="488" font-size="15" fill="#68645E">Git only from fixed /usr/bin/git in a sanitized environment — system, global</text>
+  </g>
+  <text class="t" x="80" y="506" font-size="15" fill="#68645E">and per-command config, attributes and hooks are all ignored</text>
+
+  <!-- budget line -->
+  <g class="t" font-size="15" fill="#68645E">
+    <text x="56" y="540" fill="#171717" font-weight="600">Bounded transport</text>
+    <text x="216" y="540">stdout ≤ 98,304 bytes, cut at line boundaries · AGENTS head ≤ 4 KiB</text>
+    <text x="216" y="562">selection ≤ 16 KiB · commits ≤ 8 · directory tree ≤ 12 KiB · depth 2</text>
+  </g>
+
+  <!-- architecture band -->
+  <line x1="56" y1="592" x2="704" y2="592" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="622" font-size="16" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="16" fill="#68645E">
+    <text x="56" y="652" fill="#171717" font-weight="600">CLI &amp; Contract</text>
+    <text x="268" y="652">flags, exit codes 0/1/2, declared contract</text>
+    <text x="56" y="682" fill="#171717" font-weight="600">Repository Collector</text>
+    <text x="268" y="682">root validation · fixed root candidates</text>
+    <text x="56" y="712" fill="#171717" font-weight="600">Render &amp; Selection</text>
+    <text x="268" y="712">seven Markdown sections or versioned JSON</text>
+    <text x="56" y="742" fill="#171717" font-weight="600">Machine-readable Output</text>
+    <text x="268" y="742">schema_version · context_sha256 · statuses</text>
+  </g>
+
+  <!-- determinism note -->
+  <line x1="56" y1="772" x2="704" y2="772" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="802" font-size="16" fill="#68645E">Byte-identical output for identical inputs — proven by re-run and cmp.</text>
+  <text class="t" x="56" y="826" font-size="16" fill="#68645E">Fixed selection is not redaction: inspect the output before sharing it.</text>
+  <line x1="56" y1="852" x2="704" y2="852" stroke="#171717" stroke-width="1" opacity="0.25"/>
+</svg>

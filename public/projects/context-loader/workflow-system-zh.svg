@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="760" height="880" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="15" fill="#68645E">
+    <rect x="56" y="42" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="74" y="52">上下文管线</text>
+    <rect x="174" y="42" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="192" y="52" fill="#B43A32">边界——永不发生的行为</text>
+    <text x="704" y="52" text-anchor="end" fill="#68645E">2026-09</text>
+  </g>
+  <line x1="56" y1="66" x2="704" y2="66" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- stage boxes, row 1 -->
+  <g class="t">
+    <rect x="56" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="72" y="114" font-size="18" fill="#B43A32">01</text>
+    <text x="72" y="140" font-size="16" font-weight="600" fill="#171717">定位 Git 根</text>
+    <text x="72" y="164" font-size="12" fill="#68645E">要求绝对路径；</text>
+    <text x="72" y="180" font-size="12" fill="#68645E">定位规范化的工作树根</text>
+
+    <path d="M 256 148 h 24 M 274 143 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="280" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="296" y="114" font-size="18" fill="#B43A32">02</text>
+    <text x="296" y="140" font-size="16" font-weight="600" fill="#171717">读取固定根文件</text>
+    <text x="296" y="164" font-size="12" fill="#68645E">AGENTS.md · README.md</text>
+    <text x="296" y="180" font-size="12" fill="#68645E">+ 声明的入口文件</text>
+
+    <path d="M 480 148 h 24 M 498 143 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="504" y="88" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="520" y="114" font-size="18" fill="#B43A32">03</text>
+    <text x="520" y="140" font-size="16" font-weight="600" fill="#171717">有界选择</text>
+    <text x="520" y="158" font-size="16" font-weight="600" fill="#171717">AGENTS 章节</text>
+    <text x="520" y="180" font-size="12" fill="#68645E">头部 + --focus 命中节</text>
+    <text x="520" y="196" font-size="12" fill="#68645E">其余章节仅列标题索引</text>
+  </g>
+
+  <!-- elbow 03 -> 04 -->
+  <path d="M 604 208 L 604 224 L 156 224 L 156 232" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+  <path d="M 151 226 l 5 6 l 5 -6" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+  <!-- stage boxes, row 2 -->
+  <g class="t">
+    <rect x="56" y="232" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="72" y="258" font-size="18" fill="#B43A32">04</text>
+    <text x="72" y="284" font-size="16" font-weight="600" fill="#171717">渲染 Markdown</text>
+    <text x="72" y="302" font-size="16" font-weight="600" fill="#171717">或 JSON</text>
+    <text x="72" y="324" font-size="12" fill="#68645E">七个固定分节、顺序不变；</text>
+    <text x="72" y="340" font-size="12" fill="#68645E">无时间戳、无自动摘要</text>
+
+    <path d="M 256 292 h 24 M 274 287 l 6 5 l -6 5" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.6"/>
+
+    <rect x="280" y="232" width="200" height="120" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="num" x="296" y="258" font-size="18" fill="#B43A32">05</text>
+    <text x="296" y="284" font-size="16" font-weight="600" fill="#171717">复核状态与哈希</text>
+    <text x="296" y="306" font-size="12" fill="#68645E">context_sha256</text>
+    <text x="296" y="322" font-size="12" fill="#68645E">content_sha256 · statuses</text>
+    <text x="296" y="338" font-size="12" fill="#68645E">nested_context · 退出码</text>
+  </g>
+
+  <!-- boundary band -->
+  <g>
+    <rect x="56" y="380" width="648" height="136" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="t" x="80" y="410" font-size="19" font-weight="600" fill="#B43A32">边界——永不发生</text>
+    <text class="t" x="80" y="436" font-size="16" fill="#68645E">不抓取 · 不执行仓库代码 · 不访问网络 · 不写入目标仓库</text>
+    <text class="t" x="80" y="460" font-size="16" fill="#68645E">不做 Git 变更 · 不运行测试 · 不生成时间戳与随机标识</text>
+    <text class="t" x="80" y="488" font-size="15" fill="#68645E">Git 仅来自固定路径 /usr/bin/git，且环境经过净化——系统级、全局与</text>
+  </g>
+  <text class="t" x="80" y="506" font-size="15" fill="#68645E">每条命令的配置、attributes 与钩子均被忽略</text>
+
+  <!-- budget line -->
+  <g class="t" font-size="15" fill="#68645E">
+    <text x="56" y="540" fill="#171717" font-weight="600">有界传输</text>
+    <text x="146" y="540">输出 ≤ 98,304 字节，按行边界截断 · AGENTS 头部 ≤ 4 KiB</text>
+    <text x="146" y="562">选择 ≤ 16 KiB · 提交 ≤ 8 条 · 目录树 ≤ 12 KiB · 深度 2</text>
+  </g>
+
+  <!-- architecture band -->
+  <line x1="56" y1="592" x2="704" y2="592" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="622" font-size="16" font-weight="600" fill="#171717">四层结构</text>
+  <g class="t" font-size="16" fill="#68645E">
+    <text x="56" y="652" fill="#171717" font-weight="600">CLI 与契约层</text>
+    <text x="268" y="652">参数、退出码 0/1/2 与声明契约</text>
+    <text x="56" y="682" fill="#171717" font-weight="600">仓库采集层</text>
+    <text x="268" y="682">根校验 · 固定根候选文件</text>
+    <text x="56" y="712" fill="#171717" font-weight="600">渲染与选择层</text>
+    <text x="268" y="712">七个 Markdown 分节或版本化 JSON</text>
+    <text x="56" y="742" fill="#171717" font-weight="600">机器可读输出层</text>
+    <text x="268" y="742">schema_version · context_sha256 · statuses</text>
+  </g>
+
+  <!-- determinism note -->
+  <line x1="56" y1="772" x2="704" y2="772" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="802" font-size="16" fill="#68645E">相同输入产生逐字节一致的输出——两次运行与 cmp 可证。</text>
+  <text class="t" x="56" y="826" font-size="16" fill="#68645E">固定选择不是自动脱敏：分享前先检查输出。</text>
+  <line x1="56" y1="852" x2="704" y2="852" stroke="#171717" stroke-width="1" opacity="0.25"/>
+</svg>

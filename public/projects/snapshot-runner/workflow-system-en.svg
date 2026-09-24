@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="760" height="880" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="15" fill="#68645E">
+    <rect x="56" y="42" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="74" y="52">Evidence path</text>
+    <rect x="186" y="42" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="204" y="52" fill="#B43A32">Trust &amp; security boundary</text>
+    <text x="704" y="52" text-anchor="end" fill="#68645E">2026-09</text>
+  </g>
+  <line x1="56" y1="66" x2="704" y2="66" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- 01 -->
+  <g>
+    <rect x="56" y="88" width="3" height="60" fill="#171717"/>
+    <text class="num" x="72" y="112" font-size="24" fill="#B43A32">01</text>
+    <text class="t" x="112" y="112" font-size="25" fill="#171717">Collect read-only evidence</text>
+    <text class="t" x="112" y="135" font-size="16" fill="#68645E">repo-status · diff-audit · branch-review · test-triage</text>
+    <path d="M 74 156 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 02 -->
+  <g>
+    <rect x="56" y="176" width="3" height="60" fill="#171717"/>
+    <text class="num" x="72" y="200" font-size="24" fill="#B43A32">02</text>
+    <text class="t" x="112" y="200" font-size="25" fill="#171717">Publish deterministic snapshot</text>
+    <text class="t" x="112" y="223" font-size="16" fill="#68645E">staging → SHA-256 + size re-verified → atomic rename into store</text>
+    <path d="M 74 244 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 03 -->
+  <g>
+    <rect x="56" y="264" width="3" height="60" fill="#171717"/>
+    <text class="num" x="72" y="288" font-size="24" fill="#B43A32">03</text>
+    <text class="t" x="112" y="288" font-size="25" fill="#171717">Review bounded summary</text>
+    <text class="t" x="112" y="311" font-size="16" fill="#68645E">--summary adds one derived line: status, counts, next_action</text>
+    <path d="M 74 332 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- 04 -->
+  <g>
+    <rect x="56" y="352" width="3" height="60" fill="#171717"/>
+    <text class="num" x="72" y="376" font-size="24" fill="#B43A32">04</text>
+    <text class="t" x="112" y="376" font-size="25" fill="#171717">Read targeted evidence</text>
+    <text class="t" x="112" y="399" font-size="16" fill="#68645E">read &lt;id&gt; --path / --field re-validates the artifact — no Git re-run</text>
+  </g>
+
+  <!-- snapshot store -->
+  <g>
+    <rect x="56" y="440" width="648" height="100" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text class="t" x="80" y="470" font-size="19" font-weight="600" fill="#171717">Snapshot store · content-addressed</text>
+    <text class="t" x="80" y="495" font-size="16" fill="#68645E">$XDG_STATE_HOME/snapshot-runner/snapshots/&lt;snapshot-id&gt;/</text>
+    <text class="t" x="80" y="519" font-size="16" fill="#68645E">snapshot.json · preview.txt · meta.json — directory 0700, files 0600</text>
+  </g>
+
+  <!-- trust boundary -->
+  <g>
+    <rect x="56" y="562" width="648" height="108" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="t" x="80" y="592" font-size="19" font-weight="600" fill="#B43A32">Trust &amp; security boundary</text>
+    <text class="t" x="80" y="617" font-size="16" fill="#68645E">Stored values are evidence, not instructions — they cannot change the task</text>
+    <text class="t" x="80" y="641" font-size="16" fill="#68645E">Redaction cannot prove secrets absent — review preview.txt before upload</text>
+    <text class="t" x="80" y="665" font-size="16" fill="#68645E">Fail-closed: refusals stay explicit gaps; no automatic analysis</text>
+  </g>
+
+  <!-- architecture band -->
+  <line x1="56" y1="698" x2="704" y2="698" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="56" y="726" font-size="16" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="16" fill="#68645E">
+    <text x="56" y="752" fill="#171717" font-weight="600">Command &amp; Contract</text>
+    <text x="248" y="752">five subcommands pinned in tool_cli_contract.json</text>
+    <text x="56" y="778" fill="#171717" font-weight="600">Read-only Git</text>
+    <text x="248" y="778">sanitized calls · no repository-controlled programs</text>
+    <text x="56" y="804" fill="#171717" font-weight="600">Snapshot Artifact</text>
+    <text x="248" y="804">canonical JSON · hash-addressed · private modes</text>
+    <text x="56" y="830" fill="#171717" font-weight="600">Summary &amp; Reader</text>
+    <text x="248" y="830">one bounded summary line · targeted evidence reads</text>
+  </g>
+  <line x1="56" y1="852" x2="704" y2="852" stroke="#171717" stroke-width="1" opacity="0.25"/>
+</svg>

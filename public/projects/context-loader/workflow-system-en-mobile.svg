@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 810" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="460" height="810" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="13" font-weight="600">
+    <rect x="40" y="36" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="58" y="46" fill="#171717">Context pipeline</text>
+    <rect x="172" y="36" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="190" y="46" fill="#B43A32">Boundary</text>
+    <text x="420" y="46" text-anchor="end" fill="#68645E" font-weight="400">2026-09</text>
+  </g>
+  <line x1="40" y1="60" x2="420" y2="60" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- stages -->
+  <g class="t">
+    <text class="num" x="40" y="94" font-size="18" fill="#B43A32">01</text>
+    <text x="72" y="94" font-size="19" fill="#171717">Locate Git Root</text>
+    <text x="72" y="113" font-size="12" fill="#68645E">absolute path · canonical root</text>
+
+    <text class="num" x="40" y="146" font-size="18" fill="#B43A32">02</text>
+    <text x="72" y="146" font-size="19" fill="#171717">Read Fixed Root Files</text>
+    <text x="72" y="165" font-size="12" fill="#68645E">AGENTS.md · README.md · entry files</text>
+
+    <text class="num" x="40" y="198" font-size="18" fill="#B43A32">03</text>
+    <text x="72" y="198" font-size="19" fill="#171717">Bounded AGENTS Selection</text>
+    <text x="72" y="217" font-size="12" fill="#68645E">head + --focus hits · index for the rest</text>
+
+    <text class="num" x="40" y="250" font-size="18" fill="#B43A32">04</text>
+    <text x="72" y="250" font-size="19" fill="#171717">Render Markdown or JSON</text>
+    <text x="72" y="269" font-size="12" fill="#68645E">seven fixed sections · no timestamps</text>
+
+    <text class="num" x="40" y="302" font-size="18" fill="#B43A32">05</text>
+    <text x="72" y="302" font-size="19" fill="#171717">Statuses &amp; Hashes</text>
+    <text x="72" y="321" font-size="12" fill="#68645E">context_sha256 · statuses · exit 0/1/2</text>
+  </g>
+
+  <!-- boundary -->
+  <g class="t">
+    <rect x="40" y="344" width="380" height="100" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="58" y="370" font-size="15" font-weight="600" fill="#B43A32">Boundary — never happens</text>
+    <text x="58" y="392" font-size="12" fill="#68645E">no fetch · no code execution · no network</text>
+    <text x="58" y="412" font-size="12" fill="#68645E">no writes to target · no Git mutation · no tests</text>
+    <text x="58" y="432" font-size="12" fill="#68645E">fixed /usr/bin/git · sanitized environment</text>
+  </g>
+
+  <!-- budget -->
+  <text class="t" x="40" y="472" font-size="12" fill="#68645E">stdout ≤ 98,304 B · AGENTS head ≤ 4 KiB · tree ≤ 12 KiB</text>
+
+  <!-- layers -->
+  <line x1="40" y1="492" x2="420" y2="492" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="520" font-size="15" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="12" fill="#68645E">
+    <text x="40" y="548" fill="#171717" font-weight="600" font-size="14">CLI &amp; Contract</text>
+    <text x="240" y="548">flags · exit codes</text>
+    <text x="40" y="576" fill="#171717" font-weight="600" font-size="14">Repository Collector</text>
+    <text x="240" y="576">root check · fixed files</text>
+    <text x="40" y="604" fill="#171717" font-weight="600" font-size="14">Render &amp; Selection</text>
+    <text x="240" y="604">Markdown or JSON</text>
+    <text x="40" y="632" fill="#171717" font-weight="600" font-size="14">Machine-readable Output</text>
+    <text x="240" y="632">hashes · statuses</text>
+  </g>
+
+  <!-- note -->
+  <line x1="40" y1="660" x2="420" y2="660" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="690" font-size="13" fill="#68645E">Byte-identical output for identical inputs,</text>
+  <text class="t" x="40" y="710" font-size="13" fill="#68645E">proven by re-run and cmp.</text>
+  <text class="t" x="40" y="738" font-size="13" fill="#68645E">Fixed selection is not redaction:</text>
+  <text class="t" x="40" y="758" font-size="13" fill="#68645E">inspect the output before sharing it.</text>
+</svg>

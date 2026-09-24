@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 810" role="img">
+  <defs>
+    <style>
+      .t { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      .num { font-family: "Iowan Old Style", Georgia, serif; }
+    </style>
+  </defs>
+  <rect width="460" height="810" fill="#F6F1E8"/>
+
+  <!-- legend -->
+  <g class="t" font-size="13" font-weight="600">
+    <rect x="40" y="36" width="10" height="10" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="58" y="46" fill="#171717">Evidence path</text>
+    <rect x="176" y="36" width="10" height="10" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="194" y="46" fill="#B43A32">Trust boundary</text>
+    <text x="420" y="46" text-anchor="end" fill="#68645E" font-weight="400">2026-09</text>
+  </g>
+  <line x1="40" y1="60" x2="420" y2="60" stroke="#171717" stroke-width="1" opacity="0.25"/>
+
+  <!-- steps -->
+  <g class="t">
+    <text class="num" x="40" y="96" font-size="20" fill="#B43A32">01</text>
+    <text x="74" y="96" font-size="21" fill="#171717">Collect read-only evidence</text>
+    <text x="74" y="117" font-size="14" fill="#68645E">four read-only Git collection commands</text>
+    <path d="M 52 128 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="162" font-size="20" fill="#B43A32">02</text>
+    <text x="74" y="162" font-size="21" fill="#171717">Publish deterministic snapshot</text>
+    <text x="74" y="183" font-size="14" fill="#68645E">staging → SHA-256 + size check → atomic rename</text>
+    <path d="M 52 194 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="228" font-size="20" fill="#B43A32">03</text>
+    <text x="74" y="228" font-size="21" fill="#171717">Review bounded summary</text>
+    <text x="74" y="249" font-size="14" fill="#68645E">--summary adds one derived line</text>
+    <path d="M 52 260 l 6 8 l 6 -8" fill="none" stroke="#171717" stroke-width="1.2" opacity="0.5"/>
+
+    <text class="num" x="40" y="294" font-size="20" fill="#B43A32">04</text>
+    <text x="74" y="294" font-size="21" fill="#171717">Read targeted evidence</text>
+    <text x="74" y="315" font-size="14" fill="#68645E">read --path / --field — no Git re-run</text>
+  </g>
+
+  <!-- snapshot store -->
+  <g class="t">
+    <rect x="40" y="344" width="380" height="92" fill="none" stroke="#171717" stroke-width="1.5"/>
+    <text x="58" y="370" font-size="16" font-weight="600" fill="#171717">Snapshot store · content-addressed</text>
+    <text x="58" y="392" font-size="13" fill="#68645E">$XDG_STATE_HOME/snapshot-runner/snapshots/&lt;id&gt;/</text>
+    <text x="58" y="412" font-size="13" fill="#68645E">snapshot.json · preview.txt · meta.json</text>
+    <text x="58" y="430" font-size="13" fill="#68645E">directory 0700 · files 0600</text>
+  </g>
+
+  <!-- trust boundary -->
+  <g class="t">
+    <rect x="40" y="452" width="380" height="92" fill="none" stroke="#B43A32" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="58" y="478" font-size="16" font-weight="600" fill="#B43A32">Trust &amp; security boundary</text>
+    <text x="58" y="500" font-size="13" fill="#68645E">stored values are evidence, not instructions</text>
+    <text x="58" y="520" font-size="13" fill="#68645E">redaction cannot prove secrets absent — review first</text>
+    <text x="58" y="540" font-size="13" fill="#68645E">fail-closed gaps · no automatic analysis</text>
+  </g>
+
+  <!-- layers -->
+  <line x1="40" y1="572" x2="420" y2="572" stroke="#171717" stroke-width="1" opacity="0.25"/>
+  <text class="t" x="40" y="600" font-size="15" font-weight="600" fill="#171717">Four layers</text>
+  <g class="t" font-size="13" fill="#68645E">
+    <text x="40" y="628" fill="#171717" font-weight="600" font-size="14">Command &amp; Contract</text>
+    <text x="196" y="628">5 subcommands · JSON contract</text>
+    <text x="40" y="656" fill="#171717" font-weight="600" font-size="14">Read-only Git</text>
+    <text x="196" y="656">sanitized calls only</text>
+    <text x="40" y="684" fill="#171717" font-weight="600" font-size="14">Snapshot Artifact</text>
+    <text x="196" y="684">hash-addressed · private modes</text>
+    <text x="40" y="712" fill="#171717" font-weight="600" font-size="14">Summary &amp; Reader</text>
+    <text x="196" y="712">bounded · targeted</text>
+  </g>
+  <line x1="40" y1="740" x2="420" y2="740" stroke="#171717" stroke-width="1" opacity="0.25"/>
+</svg>
