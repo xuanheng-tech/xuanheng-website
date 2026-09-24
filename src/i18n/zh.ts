@@ -249,7 +249,7 @@ export const zh = {
       capabilities: [
         {
           name: '仓库证据采集',
-          description: '通过只读 Git 操作收集分支状态、差异、未跟踪文件、分支评审与测试日志。',
+          description: '通过只读 Git 操作收集分支状态、差异、未跟踪文件与分支评审，并在明确大小上限内读取已有测试日志。',
         },
         {
           name: '确定性产物',
@@ -316,7 +316,7 @@ export const zh = {
       workflow: ['定位 Git 根', '采集有界根文件', '渲染 Markdown / JSON', '复核状态与哈希'],
       systemLayers: ['CLI 与契约层', '仓库采集层', '渲染与选择层', '机器可读输出层'],
       currentState: {
-        implemented: '1.1.0 已发布至 PyPI（context-loader 发行版，project-context 命令），支持 Markdown 与 JSON 输出模式，运行时零第三方依赖。',
+        implemented: '1.3.0 已发布至 PyPI（context-loader 发行版，project-context 命令），提供 Markdown、JSON 与精简 JSON 三种输出格式，运行时零第三方依赖。',
         currentFocus: '保持声明的 JSON schema 与 Markdown 分节契约对机器调用方稳定。',
         nextDirection: '继续作为仓库根上下文的有界传输；指令层级的解析由调用方的 Agent 框架负责。',
       },

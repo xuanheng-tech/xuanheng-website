@@ -259,7 +259,7 @@ export const en = {
       capabilities: [
         {
           name: 'Repository Evidence',
-          description: 'Collecting branch state, diffs, untracked files, branch reviews and test logs through read-only Git operations.',
+          description: 'Collecting branch state, diffs, untracked files and branch reviews through read-only Git operations, and existing test logs within explicit size limits.',
         },
         {
           name: 'Deterministic Artifacts',
@@ -336,7 +336,7 @@ export const en = {
         'Machine-readable Output Layer',
       ],
       currentState: {
-        implemented: 'Release 1.1.0 on PyPI ships the context-loader distribution with the project-context command and Markdown and JSON output modes, using only the Python standard library.',
+        implemented: 'Release 1.3.0 on PyPI ships the context-loader distribution with the project-context command and three output formats — Markdown, JSON and compact JSON — using only the Python standard library.',
         currentFocus: 'Keeping the declared JSON schema and Markdown section contract stable for machine callers.',
         nextDirection: 'Remaining a bounded transport for repository-root context while instruction-hierarchy resolution stays with the calling agent harness.',
       },
