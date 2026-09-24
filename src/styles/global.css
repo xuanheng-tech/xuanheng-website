@@ -2120,15 +2120,20 @@ html[lang="zh-CN"] .hero__statement {
   }
 }
 
-/* Phase 1 — soften oversized serif CJK prose (zh-CN only).
-   Latin stays on the serif stack; only the CJK slot moves to the modern
-   system sans, so English typography is unchanged. */
+/* Phase 1 + 2 — Chinese content level is a single modern sans (Latin + CJK
+   share the same sans stack, so embedded AI / Native Agent / AGENTS / CLI /
+   JSON / Git match the surrounding Chinese). Scoped to zh-CN, so English
+   pages are untouched. Brand-level display (hero h1, statement, project h1)
+   stays serif. */
+:root {
+  --sans-cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Source Han Sans SC", system-ui, sans-serif;
+}
+
 html[lang="zh-CN"] .project-overview__copy,
 html[lang="zh-CN"] .section-heading__lead,
 html[lang="zh-CN"] .project-hero__summary {
-  font-family: "Iowan Old Style", "Baskerville", "Times New Roman",
-    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-    "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  font-family: var(--sans-cjk);
   font-weight: 400;
   letter-spacing: 0.025em;
 }
@@ -2153,4 +2158,50 @@ html[lang="zh-CN"] .project-hero__summary {
 
 html[lang="zh-CN"] .project-overview__copy {
   font-size: clamp(1.41rem, 2.52vw, 2.09rem);
+}
+
+/* Phase 2 — content-level headings go modern sans (zh-CN only).
+   Brand display (hero h1 / statement / project-hero h1) intentionally stays serif. */
+html[lang="zh-CN"] .section-heading h2,
+html[lang="zh-CN"] .about-preview h2,
+html[lang="zh-CN"] .editorial-grid h2,
+html[lang="zh-CN"] .projects-page__heading h2,
+html[lang="zh-CN"] .contact-band h2 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.14;
+  font-size: clamp(2.55rem, 4.35vw, 4.1rem);
+}
+
+html[lang="zh-CN"] .project-section__heading h2 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.14;
+  font-size: clamp(2.4rem, 4.25vw, 3.85rem);
+}
+
+html[lang="zh-CN"] .project-card h3 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.25;
+  font-size: clamp(1.45rem, 1.83vw, 1.78rem);
+}
+
+html[lang="zh-CN"] .research__item h3 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.25;
+  font-size: clamp(1.4rem, 2.42vw, 2.07rem);
+}
+
+html[lang="zh-CN"] .directions__list h3 {
+  font-family: var(--sans-cjk);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.25;
+  font-size: 1.59rem;
 }
