@@ -10,6 +10,12 @@
      650 and 700 onto title/emphasis changes nothing; 500 stays Medium. */
   --xh-radius-pill-circle: 50%;
   --xh-border: 1px;
+
+  /* Registered stacking tiers, verbatim values from tokens.css. The site has exactly two
+     positioned layers; the skip link must stay above the sticky header, and 45 > 20 keeps
+     that order for free. */
+  --xh-z-sticky: 20;
+  --xh-z-toast: 45;
   --xh-weight-body: 400;
   --xh-weight-label: 500;
   --xh-weight-title: 600;
@@ -27,7 +33,6 @@
   --xh-focus-ring: #a7352e;   /* registered light value; distinct from the hover crimson */
   --xh-border-subtle: rgba(23, 23, 23, 0.18);
   --xh-border-strong-color: rgba(23, 23, 23, 0.4);
-  --xh-divider: rgba(246, 241, 232, 0.2);
   /* Site-local layers. These are NOT registered contract names, because the contract's
      accent-hover / accent-text / on-accent describe a filled-brand-button context this
      light-only site does not have: its crimson clears AA on paper as text (5.20:1), its
@@ -41,6 +46,7 @@
   --line-emphasis: rgba(23, 23, 23, 0.58);
   --line-raised: rgba(23, 23, 23, 0.16);
   --line-on-ink: rgba(246, 241, 232, 0.4);
+  --line-on-ink-subtle: rgba(246, 241, 232, 0.2);
   --veil-ink: rgba(23, 23, 23, 0.1);
   --tint-ink: rgba(23, 23, 23, 0.08);
   --tint-paper: rgba(246, 241, 232, 0.025);
@@ -50,16 +56,14 @@
   /* Inverted band: the site's ink-coloured sections are a scope the contract does
      not describe (§2A is whole-page theme, this is per-section). Kept as brand
      tokens, not --xh-* names, because they are not registered. */
-  --xh-band-ink: #171717;
-  --band-muted: #aaa49c;
-  --paper: #f6f1e8;
+    --paper: var(--xh-bg);
   --paper-light: var(--xh-surface);
   --red: var(--xh-accent);
   --ink: var(--xh-text);
   --muted: var(--xh-muted);
   --line: var(--xh-border-subtle);
   --line-strong: var(--xh-border-strong-color);
-  --line-light: var(--xh-divider);
+  --line-light: var(--line-on-ink-subtle);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", "Songti SC",
@@ -84,7 +88,6 @@ html {
 }
 
 body {
-  min-width: 320px;
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -152,7 +155,7 @@ summary {
 
 .skip-link {
   position: fixed;
-  z-index: 1000;
+  z-index: var(--xh-z-toast);
   top: 12px;
   left: 12px;
   padding: 10px 16px;
@@ -177,7 +180,7 @@ summary {
 
 .site-header {
   position: sticky;
-  z-index: 100;
+  z-index: var(--xh-z-sticky);
   top: 0;
   border-bottom: var(--xh-border) solid var(--line);
   background: var(--paper);
@@ -1294,9 +1297,16 @@ summary {
   border-bottom: var(--xh-border) solid var(--line);
 }
 
-.project-list-number,
-.project-system-view__layers span {
+/* Split on purpose: on paper the brand crimson is 5.20:1 and stays; the same class
+   inside the ink band was 3.07:1, so the band copy takes the band accent at 4.69:1. */
+.project-list-number {
   color: var(--red);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-system-view__layers span {
+  color: var(--band-accent);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
@@ -2114,7 +2124,7 @@ html[lang="zh-CN"] .about-preview__lead,
 html[lang="zh-CN"] .project-hero__summary,
 html[lang="zh-CN"] .research-belief blockquote,
 html[lang="zh-CN"] .project-principles__list p {
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 html[lang="zh-CN"] .research .section-heading__lead {
@@ -2472,8 +2482,7 @@ html[lang="zh-CN"] .project-card__action:not([lang="en"]) {
 html[lang="zh-CN"] .site-footer:not([lang="en"]),
 html[lang="zh-CN"] .fact-strip dt:not([lang="en"]),
 html[lang="zh-CN"] .page-next__inner > p:not([lang="en"]),
-html[lang="zh-CN"] .project-hero__status:not([lang="en"]),
-html[lang="zh-CN"] .project-hero__repo:not([lang="en"]) {
+html[lang="zh-CN"] .project-hero__status:not([lang="en"]) {
   letter-spacing: 0;
 }
 html[lang="zh-CN"] .project-current-state__grid h3:not([lang="en"]),
@@ -2485,12 +2494,23 @@ html[lang="zh-CN"] .section-heading .eyebrow:not([lang="en"]) {
 }
 html[lang="zh-CN"] .about-preview .eyebrow:not([lang="en"]),
 html[lang="zh-CN"] .contact-band .eyebrow:not([lang="en"]),
-html[lang="zh-CN"] .projects-page__heading .eyebrow:not([lang="en"]),
-html[lang="zh-CN"] .project-section__heading .eyebrow:not([lang="en"]),
-html[lang="zh-CN"] .editorial-grid .eyebrow:not([lang="en"]) {
+html[lang="zh-CN"] .projects-page__heading .eyebrow:not([lang="en"]) {
   letter-spacing: 0;
 }
 html[lang="zh-CN"] .eyebrow:not([lang="en"]),
 html[lang="zh-CN"] .fact-strip dt:not([lang="en"]) {
   text-transform: none;
+}
+
+/* ---- Chinese runs that do not depend on which route you are on ---------------
+   .brand__zh is the 玄衡科技 wordmark: Han on every route, including /en/, and it
+   carries no lang attribute of its own, so an html[lang="zh-CN"] descendant guard can
+   never reach it from the English document. Same for the 中文 option, which is marked
+   at the element. These are scoped to the element itself, not to the document. */
+.brand__zh {
+  letter-spacing: 0;
+}
+
+.language-switch a[lang="zh-CN"] {
+  letter-spacing: 0;
 }

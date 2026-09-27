@@ -60,7 +60,10 @@ const {
       </nav>
 
       <details class="mobile-menu">
-        <summary aria-label={content.chrome.mobileMenuLabel}>
+        {/* WCAG 2.5.3 Label in Name: aria-label replaces content, so the accessible
+            name has to contain what is actually painted. The visible label is the Latin
+            "MENU" on both routes, and the zh string ('导航菜单') did not contain it. */}
+        <summary aria-label={`${content.chrome.mobileMenuLabel} MENU`}>
           <span class="mobile-menu__label" lang="en">MENU</span>
           <span class="mobile-menu__icon" aria-hidden="true"></span>
         </summary>

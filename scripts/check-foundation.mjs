@@ -48,15 +48,20 @@ for (const rule of rules) {
 // 3. no literal design colour outside the token block
 const afterRoot = css.split(/\n\*,\n\*::before/)[1] ?? "";
 check(afterRoot.length > 20_000, "could not isolate the post-root section");
-const hexes = afterRoot.match(/#[0-9a-fA-F]{3,8}\b/g) ?? [];
-if (hexes.length) problems.push(`literal colour(s) outside the token block: ${[...new Set(hexes)].join(", ")}`);
+const literals = [...(afterRoot.match(/#[0-9a-fA-F]{3,8}\b/g) ?? []),
+                  ...(afterRoot.match(/rgba?\([^)]*\)/g) ?? [])];
+if (literals.length) problems.push(`literal colour(s) outside the token block: ${[...new Set(literals)].slice(0, 6).join(", ")}`);
 
 // 4. declared --xh-* roles must be consumed (an unused role is a fake vocabulary)
 const declared = new Set([...css.matchAll(/^\s*(--xh-weight-[a-z]+)\s*:/gm)].map((m) => m[1]));
-for (const token of declared) {
-  if (!css.includes(`var(${token})`)) problems.push(`declared but unconsumed: ${token}`);
-}
 check(declared.size >= 4, `only ${declared.size} weight roles declared`);
+// Whole-namespace, both directions: an unconsumed declaration is a fake vocabulary and
+// an undeclared reference silently falls back to nothing. The weight-only regex earlier
+// let a zero-consumer --xh-band-ink and an undeclared --xh-z-sticky through.
+const allDeclared = new Set([...css.matchAll(/^\s*(--xh-[a-z0-9-]+)\s*:/gm)].map((m) => m[1]));
+const allUsed = new Set([...css.matchAll(/var\((--xh-[a-z0-9-]+)\)/g)].map((m) => m[1]));
+for (const t of allDeclared) if (!allUsed.has(t)) problems.push(`declared but unconsumed: ${t}`);
+for (const t of allUsed) if (!allDeclared.has(t) && !t.startsWith("--xh-weight")) problems.push(`used but never declared: ${t}`);
 
 // 5. Chinese must take no tracking and no case transform (§3, §9). The site marks its
 //    Latin runs with lang="en", so that - not a class list - is the exemption.
@@ -69,8 +74,11 @@ if (!zhGuards.some((m) => /text-transform:\s*none/.test(m[1]))) {
   problems.push("no zh-CN text-transform: none override present");
 }
 for (const match of zhGuards) {
-  if (/letter-spacing:\s*0?\.\d+em/.test(match[1])) {
-    problems.push(`zh-CN rule still sets positive tracking: ${match[1].trim().slice(0, 60)}`);
+  /* `--latin` marks a Latin title that happens to live on the zh route, where tight
+     display tracking is legal (§3 permits it for Latin), so it is exempt. */
+  if (/--latin/.test(match[0])) continue;
+  if (/letter-spacing:\s*-?0?\.\d+em/.test(match[1])) {
+    problems.push(`zh-CN rule still sets tracking: ${match[1].trim().slice(0, 60)}`);
   }
 }
 
