@@ -1,12 +1,65 @@
 :root {
+  /* ---- Xuanheng UI Foundation v1.4 semantic layer --------------------------
+     Names are the contract's. Values stay the brand's where the contract's own
+     number would move the brand: paper/ink differ from the registered values by
+     2 and 18 per channel, and 18 is visible. §3A.3 already accepts one name with
+     different values by context; this applies that to colour ground.
+     Contract crimson is NOT divergent: --red is byte-identical to --xh-accent. */
+  /* §3A.2 role tokens. 600/650/700 are one and the same Bold face here (no 600
+     static face exists and no variable axis is loaded), so collapsing the site's
+     650 and 700 onto title/emphasis changes nothing; 500 stays Medium. */
+  --xh-radius-pill-circle: 50%;
+  --xh-border: 1px;
+  --xh-weight-body: 400;
+  --xh-weight-label: 500;
+  --xh-weight-title: 600;
+  /* --xh-weight-number is deliberately NOT declared: this site has no surface where a
+     numeral carries its own weight - the index numerals inherit, and the stat values in
+     .fact-strip dd are serif at inherited weight with tabular-nums already applied.
+     Declaring an unconsumed role is the defect §13.3.8/§15.1 warn about. */
+  --xh-weight-emphasis: 700;
+
+  --xh-bg: #f6f1e8;                 /* brand paper  (contract registers #f4efe6) */
+  --xh-surface: #fbf8f2;            /* brand paper-light */
+  --xh-text: #171717;               /* brand ink */
+  --xh-muted: #68645e;
+  --xh-accent: #b43a32;             /* identical to the registered value */
+  --xh-focus-ring: #a7352e;   /* registered light value; distinct from the hover crimson */
+  --xh-border-subtle: rgba(23, 23, 23, 0.18);
+  --xh-border-strong-color: rgba(23, 23, 23, 0.4);
+  --xh-divider: rgba(246, 241, 232, 0.2);
+  /* Site-local layers. These are NOT registered contract names, because the contract's
+     accent-hover / accent-text / on-accent describe a filled-brand-button context this
+     light-only site does not have: its crimson clears AA on paper as text (5.20:1), its
+     primary CTA is ink-filled, and its lighter crimson exists to stay readable on the
+     ink band. Reusing a registered name for the opposite meaning is worse than a local
+     name, and an unconsumed registered name is the defect §13.3.8/§15.1 warn about. */
+  --band-accent: #d85a50;            /* crimson legible on an ink band */
+  --band-muted: #aaa49c;             /* muted text on an ink band */
+  --qr-paper: #ffffff;               /* scannable code needs true white */
+  --line-heavy: rgba(23, 23, 23, 0.28);
+  --line-emphasis: rgba(23, 23, 23, 0.58);
+  --line-raised: rgba(23, 23, 23, 0.16);
+  --line-on-ink: rgba(246, 241, 232, 0.4);
+  --veil-ink: rgba(23, 23, 23, 0.1);
+  --tint-ink: rgba(23, 23, 23, 0.08);
+  --tint-paper: rgba(246, 241, 232, 0.025);
+  --shadow-pop: 0 18px 48px rgba(23, 23, 23, 0.12);
+  --shadow-card-hover: 0 12px 30px rgba(23, 23, 23, 0.055);
+
+  /* Inverted band: the site's ink-coloured sections are a scope the contract does
+     not describe (§2A is whole-page theme, this is per-section). Kept as brand
+     tokens, not --xh-* names, because they are not registered. */
+  --xh-band-ink: #171717;
+  --band-muted: #aaa49c;
   --paper: #f6f1e8;
-  --paper-light: #fbf8f2;
-  --red: #b43a32;
-  --ink: #171717;
-  --muted: #68645e;
-  --line: rgba(23, 23, 23, 0.18);
-  --line-strong: rgba(23, 23, 23, 0.4);
-  --line-light: rgba(246, 241, 232, 0.2);
+  --paper-light: var(--xh-surface);
+  --red: var(--xh-accent);
+  --ink: var(--xh-text);
+  --muted: var(--xh-muted);
+  --line: var(--xh-border-subtle);
+  --line-strong: var(--xh-border-strong-color);
+  --line-light: var(--xh-divider);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", "Songti SC",
@@ -88,7 +141,7 @@ summary {
 }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--xh-focus-ring);
   outline-offset: 4px;
 }
 
@@ -116,7 +169,7 @@ summary {
 .eyebrow {
   color: var(--red);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.18em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -126,7 +179,7 @@ summary {
   position: sticky;
   z-index: 100;
   top: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
   background: var(--paper);
 }
 
@@ -163,14 +216,14 @@ summary {
 
 .brand__zh {
   font-size: 1.18rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-emphasis);
   letter-spacing: 0.12em;
 }
 
 .brand__en {
   color: var(--muted);
   font-size: 0.55rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-emphasis);
   letter-spacing: 0.13em;
 }
 
@@ -244,11 +297,11 @@ summary {
 .language-switch a:hover,
 .language-switch a[aria-current="page"] {
   color: var(--ink);
-  font-weight: 700;
+  font-weight: var(--xh-weight-title);
 }
 
 .language-switch > span {
-  color: rgba(23, 23, 23, 0.28);
+  color: var(--line-heavy);
 }
 
 .mobile-menu {
@@ -276,7 +329,7 @@ summary {
 
 .mobile-menu__label {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.13em;
 }
 
@@ -316,13 +369,13 @@ summary {
   top: 100%;
   right: 0;
   width: min(320px, calc(100vw - 32px));
-  border: 1px solid var(--ink);
+  border: var(--xh-border) solid var(--ink);
   background: var(--paper-light);
-  box-shadow: 0 18px 48px rgba(23, 23, 23, 0.12);
+  box-shadow: var(--shadow-pop);
 }
 
 .mobile-menu li + li {
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
 }
 
 .mobile-menu a {
@@ -339,7 +392,7 @@ summary {
 
 .hero {
   padding: clamp(3.25rem, 5vw, 4.5rem) 0 clamp(5rem, 8vw, 7.5rem);
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .hero__grid {
@@ -371,7 +424,7 @@ summary {
   margin-top: 30px;
   font-family: var(--font-serif);
   font-size: clamp(4.5rem, 8.6vw, 7.75rem);
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   letter-spacing: -0.06em;
   line-height: 0.96;
   animation: fade-up 700ms 140ms both var(--ease);
@@ -382,7 +435,7 @@ summary {
   margin-top: 38px;
   font-family: var(--font-serif);
   font-size: clamp(1.8rem, 3.05vw, 3rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.035em;
   line-height: 1.28;
   animation: fade-up 700ms 200ms both var(--ease);
@@ -420,9 +473,9 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 36px;
-  border: 1px solid var(--ink);
+  border: var(--xh-border) solid var(--ink);
   font-size: 0.86rem;
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
 }
 
@@ -448,7 +501,7 @@ summary {
   align-content: center;
   align-self: stretch;
   padding-left: clamp(36px, 4.5vw, 64px);
-  border-left: 1px solid rgba(23, 23, 23, 0.1);
+  border-left: var(--xh-border) solid var(--veil-ink);
   animation: fade-up 700ms 380ms both var(--ease);
 }
 
@@ -473,7 +526,7 @@ summary {
 
 .hero__signature p:first-child {
   font-size: 0.62rem;
-  font-weight: 700;
+  font-weight: var(--xh-weight-emphasis);
   letter-spacing: 0.16em;
 }
 
@@ -504,7 +557,7 @@ summary {
   margin-top: 18px;
   font-family: var(--font-serif);
   font-size: clamp(2.65rem, 4.5vw, 4.25rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.05em;
   line-height: 1.05;
 }
@@ -523,15 +576,15 @@ summary {
 }
 
 .section-heading--light .eyebrow {
-  color: #d85a50;
+  color: var(--band-accent);
 }
 
 .section-heading--light .section-heading__lead {
-  color: #aaa49c;
+  color: var(--band-muted);
 }
 
 .research__list {
-  border-top: 1px solid var(--line-light);
+  border-top: var(--xh-border) solid var(--line-light);
 }
 
 .research__item {
@@ -539,7 +592,7 @@ summary {
   display: grid;
   grid-template-columns: 80px minmax(260px, 0.85fr) minmax(280px, 1fr);
   gap: 36px;
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: var(--xh-border) solid var(--line-light);
   align-items: center;
   transition: padding 220ms var(--ease), background-color 220ms ease;
 }
@@ -547,11 +600,11 @@ summary {
 .research__item:hover {
   padding-right: 12px;
   padding-left: 12px;
-  background: rgba(246, 241, 232, 0.025);
+  background: var(--tint-paper);
 }
 
 .research__number {
-  color: #d85a50;
+  color: var(--band-accent);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
@@ -559,13 +612,13 @@ summary {
 .research__item h3 {
   font-family: var(--font-serif);
   font-size: clamp(1.45rem, 2.5vw, 2.15rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   line-height: 1.25;
 }
 
 .research__item > p {
   max-width: 520px;
-  color: #aaa49c;
+  color: var(--band-muted);
   font-size: 0.92rem;
   line-height: 1.85;
 }
@@ -583,9 +636,9 @@ summary {
   display: inline-flex;
   align-items: center;
   gap: 28px;
-  border-bottom: 1px solid currentColor;
+  border-bottom: var(--xh-border) solid currentColor;
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   transition: color 180ms ease, gap 220ms var(--ease);
 }
 
@@ -606,11 +659,11 @@ summary {
 
 .project-group__title {
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: var(--xh-border) solid var(--ink);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.1em;
   line-height: 1.4;
 }
@@ -623,7 +676,7 @@ summary {
 
 .project-card {
   min-width: 0;
-  border: 1px solid var(--line-strong);
+  border: var(--xh-border) solid var(--line-strong);
   background: transparent;
   transition: transform 220ms var(--ease), border-color 180ms ease,
     background-color 180ms ease, box-shadow 220ms var(--ease);
@@ -632,9 +685,9 @@ summary {
 .project-card:hover,
 .project-card:focus-within {
   transform: translateY(-2px);
-  border-color: rgba(23, 23, 23, 0.58);
+  border-color: var(--line-emphasis);
   background: var(--paper-light);
-  box-shadow: 0 12px 30px rgba(23, 23, 23, 0.055);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .project-card__link {
@@ -656,7 +709,7 @@ summary {
   gap: 8px 20px;
   color: var(--muted);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.1em;
   line-height: 1.4;
 }
@@ -669,7 +722,7 @@ summary {
   margin-top: 14px;
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 1.9vw, 1.85rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.02em;
   line-height: 1.2;
   overflow-wrap: anywhere;
@@ -685,14 +738,14 @@ summary {
 .project-card__action {
   margin-top: 18px;
   padding-top: 13px;
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   color: var(--ink);
   font-size: 0.8125rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.04em;
   transition: gap 220ms var(--ease), color 180ms ease;
 }
@@ -704,7 +757,7 @@ summary {
 }
 
 .about-preview {
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
 }
 
 .about-preview__grid {
@@ -766,7 +819,7 @@ summary {
 
 .contact-band {
   padding: clamp(3.25rem, 4.5vw, 4.25rem) 0;
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
   background: var(--paper-light);
   color: var(--ink);
 }
@@ -786,7 +839,7 @@ summary {
   margin-top: 14px;
   font-family: var(--font-serif);
   font-size: clamp(2rem, 3.4vw, 3rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.03em;
   line-height: 1.05;
 }
@@ -798,11 +851,11 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
   color: var(--red);
   font-family: var(--font-sans);
   font-size: clamp(1.125rem, 1.6vw, 1.375rem);
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   overflow-wrap: anywhere;
   transition: color 180ms ease, border-color 180ms ease;
 }
@@ -814,7 +867,7 @@ summary {
 
 .site-footer {
   padding: 24px 0;
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
   background: var(--paper);
   color: var(--muted);
   font-size: 0.75rem;
@@ -847,7 +900,7 @@ summary {
 
 .page-hero {
   padding: clamp(5.25rem, 8.5vw, 8rem) 0 clamp(4.5rem, 7vw, 6.5rem);
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .page-hero__grid {
@@ -861,7 +914,7 @@ summary {
   margin-top: 30px;
   font-family: var(--font-serif);
   font-size: clamp(3.6rem, 6.4vw, 6.35rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.06em;
   line-height: 1.08;
   animation: fade-up 700ms 100ms both var(--ease);
@@ -869,7 +922,7 @@ summary {
 
 .page-hero__lead {
   padding-top: 22px;
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
   font-family: var(--font-serif);
   font-size: clamp(1.3rem, 2vw, 1.8rem);
   line-height: 1.55;
@@ -896,13 +949,13 @@ summary {
 
 .fact-strip dl > div + div {
   padding-left: 28px;
-  border-left: 1px solid var(--line-light);
+  border-left: var(--xh-border) solid var(--line-light);
 }
 
 .fact-strip dt {
-  color: #aaa49c;
+  color: var(--band-muted);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -946,13 +999,13 @@ summary {
 }
 
 .research-belief .eyebrow {
-  color: #d85a50;
+  color: var(--band-accent);
 }
 
 .research-belief blockquote {
   max-width: 780px;
   padding-top: 30px;
-  border-top: 1px solid var(--line-light);
+  border-top: var(--xh-border) solid var(--line-light);
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3.8rem);
   letter-spacing: -0.04em;
@@ -961,11 +1014,11 @@ summary {
 
 .research-belief blockquote p + p {
   margin-top: 56px;
-  color: #aaa49c;
+  color: var(--band-muted);
 }
 
 .directions__list {
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .directions__list article {
@@ -973,7 +1026,7 @@ summary {
   display: grid;
   grid-template-columns: 80px minmax(250px, 0.8fr) minmax(280px, 1fr);
   gap: 36px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
   align-items: center;
 }
 
@@ -985,7 +1038,7 @@ summary {
 .directions__list h3 {
   font-family: var(--font-serif);
   font-size: 1.65rem;
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
 }
 
 .directions__list article > p {
@@ -996,7 +1049,7 @@ summary {
 
 .page-next {
   padding: 44px 0;
-  border-top: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--line);
 }
 
 .page-next__inner {
@@ -1033,7 +1086,7 @@ summary {
   align-items: end;
   justify-content: space-between;
   gap: 32px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: var(--xh-border) solid var(--ink);
 }
 
 .projects-page__heading h2 {
@@ -1042,7 +1095,7 @@ summary {
 
 .project-hero {
   padding: clamp(5.75rem, 8.5vw, 8rem) 0 clamp(5.5rem, 8vw, 7.5rem);
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-hero__grid {
@@ -1056,7 +1109,7 @@ summary {
 .project-hero h1 {
   font-family: var(--font-serif);
   font-size: clamp(3.75rem, 6.5vw, 6.25rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.06em;
   line-height: 1.03;
   overflow-wrap: anywhere;
@@ -1083,7 +1136,7 @@ summary {
 
 .project-hero__meta {
   padding-top: 22px;
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .project-hero__status {
@@ -1092,7 +1145,7 @@ summary {
   gap: 10px;
   color: var(--muted);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.08em;
 }
 
@@ -1101,7 +1154,7 @@ summary {
   height: 6px;
   margin-top: 7px;
   flex: 0 0 auto;
-  border-radius: 50%;
+  border-radius: var(--xh-radius-pill-circle);
   background: var(--red);
 }
 
@@ -1111,10 +1164,10 @@ summary {
   align-items: center;
   gap: 8px;
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
   color: var(--red);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.08em;
   transition: color 180ms ease;
 }
@@ -1136,7 +1189,7 @@ summary {
 
 .project-hero__focus li {
   padding: 6px 9px;
-  border: 1px solid rgba(23, 23, 23, 0.16);
+  border: var(--xh-border) solid var(--line-raised);
   color: var(--muted);
   font-size: 0.75rem;
   line-height: 1.35;
@@ -1165,8 +1218,8 @@ summary {
 }
 
 .project-figure--shot img {
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(23, 23, 23, 0.08);
+  border: var(--xh-border) solid var(--line);
+  box-shadow: 0 12px 30px var(--tint-ink);
 }
 
 .project-hero .project-figure--shot {
@@ -1180,15 +1233,15 @@ summary {
 }
 
 .project-figure--plate img {
-  border: 1px solid rgba(246, 241, 232, 0.4);
+  border: var(--xh-border) solid var(--line-on-ink);
 }
 
 .project-figure--plate figcaption {
-  color: #aaa49c;
+  color: var(--band-muted);
 }
 
 .project-section {
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-section__grid {
@@ -1202,7 +1255,7 @@ summary {
   margin-top: 20px;
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 4.4vw, 4rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.05em;
   line-height: 1.08;
 }
@@ -1229,7 +1282,7 @@ summary {
 }
 
 .project-capabilities__list {
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .project-capabilities__list li {
@@ -1238,7 +1291,7 @@ summary {
   grid-template-columns: 72px minmax(220px, 0.72fr) minmax(280px, 1fr);
   gap: 32px;
   align-items: center;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-list-number,
@@ -1251,7 +1304,7 @@ summary {
 .project-capabilities__list h3 {
   font-family: var(--font-serif);
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   line-height: 1.3;
 }
 
@@ -1275,8 +1328,8 @@ summary {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--line);
+  border-top: var(--xh-border) solid var(--ink);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-workflow__steps li:not(:last-child)::after {
@@ -1306,7 +1359,7 @@ summary {
 }
 
 .project-system-view .eyebrow {
-  color: #d85a50;
+  color: var(--band-accent);
 }
 
 .project-section__heading--light {
@@ -1314,7 +1367,7 @@ summary {
 }
 
 .project-system-view__layers {
-  border-top: 1px solid var(--line-light);
+  border-top: var(--xh-border) solid var(--line-light);
 }
 
 .project-system-view__layers li {
@@ -1323,7 +1376,7 @@ summary {
   grid-template-columns: 80px minmax(0, 1fr);
   gap: 32px;
   align-items: center;
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: var(--xh-border) solid var(--line-light);
 }
 
 .project-system-view__layers p {
@@ -1335,7 +1388,7 @@ summary {
 .project-current-state__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .project-current-state__grid article {
@@ -1345,13 +1398,13 @@ summary {
 
 .project-current-state__grid article + article {
   padding-left: 28px;
-  border-left: 1px solid var(--line);
+  border-left: var(--xh-border) solid var(--line);
 }
 
 .project-current-state__grid h3 {
   color: var(--red);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.12em;
 }
 
@@ -1363,7 +1416,7 @@ summary {
 }
 
 .project-principles__list {
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .project-principles__list li {
@@ -1371,7 +1424,7 @@ summary {
   display: grid;
   grid-template-columns: 60px minmax(0, 1fr);
   gap: 24px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-principles__list span {
@@ -1389,7 +1442,7 @@ summary {
 
 .project-navigation {
   padding: 54px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
 }
 
 .project-navigation__grid {
@@ -1415,7 +1468,7 @@ summary {
 .project-navigation__project strong {
   font-family: var(--font-serif);
   font-size: clamp(1.2rem, 2vw, 1.65rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   line-height: 1.3;
   overflow-wrap: anywhere;
   transition: color 180ms ease;
@@ -1427,9 +1480,9 @@ summary {
 
 .project-navigation__all {
   padding-bottom: 5px;
-  border-bottom: 1px solid currentColor;
+  border-bottom: var(--xh-border) solid currentColor;
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
 }
 
 .project-navigation a:hover {
@@ -1455,7 +1508,7 @@ summary {
   color: var(--red);
   font-family: var(--font-serif);
   font-size: clamp(5rem, 10vw, 9rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.07em;
   line-height: 0.82;
 }
@@ -1464,14 +1517,14 @@ summary {
   margin-top: 30px;
   font-family: var(--font-serif);
   font-size: clamp(3.2rem, 5.2vw, 5.2rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.055em;
   line-height: 1.05;
 }
 
 .not-found__copy {
   padding-top: 28px;
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .not-found__copy > p {
@@ -1509,7 +1562,7 @@ summary {
   margin-top: 24px;
   font-family: var(--font-serif);
   font-size: clamp(3.9rem, 7vw, 6.75rem);
-  font-weight: 500;
+  font-weight: var(--xh-weight-label);
   letter-spacing: -0.06em;
   line-height: 1;
 }
@@ -1520,7 +1573,7 @@ summary {
   display: grid;
   grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
   gap: clamp(40px, 5vw, 64px);
-  border-top: 1px solid var(--ink);
+  border-top: var(--xh-border) solid var(--ink);
 }
 
 .contact-page__company p {
@@ -1575,7 +1628,7 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
 .contact-channel__label {
   color: var(--muted);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.12em;
   line-height: 1.4;
 }
@@ -1587,11 +1640,11 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: var(--xh-border) solid var(--line);
   color: var(--red);
   font-family: var(--font-sans);
   font-size: clamp(1.125rem, 2vw, 1.5rem);
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   line-height: 1.3;
   overflow-wrap: anywhere;
   transition: color 180ms ease, border-color 180ms ease;
@@ -1611,8 +1664,8 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
 .contact-channel__qr img {
   width: min(180px, 50vw);
   height: auto;
-  border: 1px solid var(--line);
-  background: #fff;
+  border: var(--xh-border) solid var(--line);
+  background: var(--qr-paper);
 }
 
 .contact-channel__qr figcaption {
@@ -1644,7 +1697,7 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
     align-items: end;
     align-self: auto;
     padding: 36px 0 0;
-    border-top: 1px solid var(--line);
+    border-top: var(--xh-border) solid var(--line);
     border-left: 0;
   }
 
@@ -1852,7 +1905,7 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
 
   .fact-strip dl > div + div {
     padding-left: 0;
-    border-top: 1px solid var(--line-light);
+    border-top: var(--xh-border) solid var(--line-light);
     border-left: 0;
   }
 
@@ -1944,7 +1997,7 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
 
   .project-current-state__grid article + article {
     padding-left: 0;
-    border-top: 1px solid var(--line);
+    border-top: var(--xh-border) solid var(--line);
     border-left: 0;
   }
 
@@ -2144,8 +2197,8 @@ html[lang="zh-CN"] .project-overview__copy,
 html[lang="zh-CN"] .section-heading__lead,
 html[lang="zh-CN"] .project-hero__summary {
   font-family: var(--sans-cjk);
-  font-weight: 400;
-  letter-spacing: 0.025em;
+  font-weight: var(--xh-weight-body);
+  letter-spacing: 0;
 }
 
 html[lang="zh-CN"] .section-heading__lead,
@@ -2178,40 +2231,40 @@ html[lang="zh-CN"] .editorial-grid h2,
 html[lang="zh-CN"] .projects-page__heading h2,
 html[lang="zh-CN"] .contact-band h2 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.14;
   font-size: clamp(2.55rem, 4.35vw, 4.1rem);
 }
 
 html[lang="zh-CN"] .project-section__heading h2 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.14;
   font-size: clamp(2.4rem, 4.25vw, 3.85rem);
 }
 
 html[lang="zh-CN"] .project-card h3 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.25;
   font-size: clamp(1.45rem, 1.83vw, 1.78rem);
 }
 
 html[lang="zh-CN"] .research__item h3 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.25;
   font-size: clamp(1.4rem, 2.42vw, 2.07rem);
 }
 
 html[lang="zh-CN"] .directions__list h3 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.25;
   font-size: 1.59rem;
 }
@@ -2222,7 +2275,7 @@ html[lang="zh-CN"] .directions__list h3 {
 .contact-band .eyebrow,
 .projects-page__heading .eyebrow {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.07em;
   line-height: 1.4;
 }
@@ -2246,40 +2299,40 @@ html[lang="zh-CN"] .directions__list h3 {
    (.hero h1) stays serif as the single Chinese serif anchor. zh-CN only. */
 html[lang="zh-CN"] .hero__statement {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.4;
   font-size: clamp(1.75rem, 3vw, 2.9rem);
 }
 
 html[lang="zh-CN"] .project-hero h1:not(.project-hero__title--latin) {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.08;
   font-size: clamp(3.2rem, 6.2vw, 6rem);
 }
 
 html[lang="zh-CN"] .page-hero h1 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.1;
   font-size: clamp(3.2rem, 6.2vw, 6.1rem);
 }
 
 html[lang="zh-CN"] .contact-page h1 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.02;
   font-size: clamp(3.4rem, 6.8vw, 6.5rem);
 }
 
 html[lang="zh-CN"] .not-found h1 {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
 }
 
 /* Phase 4 — final Chinese serif consolidation (zh-CN only): every non-brand
@@ -2299,15 +2352,15 @@ html[lang="zh-CN"] .page-next__inner a,
 html[lang="zh-CN"] .not-found__copy > p,
 html[lang="zh-CN"] .contact-page__company p {
   font-family: var(--sans-cjk);
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-weight: var(--xh-weight-body);
+  letter-spacing: 0;
 }
 
 html[lang="zh-CN"] .project-capabilities__list h3,
 html[lang="zh-CN"] .project-navigation__project strong {
   font-family: var(--sans-cjk);
-  font-weight: 500;
-  letter-spacing: 0.012em;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0;
   line-height: 1.25;
 }
 
@@ -2317,7 +2370,7 @@ html[lang="zh-CN"] .project-navigation__project strong {
 .project-section__heading .eyebrow,
 .editorial-grid .eyebrow {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: var(--xh-weight-title);
   letter-spacing: 0.07em;
 }
 
@@ -2339,7 +2392,7 @@ html[lang="zh-CN"] .project-navigation__project strong {
 html[lang="zh-CN"] .hero__eyebrow,
 html[lang="zh-CN"] .page-hero .eyebrow,
 html[lang="zh-CN"] .contact-page .eyebrow {
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
 /* The language switch was the only control under the target-size minimum:
@@ -2385,4 +2438,59 @@ html[lang="zh-CN"] li {
    single line at every audited width. */
 html[lang="en"] .hero__eyebrow {
   text-wrap: balance;
+}
+
+/* ---- CJK reading contract (§3, §9) ----------------------------------------
+   The site already opts Latin display typography IN through html[lang="en"]. This
+   closes the other side with the same mechanism instead of a hand-picked list:
+   every selector below is DERIVED from a rule in this file that declares positive
+   em tracking or an uppercase transform, and each one is guarded by
+   :not([lang="en"]) — the markup already marks its Latin runs (Header.astro:42
+   .brand__en, ProjectHero.astro:26 project-hero__english-name), so language,
+   not class naming, decides what keeps display tracking.
+
+   Kept as-is: the 404 code and the 01/02/03 index numerals (not prose), and any
+   run explicitly marked lang="en".
+
+   Mixed runs such as "ABOUT · 关于玄衡" lose their Latin tracking on the zh route:
+   §3 says a run that may be Chinese takes no tracking, and splitting the halves is
+   a markup change that this round excludes by scope. */
+html[lang="zh-CN"] .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .brand__zh:not([lang="en"]),
+html[lang="zh-CN"] .brand__en:not([lang="en"]),
+html[lang="zh-CN"] .language-switch:not([lang="en"]),
+html[lang="zh-CN"] .mobile-menu__label:not([lang="en"]) {
+  letter-spacing: 0;
+}
+html[lang="zh-CN"] .hero__signature p:first-child:not([lang="en"]),
+html[lang="zh-CN"] .hero__signature p:last-child:not([lang="en"]),
+html[lang="zh-CN"] .project-group__title:not([lang="en"]),
+html[lang="zh-CN"] .project-card__meta:not([lang="en"]),
+html[lang="zh-CN"] .project-card__action:not([lang="en"]) {
+  letter-spacing: 0;
+}
+html[lang="zh-CN"] .site-footer:not([lang="en"]),
+html[lang="zh-CN"] .fact-strip dt:not([lang="en"]),
+html[lang="zh-CN"] .page-next__inner > p:not([lang="en"]),
+html[lang="zh-CN"] .project-hero__status:not([lang="en"]),
+html[lang="zh-CN"] .project-hero__repo:not([lang="en"]) {
+  letter-spacing: 0;
+}
+html[lang="zh-CN"] .project-current-state__grid h3:not([lang="en"]),
+html[lang="zh-CN"] .project-navigation__project > span:not([lang="en"]),
+html[lang="zh-CN"] .contact-page__company p + p:not([lang="en"]),
+html[lang="zh-CN"] .contact-channel__label:not([lang="en"]),
+html[lang="zh-CN"] .section-heading .eyebrow:not([lang="en"]) {
+  letter-spacing: 0;
+}
+html[lang="zh-CN"] .about-preview .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .contact-band .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .projects-page__heading .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .project-section__heading .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .editorial-grid .eyebrow:not([lang="en"]) {
+  letter-spacing: 0;
+}
+html[lang="zh-CN"] .eyebrow:not([lang="en"]),
+html[lang="zh-CN"] .fact-strip dt:not([lang="en"]) {
+  text-transform: none;
 }
