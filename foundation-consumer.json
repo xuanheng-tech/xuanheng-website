@@ -1,0 +1,62 @@
+{
+  "consumer": "xuanheng-website",
+  "contract": "xuanheng-consumer-declaration/v1",
+  "deployed_runtime": {
+    "evidence": [
+      "2026-09-29: hsd confirmed Netlify UI successful deploy, main, GitHub provider, build passed, commit ae2ffc1",
+      "GitHub API resolves main to the full source_commit; Gitea main is two commits ahead",
+      "Exact Netlify deploy ID and the previous accepted deploy identity are still unavailable; source_commit is owner-confirmed, not an API deploy receipt",
+      "Served CSS has no Foundation references; no mirror synchronization or production deployment occurred"
+    ],
+    "foundation_status": "not_deployed",
+    "foundation_version": null,
+    "health": "passed",
+    "release_id": null,
+    "rollback_identity": null,
+    "source_commit": "ae2ffc1ee92aa3b9e41b850ffadccf9d90f87bde",
+    "status": "unverified"
+  },
+  "exceptions": [
+    {
+      "clause": "§2 / migration questions #9-14",
+      "difference": "brand paper/ink values retained; light-only; local band tokens",
+      "owner": "hsd",
+      "reason": "Marketing-site scope is recorded and not a workbench layout",
+      "removal_condition": "An owner ruling backed by applicable multi-product evidence",
+      "status": "pending"
+    },
+    {
+      "clause": "§3A",
+      "difference": "number weight role absent",
+      "owner": "hsd",
+      "reason": "No independently weighted numeric face consumes it",
+      "removal_condition": "Consumer gains a numeric face that needs this role",
+      "status": "accepted"
+    },
+    {
+      "clause": "governance.release-identity",
+      "difference": "Netlify deploy ID and prior accepted rollback ID are missing",
+      "owner": "hsd",
+      "reason": "No existing local Netlify credential source; owner confirmed the current commit through the UI",
+      "removal_condition": "Record the current deploy ID and a previous accepted deploy ID/commit",
+      "status": "pending"
+    }
+  ],
+  "foundation_version": "v1.4",
+  "source_ref": {
+    "branch": "main",
+    "commit": "c6f9bc5f414eb4f719d3078f78db57ff5504d702",
+    "repository": "xuanheng-tech/xuanheng-website",
+    "source_adoption": "on_default"
+  },
+  "validation_ref": {
+    "commands": [
+      "node scripts/check-foundation.mjs"
+    ],
+    "commit": "c6f9bc5f414eb4f719d3078f78db57ff5504d702",
+    "evidence": [
+      "2026-09-29: 376 leaf rules, 4 weight roles; brand crimson verified"
+    ],
+    "status": "passed"
+  }
+}
