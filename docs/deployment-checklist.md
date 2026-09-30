@@ -25,7 +25,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 - 一个源码仓库继续保留共享组件、`src/i18n/en.ts`、`src/i18n/zh.ts` 与 `src/pages/zh-cn/` 正式中文路由壳。
 - `public/_redirects` 由 Netlify 读取，为旧 `/en/...` 路径提供无 JS 的 HTTP 301 到英文根路径，并承载已下线 `policy-intelligence` 详情页到对应语言 Projects 列表页的 301；必须在在线环境验证。
 - 确认平台会把未知路径映射到 `dist/404.html`，并返回真实 HTTP 404；若不会，按平台文档配置 custom 404。
-- 正式英文页面使用根路径，中文页面使用 `/zh-cn/`；旧 `/en/...` 保留 no-JS 兼容页并由 Netlify `public/_redirects` 提供直达 HTTP 301 到新英文 URL，验证不得产生循环或多跳。另按下方定义配置 www → apex。
+- 正式英文页面使用根路径，中文页面使用 `/zh-cn/`；旧 `/en/...` 保留 no-JS 兼容页并由 Netlify `public/_redirects` 提供直达 HTTP 301 到新英文 URL，验证不得产生循环或多跳。另按下方定义配置 apex → www。
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
 - 按平台文档评估并验证安全响应头；至少检查 CSP、HSTS、`X-Content-Type-Options`、`Referrer-Policy`。在确定 Preview/Production 平台前不提交猜测的语法或策略。
 
