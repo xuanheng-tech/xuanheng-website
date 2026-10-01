@@ -3,11 +3,13 @@
   "contract": "xuanheng-consumer-declaration/v1",
   "deployed_runtime": {
     "evidence": [
-      "2026-09-29: hsd confirmed Netlify UI successful deploy, main, GitHub provider, build passed, commit ae2ffc1",
-      "GitHub API resolves main to the full source_commit; Gitea main is two commits ahead",
-      "Owner supplied production build log deployId 6ab54d27affd510008b699d4; current deploy/commit identity is human-confirmed, not an authenticated API read",
-      "Previous accepted rollback deploy ID/commit remain unavailable",
-      "Served CSS has no Foundation references; no mirror synchronization or production deployment occurred"
+      "2026-10-01: public read-only Netlify site published_deploy and deploy receipt both confirm ready production/main 6ab54d27affd510008b699d4 at the full source_commit; this was not an authenticated API read",
+      "Private Gitea and public GitHub main were exactly aligned at b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197 through Git Finalizer post-verify",
+      "Current production immutable permalink passed 16 bilingual routes, 22 one-hop 301 redirects with query preservation, real 404/noindex, 29 assets and 32 browser route/viewport cases at 390px and 1440px; key screenshots reviewed",
+      "Production CSS SHA-256 42123cd5e56040751e12b656cf50f2d8048b7f584bcec7e3ffbf3719c824c7b0 remains the older build without Foundation adoption",
+      "Automatic deploy 6abdccfd0102880008937e9e for b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197 is error/skipped, not published; hsd confirmed monthly deployment quota exhausted. Netlify build execution and new-production acceptance were not_run",
+      "Previous deploy 6ab537cb5c6d8a000806add8 at 9edc97f7e7106024775fe17238f53cc4f4232a91 failed fresh rollback acceptance: all 16 mobile menus extend to x=-14.125px at 390px",
+      "Current accepted deploy 6ab54d27affd510008b699d4 is the prepared rollback baseline for the next successful release, not a separate previous rollback for the currently live deploy"
     ],
     "foundation_status": "not_deployed",
     "foundation_version": null,
@@ -36,27 +38,40 @@
     },
     {
       "clause": "governance.release-identity",
-      "difference": "Prior accepted Netlify rollback deploy ID/commit are missing",
+      "difference": "No separate previous deploy has passed current rollback acceptance",
       "owner": "hsd",
-      "reason": "Current identity is owner-confirmed; no previous accepted deploy identity has been supplied",
-      "removal_condition": "Record a previous accepted deploy ID and its full commit",
+      "reason": "Previous deploy ID/full commit were recovered but its mobile navigation failed; the currently accepted live deploy can become a rollback baseline only after a new release succeeds",
+      "removal_condition": "After new production acceptance, record netlify:6ab54d27affd510008b699d4@ae2ffc1ee92aa3b9e41b850ffadccf9d90f87bde, or independently accept another separate previous deploy",
+      "status": "pending"
+    },
+    {
+      "clause": "governance.production-publication",
+      "difference": "Validated Foundation v1.4 source is mirrored but not deployed because Netlify skipped the production build",
+      "owner": "hsd",
+      "reason": "2026-10-01 owner confirmed monthly deployment quota exhaustion; API records error/skipped deploy 6abdccfd0102880008937e9e while the prior production remains published",
+      "removal_condition": "Restore available deployment quota, build latest mirrored main, verify its exact published deploy receipt and complete product acceptance",
       "status": "pending"
     }
   ],
   "foundation_version": "v1.4",
   "source_ref": {
     "branch": "main",
-    "commit": "c6f9bc5f414eb4f719d3078f78db57ff5504d702",
+    "commit": "b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197",
     "repository": "xuanheng-tech/xuanheng-website",
     "source_adoption": "on_default"
   },
   "validation_ref": {
     "commands": [
-      "node scripts/check-foundation.mjs"
+      "npm ci --no-audit --no-fund",
+      "npm run test:release",
+      "npm run build"
     ],
-    "commit": "c6f9bc5f414eb4f719d3078f78db57ff5504d702",
+    "commit": "b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197",
     "evidence": [
-      "2026-09-29: 376 leaf rules, 4 weight roles; brand crimson verified"
+      "2026-10-01 Node 24.19.0: 376 leaf rules, 4 weight roles; 6 deterministic release-check cases; static output validates 16 routes, 22 redirects and 405 local links/assets including mobile srcset",
+      "Local accepted build passed 32 browser route/viewport cases at 390px and 1440px; English/Chinese home, index and detail screenshots reviewed against current accepted production",
+      "Planted wrong Foundation crimson blocks npm run build before Astro; planted wrong Chinese project canonical fails the output gate",
+      "Live release check intentionally failed on production differs from current build inputs; it does not turn source validation into a deployment claim. See docs/release-identity.md"
     ],
     "status": "passed"
   }
