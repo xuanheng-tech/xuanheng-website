@@ -87,6 +87,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 
 ### Preconditions
 
+- 先满足 [release identity](release-identity.md) 中当前的暂停解除条件，再执行本节部署步骤。
 - Media Complete，Preview 在线验收和最终人工视觉验收均已通过。
 - ICP、托管区域、正式域名和公安联网备案时间点已由用户与实际服务商确认。
 - 记录准备发布的精确 RC commit；确认批准范围内没有未提交文件。

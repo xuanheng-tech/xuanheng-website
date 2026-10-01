@@ -2,6 +2,12 @@
 
 Observed 2026-10-01, Asia/Shanghai. Release authority and rollback owner: `hsd`.
 The source chain is now aligned; the new production build is blocked by Netlify quota.
+Owner direction, 2026-10-01: defer production deployment until available quota is verified.
+For this release-chain repair, source changes, offline build/route/viewport checks, Git
+delivery, the central declaration pin and task-resource cleanup are complete. During the
+wait, document-only closeout commits use `[skip netlify]`; defer synchronization of changed
+build inputs to the deployment mirror until production work resumes. New-production
+acceptance, separate rollback registration and the runtime/pin update remain deferred.
 Independent reviewer is not registered. Historical owner confirmation from 2026-09-29
 is superseded by the fresh public read-only receipts below, not by an authenticated read.
 
@@ -66,8 +72,9 @@ Historical artifacts remain subject to the provider's retention policy; recheck 
 
 ## Recovery after quota is available
 
-1. Owner restores available Netlify deployment quota. Do not assume the calendar month
-   determines the account's reset date; do not repeatedly retry a quota-blocked build.
+1. Resume production work only after available Netlify deployment quota is verified through
+   an existing authorized client or owner confirmation. Keep deployment attempts paused
+   while quota is unavailable. Do not assume the calendar month determines the reset date.
 2. In the existing Netlify project's Deploys page, trigger a build of the **latest mirrored
    GitHub main**. Receipt-only follow-up commits use `[skip netlify]`; a later explicit build
    still needs to include the new build gates. Record the actual full `commit_ref`, rather
