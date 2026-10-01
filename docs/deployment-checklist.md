@@ -8,12 +8,14 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 - Netlify Production 使用 GitHub `xuanheng-tech/xuanheng-website` 的 `main` 分支自动部署。
 - 同一个 Netlify deployment 同时提供英文根路径与 `/zh-cn/` 简体中文路径；正式内容不复制页面实现。
 - 发布前以当前 commit 重新执行下方 Build contract 与双语 smoke，Netlify URL 以实际部署结果为准。
+- 私有 Gitea `origin/main` 是源码 authority；GitHub `github/main` 是既有公开 mirror，私有 push 本身不会触发 Netlify。每次正式发布必须明确同步并核对两端完整 OID。
 
 ## Build contract
 
 - Node: `24.19.0`（同时由 `.node-version` 与 `package.json#engines.node` 声明）。
 - Install: `npm ci`。
-- Build: `npm run build`。
+- Build: `npm run build`；`prebuild` 自动执行 Foundation gate，`postbuild` 验证 16 条正式路由、22 条重定向、SEO、语言切换、本地链接/资源、无客户端 script 和 404 noindex。任一检查失败即阻断构建。
+- Release-check regression: `npm run test:release`（Node 内置测试，无真实服务或凭据依赖）。
 - Output: `dist/`。
 - Runtime: 无 Node server、后端、数据库或运行时环境变量依赖。
 - URL policy: 目录式输出，正式页面使用 trailing slash；静态资产保持根路径引用。
@@ -92,12 +94,20 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 ### Release
 
 1. 在 Node `24.19.0` 环境执行 `npm ci`、`npm run build`，并完成最终 link / SEO / privacy 检查。
-2. 将同一 commit 推送到 GitHub `main`，由 Netlify Git integration 自动部署并记录实际 Netlify URL。
-3. 在 Netlify 上核对 custom 404、`public/_redirects`、cache/security headers 与 HTTPS；正式域名绑定前不修改 DNS。
-4. 在线 smoke 英文与中文首页、About、Projects、Contact、四个项目详情页、旧 `/en/...`、已下线 `policy-intelligence` 重定向、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
+2. 从当前 Netlify published-deploy 的只读 receipt 记录完整 deploy ID / `commit_ref`，在其 immutable permalink 完成 smoke 与视觉验收，作为本次发布的回滚基线。旧记录不能代替重新核对。
+3. 先通过 Git Finalizer 将已验证的 commit 交付到私有 `origin/main`，再使用其 `--sync-published-branch <完整源 OID> --source-remote origin --remote github --remote-branch main --expected-target-oid <刚核对的 GitHub OID>` 同步既有公开 mirror；使用绝对入口 `/home/hsd/bin/git-finalize`，先 `--dry-run --summary`，再执行并核对 post-verify。不得 force、临时修改 upstream 或用原始 push 绕过。
+4. 等待 Netlify Git integration 自动部署该精确 commit；从 site 的 `published_deploy` 和 deploy receipt 双重核对 `ready`、`production`、`main`、完整 commit 与 deploy ID，不能用 CSS 文件名或 HTTP 200 推断身份。
+5. 在 Netlify 上核对 custom 404、`public/_redirects`、cache/security headers 与 HTTPS；正式域名绑定前不修改 DNS。
+6. 在线 smoke 英文与中文首页、About、Projects、Contact、四个项目详情页、旧 `/en/...`、已下线 `policy-intelligence` 重定向、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
+7. 在 clean `main` 执行 `npm run check:release -- --rollback netlify:<已验收部署 ID>@<完整 commit>`。该命令只读核对 local / origin / github、Netlify 当前生产与回滚 receipt、同 site / ancestry /发布时间，以及回滚 immutable artifact 是否仍可达；网络或身份未知时失败，不导出 credential。公开 GET 权限不足时由 owner 使用现有授权客户端读取，不能补造成功。
+8. 将本次 source / validation / runtime 和回滚基线分别写入 `foundation-consumer.json` 与 `docs/release-identity.md`，删除已经满足退出条件的 release-identity exception；把 declaration 完整交付 ref 与 canonical SHA-256 更新到 Design System 中心 pin。
+
+部署回执产生于构建之后，更新回执的 commit 不应制造循环部署。只有 diff 全部限于 `docs/` 与 `foundation-consumer.json`、Foundation version 不变且不改变构建输入时，才可用 `[skip netlify]` 交付并同步回执。`check:release` 必须仍证明部署 commit 是当前 main 的 ancestor 且其他文件没有差异，并明确输出实际 production commit；任何代码、资源、脚本或配置差异都失败。其成功只核对身份与源链，不能替代上面的在线/视觉验收。
 
 ### Post-release and rollback
 
 - 核对 ICP Footer 的真实编号与查询链接；公安备案完成后再补真实图标、编号和平台核发链接。
-- 记录 production URL、部署 ID 与 source commit，确认 local / origin / deployed revision 一致且发布工作树 clean。
+- 记录 production URL、部署 ID 与 source commit，确认 local / origin / github 完整 OID 一致且发布工作树 clean；部署应是同一 commit，或仅差上述已经证明不影响构建的回执 commit。
+- 回执格式为 `netlify:<deploy ID>@<完整 commit>`；记录 immutable permalink 与验收日期。`main--…` 是可变 branch URL，不是回滚 artifact 的身份。
+- Netlify 的历史 artifact 有保留期限；每次发布前重新验证目标仍可达。发现删除、漂移或验收失败时先停止下一次发布并选择另一份已验收基线，不把历史字符串当作永久可用保证。
 - 回滚入口是托管平台对上一个已验收部署的原子回退；域名或证书异常时先回退平台部署/绑定，再按切换前保存的 DNS 值恢复。平台选择后必须先验证实际回滚操作，不能只依赖本清单。

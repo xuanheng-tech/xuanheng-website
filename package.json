@@ -9,7 +9,11 @@
   "scripts": {
     "dev": "astro dev",
     "check": "node scripts/check-foundation.mjs",
+    "check:release": "node --use-env-proxy scripts/check-release.mjs",
+    "test:release": "node --test scripts/check-release.test.mjs",
+    "prebuild": "npm run check",
     "build": "astro build",
+    "postbuild": "node scripts/check-build.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
