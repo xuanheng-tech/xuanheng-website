@@ -32,15 +32,15 @@ export const en = {
   seo: {
     home: {
       title: 'Xuanheng Technology | AI You Can Verify',
-      description: 'Suzhou Xuanheng Technology builds verifiable AI workbenches for industrial finance, agri supply chains and embodied AI — traceable, reviewable and on-premise — alongside an industrial vertical model and open-source agent engineering tools.',
+      description: 'Suzhou Xuanheng Technology builds industry AI workbenches for industrial finance, agri supply chains and embodied AI, where every conclusion cites its source and everything can run on-premise. It also develops an industrial vertical model and open-source agent engineering tools.',
     },
     products: {
       title: 'Products | Xuanheng Technology',
-      description: 'ChainVerify, AgriPulse and EmbodiedFlow: industry AI workbenches with traceable evidence, explicit confidence boundaries, human review and on-premise deployment.',
+      description: 'ChainVerify, AgriPulse and EmbodiedFlow: industry AI workbenches whose conclusions cite their sources, with human review and on-premise deployment.',
     },
     openSource: {
       title: 'Open Source | Xuanheng Technology',
-      description: 'Git Finalizer, Context Loader, Snapshot Runner and Worktree Controller: a verifiable engineering foundation for coding agents, open source under Apache-2.0.',
+      description: 'Git Finalizer, Context Loader, Snapshot Runner and Worktree Controller: four command-line tools that keep coding agents inside clear boundaries, open source under Apache-2.0.',
     },
     research: {
       title: 'Research | Xuanheng Technology',
@@ -105,7 +105,7 @@ export const en = {
       category: 'INDUSTRIAL FINANCE · DUE DILIGENCE',
       name: 'ChainVerify',
       englishName: 'Xuanheng ChainVerify',
-      summary: 'LLM-driven enterprise value-chain identification and due-diligence workbench.',
+      summary: 'Uses LLMs to work out where a company sits in an industrial value chain, to support due diligence.',
       slogan: 'Value-chain verification, down to the source page.',
       cardSummary: 'Value-chain verification and due diligence, with every conclusion linked to a source page.',
       status: 'Status: Open for Customization',
@@ -145,8 +145,8 @@ export const en = {
       },
       principles: [
         'Designed for industrial chain classification and due-diligence assistance; does not replace institutional credit ratings or underwriting approvals.',
-        'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
-        'Explainable by design: every conclusion traces back to source documents or explicit formulas, abstaining cleanly when evidence falls short.',
+        'Runs on your own servers or an isolated intranet, so your data stays in your environment.',
+        'Every conclusion points back to source documents or formulas; when the evidence is not there, it says so.',
         'Human review: review records, role-based access and standard spreadsheet exports are designed around how your team actually works.',
       ],
     },
@@ -158,7 +158,7 @@ export const en = {
       category: 'AGRITECH · SUPPLY CHAIN',
       name: 'AgriPulse',
       englishName: 'Xuanheng AgriPulse · Broiler Edition',
-      summary: 'Bio-cycle supply-demand intelligence and margin risk platform for white-feather broiler operations.',
+      summary: 'Helps white-feather broiler businesses read supply and demand, budget each batch and manage margin risk.',
       slogan: 'Know the risk range before you restock.',
       cardSummary: 'Broiler supply forecasting, batch budgeting and multi-party reconciliation.',
       status: 'Status: Open for Customization',
@@ -166,13 +166,13 @@ export const en = {
       focus: ['Supply Forecasting', 'Margin Risk', 'Multi-Party Reconciliation'],
       overview: [
         'Xuanheng AgriPulse (Broiler Edition) serves integrated poultry producers, contract-farming and feed supply-chain operators, and regional livestock coordinators.',
-        'Short 42-day grow-out cycles and volatile market swings make placement timing and feed procurement highly sensitive to timing errors. Meanwhile, fragmented records across hatcheries, feed suppliers, farms and slaughterhouses hinder low-friction verification of flock capacity and real feed consumption.',
-        'Built on biological cycles and in-flock supply inertia, the platform anchors decisions on risk bounds rather than single-point price bets, and brings alerts, verification and cross-party reconciliation into one auditable workflow.',
+        'Short 42-day grow-out cycles and volatile market swings make placement timing and feed procurement highly sensitive to timing errors. Meanwhile, hatcheries, feed suppliers, farms and slaughterhouses each keep their own records, which makes flock capacity and actual feed use hard to cross-check.',
+        'Starting from the grow-out cycle and current flock numbers, the platform gives a risk range instead of a guessed price. Alerts, checks and cross-party reconciliation all happen in one place, with a record of each step.',
       ],
       capabilities: [
         {
           name: 'Bio-Cycle Supply & Congestion Forecasting',
-          description: 'Models 42-day grow-out dynamics to forecast supply crowding alongside calibrated 90% prediction intervals — anchoring operations on risk bounds rather than single-point price bets.',
+          description: 'Models 42-day grow-out dynamics to forecast supply crowding alongside calibrated 90% prediction intervals.',
         },
         {
           name: '42-Day Batch Budgeting & Sensitivity Analysis',
@@ -198,8 +198,8 @@ export const en = {
       },
       principles: [
         'Provides quantitative operational planning and risk estimates based on historical series and biological cycles; does not guarantee short-term spot price outcomes.',
-        'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
-        'Explainable by design: every estimate traces back to its data sources and explicit formulas.',
+        'Runs on your own servers or an isolated intranet, so your data stays in your environment.',
+        'Every estimate points back to its data sources and formulas.',
         'Human review: alert checks, responses and reconciliation are all recorded.',
       ],
     },
@@ -211,7 +211,7 @@ export const en = {
       category: 'EMBODIED AI · DATA PIPELINE',
       name: 'EmbodiedFlow',
       englishName: 'Xuanheng EmbodiedFlow',
-      summary: 'Multimodal robotics data QA, annotation and closed-loop training governance pipeline.',
+      summary: 'Quality checks and data management for robot trajectory data, from capture through to training.',
       slogan: 'Every trajectory, traceable to its capture.',
       cardSummary: 'Robot trajectory QA, recollection work orders and verifiable data lineage.',
       status: 'Status: Open for Customization',
@@ -220,7 +220,7 @@ export const en = {
       overview: [
         'Xuanheng EmbodiedFlow serves embodied AI data collection factories, robotics R&D teams and industrial manipulation engineering teams.',
         'Teleoperated and real-robot multimodal trajectories frequently suffer from clock skew, video frame drops or freezes, depth collapse, force spikes and idle padding. Unfiltered faulty episodes degrade policy precision, while manual frame-by-frame waveform inspection does not scale.',
-        'The pipeline closes the loop from automated physics QA and synchronized human review to targeted recollection and holdout validation, keeping verifiable lineage for every delivered dataset.',
+        'Automated physics checks, human review, targeted recollection and holdout validation run as one cycle, and every delivered dataset can be traced back to its capture.',
       ],
       capabilities: [
         {
@@ -247,12 +247,12 @@ export const en = {
       currentState: {
         implemented: 'Multi-format ingestion with 7-point physics QA, synchronized waveform and keyframe review, recollection work-order export, holdout closed-loop validation and four-tier data lineage are in place.',
         currentFocus: 'Pre-delivery acceptance and integration with in-house robot capture channels and cloud/edge training clusters.',
-        nextDirection: 'QA thresholds are tailored to arm embodiments and sensor specifications, extending coverage to more embodiment and sensor combinations.',
+        nextDirection: 'Covering more robot and sensor combinations, with QA thresholds tuned to each.',
       },
       principles: [
         'Configurable for custom robot embodiments, sensor suites and private training clusters.',
-        'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
-        'Explainable by design: every QA verdict traces back to synchronized sensor waveforms and explicit formulas.',
+        'Runs on your own servers or an isolated intranet, so your data stays in your environment.',
+        'Every QA verdict points back to the sensor waveforms and formulas behind it.',
         'Human review: reviews, phase adjustments and recollection orders are all recorded.',
       ],
     },
@@ -654,7 +654,7 @@ export const en = {
         { icon: 'source', title: 'Traceable Evidence', description: 'Every conclusion links to its source document, sensor waveform or formula.' },
         { icon: 'boundary', title: 'Explicit Boundaries', description: 'Confidence tiers; when evidence falls short, the system abstains instead of guessing.' },
         { icon: 'review', title: 'Human Review', description: 'Key conclusions are checked by your own staff, and every step is recorded.' },
-        { icon: 'private', title: 'On-Premise', description: 'Runs on local servers or isolated intranets; core data never leaves your perimeter.' },
+        { icon: 'private', title: 'On-Premise', description: 'Runs on your own servers or an isolated intranet; your data stays with you.' },
       ],
     },
     products: {
@@ -708,7 +708,7 @@ export const en = {
     hero: {
       kicker: 'ABOUT',
       title: ['Independent Thinking,', 'Long-term Research.'],
-      lead: 'Xuanheng Technology is an independent technology company based in Suzhou, China.',
+      lead: 'Xuanheng Technology is a technology startup based in Suzhou, China.',
     },
     factsLabel: 'Company information',
     facts: [
@@ -720,7 +720,7 @@ export const en = {
       kicker: '01 · Company',
       title: 'Company',
       paragraphs: [
-        'Xuanheng Technology is an independent technology company based in Suzhou, China.',
+        'Xuanheng Technology is a technology startup based in Suzhou, China.',
         'Our work focuses on verifiable industry AI, vertical models and agent engineering tools.',
         'We use mathematical modelling, software engineering and AI to investigate computable structures within complex systems.',
       ],
