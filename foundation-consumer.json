@@ -6,11 +6,12 @@
       "2026-11-20: public read-only Netlify site published_deploy and deploy receipt both confirm ready production/main 6b0045d3f642720d39624f29 at the full source_commit (deploy_time 19s); not an authenticated API read",
       "Private Gitea origin/main and public GitHub main exactly aligned at the source_commit through Git Finalizer resume-publish and sync-published-branch post-verify",
       "Immutable permalink passed 36 bilingual routes, 48 one-hop 301 redirects with targets returning 200, real 404/noindex and key assets; browser checks at 390px and 1440px on 16 route/viewport cases found no overflow, broken images, page errors, failed requests or cookies",
+      "Production CSS /_astro/BaseLayout.DYQfp3zA.css SHA-256 aeed56eea1b5a9102417a1eb06938dd2022befc6564df663b56f6843c2590209 is byte-identical to the local build of the source_commit, whose Foundation v1.4 gate passed (542 leaf rules / 4 weight roles)",
       "Custom domain spot checks: key routes 200, new content present, Netlify-processed contact forms, /en/ 301, apex to www 301 preserving path and query, 404",
       "npm run check:release with the rollback identity reported no problems and build_inputs_match=true",
       "Direct mainland access to Netlify was observed to be slow or intermittently failing (2-22s, TLS resets); recorded as a hosting observation, not a deploy defect"
     ],
-    "foundation_status": "deployed",
+    "foundation_status": "verified",
     "foundation_version": "v1.4",
     "health": "passed",
     "release_id": "6b0045d3f642720d39624f29",
