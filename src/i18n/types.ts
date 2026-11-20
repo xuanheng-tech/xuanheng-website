@@ -3,10 +3,15 @@ export type Locale = 'zh' | 'en';
 export type PageKey = 'home' | 'about' | 'projects' | 'contact';
 
 export const PROJECT_SLUGS = {
-  quantitativeResearchPlatform: 'quantitative-research-platform',
-  agentWorkspace: 'agent-workspace',
-  snapshotRunner: 'snapshot-runner',
+  chainVerify: 'chainverify',
+  agriPulse: 'agripulse',
+  embodiedFlow: 'embodiedflow',
+  mechLens: 'mechlens',
+  gitFinalizer: 'git-finalizer',
   contextLoader: 'context-loader',
+  snapshotRunner: 'snapshot-runner',
+  worktreeController: 'worktree-controller',
+  quantitativeResearchPlatform: 'quantitative-research-platform',
 } as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[keyof typeof PROJECT_SLUGS];
@@ -27,7 +32,9 @@ export interface ChromeCopy {
   backToTop: string;
 }
 
-export type ProjectGroup = 'researchSystem' | 'openSourceTool';
+export type ProjectGroup = 'product' | 'model' | 'openSourceTool' | 'researchSystem';
+
+export const PROJECT_GROUP_ORDER: ProjectGroup[] = ['product', 'model', 'openSourceTool', 'researchSystem'];
 
 export interface ProjectCopy {
   slug: ProjectSlug;
@@ -57,6 +64,8 @@ export interface ProjectCopy {
   };
   principles?: string[];
   repositoryUrl?: string;
+  /** Label of the mailto demo-request button shown on product pages. */
+  demoCta?: string;
   media?: ProjectMediaAsset[];
 }
 

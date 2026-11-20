@@ -45,6 +45,12 @@ const heroMedia = media.filter((asset) => asset.placement === 'hero');
             <span aria-hidden="true">↗</span>
           </a>
         )}
+        {project.demoCta && (
+          <a class="project-hero__repo" href="mailto:contact@xuanhengtech.cn">
+            <span>{project.demoCta}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
         <div class="project-hero__focus">
           <p class="eyebrow" lang="en">{labels.focus}</p>
           <ul aria-label={`${project.name} ${labels.focusAriaSuffix}`}>

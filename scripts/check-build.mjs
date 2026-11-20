@@ -5,7 +5,8 @@ import { resolve } from 'node:path';
 
 const site = 'https://www.xuanhengtech.cn';
 const english = ['/', '/about/', '/projects/', '/contact/',
-  ...['quantitative-research-platform', 'agent-workspace', 'snapshot-runner', 'context-loader']
+  ...['chainverify', 'agripulse', 'embodiedflow', 'mechlens', 'git-finalizer', 'context-loader',
+    'snapshot-runner', 'worktree-controller', 'quantitative-research-platform']
     .map((slug) => `/projects/${slug}/`)];
 const routes = [...english, ...english.map((route) => `/zh-cn${route}`)];
 const output = resolve('dist');
@@ -19,7 +20,7 @@ const tags = (html, name) => [...html.matchAll(new RegExp(`<${name}\\b([^>]*)>`,
 const sitemap = read('/sitemap.xml');
 const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 assert.deepEqual(locations.toSorted(), routes.map((route) => site + route).toSorted(),
-  'sitemap must contain exactly the 16 canonical bilingual routes');
+  `sitemap must contain exactly the ${routes.length} canonical bilingual routes`);
 assert.match(read('/robots.txt'), new RegExp(`Sitemap: ${site.replaceAll('.', '\\.')}\/sitemap\\.xml`));
 
 let linksChecked = 0;
@@ -76,7 +77,7 @@ const redirects = new Map(read('/_redirects').split('\n')
     assert(routes.includes(to), `${from}: redirect must target a canonical route`);
     return [from, to];
   }));
-assert.equal(redirects.size, 22, 'all legacy and retired routes must be covered');
+assert.equal(redirects.size, 38, 'all legacy and retired routes must be covered');
 for (const route of english) {
   const alias = `/en${route}`;
   assert.equal(redirects.get(alias), route);
@@ -89,7 +90,9 @@ for (const route of english) {
 for (const prefix of ['', '/en', '/zh-cn']) {
   const target = prefix === '/zh-cn' ? '/zh-cn/projects/' : '/projects/';
   for (const suffix of ['', '/']) {
-    assert.equal(redirects.get(`${prefix}/projects/policy-intelligence${suffix}`), target);
+    for (const retired of ['policy-intelligence', 'agent-workspace']) {
+      assert.equal(redirects.get(`${prefix}/projects/${retired}${suffix}`), target);
+    }
   }
 }
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));

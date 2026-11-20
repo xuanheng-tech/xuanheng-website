@@ -5,14 +5,24 @@
 /en/about/ /about/ 301!
 /en/projects /projects/ 301!
 /en/projects/ /projects/ 301!
-/en/projects/agent-workspace /projects/agent-workspace/ 301!
-/en/projects/agent-workspace/ /projects/agent-workspace/ 301!
-/en/projects/quantitative-research-platform /projects/quantitative-research-platform/ 301!
-/en/projects/quantitative-research-platform/ /projects/quantitative-research-platform/ 301!
-/en/projects/snapshot-runner /projects/snapshot-runner/ 301!
-/en/projects/snapshot-runner/ /projects/snapshot-runner/ 301!
+/en/projects/chainverify /projects/chainverify/ 301!
+/en/projects/chainverify/ /projects/chainverify/ 301!
+/en/projects/agripulse /projects/agripulse/ 301!
+/en/projects/agripulse/ /projects/agripulse/ 301!
+/en/projects/embodiedflow /projects/embodiedflow/ 301!
+/en/projects/embodiedflow/ /projects/embodiedflow/ 301!
+/en/projects/mechlens /projects/mechlens/ 301!
+/en/projects/mechlens/ /projects/mechlens/ 301!
+/en/projects/git-finalizer /projects/git-finalizer/ 301!
+/en/projects/git-finalizer/ /projects/git-finalizer/ 301!
 /en/projects/context-loader /projects/context-loader/ 301!
 /en/projects/context-loader/ /projects/context-loader/ 301!
+/en/projects/snapshot-runner /projects/snapshot-runner/ 301!
+/en/projects/snapshot-runner/ /projects/snapshot-runner/ 301!
+/en/projects/worktree-controller /projects/worktree-controller/ 301!
+/en/projects/worktree-controller/ /projects/worktree-controller/ 301!
+/en/projects/quantitative-research-platform /projects/quantitative-research-platform/ 301!
+/en/projects/quantitative-research-platform/ /projects/quantitative-research-platform/ 301!
 /en/contact /contact/ 301!
 /en/contact/ /contact/ 301!
 
@@ -23,3 +33,11 @@
 /projects/policy-intelligence/ /projects/ 301!
 /zh-cn/projects/policy-intelligence /zh-cn/projects/ 301!
 /zh-cn/projects/policy-intelligence/ /zh-cn/projects/ 301!
+
+# Retired Agent Workspace detail pages redirect to the Projects index.
+/en/projects/agent-workspace /projects/ 301!
+/en/projects/agent-workspace/ /projects/ 301!
+/projects/agent-workspace /projects/ 301!
+/projects/agent-workspace/ /projects/ 301!
+/zh-cn/projects/agent-workspace /zh-cn/projects/ 301!
+/zh-cn/projects/agent-workspace/ /zh-cn/projects/ 301!

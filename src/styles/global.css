@@ -2123,7 +2123,8 @@ html[lang="zh-CN"] .section-heading__lead,
 html[lang="zh-CN"] .about-preview__lead,
 html[lang="zh-CN"] .project-hero__summary,
 html[lang="zh-CN"] .research-belief blockquote,
-html[lang="zh-CN"] .project-principles__list p {
+html[lang="zh-CN"] .project-principles__list p,
+html[lang="zh-CN"] .project-hero__repo:not([lang="en"]) {
   letter-spacing: 0;
 }
 

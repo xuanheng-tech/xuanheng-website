@@ -1,7 +1,8 @@
 # Project media specification
 
-本规范用于项目详情页后续接入正式媒体（当前公开项目为玄衡量化、玄衡智枢、Snapshot Runner
-与 Context Loader，两个开源项目暂无媒体计划）。现有 `ProjectMediaAsset` 已支持
+本规范用于项目详情页后续接入正式媒体（当前公开项目为企业链属核验台、畜禽供需研判平台、
+具身多模态数据产线、玄衡·工鉴、Git Finalizer、Context Loader、Snapshot Runner、Worktree Controller
+与玄衡量化；三个行业产品的脱敏截图须遵循产品文案附带的截屏自查清单）。现有 `ProjectMediaAsset` 已支持
 `hero`、`system`、`gallery` 三种位置，以及必填 `alt` 和可选 `caption`；没有媒体数据时，
 页面不渲染媒体区域，也不使用占位内容。
 
@@ -46,7 +47,7 @@
 对三个源项目的已提交文档与现有界面的只读检查。开始截图前必须由用户指定一个可公开、
 干净且可复现的 revision，并使用专门准备的演示数据；不得直接采集含未发布改动的工作树。
 
-### 玄衡智枢 / Agent Workspace
+### 玄衡智枢 / Agent Workspace（已下线：不再公开展示，以下计划不再执行）
 
 | 素材 | 目的 | 来源 | 制作方式 | 敏感信息清理 | Slot |
 | --- | --- | --- | --- | --- | --- |

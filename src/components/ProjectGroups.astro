@@ -1,5 +1,5 @@
 ---
-import type { ProjectGroup, SiteContent } from '../i18n/types';
+import { PROJECT_GROUP_ORDER, type SiteContent } from '../i18n/types';
 import ProjectCard from './ProjectCard.astro';
 
 interface Props {
@@ -8,11 +8,10 @@ interface Props {
 }
 
 const { content, titleIdPrefix } = Astro.props;
-const groups: ProjectGroup[] = ['researchSystem', 'openSourceTool'];
 ---
 
 <div class="project-groups">
-  {groups.map((group) => (
+  {PROJECT_GROUP_ORDER.map((group) => (
     <section class="project-group" aria-labelledby={`${titleIdPrefix}-${group}`}>
       <h3 class="project-group__title" id={`${titleIdPrefix}-${group}`}>
         {content.projectLabels.groups[group]}
