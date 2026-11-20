@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const site = 'https://www.xuanhengtech.cn';
-const english = ['/', '/products/', '/open-source/', '/research/', '/about/', '/projects/', '/contact/',
+const english = ['/', '/products/', '/open-source/', '/research/', '/about/', '/projects/', '/contact/', '/trust/',
   ...['chainverify', 'agripulse', 'embodiedflow', 'mechlens', 'git-finalizer', 'context-loader',
     'snapshot-runner', 'worktree-controller', 'quantitative-research-platform']
     .map((slug) => `/projects/${slug}/`)];
@@ -90,7 +90,7 @@ const redirects = new Map(read('/_redirects').split('\n')
     assert(routes.includes(to), `${from}: redirect must target a canonical route`);
     return [from, to];
   }));
-assert.equal(redirects.size, 44, 'all legacy and retired routes must be covered');
+assert.equal(redirects.size, 46, 'all legacy and retired routes must be covered');
 for (const route of english) {
   const alias = `/en${route}`;
   assert.equal(redirects.get(alias), route);
@@ -108,7 +108,15 @@ for (const prefix of ['', '/en', '/zh-cn']) {
     }
   }
 }
+// The inquiry form posts (no JavaScript) to a noindex thanks page in the same language.
+for (const prefix of ['', '/zh-cn']) {
+  const form = tags(read(`${prefix}/contact/`), 'form')[0];
+  assert.equal(form?.['data-netlify'], 'true', `${prefix}/contact/: Netlify form`);
+  assert.equal(form.action, `${prefix}/contact/thanks/`, `${prefix}/contact/: form action`);
+  assert(tags(read(form.action), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')),
+    `${form.action}: noindex`);
+}
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));
 assert.equal(missingGlyphs.size, 0, `zh-CN webfont subset is missing ${[...missingGlyphs].join('')}; run: uv run --with fonttools --with brotli python scripts/subset-cjk-font.py`);
 
-console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, 404 noindex`);
+console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, inquiry form, 404 noindex`);

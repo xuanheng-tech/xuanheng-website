@@ -22,6 +22,7 @@ const { content } = Astro.props;
     <nav class="footer__links" aria-label={content.chrome.mainNavigationLabel}>
       <a href={routeFor(content.locale, 'projects')}>{content.navigation.projects}</a>
       <a href={routeFor(content.locale, 'contact')}>{content.navigation.contact}</a>
+      <a href={routeFor(content.locale, 'trust')}>{content.navigation.trust}</a>
       <a href={content.contact.phone.href}>{content.contact.phone.display}</a>
       <a href="https://github.com/xuanheng-tech" target="_blank" rel="noopener noreferrer" lang="en">GitHub</a>
     </nav>

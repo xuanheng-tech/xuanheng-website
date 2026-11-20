@@ -13,6 +13,7 @@ export const en = {
     projects: 'All Projects',
     about: 'About',
     contact: 'Contact',
+    trust: 'Trust Center',
   },
   chrome: {
     brandHomeLabel: 'Xuanheng Technology home',
@@ -55,6 +56,10 @@ export const en = {
     contact: {
       title: 'Contact & Collaboration | Xuanheng Technology',
       description: 'Contact Suzhou Xuanheng Technology Co., Ltd. to discuss industry products or custom engagements.',
+    },
+    trust: {
+      title: 'Trust Center | Xuanheng Technology',
+      description: 'How Xuanheng Technology handles data and deployment, evidence-backed conclusions, open-source licensing, this website and your information.',
     },
   },
   projectLabels: {
@@ -841,10 +846,33 @@ export const en = {
     companyLines: ['Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
       title: 'Discuss your needs',
-      lead: 'Email contact@xuanhengtech.cn with your use case and requirements. We will start with an online conversation, then agree on next steps or a custom engagement.',
-      checklist: ['Your organization and role', 'The product or area you are interested in', 'The business problem or use case', 'Deployment requirements (e.g. intranet, on-premise)'],
+      lead: 'Tell us about your use case and requirements and we will get in touch. We start with an online conversation, then agree on next steps or a custom engagement.',
+      mailLead: 'Or email us directly at',
       mailSubject: 'Product inquiry and customization',
-      buttonLabel: 'Email Us',
+    },
+    form: {
+      label: 'Inquiry form',
+      name: 'Name',
+      organization: 'Organization',
+      email: 'Email',
+      phone: 'Phone',
+      optional: 'optional',
+      interest: 'Area of interest',
+      interestPlaceholder: 'Select one',
+      interestOptions: ['ChainVerify', 'AgriPulse', 'EmbodiedFlow', 'MechLens (in research)', 'Open-source tools', 'Other / custom work'],
+      message: 'Your needs',
+      messagePlaceholder: 'Briefly describe your business scenario, the problem to solve and any deployment requirements (e.g. intranet, on-premise).',
+      consentBefore: 'I have read the personal information section of the ',
+      consentLink: 'Trust Center',
+      consentAfter: ' and agree that Xuanheng Technology may process the information I submit accordingly.',
+      submit: 'Send',
+    },
+    thanks: {
+      seo: { title: 'Thank You | Xuanheng Technology', description: 'We have received your message and will be in touch.' },
+      kicker: 'CONTACT',
+      title: 'Received — thank you.',
+      lead: 'We will get back to you by the email or phone number you provided. To add anything, email contact@xuanhengtech.cn.',
+      backLabel: 'Back to Home',
     },
     emailLabel: 'Email',
     phone: {
@@ -864,5 +892,68 @@ export const en = {
       image: '/contact/wecom-qr.svg',
       imageAlt: 'Xuanheng Technology WeCom QR code',
     },
+  },
+  trust: {
+    hero: {
+      kicker: 'TRUST CENTER',
+      title: ['What we do,', 'and how we do it.'],
+      lead: 'How we handle data and deployment, the evidence behind our conclusions, open-source licensing, and your information on this website.',
+    },
+    sections: [
+      {
+        id: 'data',
+        title: 'Data and deployment',
+        paragraphs: [
+          'Our industry products can run on your own servers or inside your intranet. With an on-premise deployment, business data stays in your environment and your team controls access.',
+          'Deployment model, data scope and handover requirements are agreed with you item by item during scoping and written into the engagement.',
+        ],
+      },
+      {
+        id: 'evidence',
+        title: 'Conclusions come with evidence',
+        paragraphs: [
+          'Every conclusion our products produce links to its evidence — the source document and page, the waveform segment or the calculation basis — so reviewers can check it line by line.',
+          'Where evidence is insufficient, the system says so and leaves the call to a person; key conclusions keep a review trail.',
+        ],
+      },
+      {
+        id: 'stage',
+        title: 'Honest about maturity',
+        paragraphs: [
+          'Every project on this site shows its current stage: open for customization, open source, or in research. Research projects describe the direction and what has been built so far.',
+        ],
+      },
+      {
+        id: 'open-source',
+        title: 'Open source and licensing',
+        paragraphs: [
+          'Our four engineering tools are open source under Apache-2.0: source on GitHub, releases on PyPI and GitHub Releases — free to inspect, use and modify.',
+        ],
+      },
+      {
+        id: 'website',
+        title: 'This website',
+        paragraphs: [
+          'This is a static website. It sets no cookies and loads no advertising or third-party analytics; fonts and images are served from this site.',
+          'Your light or dark theme choice is stored only in your own browser. The site is hosted on Netlify, which keeps standard access logs.',
+        ],
+      },
+      {
+        id: 'privacy',
+        title: 'Information you send us',
+        paragraphs: [
+          'The contact form is received by our hosting provider Netlify and forwarded to us. Information you share by form, email or phone is used only to answer your inquiry and follow up on a possible engagement.',
+          'To access, correct or delete it, email contact@xuanhengtech.cn.',
+        ],
+      },
+      {
+        id: 'security',
+        title: 'Reporting a security issue',
+        paragraphs: [
+          'If you find a security issue on this website or in our open-source projects, please email contact@xuanhengtech.cn. We will confirm and fix it promptly.',
+        ],
+      },
+    ],
+    updated: 'Updated November 2026',
   },
 } satisfies SiteContent;

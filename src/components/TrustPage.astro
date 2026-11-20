@@ -1,0 +1,40 @@
+---
+import type { SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { trust } = content;
+---
+
+<BaseLayout content={content} pageKey="trust">
+  <header class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">{trust.hero.kicker}</p>
+        <h1>{trust.hero.title[0]}<br />{trust.hero.title[1]}</h1>
+      </div>
+      <p class="page-hero__lead">{trust.hero.lead}</p>
+    </div>
+  </header>
+
+  <section class="section trust-page" aria-label={content.navigation.trust}>
+    <div class="container">
+      <ol class="trust-page__list">
+        {trust.sections.map((section, index) => (
+          <li id={section.id}>
+            <p class="trust-page__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
+            <h2>{section.title}</h2>
+            <div class="trust-page__body">
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="trust-page__updated">{trust.updated}</p>
+    </div>
+  </section>
+</BaseLayout>

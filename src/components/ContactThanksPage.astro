@@ -1,0 +1,35 @@
+---
+import { routeFor } from '../i18n/routes';
+import type { SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { thanks } = content.contact;
+const path = (locale: 'en' | 'zh') => `${routeFor(locale, 'contact')}thanks/`;
+---
+
+<BaseLayout
+  content={content}
+  pageKey="contact"
+  canonicalPath={path(content.locale)}
+  englishPath={path('en')}
+  chinesePath={path('zh')}
+  seo={thanks.seo}
+  indexable={false}
+>
+  <section class="contact-thanks" aria-labelledby="contact-thanks-title">
+    <div class="container contact-thanks__inner">
+      <p class="eyebrow">{thanks.kicker}</p>
+      <h1 id="contact-thanks-title">{thanks.title}</h1>
+      <p class="contact-thanks__lead">{thanks.lead}</p>
+      <a class="button button--primary" href={routeFor(content.locale, 'home')}>
+        <span>{thanks.backLabel}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

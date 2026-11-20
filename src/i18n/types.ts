@@ -1,6 +1,6 @@
 export type Locale = 'zh' | 'en';
 
-export type PageKey = 'home' | 'products' | 'openSource' | 'research' | 'projects' | 'about' | 'contact';
+export type PageKey = 'home' | 'products' | 'openSource' | 'research' | 'projects' | 'about' | 'contact' | 'trust';
 
 /** Section index pages that each list one slice of the project catalogue. */
 export type SectionKey = 'products' | 'openSource' | 'research';
@@ -216,6 +216,36 @@ export interface SectionPagesCopy {
   research: ListingPageCopy;
 }
 
+export interface ContactFormCopy {
+  label: string;
+  name: string;
+  organization: string;
+  email: string;
+  phone: string;
+  optional: string;
+  interest: string;
+  interestPlaceholder: string;
+  interestOptions: string[];
+  message: string;
+  messagePlaceholder: string;
+  consentBefore: string;
+  consentLink: string;
+  consentAfter: string;
+  submit: string;
+}
+
+export interface TrustSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+}
+
+export interface TrustCopy {
+  hero: PageHeroCopy;
+  sections: TrustSection[];
+  updated: string;
+}
+
 export interface ContactCopy {
   kicker: string;
   title: string;
@@ -223,9 +253,16 @@ export interface ContactCopy {
   demo: {
     title: string;
     lead: string;
-    checklist: string[];
+    mailLead: string;
     mailSubject: string;
-    buttonLabel: string;
+  };
+  form: ContactFormCopy;
+  thanks: {
+    seo: SeoCopy;
+    kicker: string;
+    title: string;
+    lead: string;
+    backLabel: string;
   };
   emailLabel: string;
   phone: {
@@ -294,4 +331,5 @@ export interface SiteContent {
   projectsPage: ListingPageCopy;
   sections: SectionPagesCopy;
   contact: ContactCopy;
+  trust: TrustCopy;
 }

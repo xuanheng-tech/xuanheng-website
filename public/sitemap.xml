@@ -49,6 +49,9 @@
     <loc>https://www.xuanhengtech.cn/contact/</loc>
   </url>
   <url>
+    <loc>https://www.xuanhengtech.cn/trust/</loc>
+  </url>
+  <url>
     <loc>https://www.xuanhengtech.cn/zh-cn/</loc>
   </url>
   <url>
@@ -95,5 +98,8 @@
   </url>
   <url>
     <loc>https://www.xuanhengtech.cn/zh-cn/contact/</loc>
+  </url>
+  <url>
+    <loc>https://www.xuanhengtech.cn/zh-cn/trust/</loc>
   </url>
 </urlset>

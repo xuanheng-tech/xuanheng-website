@@ -1,4 +1,5 @@
 ---
+import { routeFor } from '../i18n/routes';
 import type { SiteContent } from '../i18n/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -8,6 +9,8 @@ interface Props {
 
 const { content } = Astro.props;
 const { contact } = content;
+const { form } = contact;
+const thanksPath = `${routeFor(content.locale, 'contact')}thanks/`;
 ---
 
 <BaseLayout content={content} pageKey="contact">
@@ -17,22 +20,77 @@ const { contact } = content;
       <h1 id="contact-page-title">{contact.title}</h1>
 
       <section class="contact-demo" id="demo" aria-labelledby="contact-demo-title">
-        <h2 id="contact-demo-title">{contact.demo.title}</h2>
-        <p class="contact-demo__lead">{contact.demo.lead}</p>
-        <ul class="contact-demo__checklist">
-          {contact.demo.checklist.map((item) => <li>{item}</li>)}
-        </ul>
-        <a
-          class="button button--accent"
-          href={`mailto:contact@xuanhengtech.cn?subject=${encodeURIComponent(contact.demo.mailSubject)}`}
+        <div class="contact-demo__intro">
+          <h2 id="contact-demo-title">{contact.demo.title}</h2>
+          <p class="contact-demo__lead">{contact.demo.lead}</p>
+          <p class="contact-demo__alt">
+            {contact.demo.mailLead}{' '}
+            <a href={`mailto:contact@xuanhengtech.cn?subject=${encodeURIComponent(contact.demo.mailSubject)}`}>contact@xuanhengtech.cn</a>
+          </p>
+          <p class="contact-demo__phone">
+            <span>{contact.phone.label}</span><a href={contact.phone.href}>{contact.phone.display}</a>
+            <span>{contact.phone.hours}</span>
+          </p>
+        </div>
+
+        {/* Netlify Forms: detected at deploy from this static HTML; submissions are free on
+            credit-based plans. No JavaScript: a plain POST that lands on the thanks page. */}
+        <form
+          class="contact-form"
+          name="contact"
+          method="POST"
+          action={thanksPath}
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          aria-label={form.label}
         >
-          <span>{contact.demo.buttonLabel}</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-        <p class="contact-demo__phone">
-          <span>{contact.phone.label}</span><a href={contact.phone.href}>{contact.phone.display}</a>
-          <span>{contact.phone.hours}</span>
-        </p>
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="locale" value={content.locale} />
+          <p class="contact-form__trap" aria-hidden="true">
+            <label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <div class="contact-form__row">
+            <label class="contact-form__field">
+              <span>{form.name}</span>
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label class="contact-form__field">
+              <span>{form.organization}</span>
+              <input name="organization" type="text" autocomplete="organization" required />
+            </label>
+          </div>
+          <div class="contact-form__row">
+            <label class="contact-form__field">
+              <span>{form.email}</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="contact-form__field">
+              <span>{form.phone} <small>{form.optional}</small></span>
+              <input name="phone" type="tel" autocomplete="tel" />
+            </label>
+          </div>
+          <label class="contact-form__field">
+            <span>{form.interest}</span>
+            <select name="interest" required>
+              <option value="" disabled selected>{form.interestPlaceholder}</option>
+              {form.interestOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </label>
+          <label class="contact-form__field">
+            <span>{form.message}</span>
+            <textarea name="message" rows="5" placeholder={form.messagePlaceholder} required></textarea>
+          </label>
+          <label class="contact-form__consent">
+            <input name="consent" type="checkbox" value="yes" required />
+            <span>
+              {form.consentBefore}<a href={`${routeFor(content.locale, 'trust')}#privacy`}>{form.consentLink}</a>{form.consentAfter}
+            </span>
+          </label>
+          <button class="button button--accent contact-form__submit" type="submit">
+            <span>{form.submit}</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
       </section>
 
       <div class="contact-page__card">

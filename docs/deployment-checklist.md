@@ -14,7 +14,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 
 - Node: `24.19.0`（同时由 `.node-version` 与 `package.json#engines.node` 声明）。
 - Install: `npm ci`。
-- Build: `npm run build`；`prebuild` 自动执行 Foundation gate，`postbuild` 验证 32 条正式路由、44 条重定向、SEO、语言切换、本地链接/资源、仅允许两段内联主题脚本（首屏防闪烁 + 主题切换）和 404 noindex。任一检查失败即阻断构建。
+- Build: `npm run build`；`prebuild` 自动执行 Foundation gate，`postbuild` 验证 34 条正式路由、46 条重定向、SEO、语言切换、本地链接/资源、仅允许两段内联主题脚本（首屏防闪烁 + 主题切换）和 404 noindex。任一检查失败即阻断构建。
 - Release-check regression: `npm run test:release`（Node 内置测试，无真实服务或凭据依赖）。
 - Output: `dist/`。
 - Runtime: 无 Node server、后端、数据库或运行时环境变量依赖。
@@ -31,17 +31,25 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 - 按平台能力分别配置缓存：带内容指纹的构建资产可长期缓存，HTML、`robots.txt` 与 `sitemap.xml` 应允许及时更新。
 - 按平台文档评估并验证安全响应头；至少检查 CSP、HSTS、`X-Content-Type-Options`、`Referrer-Policy`。在确定 Preview/Production 平台前不提交猜测的语法或策略。
 
+## Contact form (Netlify Forms)
+
+- 首次上线含表单的版本前，在 Netlify 后台 Forms 页面启用 form detection；部署后确认出现名为 `contact` 的表单（字段：name、organization、email、phone、interest、message、consent、locale）。
+- 在 Forms → Form notifications 添加邮件通知到 `contact@xuanhengtech.cn`。
+- 上线后中英文各提交一次真实测试：应跳转到 `/contact/thanks/` 或 `/zh-cn/contact/thanks/`，后台与邮箱均收到；测试记录随后在后台删除。
+- 表单提交在 credit-based plan 上不消耗 credits；`bot-field` honeypot 与 Netlify 自带垃圾过滤生效。
+- 中文正文字体子集：修改中文文案后若构建提示缺字，运行 `uv run --with fonttools --with brotli python scripts/subset-cjk-font.py` 后重新构建。
+
 ## Metadata and assets
 
 - 验证每个英文与中文页面的 canonical 指向当前语言正式 URL，`hreflang="en"`、`hreflang="zh-CN"` 与 `x-default` 均指向对应页面；`x-default` 始终指向英文 URL。
-- 验证 `sitemap.xml` 覆盖 32 个英文与中文正式 URL，不包含旧 `/en/...` 兼容路径与已下线的 `policy-intelligence`、`agent-workspace` 详情页；`robots.txt` 指向正式 sitemap。
+- 验证 `sitemap.xml` 覆盖 34 个英文与中文正式 URL，不包含旧 `/en/...` 兼容路径与已下线的 `policy-intelligence`、`agent-workspace` 详情页；`robots.txt` 指向正式 sitemap。
 - 验证 SVG favicon、品牌 SVG、Open Graph 基础 metadata 与 404 `noindex`。
 - 检查产物不存在 localhost、工作站绝对路径、debug 信息或 secret。
 
 ## Netlify smoke check
 
 - 通过 GitHub `main` 自动部署到 Netlify，不绑定或修改正式 DNS，记录实际 Netlify URL 与部署 commit。
-- 在线打开 `/`、`/products/`、`/open-source/`、`/research/`、`/about/`、`/projects/`、`/contact/`、九个英文项目详情页及对应的 `/zh-cn/...` 页面；确认 `/en/...` 为 301，已下线的 `policy-intelligence`、`agent-workspace` 详情页 301 到对应语言的 Projects 列表页，随机不存在路径返回真实 404。
+- 在线打开 `/`、`/products/`、`/open-source/`、`/research/`、`/about/`、`/projects/`、`/contact/`、`/trust/`、九个英文项目详情页及对应的 `/zh-cn/...` 页面；确认 `/en/...` 为 301，已下线的 `policy-intelligence`、`agent-workspace` 详情页 301 到对应语言的 Projects 列表页，随机不存在路径返回真实 404。
 - 验证 `EN | 中文` 在首页、列表页和项目详情页保持当前页面 counterpart，检查项目导航、CSS、SVG、favicon、HTTPS、trailing slash、压缩、缓存与安全响应头。
 - 在 390px 与 1440px 视口检查英文/中文首页、列表页和详情页无横向溢出；同时确认产物只有两段内联主题脚本、无外部 script，浅色/深色/跟随系统三种主题均正常。
 - 核对 HTTPS、trailing slash、压缩和实际缓存响应；记录 Preview URL，供最后人工视觉验收使用。
@@ -99,7 +107,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 3. 先通过 Git Finalizer 将已验证的 commit 交付到私有 `origin/main`，再使用其 `--sync-published-branch <完整源 OID> --source-remote origin --remote github --remote-branch main --expected-target-oid <刚核对的 GitHub OID>` 同步既有公开 mirror；使用绝对入口 `/home/hsd/bin/git-finalize`，先 `--dry-run --summary`，再执行并核对 post-verify。不得 force、临时修改 upstream 或用原始 push 绕过。
 4. 等待 Netlify Git integration 自动部署该精确 commit；从 site 的 `published_deploy` 和 deploy receipt 双重核对 `ready`、`production`、`main`、完整 commit 与 deploy ID，不能用 CSS 文件名或 HTTP 200 推断身份。
 5. 在 Netlify 上核对 custom 404、`public/_redirects`、cache/security headers 与 HTTPS；正式域名绑定前不修改 DNS。
-6. 在线 smoke 英文与中文首页、Products、Open Source、Research、About、Projects、Contact、九个项目详情页、旧 `/en/...`、已下线 `policy-intelligence` 与 `agent-workspace` 重定向、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
+6. 在线 smoke 英文与中文首页、Products、Open Source、Research、About、Projects、Contact、Trust、九个项目详情页、旧 `/en/...`、已下线 `policy-intelligence` 与 `agent-workspace` 重定向、404、favicon 与静态资产；Cloudflare 与 ChatGPT Sites 不参与正式发布。
 7. 在 clean `main` 执行 `npm run check:release -- --rollback netlify:<已验收部署 ID>@<完整 commit>`。该命令只读核对 local / origin / github、Netlify 当前生产与回滚 receipt、同 site / ancestry /发布时间，以及回滚 immutable artifact 是否仍可达；网络或身份未知时失败，不导出 credential。公开 GET 权限不足时由 owner 使用现有授权客户端读取，不能补造成功。
 8. 将本次 source / validation / runtime 和回滚基线分别写入 `foundation-consumer.json` 与 `docs/release-identity.md`，删除已经满足退出条件的 release-identity exception；把 declaration 完整交付 ref 与 canonical SHA-256 更新到 Design System 中心 pin。
 

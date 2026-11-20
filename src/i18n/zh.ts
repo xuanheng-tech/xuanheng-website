@@ -13,6 +13,7 @@ export const zh = {
     projects: '全部项目',
     about: '关于',
     contact: '联系',
+    trust: '信任中心',
   },
   chrome: {
     brandHomeLabel: '玄衡科技首页',
@@ -55,6 +56,10 @@ export const zh = {
     contact: {
       title: '联系与合作 | 玄衡科技',
       description: '联系苏州玄衡科技有限公司，交流行业产品与定制合作。',
+    },
+    trust: {
+      title: '信任中心 | 玄衡科技',
+      description: '玄衡科技在数据与部署、可追溯结论、开源许可、本网站与个人信息方面的基本做法。',
     },
   },
   projectLabels: {
@@ -826,10 +831,33 @@ export const zh = {
     companyLines: ['苏州玄衡科技有限公司', 'Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
       title: '沟通定制需求',
-      lead: '发送邮件至 contact@xuanhengtech.cn，说明您的场景与需求。我们会与您联系，先线上沟通，再商定交流或定制方式。',
-      checklist: ['机构名称与您的角色', '关注的产品或方向', '希望解决的业务问题或使用场景', '部署环境要求（如内网、私有化）'],
+      lead: '留下您的场景与需求，我们会与您联系。先线上沟通，再商定交流或定制方式。',
+      mailLead: '也可以直接发邮件至',
       mailSubject: '产品沟通与定制咨询',
-      buttonLabel: '写邮件沟通',
+    },
+    form: {
+      label: '需求表单',
+      name: '称呼',
+      organization: '机构',
+      email: '邮箱',
+      phone: '电话',
+      optional: '选填',
+      interest: '关注方向',
+      interestPlaceholder: '请选择',
+      interestOptions: ['企业链属核验台', '畜禽供需研判平台', '具身多模态数据产线', '玄衡·工鉴（在研）', '开源工具', '其他定制需求'],
+      message: '需求描述',
+      messagePlaceholder: '简单介绍您的业务场景、想解决的问题，以及部署环境要求（如内网、私有化）。',
+      consentBefore: '我已阅读',
+      consentLink: '信任中心',
+      consentAfter: '中关于个人信息的说明，同意玄衡科技据此处理我提交的信息。',
+      submit: '提交需求',
+    },
+    thanks: {
+      seo: { title: '已收到您的需求 | 玄衡科技', description: '我们已收到您的需求，会尽快与您联系。' },
+      kicker: 'CONTACT · 联系',
+      title: '已收到，谢谢。',
+      lead: '我们会通过您留下的邮箱或电话与您联系。如有补充，也可以直接发邮件至 contact@xuanhengtech.cn。',
+      backLabel: '返回首页',
     },
     emailLabel: '邮箱',
     phone: {
@@ -850,5 +878,68 @@ export const zh = {
       image: '/contact/wecom-qr.svg',
       imageAlt: '玄衡科技企业微信二维码',
     },
+  },
+  trust: {
+    hero: {
+      kicker: 'TRUST · 信任中心',
+      title: ['我们怎么做，', '都写在这里。'],
+      lead: '关于数据与部署、结论依据、开源许可，以及本网站如何对待您的信息。',
+    },
+    sections: [
+      {
+        id: 'data',
+        title: '数据与部署',
+        paragraphs: [
+          '行业产品支持部署在客户自有的服务器或内网环境中。私有化部署时，业务数据保存在您自己的环境里，访问权限由您的团队掌控。',
+          '部署方式、数据范围与交接要求，会在沟通阶段与您逐项确认，并写入合作约定。',
+        ],
+      },
+      {
+        id: 'evidence',
+        title: '结论附带依据',
+        paragraphs: [
+          '产品给出的每条结论都附带依据——原始文档与页码、波形片段或计算口径，方便业务人员逐条复核。',
+          '证据不足时，系统会明确标注，留给人工判断；关键结论保留复核与留痕。',
+        ],
+      },
+      {
+        id: 'stage',
+        title: '研发阶段如实标注',
+        paragraphs: [
+          '网站上的每个项目都标明当前阶段：可沟通定制、开源或在研。在研项目介绍的是研究方向与已经实现的部分。',
+        ],
+      },
+      {
+        id: 'open-source',
+        title: '开源与许可',
+        paragraphs: [
+          '四个工程工具以 Apache-2.0 协议开源：源码在 GitHub，发行版在 PyPI 与 GitHub Releases，任何人都可以审阅、使用和修改。',
+        ],
+      },
+      {
+        id: 'website',
+        title: '本网站',
+        paragraphs: [
+          '本网站是静态网站，不使用 Cookie，也不加载广告或第三方统计脚本；字体与图片均由本站直接提供。',
+          '您选择的浅色或深色主题只保存在您自己的浏览器里。网站托管于 Netlify，托管服务会记录常规访问日志。',
+        ],
+      },
+      {
+        id: 'privacy',
+        title: '您提交的信息',
+        paragraphs: [
+          '联系表单由网站托管服务 Netlify 接收后转交给我们。您通过表单、邮件或电话提供的信息，只用于回复您的咨询和后续合作沟通。',
+          '如需查询、更正或删除这些信息，请发邮件至 contact@xuanhengtech.cn。',
+        ],
+      },
+      {
+        id: 'security',
+        title: '安全问题反馈',
+        paragraphs: [
+          '如果您发现本网站或我们开源项目中的安全问题，欢迎发邮件至 contact@xuanhengtech.cn，我们会尽快确认并修复。',
+        ],
+      },
+    ],
+    updated: '更新于 2026 年 11 月',
   },
 } satisfies SiteContent;
