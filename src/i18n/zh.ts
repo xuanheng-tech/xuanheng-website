@@ -816,7 +816,7 @@ export const zh = {
     companyLines: ['苏州玄衡科技有限公司', 'Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
       title: '沟通定制需求',
-      lead: '留下您的场景与需求，我们会与您联系。先线上沟通，再商定交流或定制方式。',
+      lead: '留下您的场景与需求，我们会与您联系。',
       mailLead: '也可以直接发邮件至',
       mailSubject: '产品沟通与定制咨询',
     },

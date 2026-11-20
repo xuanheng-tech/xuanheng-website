@@ -831,7 +831,7 @@ export const en = {
     companyLines: ['Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
       title: 'Discuss your needs',
-      lead: 'Tell us about your use case and requirements and we will get in touch. We start with an online conversation, then agree on next steps or a custom engagement.',
+      lead: 'Tell us about your use case and requirements and we will get in touch.',
       mailLead: 'Or email us directly at',
       mailSubject: 'Product inquiry and customization',
     },
