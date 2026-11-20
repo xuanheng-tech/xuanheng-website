@@ -675,7 +675,7 @@ export const zh = {
     },
     aboutPreview: {
       kicker: '04 · 关于玄衡',
-      title: '我们是谁',
+      title: '从苏州起步',
       lead: '玄衡科技成立于 2026 年，位于江苏苏州。',
       paragraphs: [
         '公司关注行业可信 AI、垂类模型与 Agent 工程工具。',
@@ -685,8 +685,7 @@ export const zh = {
     },
     contact: {
       kicker: '06 · 沟通交流',
-      title: '聊聊您的需求',
-      lead: '介绍您的机构、关注的方向与使用场景。我们先线上沟通，再按需定制方案。',
+      title: '有想法，来聊聊',
     },
   },
   about: {
@@ -880,14 +879,7 @@ export const zh = {
         date: '2026-11-20',
         tag: '官网',
         title: '官网改版上线',
-        body: '新增行业产品、开源工具与在研项目栏目，以及深色模式、信任中心与需求表单。企业链属核验台、畜禽供需研判平台、具身多模态数据产线开放沟通定制。',
-      },
-      {
-        date: '2026-11-13',
-        tag: '开源',
-        title: 'Git Finalizer v1.9.9 与 Snapshot Runner 2.5.13 发布',
-        href: 'https://github.com/xuanheng-tech/git-finalizer/releases',
-        linkLabel: '查看 Releases',
+        body: '新增行业产品、开源工具与在研项目栏目，以及信任中心与需求表单。企业链属核验台、畜禽供需研判平台、具身多模态数据产线开放沟通定制。',
       },
       {
         date: '2026-10-22',
@@ -914,7 +906,7 @@ export const zh = {
         linkLabel: 'GitHub',
       },
     ],
-    home: { kicker: '05 · 动态', title: '最近动态', viewAll: '全部动态' },
+    home: { kicker: '05 · 动态', title: '最新动态', viewAll: '全部动态' },
   },
   trust: {
     hero: {

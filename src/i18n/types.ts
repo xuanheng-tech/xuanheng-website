@@ -152,7 +152,6 @@ export interface HomeCopy {
   contact: {
     kicker: string;
     title: string;
-    lead: string;
   };
 }
 

@@ -956,6 +956,17 @@ summary {
   color: var(--ink);
 }
 
+/* The short Chinese invitation reads as one line; size its column to the title. */
+@media (min-width: 761px) {
+  html[lang="zh-CN"] .contact-band__inner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  html[lang="zh-CN"] .contact-band h2 {
+    white-space: nowrap;
+  }
+}
+
 .site-footer {
   padding: 24px 0;
   border-top: var(--xh-border) solid var(--line);
@@ -3353,11 +3364,6 @@ html[lang="zh-CN"] .contact-thanks h1 {
 .contact-band__body {
   display: grid;
   gap: 24px;
-}
-
-.contact-band__body > p {
-  max-width: 40em;
-  color: var(--muted);
 }
 
 .contact-band__actions {

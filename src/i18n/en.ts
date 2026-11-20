@@ -701,7 +701,6 @@ export const en = {
     contact: {
       kicker: '06 · Get in Touch',
       title: 'Tell us what you need',
-      lead: 'Tell us about your organization, the area you are interested in and your use case. We start with an online conversation, then tailor a solution.',
     },
   },
   about: {
@@ -894,14 +893,7 @@ export const en = {
         date: '2026-11-20',
         tag: 'Website',
         title: 'Redesigned website',
-        body: 'New sections for industry products, open-source tools and research, plus dark mode, a trust center and an inquiry form. ChainVerify, AgriPulse and EmbodiedFlow are open for custom engagements.',
-      },
-      {
-        date: '2026-11-13',
-        tag: 'Open source',
-        title: 'Git Finalizer v1.9.9 and Snapshot Runner 2.5.13 released',
-        href: 'https://github.com/xuanheng-tech/git-finalizer/releases',
-        linkLabel: 'Releases',
+        body: 'New sections for industry products, open-source tools and research, plus a trust center and an inquiry form. ChainVerify, AgriPulse and EmbodiedFlow are open for custom engagements.',
       },
       {
         date: '2026-10-22',
