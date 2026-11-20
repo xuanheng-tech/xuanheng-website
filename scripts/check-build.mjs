@@ -23,10 +23,17 @@ assert.deepEqual(locations.toSorted(), routes.map((route) => site + route).toSor
   `sitemap must contain exactly the ${routes.length} canonical bilingual routes`);
 assert.match(read('/robots.txt'), new RegExp(`Sitemap: ${site.replaceAll('.', '\\.')}\/sitemap\\.xml`));
 
+// The zh-CN webfont is a subset. Every Chinese character on a built page must be in it, or that
+// character silently renders in a different typeface.
+const CJK_PATTERN = /[\u3000-\u303f\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]/gu;
+const subsetChars = new Set(readFileSync(resolve('scripts/cjk-subset-chars.txt'), 'utf8').trim());
+const missingGlyphs = new Set();
+
 let linksChecked = 0;
 for (const route of routes) {
   const html = read(route);
   const chinese = route.startsWith('/zh-cn/');
+  if (chinese) for (const char of html.match(CJK_PATTERN) ?? []) if (!subsetChars.has(char)) missingGlyphs.add(char);
   assert.equal(tags(html, 'html')[0]?.lang, chinese ? 'zh-CN' : 'en', `${route}: locale`);
   assert.match(html, /<main\b/);
   assert.equal(tags(html, 'h1').length, 1, `${route}: one h1`);
@@ -102,4 +109,6 @@ for (const prefix of ['', '/en', '/zh-cn']) {
   }
 }
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));
-console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, 404 noindex`);
+assert.equal(missingGlyphs.size, 0, `zh-CN webfont subset is missing ${[...missingGlyphs].join('')}; run: uv run --with fonttools --with brotli python scripts/subset-cjk-font.py`);
+
+console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, 404 noindex`);
