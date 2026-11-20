@@ -14,6 +14,7 @@ export const zh = {
     about: '关于',
     contact: '联系',
     trust: '信任中心',
+    updates: '动态',
   },
   chrome: {
     brandHomeLabel: '玄衡科技首页',
@@ -56,6 +57,10 @@ export const zh = {
     contact: {
       title: '联系与合作 | 玄衡科技',
       description: '联系苏州玄衡科技有限公司，交流行业产品与定制合作。',
+    },
+    updates: {
+      title: '动态 | 玄衡科技',
+      description: '玄衡科技的产品、开源工具与官网进展记录。',
     },
     trust: {
       title: '信任中心 | 玄衡科技',
@@ -694,7 +699,7 @@ export const zh = {
       linkLabel: '了解我们的研究理念',
     },
     contact: {
-      kicker: '05 · 沟通交流',
+      kicker: '06 · 沟通交流',
       title: '聊聊您的需求',
       lead: '介绍您的机构、关注的方向与使用场景。我们先线上沟通，再按需定制方案。',
     },
@@ -878,6 +883,53 @@ export const zh = {
       image: '/contact/wecom-qr.svg',
       imageAlt: '玄衡科技企业微信二维码',
     },
+  },
+  updates: {
+    hero: {
+      kicker: 'UPDATES · 动态',
+      title: ['持续在做，', '一一记下。'],
+      lead: '产品、开源工具与官网的重要进展，按时间倒序排列。',
+    },
+    entries: [
+      {
+        date: '2026-11',
+        tag: '官网',
+        title: '官网改版上线',
+        body: '新增行业产品、开源工具与在研项目栏目，以及深色模式、信任中心与需求表单。企业链属核验台、畜禽供需研判平台、具身多模态数据产线开放沟通定制。',
+      },
+      {
+        date: '2026-11-13',
+        tag: '开源',
+        title: 'Git Finalizer v1.9.9 与 Snapshot Runner 2.5.13 发布',
+        href: 'https://github.com/xuanheng-tech/git-finalizer/releases',
+        linkLabel: '查看 Releases',
+      },
+      {
+        date: '2026-10-22',
+        tag: '开源',
+        title: 'Worktree Controller 开源并发布至 PyPI',
+        body: '为多个 Agent 并行开发提供 Git worktree 的分配、租约与收尾管理。',
+        href: 'https://pypi.org/project/worktree-controller/',
+        linkLabel: 'PyPI',
+      },
+      {
+        date: '2026-09-26',
+        tag: '开源',
+        title: 'Git Finalizer 开源，发布首个 GitHub Release',
+        body: '在授权边界内完成 Git 提交与发布，并留下可复核的交付证据。',
+        href: 'https://github.com/xuanheng-tech/git-finalizer',
+        linkLabel: 'GitHub',
+      },
+      {
+        date: '2026-09-08',
+        tag: '开源',
+        title: 'Context Loader 与 Snapshot Runner 发布至 PyPI',
+        body: '分别为编码 Agent 加载仓库上下文、收集仓库证据。',
+        href: 'https://github.com/xuanheng-tech',
+        linkLabel: 'GitHub',
+      },
+    ],
+    home: { kicker: '05 · 动态', title: '最近动态', viewAll: '全部动态' },
   },
   trust: {
     hero: {

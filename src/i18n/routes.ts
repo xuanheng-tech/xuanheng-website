@@ -13,6 +13,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     about: '/about/',
     contact: '/contact/',
     trust: '/trust/',
+    updates: '/updates/',
   },
   zh: {
     home: '/zh-cn/',
@@ -23,6 +24,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     about: '/zh-cn/about/',
     contact: '/zh-cn/contact/',
     trust: '/zh-cn/trust/',
+    updates: '/zh-cn/updates/',
   },
 };
 

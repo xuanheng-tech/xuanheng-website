@@ -1,0 +1,32 @@
+---
+import type { UpdateEntry } from '../i18n/types';
+
+interface Props {
+  entries: UpdateEntry[];
+  /** Heading level for entry titles: h2 on the updates page, h3 inside a home section. */
+  level: 2 | 3;
+}
+
+const { entries, level } = Astro.props;
+const Heading = `h${level}` as 'h2' | 'h3';
+---
+
+<ol class="updates-list">
+  {entries.map((entry) => (
+    <li>
+      <p class="updates-list__meta">
+        <time datetime={entry.date}>{entry.date}</time>
+        <span>{entry.tag}</span>
+      </p>
+      <div class="updates-list__body">
+        <Heading>{entry.title}</Heading>
+        {entry.body && <p>{entry.body}</p>}
+        {entry.href && (
+          <a href={entry.href} target="_blank" rel="noopener noreferrer">
+            {entry.linkLabel} <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </li>
+  ))}
+</ol>

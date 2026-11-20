@@ -1,0 +1,30 @@
+---
+import type { SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import UpdatesList from './UpdatesList.astro';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { updates } = content;
+---
+
+<BaseLayout content={content} pageKey="updates">
+  <header class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">{updates.hero.kicker}</p>
+        <h1>{updates.hero.title[0]}<br />{updates.hero.title[1]}</h1>
+      </div>
+      <p class="page-hero__lead">{updates.hero.lead}</p>
+    </div>
+  </header>
+
+  <section class="section updates-page" aria-label={content.navigation.updates}>
+    <div class="container">
+      <UpdatesList entries={updates.entries} level={2} />
+    </div>
+  </section>
+</BaseLayout>

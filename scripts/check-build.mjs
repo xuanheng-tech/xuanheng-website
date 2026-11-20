@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const site = 'https://www.xuanhengtech.cn';
-const english = ['/', '/products/', '/open-source/', '/research/', '/about/', '/projects/', '/contact/', '/trust/',
+const english = ['/', '/products/', '/open-source/', '/research/', '/about/', '/projects/', '/contact/', '/trust/', '/updates/',
   ...['chainverify', 'agripulse', 'embodiedflow', 'mechlens', 'git-finalizer', 'context-loader',
     'snapshot-runner', 'worktree-controller', 'quantitative-research-platform']
     .map((slug) => `/projects/${slug}/`)];
@@ -90,7 +90,7 @@ const redirects = new Map(read('/_redirects').split('\n')
     assert(routes.includes(to), `${from}: redirect must target a canonical route`);
     return [from, to];
   }));
-assert.equal(redirects.size, 46, 'all legacy and retired routes must be covered');
+assert.equal(redirects.size, 48, 'all legacy and retired routes must be covered');
 for (const route of english) {
   const alias = `/en${route}`;
   assert.equal(redirects.get(alias), route);

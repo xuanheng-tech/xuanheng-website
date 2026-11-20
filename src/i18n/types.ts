@@ -1,6 +1,6 @@
 export type Locale = 'zh' | 'en';
 
-export type PageKey = 'home' | 'products' | 'openSource' | 'research' | 'projects' | 'about' | 'contact' | 'trust';
+export type PageKey = 'home' | 'products' | 'openSource' | 'research' | 'projects' | 'about' | 'contact' | 'trust' | 'updates';
 
 /** Section index pages that each list one slice of the project catalogue. */
 export type SectionKey = 'products' | 'openSource' | 'research';
@@ -240,6 +240,22 @@ export interface TrustSection {
   paragraphs: string[];
 }
 
+export interface UpdateEntry {
+  /** ISO date (YYYY-MM-DD) or month (YYYY-MM). */
+  date: string;
+  tag: string;
+  title: string;
+  body?: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+export interface UpdatesCopy {
+  hero: PageHeroCopy;
+  entries: UpdateEntry[];
+  home: { kicker: string; title: string; viewAll: string };
+}
+
 export interface TrustCopy {
   hero: PageHeroCopy;
   sections: TrustSection[];
@@ -332,4 +348,5 @@ export interface SiteContent {
   sections: SectionPagesCopy;
   contact: ContactCopy;
   trust: TrustCopy;
+  updates: UpdatesCopy;
 }

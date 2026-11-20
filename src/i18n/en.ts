@@ -14,6 +14,7 @@ export const en = {
     about: 'About',
     contact: 'Contact',
     trust: 'Trust Center',
+    updates: 'Updates',
   },
   chrome: {
     brandHomeLabel: 'Xuanheng Technology home',
@@ -56,6 +57,10 @@ export const en = {
     contact: {
       title: 'Contact & Collaboration | Xuanheng Technology',
       description: 'Contact Suzhou Xuanheng Technology Co., Ltd. to discuss industry products or custom engagements.',
+    },
+    updates: {
+      title: 'Updates | Xuanheng Technology',
+      description: 'Progress on Xuanheng Technology products, open-source tools and website.',
     },
     trust: {
       title: 'Trust Center | Xuanheng Technology',
@@ -709,7 +714,7 @@ export const en = {
       linkLabel: 'Our Research Philosophy',
     },
     contact: {
-      kicker: '05 · Get in Touch',
+      kicker: '06 · Get in Touch',
       title: 'Tell us what you need',
       lead: 'Tell us about your organization, the area you are interested in and your use case. We start with an online conversation, then tailor a solution.',
     },
@@ -892,6 +897,53 @@ export const en = {
       image: '/contact/wecom-qr.svg',
       imageAlt: 'Xuanheng Technology WeCom QR code',
     },
+  },
+  updates: {
+    hero: {
+      kicker: 'UPDATES',
+      title: ['Steady progress,', 'on the record.'],
+      lead: 'Notable progress on our products, open-source tools and this website, newest first.',
+    },
+    entries: [
+      {
+        date: '2026-11',
+        tag: 'Website',
+        title: 'Redesigned website',
+        body: 'New sections for industry products, open-source tools and research, plus dark mode, a trust center and an inquiry form. ChainVerify, AgriPulse and EmbodiedFlow are open for custom engagements.',
+      },
+      {
+        date: '2026-11-13',
+        tag: 'Open source',
+        title: 'Git Finalizer v1.9.9 and Snapshot Runner 2.5.13 released',
+        href: 'https://github.com/xuanheng-tech/git-finalizer/releases',
+        linkLabel: 'Releases',
+      },
+      {
+        date: '2026-10-22',
+        tag: 'Open source',
+        title: 'Worktree Controller open-sourced and published on PyPI',
+        body: 'Allocation, leases and closeout for Git worktrees shared by parallel agents.',
+        href: 'https://pypi.org/project/worktree-controller/',
+        linkLabel: 'PyPI',
+      },
+      {
+        date: '2026-09-26',
+        tag: 'Open source',
+        title: 'Git Finalizer open-sourced with its first GitHub Release',
+        body: 'Git commits and publication within an authorized boundary, with reviewable delivery evidence.',
+        href: 'https://github.com/xuanheng-tech/git-finalizer',
+        linkLabel: 'GitHub',
+      },
+      {
+        date: '2026-09-08',
+        tag: 'Open source',
+        title: 'Context Loader and Snapshot Runner published on PyPI',
+        body: 'Repository context loading and evidence collection for coding agents.',
+        href: 'https://github.com/xuanheng-tech',
+        linkLabel: 'GitHub',
+      },
+    ],
+    home: { kicker: '05 · Updates', title: 'Latest updates', viewAll: 'All updates' },
   },
   trust: {
     hero: {
