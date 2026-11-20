@@ -115,6 +115,7 @@ export interface OpenSourceChainStep {
   slug: ProjectSlug;
   step: string;
   distribution: string;
+  distributionUrl: string;
 }
 
 export interface HomeCopy {

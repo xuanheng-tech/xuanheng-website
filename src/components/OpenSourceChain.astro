@@ -19,7 +19,7 @@ const steps = chain.map((step) => {
 <div class="oss-chain">
   {title && <h2 class="oss-chain__title" id={headingId}>{title}</h2>}
   <ol class="oss-chain__steps" aria-labelledby={title ? headingId : undefined}>
-    {steps.map(({ step, distribution, project }, index) => (
+    {steps.map(({ step, distribution, distributionUrl, project }, index) => (
       <li>
         <p class="oss-chain__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
         <p class="oss-chain__step">{step}</p>
@@ -29,7 +29,9 @@ const steps = chain.map((step) => {
           {content.projectLabels.viewProject} <span aria-hidden="true">→</span>
         </a>
         <p class="oss-chain__meta" lang="en">
-          <span>{distribution}</span>
+          <a href={distributionUrl} target="_blank" rel="noopener noreferrer">
+            {distribution} <span aria-hidden="true">↗</span>
+          </a>
           {project.repositoryUrl && (
             <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">
               GitHub <span aria-hidden="true">↗</span>

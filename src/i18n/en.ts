@@ -21,7 +21,7 @@ export const en = {
     mobileMenuLabel: 'Navigation menu',
     languageSwitcherLabel: 'Language selection',
     skipToContent: 'Skip to main content',
-    demoCta: 'Request a Demo',
+    demoCta: "Let's Talk",
     themeSwitchLabel: 'Color theme',
     themeOptions: { light: 'Light', dark: 'Dark', system: 'System' },
     filingNavigationLabel: 'Registration information',
@@ -53,8 +53,8 @@ export const en = {
       description: 'Learn about Xuanheng Technology, our research philosophy and our technology directions.',
     },
     contact: {
-      title: 'Contact & Demos | Xuanheng Technology',
-      description: 'Contact Suzhou Xuanheng Technology Co., Ltd. and request a product demo.',
+      title: 'Contact & Collaboration | Xuanheng Technology',
+      description: 'Contact Suzhou Xuanheng Technology Co., Ltd. to discuss industry products or custom engagements.',
     },
   },
   projectLabels: {
@@ -98,8 +98,8 @@ export const en = {
       summary: 'LLM-driven enterprise value-chain identification and due-diligence workbench.',
       slogan: 'Value-chain verification, down to the source page.',
       cardSummary: 'Value-chain verification and due diligence, with every conclusion linked to a source page.',
-      status: 'Status: Demo Available',
-      demoCta: 'Request a Demo',
+      status: 'Status: Open for Customization',
+      demoCta: 'Discuss Your Needs',
       focus: ['Value-Chain Verification', 'Source Grounding', 'On-Premise'],
       overview: [
         'Xuanheng ChainVerify serves commercial bank corporate and SME banking teams, industrial investment funds, industrial parks and policy research institutions, identifying where an enterprise really sits within fine-grained industrial value chains.',
@@ -151,8 +151,8 @@ export const en = {
       summary: 'Bio-cycle supply-demand intelligence and margin risk platform for white-feather broiler operations.',
       slogan: 'Risk bounds instead of price bets.',
       cardSummary: 'Broiler supply forecasting, batch budgeting and multi-party reconciliation.',
-      status: 'Status: Demo Available',
-      demoCta: 'Request a Demo',
+      status: 'Status: Open for Customization',
+      demoCta: 'Discuss Your Needs',
       focus: ['Supply Forecasting', 'Margin Risk', 'Multi-Party Reconciliation'],
       overview: [
         'Xuanheng AgriPulse (Broiler Edition) serves integrated poultry producers, contract-farming and feed supply-chain operators, and regional livestock coordinators.',
@@ -204,8 +204,8 @@ export const en = {
       summary: 'Multimodal robotics data QA, annotation and closed-loop training governance pipeline.',
       slogan: 'Every trajectory, traceable to its capture.',
       cardSummary: 'Robot trajectory QA, recollection work orders and verifiable data lineage.',
-      status: 'Status: Demo Available',
-      demoCta: 'Request a Demo',
+      status: 'Status: Open for Customization',
+      demoCta: 'Discuss Your Needs',
       focus: ['Embodied AI', 'Trajectory QA', 'Data Lineage'],
       overview: [
         'Xuanheng EmbodiedFlow serves embodied AI data collection factories, robotics R&D teams and industrial manipulation engineering teams.',
@@ -648,7 +648,7 @@ export const en = {
       kicker: 'Verifiable Industry AI · Suzhou',
       title: ['AI you can verify.', 'Every answer, traceable.'],
       intro: 'Verifiable AI workbenches for industrial finance, agri supply chains and embodied AI — traceable, reviewable and deployable on-premise.',
-      primaryCta: 'Request a Demo',
+      primaryCta: "Let's Talk",
       secondaryCta: 'Explore Products',
       brandMarkLabel: 'Xuanheng brand mark',
       signature: ['Explore the unknown', 'Measure the complex'],
@@ -704,9 +704,9 @@ export const en = {
       linkLabel: 'Our Research Philosophy',
     },
     contact: {
-      kicker: '05 · Request a Demo',
-      title: 'See how it works in your business',
-      lead: 'Tell us about your organization, the product you are interested in and your use case, and we will arrange an online or on-site demo.',
+      kicker: '05 · Get in Touch',
+      title: 'Tell us what you need',
+      lead: 'Tell us about your organization, the area you are interested in and your use case. We start with an online conversation, then tailor a solution.',
     },
   },
   about: {
@@ -790,7 +790,7 @@ export const en = {
       hero: {
         kicker: 'PRODUCTS',
         title: ['AI you can verify.', 'Every answer, traceable.'],
-        lead: 'Industry AI workbenches for industrial finance, agri supply chains and embodied AI data pipelines. Products are presented here as static introductions; demos are available on request by email.',
+        lead: 'Industry AI workbenches for industrial finance, agri supply chains and embodied AI data pipelines. Each product can be tailored to your business; reach us by phone or email.',
       },
       listing: {
         kicker: 'PRODUCTS · 2026',
@@ -798,7 +798,7 @@ export const en = {
       },
       next: {
         label: 'Want to see it in action?',
-        linkLabel: 'Request a Demo',
+        linkLabel: "Let's Talk",
       },
     },
     openSource: {
@@ -813,10 +813,10 @@ export const en = {
       },
       chainTitle: 'One coding task, four checkpoints',
       chain: [
-        { slug: PROJECT_SLUGS.worktreeController, step: 'Allocate worktree', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.contextLoader, step: 'Load context', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.snapshotRunner, step: 'Collect evidence', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.gitFinalizer, step: 'Commit & publish', distribution: 'Releases' },
+        { slug: PROJECT_SLUGS.worktreeController, step: 'Allocate worktree', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/worktree-controller/' },
+        { slug: PROJECT_SLUGS.contextLoader, step: 'Load context', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/context-loader/' },
+        { slug: PROJECT_SLUGS.snapshotRunner, step: 'Collect evidence', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/snapshot-runner/' },
+        { slug: PROJECT_SLUGS.gitFinalizer, step: 'Commit & publish', distribution: 'Releases', distributionUrl: 'https://github.com/xuanheng-tech/git-finalizer/releases' },
       ],
     },
     research: {
@@ -837,13 +837,13 @@ export const en = {
   },
   contact: {
     kicker: 'CONTACT',
-    title: 'Contact & Demos',
+    title: 'Contact & Collaboration',
     companyLines: ['Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
-      title: 'Request a product demo',
-      lead: 'Email contact@xuanhengtech.cn and we will get in touch to arrange an online or on-site demo.',
-      checklist: ['Your organization and role', 'The product you are interested in', 'The business problem or use case', 'Deployment requirements (e.g. intranet, on-premise)'],
-      mailSubject: 'Product demo request',
+      title: 'Discuss your needs',
+      lead: 'Email contact@xuanhengtech.cn with your use case and requirements. We will start with an online conversation, then agree on next steps or a custom engagement.',
+      checklist: ['Your organization and role', 'The product or area you are interested in', 'The business problem or use case', 'Deployment requirements (e.g. intranet, on-premise)'],
+      mailSubject: 'Product inquiry and customization',
       buttonLabel: 'Email Us',
     },
     emailLabel: 'Email',
@@ -860,7 +860,7 @@ export const en = {
     },
     wecom: {
       label: 'WeCom',
-      caption: 'Scan with WeChat to add us on WeCom for product questions and demos.',
+      caption: 'Scan with WeChat to add us on WeCom for product questions and custom work.',
       image: '/contact/wecom-qr.png',
       imageAlt: 'Xuanheng Technology WeCom QR code',
     },

@@ -21,7 +21,7 @@ export const zh = {
     mobileMenuLabel: '导航菜单',
     languageSwitcherLabel: '语言选择',
     skipToContent: '跳至主要内容',
-    demoCta: '预约演示',
+    demoCta: '沟通交流',
     themeSwitchLabel: '显示主题',
     themeOptions: { light: '浅色', dark: '深色', system: '跟随系统' },
     filingNavigationLabel: '备案信息',
@@ -53,8 +53,8 @@ export const zh = {
       description: '了解玄衡科技的公司介绍、研究理念与技术方向。',
     },
     contact: {
-      title: '联系与预约演示 | 玄衡科技',
-      description: '联系苏州玄衡科技有限公司，预约行业产品演示。',
+      title: '联系与合作 | 玄衡科技',
+      description: '联系苏州玄衡科技有限公司，交流行业产品与定制合作。',
     },
   },
   projectLabels: {
@@ -98,8 +98,8 @@ export const zh = {
       summary: '大模型驱动的企业产业链细分节点穿透与尽调核验工作台。',
       slogan: '穿透到页码的产业链核验。',
       cardSummary: '企业产业链归属核验与尽调辅助，每条结论绑定原文页码。',
-      status: '状态：可预约演示',
-      demoCta: '预约产品演示',
+      status: '状态：可沟通定制',
+      demoCta: '沟通定制需求',
       focus: ['产业链核验', '原文溯源', '私有化部署'],
       overview: [
         '企业链属核验台面向商业银行公司金融与普惠条线、产投基金、地方产业园区与政策研究机构，用于企业产业链细分节点的穿透识别与尽调核验。',
@@ -151,8 +151,8 @@ export const zh = {
       summary: '融合生物周期规律与成本风控的白羽肉鸡产销决策与多方协同平台。',
       slogan: '用概率边界，替代价格猜测。',
       cardSummary: '白羽肉鸡供需研判、上栏算账与多方协同核验。',
-      status: '状态：可预约演示',
-      demoCta: '预约产品演示',
+      status: '状态：可沟通定制',
+      demoCta: '沟通定制需求',
       focus: ['供需研判', '成本风控', '多方协同'],
       overview: [
         '畜禽供需研判平台（白羽鸡版）面向肉鸡一条龙养殖企业、放养与饲料供应链企业，以及区域畜牧业运营与调度主体。',
@@ -204,8 +204,8 @@ export const zh = {
       summary: '面向具身智能数据工厂的多模态轨迹采标质检与闭环训练治理平台。',
       slogan: '每一条轨迹，都可追溯到采集。',
       cardSummary: '机器人多模态轨迹质检、补采工单与数据血缘追溯。',
-      status: '状态：可预约演示',
-      demoCta: '预约产品演示',
+      status: '状态：可沟通定制',
+      demoCta: '沟通定制需求',
       focus: ['具身智能', '轨迹质检', '数据血缘'],
       overview: [
         '具身多模态数据产线面向具身智能数据采集基地、机器人研发团队，以及工业自动化与策略训练工程团队。',
@@ -633,7 +633,7 @@ export const zh = {
       kicker: '行业可信 AI · 苏州',
       title: ['每一个结论，', '都有据可查。'],
       intro: '面向产业金融、农业供应链与具身智能的行业 AI 工作台。可溯源，可复核，可私有化部署。',
-      primaryCta: '预约演示',
+      primaryCta: '沟通交流',
       secondaryCta: '了解产品',
       brandMarkLabel: '玄衡品牌标志',
       signature: ['玄以探索', '衡以度量'],
@@ -689,9 +689,9 @@ export const zh = {
       linkLabel: '了解我们的研究理念',
     },
     contact: {
-      kicker: '05 · 预约演示',
-      title: '预约一次演示',
-      lead: '告诉我们您的机构、关注的产品与使用场景，我们会安排线上或现场演示。',
+      kicker: '05 · 沟通交流',
+      title: '聊聊您的需求',
+      lead: '介绍您的机构、关注的方向与使用场景。我们先线上沟通，再按需定制方案。',
     },
   },
   about: {
@@ -775,7 +775,7 @@ export const zh = {
       hero: {
         kicker: 'PRODUCTS · 行业产品',
         title: ['证据在前，', '结论在后。'],
-        lead: '面向产业金融、农业供应链与具身智能数据产线的行业 AI 工作台。产品以介绍与预约演示的方式提供，欢迎来电或邮件联系。',
+        lead: '面向产业金融、农业供应链与具身智能数据产线的行业 AI 工作台。产品可按业务场景定制，欢迎来电或邮件沟通。',
       },
       listing: {
         kicker: 'PRODUCTS · 2026',
@@ -783,7 +783,7 @@ export const zh = {
       },
       next: {
         label: '想看实际效果？',
-        linkLabel: '预约演示',
+        linkLabel: '沟通交流',
       },
     },
     openSource: {
@@ -798,10 +798,10 @@ export const zh = {
       },
       chainTitle: '一次编码任务，四道关口',
       chain: [
-        { slug: PROJECT_SLUGS.worktreeController, step: '分配工作区', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.contextLoader, step: '加载上下文', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.snapshotRunner, step: '收集证据', distribution: 'PyPI' },
-        { slug: PROJECT_SLUGS.gitFinalizer, step: '提交发布', distribution: 'Releases' },
+        { slug: PROJECT_SLUGS.worktreeController, step: '分配工作区', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/worktree-controller/' },
+        { slug: PROJECT_SLUGS.contextLoader, step: '加载上下文', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/context-loader/' },
+        { slug: PROJECT_SLUGS.snapshotRunner, step: '收集证据', distribution: 'PyPI', distributionUrl: 'https://pypi.org/project/snapshot-runner/' },
+        { slug: PROJECT_SLUGS.gitFinalizer, step: '提交发布', distribution: 'Releases', distributionUrl: 'https://github.com/xuanheng-tech/git-finalizer/releases' },
       ],
     },
     research: {
@@ -822,14 +822,14 @@ export const zh = {
   },
   contact: {
     kicker: 'CONTACT · 联系',
-    title: '联系与预约演示',
+    title: '联系与合作',
     companyLines: ['苏州玄衡科技有限公司', 'Suzhou Xuanheng Technology Co., Ltd.'],
     demo: {
-      title: '预约产品演示',
-      lead: '发送邮件至 contact@xuanhengtech.cn，我们会与您联系，安排线上或现场演示。',
-      checklist: ['机构名称与您的角色', '关注的产品', '希望解决的业务问题或使用场景', '部署环境要求（如内网、私有化）'],
-      mailSubject: '预约产品演示',
-      buttonLabel: '写邮件预约',
+      title: '沟通定制需求',
+      lead: '发送邮件至 contact@xuanhengtech.cn，说明您的场景与需求。我们会与您联系，先线上沟通，再商定交流或定制方式。',
+      checklist: ['机构名称与您的角色', '关注的产品或方向', '希望解决的业务问题或使用场景', '部署环境要求（如内网、私有化）'],
+      mailSubject: '产品沟通与定制咨询',
+      buttonLabel: '写邮件沟通',
     },
     emailLabel: '邮箱',
     phone: {
@@ -846,7 +846,7 @@ export const zh = {
     },
     wecom: {
       label: '企业微信',
-      caption: '微信扫码添加企业微信，咨询产品与预约演示。',
+      caption: '微信扫码添加企业微信，咨询产品与定制合作。',
       image: '/contact/wecom-qr.png',
       imageAlt: '玄衡科技企业微信二维码',
     },
