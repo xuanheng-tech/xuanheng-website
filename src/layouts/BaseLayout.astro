@@ -44,6 +44,9 @@ const canonicalUrl = new URL(canonicalPath, siteUrl);
 const englishUrl = new URL(englishPath, siteUrl);
 const chineseUrl = new URL(chinesePath, siteUrl);
 const { title, description } = seo ?? content.seo[pageKey];
+// Share card rendered by scripts/build-og-images.py; same naming as og_name() there.
+const ogPath = canonicalPath.replace(/^\/|\/$/g, '');
+const ogImageUrl = new URL(`/og/${ogPath === '' || ogPath === 'zh-cn' ? `${ogPath}/home`.replace(/^\//, '') : ogPath}.png`, siteUrl);
 ---
 
 <!doctype html>
@@ -87,7 +90,15 @@ const { title, description } = seo ?? content.seo[pageKey];
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {indexable && <meta property="og:url" content={canonicalUrl} />}
-    <meta name="twitter:card" content="summary" />
+    {indexable && (
+      <>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={title} />
+      </>
+    )}
+    <meta name="twitter:card" content={indexable ? 'summary_large_image' : 'summary'} />
     {structuredData.map((item) => <script type="application/ld+json" is:inline set:html={jsonLd(item)} />)}
   </head>
   <body id="top">

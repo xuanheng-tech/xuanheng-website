@@ -37,6 +37,7 @@ Production target；ChatGPT Sites 与 Cloudflare 仅用于非正式备用或测�
 - 在 Forms → Form notifications 添加邮件通知到 `contact@xuanhengtech.cn`。
 - 上线后中英文各提交一次真实测试：应跳转到 `/contact/thanks/` 或 `/zh-cn/contact/thanks/`，后台与邮箱均收到；测试记录随后在后台删除。
 - 表单提交在 credit-based plan 上不消耗 credits；`bot-field` honeypot 与 Netlify 自带垃圾过滤生效。
+- 分享卡片（og:image）：修改页面标题或小标题后运行 `npm run build && python3 scripts/build-og-images.py && npm run build` 重新生成 `public/og/`；构建会检查每个页面都有卡片。
 - 中文正文字体子集：修改中文文案后若构建提示缺字，运行 `uv run --with fonttools --with brotli python scripts/subset-cjk-font.py` 后重新构建。
 
 ## Metadata and assets

@@ -65,6 +65,9 @@ for (const route of routes) {
   assert(anchors.some((tag) => tag.lang === 'en' && tag.href === en), `${route}: EN switch`);
   assert(anchors.some((tag) => tag.lang === 'zh-CN' && tag.href === zh), `${route}: 中文 switch`);
   assert(linkTags.some((tag) => tag.rel === 'icon' && tag.href === '/brand/xuanheng-mark.svg'));
+  const ogImage = tags(html, 'meta').find((tag) => tag.property === 'og:image')?.content;
+  assert(ogImage?.startsWith(`${site}/og/`) && existsSync(fileFor(ogImage.slice(site.length))),
+    `${route}: share card ${ogImage} (run scripts/build-og-images.py)`);
 
   const references = [...anchors, ...linkTags, ...tags(html, 'img')]
     .map((tag) => tag.href ?? tag.src).filter(Boolean);
@@ -127,4 +130,4 @@ for (const link of llmsLinks) assert(routes.includes(link.slice(site.length)), `
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));
 assert.equal(missingGlyphs.size, 0, `zh-CN webfont subset is missing ${[...missingGlyphs].join('')}; run: uv run --with fonttools --with brotli python scripts/subset-cjk-font.py`);
 
-console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, inquiry form, JSON-LD, llms.txt, 404 noindex`);
+console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, inquiry form, JSON-LD, llms.txt, share cards, 404 noindex`);
