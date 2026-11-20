@@ -3,20 +3,19 @@
   "contract": "xuanheng-consumer-declaration/v1",
   "deployed_runtime": {
     "evidence": [
-      "2026-10-01: public read-only Netlify site published_deploy and deploy receipt both confirm ready production/main 6ab54d27affd510008b699d4 at the full source_commit; this was not an authenticated API read",
-      "Private Gitea and public GitHub main were exactly aligned at b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197 through Git Finalizer post-verify",
-      "Current production immutable permalink passed 16 bilingual routes, 22 one-hop 301 redirects with query preservation, real 404/noindex, 29 assets and 32 browser route/viewport cases at 390px and 1440px; key screenshots reviewed",
-      "Production CSS SHA-256 42123cd5e56040751e12b656cf50f2d8048b7f584bcec7e3ffbf3719c824c7b0 remains the older build without Foundation adoption",
-      "Automatic deploy 6abdccfd0102880008937e9e for b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197 is error/skipped, not published; hsd confirmed monthly deployment quota exhausted. Netlify build execution and new-production acceptance were not_run",
-      "Previous deploy 6ab537cb5c6d8a000806add8 at 9edc97f7e7106024775fe17238f53cc4f4232a91 failed fresh rollback acceptance: all 16 mobile menus extend to x=-14.125px at 390px",
-      "Current accepted deploy 6ab54d27affd510008b699d4 is the prepared rollback baseline for the next successful release, not a separate previous rollback for the currently live deploy"
+      "2026-11-20: public read-only Netlify site published_deploy and deploy receipt both confirm ready production/main 6b0045d3f642720d39624f29 at the full source_commit (deploy_time 19s); not an authenticated API read",
+      "Private Gitea origin/main and public GitHub main exactly aligned at the source_commit through Git Finalizer resume-publish and sync-published-branch post-verify",
+      "Immutable permalink passed 36 bilingual routes, 48 one-hop 301 redirects with targets returning 200, real 404/noindex and key assets; browser checks at 390px and 1440px on 16 route/viewport cases found no overflow, broken images, page errors, failed requests or cookies",
+      "Custom domain spot checks: key routes 200, new content present, Netlify-processed contact forms, /en/ 301, apex to www 301 preserving path and query, 404",
+      "npm run check:release with the rollback identity reported no problems and build_inputs_match=true",
+      "Direct mainland access to Netlify was observed to be slow or intermittently failing (2-22s, TLS resets); recorded as a hosting observation, not a deploy defect"
     ],
-    "foundation_status": "not_deployed",
-    "foundation_version": null,
+    "foundation_status": "deployed",
+    "foundation_version": "v1.4",
     "health": "passed",
-    "release_id": "6ab54d27affd510008b699d4",
-    "rollback_identity": null,
-    "source_commit": "ae2ffc1ee92aa3b9e41b850ffadccf9d90f87bde",
+    "release_id": "6b0045d3f642720d39624f29",
+    "rollback_identity": "netlify:6ab54d27affd510008b699d4@ae2ffc1ee92aa3b9e41b850ffadccf9d90f87bde",
+    "source_commit": "f4961c4d86f0419c89baa64276ce78cad172d019",
     "status": "verified"
   },
   "exceptions": [
@@ -35,28 +34,12 @@
       "reason": "No independently weighted numeric face consumes it",
       "removal_condition": "Consumer gains a numeric face that needs this role",
       "status": "accepted"
-    },
-    {
-      "clause": "governance.release-identity",
-      "difference": "No separate previous deploy has passed current rollback acceptance",
-      "owner": "hsd",
-      "reason": "Previous deploy ID/full commit were recovered but its mobile navigation failed; the currently accepted live deploy can become a rollback baseline only after a new release succeeds",
-      "removal_condition": "After new production acceptance, record netlify:6ab54d27affd510008b699d4@ae2ffc1ee92aa3b9e41b850ffadccf9d90f87bde, or independently accept another separate previous deploy",
-      "status": "pending"
-    },
-    {
-      "clause": "governance.production-publication",
-      "difference": "Validated Foundation v1.4 source is mirrored but not deployed because Netlify skipped the production build",
-      "owner": "hsd",
-      "reason": "2026-10-01 owner confirmed monthly deployment quota exhaustion; API records error/skipped deploy 6abdccfd0102880008937e9e while the prior production remains published",
-      "removal_condition": "Restore available deployment quota, build latest mirrored main, verify its exact published deploy receipt and complete product acceptance",
-      "status": "pending"
     }
   ],
   "foundation_version": "v1.4",
   "source_ref": {
     "branch": "main",
-    "commit": "b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197",
+    "commit": "f4961c4d86f0419c89baa64276ce78cad172d019",
     "repository": "xuanheng-tech/xuanheng-website",
     "source_adoption": "on_default"
   },
@@ -66,12 +49,11 @@
       "npm run test:release",
       "npm run build"
     ],
-    "commit": "b9076e1e2c1f9b100ac51bc21cbbd2b9d1146197",
+    "commit": "f4961c4d86f0419c89baa64276ce78cad172d019",
     "evidence": [
-      "2026-10-01 Node 24.19.0: 376 leaf rules, 4 weight roles; 6 deterministic release-check cases; static output validates 16 routes, 22 redirects and 405 local links/assets including mobile srcset",
-      "Local accepted build passed 32 browser route/viewport cases at 390px and 1440px; English/Chinese home, index and detail screenshots reviewed against current accepted production",
-      "Planted wrong Foundation crimson blocks npm run build before Astro; planted wrong Chinese project canonical fails the output gate",
-      "Live release check intentionally failed on production differs from current build inputs; it does not turn source validation into a deployment claim. See docs/release-identity.md"
+      "2026-11-20 Node 24.19.0: npm ci; 6 deterministic release-check cases; Foundation gate 542 leaf rules / 4 weight roles; static output validates 36 routes, 48 redirects, 1165 local links/assets, zh webfont coverage, inquiry form, JSON-LD, llms.txt and share cards",
+      "Local build reviewed at 390px, 1024px and 1440px in light and dark themes for changed pages",
+      "Live acceptance and release check recorded under deployed_runtime; see docs/release-identity.md"
     ],
     "status": "passed"
   }
