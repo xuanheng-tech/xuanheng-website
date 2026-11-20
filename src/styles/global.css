@@ -965,6 +965,11 @@ summary {
   html[lang="zh-CN"] .contact-band h2 {
     white-space: nowrap;
   }
+
+  /* Keep the email rule flush with the container edge, like the list rules above. */
+  .contact-band__body {
+    justify-self: end;
+  }
 }
 
 .site-footer {
@@ -3374,7 +3379,8 @@ html[lang="zh-CN"] .contact-thanks h1 {
 }
 
 .contact-band__actions .contact-band__email {
-  flex: 1 1 260px;
+  flex: 1 1 auto;
+  gap: 48px;
 }
 
 .footer__links {
