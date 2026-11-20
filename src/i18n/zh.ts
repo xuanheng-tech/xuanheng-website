@@ -44,7 +44,7 @@ export const zh = {
     },
     research: {
       title: '研究 | 玄衡科技',
-      description: '玄衡科技正在研发的工业垂类模型「玄衡·工鉴」，以及支撑长期研究的玄衡量化平台。',
+      description: '玄衡科技正在研发的工业垂类模型「玄衡·工鉴」等在研项目，按真实进度呈现。',
     },
     projects: {
       title: '全部项目 | 玄衡科技',
@@ -672,7 +672,7 @@ export const zh = {
     research: {
       kicker: '03 · 研究',
       title: '在研项目',
-      lead: '工业垂类模型与量化研究系统，按真实进度呈现。',
+      lead: '工业垂类模型等在研项目，按真实进度呈现。',
       viewAll: '查看研究项目',
     },
     philosophy: {
@@ -693,7 +693,7 @@ export const zh = {
       title: '我们是谁',
       lead: '玄衡科技成立于 2026 年，位于江苏苏州。',
       paragraphs: [
-        '公司关注行业可信 AI、垂类模型、Agent 工程工具与量化研究。',
+        '公司关注行业可信 AI、垂类模型与 Agent 工程工具。',
         '我们相信，未来的重要创新将来自数学、工程能力与智能工具的深度结合。',
       ],
       linkLabel: '了解我们的研究理念',
@@ -708,7 +708,7 @@ export const zh = {
     hero: {
       kicker: 'ABOUT · 关于玄衡',
       title: ['独立思考，', '长期研究。'],
-      lead: '玄衡科技是一家独立科技公司，专注于行业可信 AI、垂类模型与 Agent 工程工具，并长期开展量化研究。',
+      lead: '玄衡科技是一家独立科技公司，专注于行业可信 AI、垂类模型与 Agent 工程工具。',
     },
     factsLabel: '公司基本信息',
     facts: [
@@ -720,7 +720,7 @@ export const zh = {
       kicker: '01 · Company',
       title: '公司介绍',
       paragraphs: [
-        '玄衡科技是一家独立科技公司，专注于行业可信 AI、垂类模型与 Agent 工程工具，并长期开展量化研究。',
+        '玄衡科技是一家独立科技公司，专注于行业可信 AI、垂类模型与 Agent 工程工具。',
         '我们通过数学建模、软件工程和人工智能技术，探索复杂系统中的可计算规律。',
         '公司成立于 2026 年，位于江苏苏州。',
       ],
@@ -752,11 +752,6 @@ export const zh = {
           index: '03',
           title: 'Agent 工程工具',
           description: '为编码 Agent 与自动化提供仓库证据、上下文、Git 交付与 worktree 治理的开源工具链。',
-        },
-        {
-          index: '04',
-          title: '量化研究',
-          description: '基于数据、统计方法与计算模型，探索金融市场中的结构性规律。',
         },
       ],
     },
@@ -818,7 +813,7 @@ export const zh = {
       hero: {
         kicker: 'RESEARCH · 研究',
         title: ['长期研究，', '如实呈现。'],
-        lead: '正在研发的工业垂类模型，以及支撑长期研究的量化系统。未经检验的能力，不作为已完成呈现。',
+        lead: '正在研发的工业垂类模型等长期项目。未经检验的能力，不作为已完成呈现。',
       },
       listing: {
         kicker: 'RESEARCH · 2026',

@@ -44,7 +44,7 @@ export const en = {
     },
     research: {
       title: 'Research | Xuanheng Technology',
-      description: 'Xuanheng MechLens, an industrial vertical model in development, and the quantitative research platform behind our long-term research.',
+      description: 'Xuanheng MechLens, an industrial vertical model in development, and other long-term research projects, reported as they stand.',
     },
     projects: {
       title: 'All Projects | Xuanheng Technology',
@@ -687,7 +687,7 @@ export const en = {
     research: {
       kicker: '03 · Research',
       title: 'In development',
-      lead: 'An industrial vertical model and our quantitative research systems, presented as they really stand.',
+      lead: 'An industrial vertical model and other long-term projects, presented as they really stand.',
       viewAll: 'View Research',
     },
     philosophy: {
@@ -708,7 +708,7 @@ export const en = {
       title: 'Who we are',
       lead: 'Xuanheng Technology was founded in 2026 in Suzhou, China.',
       paragraphs: [
-        'Our work focuses on verifiable industry AI, vertical models, agent engineering tools and quantitative research.',
+        'Our work focuses on verifiable industry AI, vertical models and agent engineering tools.',
         'We combine mathematical thinking, engineering practice and intelligent tools for long-term research.',
       ],
       linkLabel: 'Our Research Philosophy',
@@ -736,7 +736,7 @@ export const en = {
       title: 'Company',
       paragraphs: [
         'Xuanheng Technology is an independent technology company based in Suzhou, China.',
-        'Our work focuses on verifiable industry AI, vertical models, agent engineering tools and quantitative research.',
+        'Our work focuses on verifiable industry AI, vertical models and agent engineering tools.',
         'We use mathematical modelling, software engineering and AI to investigate computable structures within complex systems.',
       ],
     },
@@ -767,11 +767,6 @@ export const en = {
           index: '03',
           title: 'Agent Engineering Tools',
           description: 'An open-source toolchain for repository evidence, context, Git delivery and worktree governance for coding agents and automation.',
-        },
-        {
-          index: '04',
-          title: 'Quantitative Research',
-          description: 'Using data, statistical methods and computational models to investigate structural patterns in financial markets.',
         },
       ],
     },
@@ -833,7 +828,7 @@ export const en = {
       hero: {
         kicker: 'RESEARCH',
         title: ['Long-term research,', 'reported as it stands.'],
-        lead: 'An industrial vertical model in development and the quantitative systems behind our long-term research. Nothing is presented as complete before it is proven.',
+        lead: 'An industrial vertical model in development and other long-term projects. Nothing is presented as complete before it is proven.',
       },
       listing: {
         kicker: 'RESEARCH · 2026',
