@@ -44,7 +44,7 @@ export const en = {
     },
     research: {
       title: 'Research | Xuanheng Technology',
-      description: 'Xuanheng MechLens, an industrial vertical model in development, and other long-term research projects, reported as they stand.',
+      description: 'Xuanheng MechLens, an industrial vertical model in development, and our other research projects.',
     },
     projects: {
       title: 'All Projects | Xuanheng Technology',
@@ -114,7 +114,7 @@ export const en = {
       overview: [
         'Xuanheng ChainVerify serves commercial bank corporate and SME banking teams, industrial investment funds, industrial parks and policy research institutions, identifying where an enterprise really sits within fine-grained industrial value chains.',
         'Standard industry classification codes are too coarse for multi-business enterprises, leaving concrete product and manufacturing evidence buried across annual reports, disclosures, tenders and patents. Manual chain mapping is slow and inconsistent, while generic LLMs frequently over-claim based on broad business scopes or buzzwords.',
-        'Beyond black-box answers, every output is backed by source evidence, confidence boundaries and an audit trail; when evidence falls short, the workbench abstains and lists the documents it needs.',
+        'Every output comes with its source evidence, a confidence grade and an audit trail; when evidence falls short, the workbench abstains and lists the documents it needs.',
       ],
       capabilities: [
         {
@@ -147,7 +147,7 @@ export const en = {
         'Designed for industrial chain classification and due-diligence assistance; does not replace institutional credit ratings or underwriting approvals.',
         'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
         'Explainable by design: every conclusion traces back to source documents or explicit formulas, abstaining cleanly when evidence falls short.',
-        'Human-in-the-loop governance: built around real reviewer workflows, role-based access and standardized spreadsheet exports.',
+        'Human review: review records, role-based access and standard spreadsheet exports are designed around how your team actually works.',
       ],
     },
     {
@@ -159,7 +159,7 @@ export const en = {
       name: 'AgriPulse',
       englishName: 'Xuanheng AgriPulse · Broiler Edition',
       summary: 'Bio-cycle supply-demand intelligence and margin risk platform for white-feather broiler operations.',
-      slogan: 'Risk bounds instead of price bets.',
+      slogan: 'Know the risk range before you restock.',
       cardSummary: 'Broiler supply forecasting, batch budgeting and multi-party reconciliation.',
       status: 'Status: Open for Customization',
       demoCta: 'Discuss Your Needs',
@@ -200,7 +200,7 @@ export const en = {
         'Provides quantitative operational planning and risk estimates based on historical series and biological cycles; does not guarantee short-term spot price outcomes.',
         'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
         'Explainable by design: every estimate traces back to its data sources and explicit formulas.',
-        'Human-in-the-loop governance: alert verification, responses and reconciliation all keep a traceable record.',
+        'Human review: alert checks, responses and reconciliation are all recorded.',
       ],
     },
     {
@@ -253,7 +253,7 @@ export const en = {
         'Configurable for custom robot embodiments, sensor suites and private training clusters.',
         'Private deployment and data sovereignty: runs on-premise or within air-gapped intranets so proprietary data never leaves your perimeter.',
         'Explainable by design: every QA verdict traces back to synchronized sensor waveforms and explicit formulas.',
-        'Human-in-the-loop governance: reviews, phase adjustments and recollection orders all keep a traceable record.',
+        'Human review: reviews, phase adjustments and recollection orders are all recorded.',
       ],
     },
     {
@@ -453,7 +453,7 @@ export const en = {
       overview: [
         'Snapshot Runner collects repository state, changes, branch history and existing test logs into local artifacts. It never modifies the inspected repository, runs tests, calls a model, commits or pushes, and requires no API key.',
         'Four collection commands publish deterministic, hash-verified snapshots with bounded summaries, and a targeted evidence reader returns just the relevant part of an existing snapshot, so an agent reviews the evidence it needs instead of whole repositories.',
-        'Captured content stays untrusted evidence rather than agent instructions; refusals and explicit evidence gaps keep safety boundaries visible in every artifact.',
+        'Captured content is treated as evidence, never as instructions for an agent; refused operations and missing evidence are written into the artifact instead of being skipped.',
       ],
       capabilities: [
         {
@@ -623,7 +623,7 @@ export const en = {
         'Data first: provenance, time alignment and visibility are verified before any factor performance.',
         'Research must be reproducible: definitions, runs and baselines stay registered and traceable.',
         'Research, simulation and live trading advance in stages; trading decisions remain human.',
-        'Platform responsibility is distinct from delivery status: nothing is presented as complete before it is proven.',
+        'What is live and what is still being built are labelled separately.',
       ],
       media: [
         {
@@ -657,7 +657,7 @@ export const en = {
     hero: {
       kicker: 'Verifiable Industry AI · Suzhou',
       title: ['AI you can verify.', 'Every answer, traceable.'],
-      intro: 'Verifiable AI workbenches for industrial finance, agri supply chains and embodied AI — traceable, reviewable and deployable on-premise.',
+      intro: 'AI workbenches for industrial finance, agri supply chains and embodied AI. Every conclusion points to its source, and everything can be reviewed by people and run on your own servers.',
       primaryCta: "Let's Talk",
       secondaryCta: 'Explore Products',
       brandMarkLabel: 'Xuanheng brand mark',
@@ -668,14 +668,14 @@ export const en = {
       items: [
         { icon: 'source', title: 'Traceable Evidence', description: 'Every conclusion links to its source document, sensor waveform or formula.' },
         { icon: 'boundary', title: 'Explicit Boundaries', description: 'Confidence tiers; when evidence falls short, the system abstains instead of guessing.' },
-        { icon: 'review', title: 'Human Review', description: 'Reviewer workflows with audit trails, built for real business roles.' },
+        { icon: 'review', title: 'Human Review', description: 'Key conclusions are checked by your own staff, and every step is recorded.' },
         { icon: 'private', title: 'On-Premise', description: 'Runs on local servers or isolated intranets; core data never leaves your perimeter.' },
       ],
     },
     products: {
       kicker: '01 · Products',
       title: 'Industry AI workbenches',
-      lead: 'Beyond black-box answers — every output is backed by source evidence, confidence boundaries and an audit trail.',
+      lead: 'Every conclusion cites its source. Where the evidence is thin, we say so and leave the call to a person.',
       viewAll: 'View All Products',
     },
     openSource: {
@@ -687,7 +687,7 @@ export const en = {
     research: {
       kicker: '03 · Research',
       title: 'In development',
-      lead: 'An industrial vertical model and other long-term projects, presented as they really stand.',
+      lead: 'Projects still in development, described by what actually works today.',
       viewAll: 'View Research',
     },
     philosophy: {
@@ -709,7 +709,7 @@ export const en = {
       lead: 'Xuanheng Technology was founded in 2026 in Suzhou, China.',
       paragraphs: [
         'Our work focuses on verifiable industry AI, vertical models and agent engineering tools.',
-        'We combine mathematical thinking, engineering practice and intelligent tools for long-term research.',
+        'We use mathematics, engineering and AI tools together on concrete problems in specific industries.',
       ],
       linkLabel: 'Our Research Philosophy',
     },
@@ -745,18 +745,18 @@ export const en = {
       title: 'Research Philosophy',
       statements: [
         'Complex systems often contain hidden structures.',
-        'Our goal is not merely to predict outcomes, but to develop better ways of understanding the systems themselves.',
+        'A prediction is easy to make. Understanding why a system behaves the way it does is the hard part.',
       ],
     },
     directions: {
       kicker: '03 · Capabilities',
       title: 'Technology Directions',
-      lead: 'Mathematics, engineering and intelligent tools within a shared research framework.',
+      lead: 'Three directions, one habit: get the evidence straight before drawing conclusions.',
       items: [
         {
           index: '01',
           title: 'Verifiable Industry AI',
-          description: 'Decision intelligence and data governance systems for industrial finance, agritech supply chains and embodied AI data factories — traceable evidence, explicit uncertainty boundaries, human review and on-premise deployment.',
+          description: 'Decision and data governance systems for industrial finance, agri supply chains and embodied AI data pipelines. Conclusions cite their sources, uncertain cases are flagged, and everything supports human review and on-premise deployment.',
         },
         {
           index: '02',
@@ -778,7 +778,7 @@ export const en = {
   projectsPage: {
     hero: {
       kicker: 'ALL PROJECTS',
-      title: ['Built from questions,', 'designed to be verifiable.'],
+      title: ['Everything we build,', 'in one place.'],
       lead: 'The full catalogue of our industry products, model R&D, open-source tools and research systems.',
     },
     listing: {
@@ -827,8 +827,8 @@ export const en = {
     research: {
       hero: {
         kicker: 'RESEARCH',
-        title: ['Long-term research,', 'reported as it stands.'],
-        lead: 'An industrial vertical model in development and other long-term projects. Nothing is presented as complete before it is proven.',
+        title: ['Long-term research,', 'one step at a time.'],
+        lead: 'An industrial vertical model in development and other long-term projects. Each one states what is done and what comes next.',
       },
       listing: {
         kicker: 'RESEARCH · 2026',
