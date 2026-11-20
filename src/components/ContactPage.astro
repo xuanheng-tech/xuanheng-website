@@ -69,6 +69,8 @@ const { contact } = content;
               </a>
             </div>
           )}
+          {(contact.wechat || contact.wecom) && (
+          <div class="contact-qr-row">
           {contact.wechat && (
             <div class="contact-channel">
               <p class="contact-channel__label">{contact.wechat.label}</p>
@@ -96,6 +98,8 @@ const { contact } = content;
                 <figcaption>{contact.wecom.caption}</figcaption>
               </figure>
             </div>
+          )}
+          </div>
           )}
         </div>
       </div>

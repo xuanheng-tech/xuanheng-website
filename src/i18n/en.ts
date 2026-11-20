@@ -861,7 +861,7 @@ export const en = {
     wecom: {
       label: 'WeCom',
       caption: 'Scan with WeChat to add us on WeCom for product questions and custom work.',
-      image: '/contact/wecom-qr.png',
+      image: '/contact/wecom-qr.svg',
       imageAlt: 'Xuanheng Technology WeCom QR code',
     },
   },

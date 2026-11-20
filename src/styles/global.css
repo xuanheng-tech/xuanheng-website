@@ -1760,10 +1760,16 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
 }
 
 .contact-channel__qr img {
-  width: min(180px, 50vw);
+  width: min(180px, 100%);
   height: auto;
   border: var(--xh-border) solid var(--line);
   background: var(--qr-paper);
+}
+
+.contact-qr-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 24px);
 }
 
 .contact-channel__qr figcaption {

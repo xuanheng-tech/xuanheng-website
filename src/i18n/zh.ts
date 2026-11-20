@@ -840,14 +840,14 @@ export const zh = {
     },
     wechat: {
       label: '微信服务号',
-      caption: '微信扫码关注「玄衡科技」服务号。',
+      caption: '微信扫码，关注服务号',
       image: '/contact/wechat-official-account-qr.jpg',
       imageAlt: '玄衡科技微信服务号二维码',
     },
     wecom: {
       label: '企业微信',
-      caption: '微信扫码添加企业微信，咨询产品与定制合作。',
-      image: '/contact/wecom-qr.png',
+      caption: '微信扫码，添加企业微信',
+      image: '/contact/wecom-qr.svg',
       imageAlt: '玄衡科技企业微信二维码',
     },
   },
