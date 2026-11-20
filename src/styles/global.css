@@ -3558,3 +3558,63 @@ html[lang="zh-CN"] :is(p, li) {
     font-size: clamp(2.3rem, 10.5vw, 3rem);
   }
 }
+
+/* Motion, all CSS and all opt-in: browsers without support, and visitors who ask for
+   reduced motion, get the static page unchanged. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Same-origin page changes cross-fade; the header stays put so navigation feels like
+     one site rather than a series of reloads. */
+  @view-transition {
+    navigation: auto;
+  }
+
+  .site-header {
+    view-transition-name: site-header;
+  }
+
+  ::view-transition-old(root) {
+    animation: 160ms ease-out both vt-fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation: 320ms var(--ease) both vt-fade-in;
+  }
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* Blocks below the fold rise in as they scroll into view. Driven by the scroll position
+   itself (no script); anything already on screen at load is simply shown. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .product-row,
+    .oss-chain__steps li,
+    .card-grid > *,
+    .trust-strip__list li,
+    .trust-page__list li,
+    .project-section,
+    .updates-list li {
+      animation: scroll-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes scroll-reveal {
+  from {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+}
