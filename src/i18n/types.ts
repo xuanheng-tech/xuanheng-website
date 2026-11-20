@@ -40,7 +40,7 @@ export interface ChromeCopy {
 
 export type ProjectGroup = 'product' | 'model' | 'openSourceTool' | 'researchSystem';
 
-export const PROJECT_GROUP_ORDER: ProjectGroup[] = ['product', 'model', 'openSourceTool', 'researchSystem'];
+export const PROJECT_GROUP_ORDER: ProjectGroup[] = ['product', 'openSourceTool', 'model', 'researchSystem'];
 
 export interface ProjectCopy {
   slug: ProjectSlug;

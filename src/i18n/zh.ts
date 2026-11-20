@@ -48,7 +48,7 @@ export const zh = {
     },
     projects: {
       title: '全部项目 | 玄衡科技',
-      description: '玄衡科技的行业产品、模型研发、开源工具与研究系统目录。',
+      description: '玄衡科技的行业产品、开源工具、模型研发与研究系统目录。',
     },
     about: {
       title: '关于玄衡 | 玄衡科技',
@@ -257,61 +257,9 @@ export const zh = {
       ],
     },
     {
-      slug: PROJECT_SLUGS.mechLens,
-      detailPath: projectRouteFor('zh', PROJECT_SLUGS.mechLens),
-      number: '04',
-      group: 'model',
-      category: 'VERTICAL MODEL · INDUSTRIAL',
-      name: '玄衡·工鉴',
-      englishName: 'Xuanheng MechLens',
-      summary: '面向工业维修工单、设备图像、表面缺陷与工业文档的多模态工业语义大模型，正在研发中。',
-      slogan: '看得懂工单，说得出依据。',
-      cardSummary: '研发中的工业多模态垂类大模型，判断与证据同步给出。',
-      status: '状态：研发中',
-      focus: ['垂类大模型', '工业多模态', '证据一致'],
-      overview: [
-        '玄衡·工鉴（MechLens）是玄衡正在研发的工业垂类多模态模型，面向工业维修工单文本、设备与零部件图像、表面缺陷和工业技术文档的理解，目标是让模型在给出判断与处置建议时，同时指出所依据的证据。',
-        '研发从数据治理开始：公开数据按来源、版本与许可分池登记并逐文件校验，合成数据、公开数据与 AI 辅助标注明确区分，训练集与独立评测集按场景族严格隔离，防止泄漏与夸大。',
-        '项目目前处于非商业研发阶段：已完成数据工程、本地训练链路与小规模基座上的对照实验，结论（包括负结果）均以冻结协议和原始预测留存；尚未进行商业部署或对外提供模型服务。',
-      ],
-      capabilities: [
-        {
-          name: '工单语义理解',
-          description: '工业实体识别、关系抽取、缩写还原与术语规范化，把非结构化维修记录整理为结构化字段。',
-        },
-        {
-          name: '视觉缺陷理解',
-          description: '表面缺陷分类、异常定位与图文一致性判断；视觉标签按缺陷类别解释，不等同于设备故障根因。',
-        },
-        {
-          name: '证据与行动一致',
-          description: '模型输出的判断、字段与建议处置须与当前证据一致；证据不足时明确拒答或要求补证。',
-        },
-        {
-          name: '可追溯的数据与评测',
-          description: '来源许可分池、哈希校验、冻结评测协议与独立匿名审核，评测结果连同原始预测一并留存。',
-        },
-      ],
-      workflow: ['公开数据采集与许可审计', '统一多模态记录', '训练与评测族隔离', '同条件对照训练', '独立评测与审核'],
-      workflowLabel: '研发流程',
-      workflowEyebrow: 'R&D Process',
-      systemLayers: ['数据与许可层', '多模态解析与 schema 层', '训练与对照实验层', '评测与审计层'],
-      currentState: {
-        implemented: '数据工程（工单文本、工业图像与文档解析，许可分池与完整性审计）、本地训练与断点恢复链路，以及冻结协议下的多组对照实验与独立评测已完成。',
-        currentFocus: '扩充多类工单、异常图像与图文语义的独立评测证据，并准备更大规模基座上的规模验证。',
-        nextDirection: '在取得真实专业审核与应用验证之前，不宣称工业现场效果；模型形态与开放方式待研发结论确定。',
-      },
-      principles: [
-        '训练与评测严格隔离，负结果与正结果同样记录。',
-        '合成数据、公开数据与 AI 辅助标注不冒充专家金标或现场记录。',
-        '视觉缺陷标签不等于设备故障根因。',
-        '非商业研发阶段，不对外提供模型服务。',
-      ],
-    },
-    {
       slug: PROJECT_SLUGS.gitFinalizer,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.gitFinalizer),
-      number: '05',
+      number: '04',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT DELIVERY',
       name: 'Git Finalizer',
@@ -360,7 +308,7 @@ export const zh = {
     {
       slug: PROJECT_SLUGS.contextLoader,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.contextLoader),
-      number: '06',
+      number: '05',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT CONTEXT',
       name: 'Context Loader',
@@ -435,7 +383,7 @@ export const zh = {
     {
       slug: PROJECT_SLUGS.snapshotRunner,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.snapshotRunner),
-      number: '07',
+      number: '06',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT EVIDENCE',
       name: 'Snapshot Runner',
@@ -510,7 +458,7 @@ export const zh = {
     {
       slug: PROJECT_SLUGS.worktreeController,
       detailPath: projectRouteFor('zh', PROJECT_SLUGS.worktreeController),
-      number: '08',
+      number: '07',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · WORKTREE GOVERNANCE',
       name: 'Worktree Controller',
@@ -554,6 +502,58 @@ export const zh = {
         'Git 是唯一的仓库事实来源。',
         '干净不等于无人使用：所有权必须显式认领。',
         '不确定时保留，而不是清理。',
+      ],
+    },
+    {
+      slug: PROJECT_SLUGS.mechLens,
+      detailPath: projectRouteFor('zh', PROJECT_SLUGS.mechLens),
+      number: '08',
+      group: 'model',
+      category: 'VERTICAL MODEL · INDUSTRIAL',
+      name: '玄衡·工鉴',
+      englishName: 'Xuanheng MechLens',
+      summary: '面向工业维修工单、设备图像、表面缺陷与工业文档的多模态工业语义大模型，正在研发中。',
+      slogan: '看得懂工单，说得出依据。',
+      cardSummary: '研发中的工业多模态垂类大模型，判断与证据同步给出。',
+      status: '状态：研发中',
+      focus: ['垂类大模型', '工业多模态', '证据一致'],
+      overview: [
+        '玄衡·工鉴（MechLens）是玄衡正在研发的工业垂类多模态模型，面向工业维修工单文本、设备与零部件图像、表面缺陷和工业技术文档的理解，目标是让模型在给出判断与处置建议时，同时指出所依据的证据。',
+        '研发从数据治理开始：公开数据按来源、版本与许可分池登记并逐文件校验，合成数据、公开数据与 AI 辅助标注明确区分，训练集与独立评测集按场景族严格隔离，防止泄漏与夸大。',
+        '项目目前处于非商业研发阶段：已完成数据工程、本地训练链路与小规模基座上的对照实验，结论（包括负结果）均以冻结协议和原始预测留存；尚未进行商业部署或对外提供模型服务。',
+      ],
+      capabilities: [
+        {
+          name: '工单语义理解',
+          description: '工业实体识别、关系抽取、缩写还原与术语规范化，把非结构化维修记录整理为结构化字段。',
+        },
+        {
+          name: '视觉缺陷理解',
+          description: '表面缺陷分类、异常定位与图文一致性判断；视觉标签按缺陷类别解释，不等同于设备故障根因。',
+        },
+        {
+          name: '证据与行动一致',
+          description: '模型输出的判断、字段与建议处置须与当前证据一致；证据不足时明确拒答或要求补证。',
+        },
+        {
+          name: '可追溯的数据与评测',
+          description: '来源许可分池、哈希校验、冻结评测协议与独立匿名审核，评测结果连同原始预测一并留存。',
+        },
+      ],
+      workflow: ['公开数据采集与许可审计', '统一多模态记录', '训练与评测族隔离', '同条件对照训练', '独立评测与审核'],
+      workflowLabel: '研发流程',
+      workflowEyebrow: 'R&D Process',
+      systemLayers: ['数据与许可层', '多模态解析与 schema 层', '训练与对照实验层', '评测与审计层'],
+      currentState: {
+        implemented: '数据工程（工单文本、工业图像与文档解析，许可分池与完整性审计）、本地训练与断点恢复链路，以及冻结协议下的多组对照实验与独立评测已完成。',
+        currentFocus: '扩充多类工单、异常图像与图文语义的独立评测证据，并准备更大规模基座上的规模验证。',
+        nextDirection: '在取得真实专业审核与应用验证之前，不宣称工业现场效果；模型形态与开放方式待研发结论确定。',
+      },
+      principles: [
+        '训练与评测严格隔离，负结果与正结果同样记录。',
+        '合成数据、公开数据与 AI 辅助标注不冒充专家金标或现场记录。',
+        '视觉缺陷标签不等于设备故障根因。',
+        '非商业研发阶段，不对外提供模型服务。',
       ],
     },
     {
@@ -749,7 +749,7 @@ export const zh = {
     hero: {
       kicker: 'ALL PROJECTS · 全部项目',
       title: ['做过的、在做的，', '都在这里。'],
-      lead: '行业产品、模型研发、开源工具与研究系统的完整目录。',
+      lead: '行业产品、开源工具、模型研发与研究系统的完整目录。',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',

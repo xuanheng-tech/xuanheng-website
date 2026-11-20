@@ -48,7 +48,7 @@ export const en = {
     },
     projects: {
       title: 'All Projects | Xuanheng Technology',
-      description: 'The full catalogue of Xuanheng products, model R&D, open-source tools and research systems.',
+      description: 'The full catalogue of Xuanheng products, open-source tools, model R&D and research systems.',
     },
     about: {
       title: 'About | Xuanheng Technology',
@@ -257,61 +257,9 @@ export const en = {
       ],
     },
     {
-      slug: PROJECT_SLUGS.mechLens,
-      detailPath: projectRouteFor('en', PROJECT_SLUGS.mechLens),
-      number: '04',
-      group: 'model',
-      category: 'VERTICAL MODEL · INDUSTRIAL',
-      name: 'MechLens',
-      englishName: 'Xuanheng MechLens',
-      summary: 'An industrial multimodal semantic model for maintenance work orders, equipment images, surface defects and technical documents — in active research and development.',
-      slogan: 'Reads the work order. Shows its evidence.',
-      cardSummary: 'An industrial multimodal vertical model in development, pairing every judgment with its evidence.',
-      status: 'Status: In Development',
-      focus: ['Vertical Model', 'Industrial Multimodal', 'Evidence Consistency'],
-      overview: [
-        'Xuanheng MechLens is an industrial vertical multimodal model under development, built to understand maintenance work-order text, equipment and component images, surface defects and industrial technical documents — and to point to the evidence behind each judgment and recommended action.',
-        'Development starts with data governance: public datasets are registered by source, revision and license pool and verified file by file; synthetic data, public data and AI-assisted labels are kept distinct; training and independent evaluation sets are isolated by scenario family to prevent leakage and overstatement.',
-        'The project is in non-commercial research and development. Data engineering, the local training pipeline and controlled experiments on smaller base models are complete, with conclusions — negative results included — preserved under frozen protocols with raw predictions. It is not commercially deployed and no model service is offered.',
-      ],
-      capabilities: [
-        {
-          name: 'Work-Order Understanding',
-          description: 'Industrial entity recognition, relation extraction, abbreviation recovery and terminology normalization that turn free-text maintenance records into structured fields.',
-        },
-        {
-          name: 'Visual Defect Understanding',
-          description: 'Surface defect classification, anomaly localization and image-text consistency; visual labels describe defect categories, not equipment failure root causes.',
-        },
-        {
-          name: 'Evidence–Action Consistency',
-          description: 'Judgments, fields and recommended actions must agree with the current evidence; with insufficient evidence, the model abstains or asks for more.',
-        },
-        {
-          name: 'Traceable Data & Evaluation',
-          description: 'License-pooled sources, hash verification, frozen evaluation protocols and independent anonymous review, with raw predictions preserved alongside every result.',
-        },
-      ],
-      workflow: ['Public data & license audit', 'Unified multimodal records', 'Train/eval family isolation', 'Controlled training comparisons', 'Independent evaluation & review'],
-      workflowLabel: 'R&D Process',
-      workflowEyebrow: 'R&D Process',
-      systemLayers: ['Data & License Layer', 'Multimodal Parsing & Schema Layer', 'Training & Controlled Experiment Layer', 'Evaluation & Audit Layer'],
-      currentState: {
-        implemented: 'Data engineering (work-order text, industrial image and document parsing, license pools and integrity audits), the local training and checkpoint-recovery pipeline, and multiple controlled experiments with independent evaluation under frozen protocols are complete.',
-        currentFocus: 'Expanding independent evaluation evidence across work-order types, anomaly images and image-text semantics, and preparing scale validation on a larger base model.',
-        nextDirection: 'No field performance is claimed before real expert review and application validation; the model’s final form and availability will follow from research results.',
-      },
-      principles: [
-        'Training and evaluation stay strictly isolated; negative results are recorded as carefully as positive ones.',
-        'Synthetic data, public data and AI-assisted labels never pose as expert gold labels or field records.',
-        'A visual defect label is not an equipment failure root cause.',
-        'Non-commercial R&D stage: no model service is offered.',
-      ],
-    },
-    {
       slug: PROJECT_SLUGS.gitFinalizer,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.gitFinalizer),
-      number: '05',
+      number: '04',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT DELIVERY',
       name: 'Git Finalizer',
@@ -360,7 +308,7 @@ export const en = {
     {
       slug: PROJECT_SLUGS.contextLoader,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.contextLoader),
-      number: '06',
+      number: '05',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT CONTEXT',
       name: 'Context Loader',
@@ -440,7 +388,7 @@ export const en = {
     {
       slug: PROJECT_SLUGS.snapshotRunner,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.snapshotRunner),
-      number: '07',
+      number: '06',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · GIT EVIDENCE',
       name: 'Snapshot Runner',
@@ -520,7 +468,7 @@ export const en = {
     {
       slug: PROJECT_SLUGS.worktreeController,
       detailPath: projectRouteFor('en', PROJECT_SLUGS.worktreeController),
-      number: '08',
+      number: '07',
       group: 'openSourceTool',
       category: 'OPEN SOURCE · WORKTREE GOVERNANCE',
       name: 'Worktree Controller',
@@ -564,6 +512,58 @@ export const en = {
         'Git is the single source of truth for the repository.',
         'Clean does not mean unowned: ownership is claimed explicitly.',
         'When in doubt, preserve rather than clean up.',
+      ],
+    },
+    {
+      slug: PROJECT_SLUGS.mechLens,
+      detailPath: projectRouteFor('en', PROJECT_SLUGS.mechLens),
+      number: '08',
+      group: 'model',
+      category: 'VERTICAL MODEL · INDUSTRIAL',
+      name: 'MechLens',
+      englishName: 'Xuanheng MechLens',
+      summary: 'An industrial multimodal semantic model for maintenance work orders, equipment images, surface defects and technical documents — in active research and development.',
+      slogan: 'Reads the work order. Shows its evidence.',
+      cardSummary: 'An industrial multimodal vertical model in development, pairing every judgment with its evidence.',
+      status: 'Status: In Development',
+      focus: ['Vertical Model', 'Industrial Multimodal', 'Evidence Consistency'],
+      overview: [
+        'Xuanheng MechLens is an industrial vertical multimodal model under development, built to understand maintenance work-order text, equipment and component images, surface defects and industrial technical documents — and to point to the evidence behind each judgment and recommended action.',
+        'Development starts with data governance: public datasets are registered by source, revision and license pool and verified file by file; synthetic data, public data and AI-assisted labels are kept distinct; training and independent evaluation sets are isolated by scenario family to prevent leakage and overstatement.',
+        'The project is in non-commercial research and development. Data engineering, the local training pipeline and controlled experiments on smaller base models are complete, with conclusions — negative results included — preserved under frozen protocols with raw predictions. It is not commercially deployed and no model service is offered.',
+      ],
+      capabilities: [
+        {
+          name: 'Work-Order Understanding',
+          description: 'Industrial entity recognition, relation extraction, abbreviation recovery and terminology normalization that turn free-text maintenance records into structured fields.',
+        },
+        {
+          name: 'Visual Defect Understanding',
+          description: 'Surface defect classification, anomaly localization and image-text consistency; visual labels describe defect categories, not equipment failure root causes.',
+        },
+        {
+          name: 'Evidence–Action Consistency',
+          description: 'Judgments, fields and recommended actions must agree with the current evidence; with insufficient evidence, the model abstains or asks for more.',
+        },
+        {
+          name: 'Traceable Data & Evaluation',
+          description: 'License-pooled sources, hash verification, frozen evaluation protocols and independent anonymous review, with raw predictions preserved alongside every result.',
+        },
+      ],
+      workflow: ['Public data & license audit', 'Unified multimodal records', 'Train/eval family isolation', 'Controlled training comparisons', 'Independent evaluation & review'],
+      workflowLabel: 'R&D Process',
+      workflowEyebrow: 'R&D Process',
+      systemLayers: ['Data & License Layer', 'Multimodal Parsing & Schema Layer', 'Training & Controlled Experiment Layer', 'Evaluation & Audit Layer'],
+      currentState: {
+        implemented: 'Data engineering (work-order text, industrial image and document parsing, license pools and integrity audits), the local training and checkpoint-recovery pipeline, and multiple controlled experiments with independent evaluation under frozen protocols are complete.',
+        currentFocus: 'Expanding independent evaluation evidence across work-order types, anomaly images and image-text semantics, and preparing scale validation on a larger base model.',
+        nextDirection: 'No field performance is claimed before real expert review and application validation; the model’s final form and availability will follow from research results.',
+      },
+      principles: [
+        'Training and evaluation stay strictly isolated; negative results are recorded as carefully as positive ones.',
+        'Synthetic data, public data and AI-assisted labels never pose as expert gold labels or field records.',
+        'A visual defect label is not an equipment failure root cause.',
+        'Non-commercial R&D stage: no model service is offered.',
       ],
     },
     {
@@ -764,7 +764,7 @@ export const en = {
     hero: {
       kicker: 'ALL PROJECTS',
       title: ['Everything we build,', 'in one place.'],
-      lead: 'The full catalogue of our industry products, model R&D, open-source tools and research systems.',
+      lead: 'The full catalogue of our industry products, open-source tools, model R&D and research systems.',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',
