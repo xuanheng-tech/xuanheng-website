@@ -860,6 +860,11 @@ export const en = {
       backLabel: 'Back to Home',
     },
     emailLabel: 'Email',
+    address: {
+      label: 'Address',
+      value: 'No. 999 Shuangyong Road, Dianshanhu Town, Kunshan, Suzhou, Jiangsu, China',
+      note: 'Visits by appointment',
+    },
     phone: {
       label: 'Phone',
       display: '0512-57871517',
@@ -886,7 +891,7 @@ export const en = {
     },
     entries: [
       {
-        date: '2026-11',
+        date: '2026-11-20',
         tag: 'Website',
         title: 'Redesigned website',
         body: 'New sections for industry products, open-source tools and research, plus dark mode, a trust center and an inquiry form. ChainVerify, AgriPulse and EmbodiedFlow are open for custom engagements.',

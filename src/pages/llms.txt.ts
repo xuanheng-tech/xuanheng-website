@@ -27,7 +27,7 @@ export const GET: APIRoute = () => {
     '',
     `> ${en.seo.home.description}`,
     '',
-    `Suzhou Xuanheng Technology Co., Ltd. (苏州玄衡科技有限公司), Suzhou, China. Email: contact@xuanhengtech.cn. Phone: ${en.contact.phone.display} (${en.contact.phone.hours}). Every page exists in English and Simplified Chinese (/zh-cn/).`,
+    `Suzhou Xuanheng Technology Co., Ltd. (苏州玄衡科技有限公司), ${en.contact.address.value}. Email: contact@xuanhengtech.cn. Phone: ${en.contact.phone.display} (${en.contact.phone.hours}). Every page exists in English and Simplified Chinese (/zh-cn/).`,
     '',
     ...section('products', 'Industry products'),
     ...section('openSource', 'Open-source tools (Apache-2.0)'),

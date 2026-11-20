@@ -281,6 +281,11 @@ export interface ContactCopy {
     backLabel: string;
   };
   emailLabel: string;
+  address: {
+    label: string;
+    value: string;
+    note: string;
+  };
   phone: {
     label: string;
     display: string;

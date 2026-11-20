@@ -16,7 +16,13 @@ export const organization = (content: SiteContent) => ({
   email: 'contact@xuanhengtech.cn',
   telephone: content.contact.phone.display,
   foundingDate: '2026',
-  address: { '@type': 'PostalAddress', addressLocality: 'Suzhou', addressRegion: 'Jiangsu', addressCountry: 'CN' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '淀山湖镇双永路999号',
+    addressLocality: '苏州市昆山市',
+    addressRegion: '江苏省',
+    addressCountry: 'CN',
+  },
   sameAs: ['https://github.com/xuanheng-tech', 'https://x.com/xuanhengtech'],
 });
 

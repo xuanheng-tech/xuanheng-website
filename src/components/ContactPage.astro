@@ -114,6 +114,11 @@ const thanksPath = `${routeFor(content.locale, 'contact')}thanks/`;
             </a>
             <p class="contact-channel__note">{contact.phone.hours}</p>
           </div>
+          <div class="contact-channel">
+            <p class="contact-channel__label">{contact.address.label}</p>
+            <p class="contact-channel__value contact-channel__address">{contact.address.value}</p>
+            <p class="contact-channel__note">{contact.address.note}</p>
+          </div>
           {contact.x && (
             <div class="contact-channel">
               <p class="contact-channel__label" lang="en">{contact.x.label}</p>

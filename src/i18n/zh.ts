@@ -845,6 +845,11 @@ export const zh = {
       backLabel: '返回首页',
     },
     emailLabel: '邮箱',
+    address: {
+      label: '地址',
+      value: '江苏省苏州市昆山市淀山湖镇双永路999号',
+      note: '来访请提前预约',
+    },
     phone: {
       label: '电话',
       display: '0512-57871517',
@@ -872,7 +877,7 @@ export const zh = {
     },
     entries: [
       {
-        date: '2026-11',
+        date: '2026-11-20',
         tag: '官网',
         title: '官网改版上线',
         body: '新增行业产品、开源工具与在研项目栏目，以及深色模式、信任中心与需求表单。企业链属核验台、畜禽供需研判平台、具身多模态数据产线开放沟通定制。',

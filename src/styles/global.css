@@ -1753,6 +1753,14 @@ html[lang="zh-CN"] .project-hero h1.project-hero__title--latin {
   color: var(--ink);
 }
 
+.contact-channel__address,
+.contact-channel__address:hover {
+  border-color: var(--line);
+  color: var(--ink);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.6;
+}
+
 .contact-channel__qr {
   display: grid;
   gap: 10px;
