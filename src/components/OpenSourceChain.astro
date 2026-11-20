@@ -25,6 +25,9 @@ const steps = chain.map((step) => {
         <p class="oss-chain__step">{step}</p>
         <a class="oss-chain__name" href={project.detailPath} lang="en">{project.name}</a>
         <p class="oss-chain__summary">{project.cardSummary ?? project.summary}</p>
+        <a class="oss-chain__detail" href={project.detailPath}>
+          {content.projectLabels.viewProject} <span aria-hidden="true">→</span>
+        </a>
         <p class="oss-chain__meta" lang="en">
           <span>{distribution}</span>
           {project.repositoryUrl && (

@@ -208,7 +208,7 @@ export interface ListingPageCopy {
 
 export interface SectionPagesCopy {
   products: ListingPageCopy;
-  openSource: ListingPageCopy & {
+  openSource: Omit<ListingPageCopy, 'listing'> & {
     chainTitle: string;
     chain: OpenSourceChainStep[];
   };

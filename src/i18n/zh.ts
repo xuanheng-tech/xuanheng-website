@@ -792,10 +792,6 @@ export const zh = {
         title: ['只做一件事，', '把边界写清楚。'],
         lead: '四个以 Apache-2.0 开源的命令行工具，为编码 Agent 守住工程边界：只读的不写，未授权的不做，不确定就停下并说明原因。',
       },
-      listing: {
-        kicker: 'TOOLS · APACHE-2.0',
-        title: '工具目录',
-      },
       next: {
         label: '源码与发布',
         linkLabel: '前往 GitHub',

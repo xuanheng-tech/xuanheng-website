@@ -3027,8 +3027,22 @@ html[lang="zh-CN"] .hero__signature p {
   line-height: 1.75;
 }
 
-.oss-chain__meta {
+.oss-chain__detail {
   margin-top: 22px;
+  align-self: flex-start;
+  color: var(--band-text);
+  font-size: 0.875rem;
+  font-weight: var(--xh-weight-label);
+  border-bottom: var(--xh-border) solid var(--oss-line);
+  transition: border-color 180ms ease;
+}
+
+.oss-chain__detail:hover {
+  border-color: var(--oss-accent);
+}
+
+.oss-chain__meta {
+  margin-top: 14px;
   display: flex;
   align-items: center;
   gap: 16px;

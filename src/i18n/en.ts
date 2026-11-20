@@ -807,10 +807,6 @@ export const en = {
         title: ['A verifiable foundation', 'for coding agents.'],
         lead: 'Four command-line tools, open source under Apache-2.0. Each does one job and writes its boundary into its contract: read-only tools never write, nothing runs without authorization, and uncertainty stops with a reason.',
       },
-      listing: {
-        kicker: 'TOOLS · APACHE-2.0',
-        title: 'Tool Index',
-      },
       next: {
         label: 'Source and releases',
         linkLabel: 'Visit GitHub',
