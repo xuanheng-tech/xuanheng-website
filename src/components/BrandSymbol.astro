@@ -1,0 +1,17 @@
+---
+// The brand mark is defined once per page and reused through <use>, so it can take
+// its colour from CSS (currentColor) and follow the light/dark theme.
+import markSource from '../../public/brand/xuanheng-mark.svg?raw';
+
+const viewBox = markSource.match(/viewBox="([^"]+)"/)?.[1];
+const body = markSource.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '')
+  .replaceAll('fill="#B43A32"', 'fill="currentColor"');
+
+if (!viewBox || body.includes('#B43A32')) {
+  throw new Error('xuanheng-mark.svg no longer has the expected viewBox/fill shape');
+}
+---
+
+<svg class="brand-symbol" aria-hidden="true" focusable="false">
+  <symbol id="xh-mark" viewBox={viewBox} set:html={body} />
+</svg>

@@ -16,6 +16,25 @@ const { contact } = content;
       <p class="eyebrow">{contact.kicker}</p>
       <h1 id="contact-page-title">{contact.title}</h1>
 
+      <section class="contact-demo" id="demo" aria-labelledby="contact-demo-title">
+        <h2 id="contact-demo-title">{contact.demo.title}</h2>
+        <p class="contact-demo__lead">{contact.demo.lead}</p>
+        <ul class="contact-demo__checklist">
+          {contact.demo.checklist.map((item) => <li>{item}</li>)}
+        </ul>
+        <a
+          class="button button--accent"
+          href={`mailto:contact@xuanhengtech.cn?subject=${encodeURIComponent(contact.demo.mailSubject)}`}
+        >
+          <span>{contact.demo.buttonLabel}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <p class="contact-demo__phone">
+          <span>{contact.phone.label}</span><a href={contact.phone.href}>{contact.phone.display}</a>
+          <span>{contact.phone.hours}</span>
+        </p>
+      </section>
+
       <div class="contact-page__card">
         <div class="contact-page__company">
           {contact.companyLines.map((line) => <p>{line}</p>)}
@@ -27,6 +46,14 @@ const { contact } = content;
               <span>contact@xuanhengtech.cn</span>
               <span aria-hidden="true">↗</span>
             </a>
+          </div>
+          <div class="contact-channel">
+            <p class="contact-channel__label">{contact.phone.label}</p>
+            <a class="contact-channel__value" href={contact.phone.href}>
+              <span>{contact.phone.display}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <p class="contact-channel__note">{contact.phone.hours}</p>
           </div>
           {contact.x && (
             <div class="contact-channel">
@@ -53,6 +80,20 @@ const { contact } = content;
                   alt={contact.wechat.imageAlt}
                 />
                 <figcaption>{contact.wechat.caption}</figcaption>
+              </figure>
+            </div>
+          )}
+          {contact.wecom && (
+            <div class="contact-channel">
+              <p class="contact-channel__label">{contact.wecom.label}</p>
+              <figure class="contact-channel__qr">
+                <img
+                  src={contact.wecom.image}
+                  width="430"
+                  height="430"
+                  alt={contact.wecom.imageAlt}
+                />
+                <figcaption>{contact.wecom.caption}</figcaption>
               </figure>
             </div>
           )}

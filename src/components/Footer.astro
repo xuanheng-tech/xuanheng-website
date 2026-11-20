@@ -1,4 +1,5 @@
 ---
+import { routeFor } from '../i18n/routes';
 import type { SiteContent } from '../i18n/types';
 
 interface FilingLink {
@@ -18,6 +19,12 @@ const { content } = Astro.props;
 <footer class="site-footer">
   <div class="container footer__inner">
     <p>© 2026 Xuanheng Technology</p>
+    <nav class="footer__links" aria-label={content.chrome.mainNavigationLabel}>
+      <a href={routeFor(content.locale, 'projects')}>{content.navigation.projects}</a>
+      <a href={routeFor(content.locale, 'contact')}>{content.navigation.contact}</a>
+      <a href={content.contact.phone.href}>{content.contact.phone.display}</a>
+      <a href="https://github.com/xuanheng-tech" target="_blank" rel="noopener noreferrer" lang="en">GitHub</a>
+    </nav>
     {filingLinks.length > 0 && (
       <nav class="footer__filings" aria-label={content.chrome.filingNavigationLabel}>
         {filingLinks.map((filing) => (

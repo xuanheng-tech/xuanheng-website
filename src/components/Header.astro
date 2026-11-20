@@ -1,6 +1,8 @@
 ---
 import { pageOrder, routeFor } from '../i18n/routes';
 import type { PageKey, SiteContent } from '../i18n/types';
+import BrandMark from './BrandMark.astro';
+import ThemeSwitch from './ThemeSwitch.astro';
 
 interface Props {
   content: SiteContent;
@@ -8,7 +10,6 @@ interface Props {
   activePage?: PageKey | null;
   englishPath: string;
   chinesePath: string;
-  markSrc?: string;
 }
 
 const {
@@ -17,8 +18,8 @@ const {
   activePage = pageKey,
   englishPath,
   chinesePath,
-  markSrc,
 } = Astro.props;
+const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
 ---
 
 <header class="site-header">
@@ -28,15 +29,7 @@ const {
       href={routeFor(content.locale, 'home')}
       aria-label={content.chrome.brandHomeLabel}
     >
-      {markSrc && (
-        <img
-          class="brand__mark"
-          src={markSrc}
-          alt=""
-          width="1002"
-          height="1576"
-        />
-      )}
+      <BrandMark class="brand__mark" />
       <span class="brand__text">
         <span class="brand__zh">玄衡科技</span>
         <span class="brand__en" lang="en">XUANHENG TECHNOLOGY</span>
@@ -59,6 +52,10 @@ const {
         </ul>
       </nav>
 
+      <ThemeSwitch content={content} class="theme-switch--header" />
+
+      <a class="header-cta" href={demoHref}>{content.chrome.demoCta}</a>
+
       <details class="mobile-menu">
         {/* WCAG 2.5.3 Label in Name: aria-label replaces content, so the accessible
             name has to contain what is actually painted. The visible label is the Latin
@@ -79,7 +76,20 @@ const {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                class="mobile-menu__cta"
+                href={demoHref}
+                aria-current={activePage === 'contact' ? 'page' : undefined}
+              >
+                {content.chrome.demoCta}
+              </a>
+            </li>
           </ul>
+          <div class="mobile-menu__theme">
+            <span>{content.chrome.themeSwitchLabel}</span>
+            <ThemeSwitch content={content} />
+          </div>
         </nav>
       </details>
 

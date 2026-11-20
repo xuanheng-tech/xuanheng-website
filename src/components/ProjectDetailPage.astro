@@ -1,5 +1,5 @@
 ---
-import { projectRouteFor, routeFor } from '../i18n/routes';
+import { projectRouteFor, routeFor, sectionForGroup } from '../i18n/routes';
 import type { ProjectCopy, SeoCopy, SiteContent } from '../i18n/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCapabilities from './ProjectCapabilities.astro';
@@ -36,13 +36,14 @@ const labels = content.projectDetailLabels;
 <BaseLayout
   content={content}
   pageKey="projects"
+  activePage={sectionForGroup[project.group]}
   canonicalPath={project.detailPath}
   englishPath={projectRouteFor('en', project.slug)}
   chinesePath={projectRouteFor('zh', project.slug)}
   seo={seo}
 >
   <article class="project-detail">
-    <ProjectHero project={project} labels={content.projectLabels} media={project.media} />
+    <ProjectHero project={project} labels={content.projectLabels} locale={content.locale} media={project.media} />
     <ProjectOverview title={labels.overview} paragraphs={project.overview} />
     <ProjectCapabilities title={labels.capabilities} capabilities={project.capabilities} />
     <ProjectWorkflow

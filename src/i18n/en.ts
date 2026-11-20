@@ -7,8 +7,11 @@ export const en = {
   ogLocale: 'en_US',
   navigation: {
     home: 'Home',
+    products: 'Products',
+    openSource: 'Open Source',
+    research: 'Research',
+    projects: 'All Projects',
     about: 'About',
-    projects: 'Projects',
     contact: 'Contact',
   },
   chrome: {
@@ -18,25 +21,40 @@ export const en = {
     mobileMenuLabel: 'Navigation menu',
     languageSwitcherLabel: 'Language selection',
     skipToContent: 'Skip to main content',
+    demoCta: 'Request a Demo',
+    themeSwitchLabel: 'Color theme',
+    themeOptions: { light: 'Light', dark: 'Dark', system: 'System' },
     filingNavigationLabel: 'Registration information',
     backToTop: 'Back to top',
   },
   seo: {
     home: {
-      title: 'Xuanheng Technology | Verifiable AI, Models & Tools',
-      description: 'Independent technology company in Suzhou building verifiable industry AI workbenches, an industrial vertical model and open-source agent engineering tools, with long-term quantitative research.',
+      title: 'Xuanheng Technology | AI You Can Verify',
+      description: 'Suzhou Xuanheng Technology builds verifiable AI workbenches for industrial finance, agri supply chains and embodied AI — traceable, reviewable and on-premise — alongside an industrial vertical model and open-source agent engineering tools.',
+    },
+    products: {
+      title: 'Products | Xuanheng Technology',
+      description: 'ChainVerify, AgriPulse and EmbodiedFlow: industry AI workbenches with traceable evidence, explicit confidence boundaries, human review and on-premise deployment.',
+    },
+    openSource: {
+      title: 'Open Source | Xuanheng Technology',
+      description: 'Git Finalizer, Context Loader, Snapshot Runner and Worktree Controller: a verifiable engineering foundation for coding agents, open source under Apache-2.0.',
+    },
+    research: {
+      title: 'Research | Xuanheng Technology',
+      description: 'Xuanheng MechLens, an industrial vertical model in development, and the quantitative research platform behind our long-term research.',
+    },
+    projects: {
+      title: 'All Projects | Xuanheng Technology',
+      description: 'The full catalogue of Xuanheng products, model R&D, open-source tools and research systems.',
     },
     about: {
       title: 'About | Xuanheng Technology',
-      description: 'Learn about Xuanheng Technology, our research philosophy and our work across verifiable industry AI, vertical models, agent engineering tools and quantitative research.',
-    },
-    projects: {
-      title: 'Research & Projects | Xuanheng Technology',
-      description: 'Verifiable industry AI products, an industrial vertical model, open-source agent engineering tools and quantitative research systems.',
+      description: 'Learn about Xuanheng Technology, our research philosophy and our technology directions.',
     },
     contact: {
-      title: 'Contact | Xuanheng Technology',
-      description: 'Contact Suzhou Xuanheng Technology Co., Ltd.',
+      title: 'Contact & Demos | Xuanheng Technology',
+      description: 'Contact Suzhou Xuanheng Technology Co., Ltd. and request a product demo.',
     },
   },
   projectLabels: {
@@ -51,6 +69,7 @@ export const en = {
       openSourceTool: 'Open-source Tools',
       researchSystem: 'Research Systems',
     },
+    repository: 'GitHub repository',
   },
   projectDetailLabels: {
     overview: 'Overview',
@@ -74,11 +93,12 @@ export const en = {
       number: '01',
       group: 'product',
       category: 'INDUSTRIAL FINANCE · DUE DILIGENCE',
-      name: 'Xuanheng ChainVerify',
+      name: 'ChainVerify',
       englishName: 'Xuanheng ChainVerify',
       summary: 'LLM-driven enterprise value-chain identification and due-diligence workbench.',
+      slogan: 'Value-chain verification, down to the source page.',
       cardSummary: 'Value-chain verification and due diligence, with every conclusion linked to a source page.',
-      status: 'Status: Preparing for Delivery',
+      status: 'Status: Demo Available',
       demoCta: 'Request a Demo',
       focus: ['Value-Chain Verification', 'Source Grounding', 'On-Premise'],
       overview: [
@@ -126,11 +146,12 @@ export const en = {
       number: '02',
       group: 'product',
       category: 'AGRITECH · SUPPLY CHAIN',
-      name: 'Xuanheng AgriPulse',
-      englishName: 'Xuanheng AgriPulse (Broiler Edition)',
+      name: 'AgriPulse',
+      englishName: 'Xuanheng AgriPulse · Broiler Edition',
       summary: 'Bio-cycle supply-demand intelligence and margin risk platform for white-feather broiler operations.',
+      slogan: 'Risk bounds instead of price bets.',
       cardSummary: 'Broiler supply forecasting, batch budgeting and multi-party reconciliation.',
-      status: 'Status: Preparing for Delivery',
+      status: 'Status: Demo Available',
       demoCta: 'Request a Demo',
       focus: ['Supply Forecasting', 'Margin Risk', 'Multi-Party Reconciliation'],
       overview: [
@@ -178,11 +199,12 @@ export const en = {
       number: '03',
       group: 'product',
       category: 'EMBODIED AI · DATA PIPELINE',
-      name: 'Xuanheng EmbodiedFlow',
+      name: 'EmbodiedFlow',
       englishName: 'Xuanheng EmbodiedFlow',
       summary: 'Multimodal robotics data QA, annotation and closed-loop training governance pipeline.',
+      slogan: 'Every trajectory, traceable to its capture.',
       cardSummary: 'Robot trajectory QA, recollection work orders and verifiable data lineage.',
-      status: 'Status: Preparing for Delivery',
+      status: 'Status: Demo Available',
       demoCta: 'Request a Demo',
       focus: ['Embodied AI', 'Trajectory QA', 'Data Lineage'],
       overview: [
@@ -230,9 +252,10 @@ export const en = {
       number: '04',
       group: 'model',
       category: 'VERTICAL MODEL · INDUSTRIAL',
-      name: 'Xuanheng MechLens',
+      name: 'MechLens',
       englishName: 'Xuanheng MechLens',
       summary: 'An industrial multimodal semantic model for maintenance work orders, equipment images, surface defects and technical documents — in active research and development.',
+      slogan: 'Reads the work order. Shows its evidence.',
       cardSummary: 'An industrial multimodal vertical model in development, pairing every judgment with its evidence.',
       status: 'Status: In Development',
       focus: ['Vertical Model', 'Industrial Multimodal', 'Evidence Consistency'],
@@ -622,22 +645,43 @@ export const en = {
   ],
   home: {
     hero: {
-      kicker: 'Independent Research & Technology · Suzhou',
-      title: 'Xuanheng Technology',
-      statement: [
-        'Exploring structure, patterns and intelligence',
-        'in complex systems.',
-      ],
-      intro: [
-        'We build verifiable AI workbenches for industrial finance, agritech supply chains and embodied AI data pipelines, alongside an industrial vertical model, open-source agent engineering tools and quantitative research.',
-      ],
-      primaryCta: 'View Projects',
-      secondaryCta: 'About Xuanheng',
+      kicker: 'Verifiable Industry AI · Suzhou',
+      title: ['AI you can verify.', 'Every answer, traceable.'],
+      intro: 'Verifiable AI workbenches for industrial finance, agri supply chains and embodied AI — traceable, reviewable and deployable on-premise.',
+      primaryCta: 'Request a Demo',
+      secondaryCta: 'Explore Products',
       brandMarkLabel: 'Xuanheng brand mark',
-      signature: ['XUANHENG TECHNOLOGY', 'Structure · Intelligence · Complexity'],
+      signature: ['Explore the unknown', 'Measure the complex'],
+    },
+    trust: {
+      label: 'Trust principles',
+      items: [
+        { icon: 'source', title: 'Traceable Evidence', description: 'Every conclusion links to its source document, sensor waveform or formula.' },
+        { icon: 'boundary', title: 'Explicit Boundaries', description: 'Confidence tiers; when evidence falls short, the system abstains instead of guessing.' },
+        { icon: 'review', title: 'Human Review', description: 'Reviewer workflows with audit trails, built for real business roles.' },
+        { icon: 'private', title: 'On-Premise', description: 'Runs on local servers or isolated intranets; core data never leaves your perimeter.' },
+      ],
+    },
+    products: {
+      kicker: '01 · Products',
+      title: 'Industry AI workbenches',
+      lead: 'Beyond black-box answers — every output is backed by source evidence, confidence boundaries and an audit trail.',
+      viewAll: 'View All Products',
+    },
+    openSource: {
+      kicker: '02 · Open Source',
+      title: 'A verifiable foundation for coding agents',
+      lead: 'Four open-source tools cover one agent coding task end to end: allocate a worktree, load context, collect evidence, publish.',
+      viewAll: 'View Open-source Tools',
+    },
+    research: {
+      kicker: '03 · Research',
+      title: 'In development',
+      lead: 'An industrial vertical model and our quantitative research systems, presented as they really stand.',
+      viewAll: 'View Research',
     },
     philosophy: {
-      lead: 'Exploring the unknown. Measuring complexity.',
+      lead: 'Explore the unknown. Measure the complex.',
       concepts: [
         {
           symbol: 'Xuan',
@@ -649,45 +693,10 @@ export const en = {
         },
       ],
     },
-    research: {
-      kicker: '02 · Research',
-      title: 'Research domains',
-      lead: [
-        'Beyond black-box answers — every output is backed by',
-        'source evidence, confidence boundaries and an audit trail.',
-      ],
-      areas: [
-        {
-          index: '01',
-          title: 'Verifiable Industry AI',
-          description: 'Decision intelligence and data governance systems for industrial finance, agritech supply chains and embodied AI data factories — traceable evidence, explicit uncertainty boundaries, human review and on-premise deployment.',
-        },
-        {
-          index: '02',
-          title: 'Vertical Models',
-          description: 'Developing multimodal models for industrial maintenance work orders, equipment images and technical documents that pair every judgment with its evidence.',
-        },
-        {
-          index: '03',
-          title: 'Agent Engineering Tools',
-          description: 'An open-source toolchain for repository evidence, context, Git delivery and worktree governance for coding agents and automation.',
-        },
-        {
-          index: '04',
-          title: 'Quantitative Research',
-          description: 'Using data, statistical methods and computational models to investigate structural patterns in financial markets.',
-        },
-      ],
-    },
-    selectedProjects: {
-      kicker: '01 · Projects',
-      title: 'Products, models and tools',
-      viewAll: 'View All Projects',
-    },
     aboutPreview: {
-      kicker: '03 · About',
+      kicker: '04 · About',
       title: 'Who we are',
-      lead: 'Xuanheng Technology is based in Suzhou, China.',
+      lead: 'Xuanheng Technology was founded in 2026 in Suzhou, China.',
       paragraphs: [
         'Our work focuses on verifiable industry AI, vertical models, agent engineering tools and quantitative research.',
         'We combine mathematical thinking, engineering practice and intelligent tools for long-term research.',
@@ -695,8 +704,9 @@ export const en = {
       linkLabel: 'Our Research Philosophy',
     },
     contact: {
-      kicker: '04 · Contact',
-      title: 'Email us',
+      kicker: '05 · Request a Demo',
+      title: 'See how it works in your business',
+      lead: 'Tell us about your organization, the product you are interested in and your use case, and we will arrange an online or on-site demo.',
     },
   },
   about: {
@@ -762,9 +772,9 @@ export const en = {
   },
   projectsPage: {
     hero: {
-      kicker: 'PROJECTS',
+      kicker: 'ALL PROJECTS',
       title: ['Built from questions,', 'designed to be verifiable.'],
-      lead: 'Verifiable AI workbenches for industry delivery, an industrial vertical model in development, open-source tools for developers and coding agents, and the quantitative systems behind our long-term research. Demos of industry products are available on request by email.',
+      lead: 'The full catalogue of our industry products, model R&D, open-source tools and research systems.',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',
@@ -775,15 +785,88 @@ export const en = {
       linkLabel: 'About Xuanheng',
     },
   },
+  sections: {
+    products: {
+      hero: {
+        kicker: 'PRODUCTS',
+        title: ['AI you can verify.', 'Every answer, traceable.'],
+        lead: 'Industry AI workbenches for industrial finance, agri supply chains and embodied AI data pipelines. Products are presented here as static introductions; demos are available on request by email.',
+      },
+      listing: {
+        kicker: 'PRODUCTS · 2026',
+        title: 'Product Index',
+      },
+      next: {
+        label: 'Want to see it in action?',
+        linkLabel: 'Request a Demo',
+      },
+    },
+    openSource: {
+      hero: {
+        kicker: 'OPEN SOURCE',
+        title: ['A verifiable foundation', 'for coding agents.'],
+        lead: 'Four command-line tools, open source under Apache-2.0. Each does one job and writes its boundary into its contract: read-only tools never write, nothing runs without authorization, and uncertainty stops with a reason.',
+      },
+      listing: {
+        kicker: 'TOOLS · APACHE-2.0',
+        title: 'Tool Index',
+      },
+      next: {
+        label: 'Source and releases',
+        linkLabel: 'Visit GitHub',
+      },
+      chainTitle: 'One coding task, four checkpoints',
+      chain: [
+        { slug: PROJECT_SLUGS.worktreeController, step: 'Allocate worktree', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.contextLoader, step: 'Load context', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.snapshotRunner, step: 'Collect evidence', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.gitFinalizer, step: 'Commit & publish', distribution: 'Releases' },
+      ],
+    },
+    research: {
+      hero: {
+        kicker: 'RESEARCH',
+        title: ['Long-term research,', 'reported as it stands.'],
+        lead: 'An industrial vertical model in development and the quantitative systems behind our long-term research. Nothing is presented as complete before it is proven.',
+      },
+      listing: {
+        kicker: 'RESEARCH · 2026',
+        title: 'Research Projects',
+      },
+      next: {
+        label: 'Learn more',
+        linkLabel: 'About Xuanheng',
+      },
+    },
+  },
   contact: {
     kicker: 'CONTACT',
-    title: 'Contact Xuanheng',
+    title: 'Contact & Demos',
     companyLines: ['Suzhou Xuanheng Technology Co., Ltd.'],
+    demo: {
+      title: 'Request a product demo',
+      lead: 'Email contact@xuanhengtech.cn and we will get in touch to arrange an online or on-site demo.',
+      checklist: ['Your organization and role', 'The product you are interested in', 'The business problem or use case', 'Deployment requirements (e.g. intranet, on-premise)'],
+      mailSubject: 'Product demo request',
+      buttonLabel: 'Email Us',
+    },
     emailLabel: 'Email',
+    phone: {
+      label: 'Phone',
+      display: '0512-57871517',
+      href: 'tel:0512-57871517',
+      hours: 'Weekdays 9:00–11:30 and 13:00–18:00 (China Standard Time, UTC+8)',
+    },
     x: {
       label: 'X',
       value: '@xuanhengtech',
       href: 'https://x.com/xuanhengtech',
+    },
+    wecom: {
+      label: 'WeCom',
+      caption: 'Scan with WeChat to add us on WeCom for product questions and demos.',
+      image: '/contact/wecom-qr.png',
+      imageAlt: 'Xuanheng Technology WeCom QR code',
     },
   },
 } satisfies SiteContent;

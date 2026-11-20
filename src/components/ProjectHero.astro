@@ -1,13 +1,15 @@
 ---
-import type { ProjectCopy, ProjectLabels, ProjectMediaAsset } from '../i18n/types';
+import { routeFor } from '../i18n/routes';
+import type { Locale, ProjectCopy, ProjectLabels, ProjectMediaAsset } from '../i18n/types';
 
 interface Props {
   project: ProjectCopy;
   labels: ProjectLabels;
+  locale: Locale;
   media?: ProjectMediaAsset[];
 }
 
-const { project, labels, media = [] } = Astro.props;
+const { project, labels, locale, media = [] } = Astro.props;
 const showEnglishName = project.englishName !== project.name;
 // Latin-script product names keep the serif face so the name looks identical in both locales.
 const latinTitle = !/[\u3400-\u9fff]/.test(project.name);
@@ -25,6 +27,7 @@ const heroMedia = media.filter((asset) => asset.placement === 'hero');
         {showEnglishName && (
           <p class="project-hero__english-name" lang="en">{project.englishName}</p>
         )}
+        {project.slogan && <p class="project-hero__slogan">{project.slogan}</p>}
         <p class="project-hero__summary">{project.summary}</p>
       </div>
 
@@ -46,7 +49,7 @@ const heroMedia = media.filter((asset) => asset.placement === 'hero');
           </a>
         )}
         {project.demoCta && (
-          <a class="project-hero__repo" href="mailto:contact@xuanhengtech.cn">
+          <a class="project-hero__repo project-hero__repo--demo" href={`${routeFor(locale, 'contact')}#demo`}>
             <span>{project.demoCta}</span>
             <span aria-hidden="true">↗</span>
           </a>

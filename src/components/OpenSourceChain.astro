@@ -1,0 +1,39 @@
+---
+import type { SiteContent } from '../i18n/types';
+
+interface Props {
+  content: SiteContent;
+  headingId: string;
+  title?: string;
+}
+
+const { content, headingId, title } = Astro.props;
+const { chain } = content.sections.openSource;
+const steps = chain.map((step) => {
+  const project = content.projects.find((item) => item.slug === step.slug);
+  if (!project) throw new Error(`Open-source chain references unknown project ${step.slug}`);
+  return { ...step, project };
+});
+---
+
+<div class="oss-chain">
+  {title && <h2 class="oss-chain__title" id={headingId}>{title}</h2>}
+  <ol class="oss-chain__steps" aria-labelledby={title ? headingId : undefined}>
+    {steps.map(({ step, distribution, project }, index) => (
+      <li>
+        <p class="oss-chain__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
+        <p class="oss-chain__step">{step}</p>
+        <a class="oss-chain__name" href={project.detailPath} lang="en">{project.name}</a>
+        <p class="oss-chain__summary">{project.cardSummary ?? project.summary}</p>
+        <p class="oss-chain__meta" lang="en">
+          <span>{distribution}</span>
+          {project.repositoryUrl && (
+            <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </p>
+      </li>
+    ))}
+  </ol>
+</div>

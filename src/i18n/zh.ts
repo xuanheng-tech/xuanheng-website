@@ -7,8 +7,11 @@ export const zh = {
   ogLocale: 'zh_CN',
   navigation: {
     home: '首页',
-    about: '关于玄衡',
-    projects: '研究与项目',
+    products: '产品',
+    openSource: '开源',
+    research: '研究',
+    projects: '全部项目',
+    about: '关于',
     contact: '联系',
   },
   chrome: {
@@ -18,25 +21,40 @@ export const zh = {
     mobileMenuLabel: '导航菜单',
     languageSwitcherLabel: '语言选择',
     skipToContent: '跳至主要内容',
+    demoCta: '预约演示',
+    themeSwitchLabel: '显示主题',
+    themeOptions: { light: '浅色', dark: '深色', system: '跟随系统' },
     filingNavigationLabel: '备案信息',
     backToTop: '返回顶部',
   },
   seo: {
     home: {
-      title: '玄衡科技 | Xuanheng Technology',
-      description: '苏州玄衡科技有限公司，研发行业可信 AI 工作台、工业垂类模型与开源 Agent 工程工具，并长期开展量化研究。',
+      title: '玄衡科技 | 让每一个 AI 结论，都有据可查',
+      description: '苏州玄衡科技有限公司，为产业金融、农业供应链与具身智能打造可溯源、可复核、可私有化部署的行业 AI 工作台，并研发工业垂类模型与开源 Agent 工程工具。',
+    },
+    products: {
+      title: '行业产品 | 玄衡科技',
+      description: '企业链属核验台、畜禽供需研判平台与具身多模态数据产线：证据可溯源、边界可核查、人工可复核、可本地私有化部署。',
+    },
+    openSource: {
+      title: '开源工具 | 玄衡科技',
+      description: 'Git Finalizer、Context Loader、Snapshot Runner 与 Worktree Controller：给编码 Agent 的可信工程底座，Apache-2.0 开源。',
+    },
+    research: {
+      title: '研究 | 玄衡科技',
+      description: '玄衡科技正在研发的工业垂类模型「玄衡·工鉴」，以及支撑长期研究的玄衡量化平台。',
+    },
+    projects: {
+      title: '全部项目 | 玄衡科技',
+      description: '玄衡科技的行业产品、模型研发、开源工具与研究系统目录。',
     },
     about: {
       title: '关于玄衡 | 玄衡科技',
       description: '了解玄衡科技的公司介绍、研究理念与技术方向。',
     },
-    projects: {
-      title: '研究与项目 | 玄衡科技',
-      description: '玄衡科技的行业可信 AI 产品、工业垂类模型、开源 Agent 工程工具与量化研究系统。',
-    },
     contact: {
-      title: '联系 | 玄衡科技',
-      description: '联系苏州玄衡科技有限公司。',
+      title: '联系与预约演示 | 玄衡科技',
+      description: '联系苏州玄衡科技有限公司，预约行业产品演示。',
     },
   },
   projectLabels: {
@@ -51,6 +69,7 @@ export const zh = {
       openSourceTool: '开源工具',
       researchSystem: '研究系统',
     },
+    repository: 'GitHub 仓库',
   },
   projectDetailLabels: {
     overview: '项目概述',
@@ -74,15 +93,16 @@ export const zh = {
       number: '01',
       group: 'product',
       category: 'INDUSTRIAL FINANCE · DUE DILIGENCE',
-      name: '玄衡 · 企业链属核验台',
+      name: '企业链属核验台',
       englishName: 'Xuanheng ChainVerify',
       summary: '大模型驱动的企业产业链细分节点穿透与尽调核验工作台。',
+      slogan: '穿透到页码的产业链核验。',
       cardSummary: '企业产业链归属核验与尽调辅助，每条结论绑定原文页码。',
-      status: '状态：交付准备中',
+      status: '状态：可预约演示',
       demoCta: '预约产品演示',
       focus: ['产业链核验', '原文溯源', '私有化部署'],
       overview: [
-        '玄衡 · 企业链属核验台面向商业银行公司金融与普惠条线、产投基金、地方产业园区与政策研究机构，用于企业产业链细分节点的穿透识别与尽调核验。',
+        '企业链属核验台面向商业银行公司金融与普惠条线、产投基金、地方产业园区与政策研究机构，用于企业产业链细分节点的穿透识别与尽调核验。',
         '传统国民经济行业分类颗粒度偏粗、企业跨界经营普遍，大量年报、公告、招投标与专利中的真实业务信息长期沉睡；靠人工逐家核验产业链归属成本高、口径不一，而普通大模型容易凭经营范围或概念词产生误挂。',
         '工作台不止给出挂载结论，更给出每一条结论背后的原始依据、置信边界与审计留痕；证据不足时明确拒答，并列出需要补充的材料。',
       ],
@@ -126,15 +146,16 @@ export const zh = {
       number: '02',
       group: 'product',
       category: 'AGRITECH · SUPPLY CHAIN',
-      name: '玄衡 · 畜禽供需研判平台',
-      englishName: 'Xuanheng AgriPulse (Broiler Edition)',
+      name: '畜禽供需研判平台',
+      englishName: 'Xuanheng AgriPulse · 白羽鸡版',
       summary: '融合生物周期规律与成本风控的白羽肉鸡产销决策与多方协同平台。',
+      slogan: '用概率边界，替代价格猜测。',
       cardSummary: '白羽肉鸡供需研判、上栏算账与多方协同核验。',
-      status: '状态：交付准备中',
+      status: '状态：可预约演示',
       demoCta: '预约产品演示',
       focus: ['供需研判', '成本风控', '多方协同'],
       overview: [
-        '玄衡 · 畜禽供需研判平台（白羽鸡版）面向肉鸡一条龙养殖企业、放养与饲料供应链企业，以及区域畜牧业运营与调度主体。',
+        '畜禽供需研判平台（白羽鸡版）面向肉鸡一条龙养殖企业、放养与饲料供应链企业，以及区域畜牧业运营与调度主体。',
         '肉鸡养殖周期短、价格波动剧烈，单凭经验判断上栏节奏与饲料采购时点容易踩错周期；同时孵化、饲料、养殖与屠宰四方数据割裂，批次棚容、发料量与真实耗料难以低信任成本交叉核对。',
         '平台以生物周期与在栏供给惯性为基础，用概率边界替代单点价格猜测，并把预警、核查与多方对账纳入可留痕的协同流程。',
       ],
@@ -178,15 +199,16 @@ export const zh = {
       number: '03',
       group: 'product',
       category: 'EMBODIED AI · DATA PIPELINE',
-      name: '玄衡 · 具身多模态数据产线',
+      name: '具身多模态数据产线',
       englishName: 'Xuanheng EmbodiedFlow',
       summary: '面向具身智能数据工厂的多模态轨迹采标质检与闭环训练治理平台。',
+      slogan: '每一条轨迹，都可追溯到采集。',
       cardSummary: '机器人多模态轨迹质检、补采工单与数据血缘追溯。',
-      status: '状态：交付准备中',
+      status: '状态：可预约演示',
       demoCta: '预约产品演示',
       focus: ['具身智能', '轨迹质检', '数据血缘'],
       overview: [
-        '玄衡 · 具身多模态数据产线面向具身智能数据采集基地、机器人研发团队，以及工业自动化与策略训练工程团队。',
+        '具身多模态数据产线面向具身智能数据采集基地、机器人研发团队，以及工业自动化与策略训练工程团队。',
         '遥操作与实机采集的多模态轨迹常混杂时钟偏移、视频丢帧/冻结、深度塌陷、力觉过载与首尾静止冗余；低质量样本混入训练集会显著拖累策略操控精度，人工逐条排查波形和关键帧耗时极高。',
         '平台把自动物理质检、人工同步复核、靶向补采与固定留出集验证串成一条闭环，并为每一份交付数据保留可校验的血缘。',
       ],
@@ -230,14 +252,15 @@ export const zh = {
       number: '04',
       group: 'model',
       category: 'VERTICAL MODEL · INDUSTRIAL',
-      name: '玄衡 · 工鉴',
+      name: '玄衡·工鉴',
       englishName: 'Xuanheng MechLens',
       summary: '面向工业维修工单、设备图像、表面缺陷与工业文档的多模态工业语义大模型，正在研发中。',
+      slogan: '看得懂工单，说得出依据。',
       cardSummary: '研发中的工业多模态垂类大模型，判断与证据同步给出。',
       status: '状态：研发中',
       focus: ['垂类大模型', '工业多模态', '证据一致'],
       overview: [
-        '玄衡 · 工鉴（MechLens）是玄衡正在研发的工业垂类多模态模型，面向工业维修工单文本、设备与零部件图像、表面缺陷和工业技术文档的理解，目标是让模型在给出判断与处置建议时，同时指出所依据的证据。',
+        '玄衡·工鉴（MechLens）是玄衡正在研发的工业垂类多模态模型，面向工业维修工单文本、设备与零部件图像、表面缺陷和工业技术文档的理解，目标是让模型在给出判断与处置建议时，同时指出所依据的证据。',
         '研发从数据治理开始：公开数据按来源、版本与许可分池登记并逐文件校验，合成数据、公开数据与 AI 辅助标注明确区分，训练集与独立评测集按场景族严格隔离，防止泄漏与夸大。',
         '项目目前处于非商业研发阶段：已完成数据工程、本地训练链路与小规模基座上的对照实验，结论（包括负结果）均以冻结协议和原始预测留存；尚未进行商业部署或对外提供模型服务。',
       ],
@@ -607,17 +630,43 @@ export const zh = {
   ],
   home: {
     hero: {
-      kicker: '独立研究与技术 · 苏州',
-      title: '玄衡科技',
-      statement: ['探索复杂系统中的', '结构、规律与智能。'],
-      intro: ['玄衡科技研发面向产业金融、农业供应链与具身智能数据产线的可信 AI 工作台，同时推进工业垂类模型、开源 Agent 工程工具与量化研究。'],
-      primaryCta: '查看项目',
-      secondaryCta: '关于玄衡',
+      kicker: '行业可信 AI · 苏州',
+      title: ['每一个结论，', '都有据可查。'],
+      intro: '面向产业金融、农业供应链与具身智能的行业 AI 工作台。可溯源，可复核，可私有化部署。',
+      primaryCta: '预约演示',
+      secondaryCta: '了解产品',
       brandMarkLabel: '玄衡品牌标志',
-      signature: ['玄衡科技', '结构 · 规律 · 智能'],
+      signature: ['玄以探索', '衡以度量'],
+    },
+    trust: {
+      label: '可信原则',
+      items: [
+        { icon: 'source', title: '证据溯源', description: '每一条结论绑定原始文档、波形或计算口径。' },
+        { icon: 'boundary', title: '边界可查', description: '置信分级，证据不足即明确留白，不强行猜测。' },
+        { icon: 'review', title: '人工复核', description: '面向真实业务角色设计复核留痕与审计闭环。' },
+        { icon: 'private', title: '私有化部署', description: '支持本地与内网隔离部署，核心数据不出域。' },
+      ],
+    },
+    products: {
+      kicker: '01 · 行业产品',
+      title: '行业产品',
+      lead: '不止给出结论，更给出依据、边界与留痕。',
+      viewAll: '查看全部产品',
+    },
+    openSource: {
+      kicker: '02 · 开源',
+      title: '开源工具',
+      lead: '一次 Agent 编码任务，四道关口，各由一个开源工具把守。',
+      viewAll: '查看开源工具',
+    },
+    research: {
+      kicker: '03 · 研究',
+      title: '在研项目',
+      lead: '工业垂类模型与量化研究系统，按真实进度呈现。',
+      viewAll: '查看研究项目',
     },
     philosophy: {
-      lead: '以探索理解未知，以度量认识复杂。',
+      lead: '玄以探索，衡以度量。',
       concepts: [
         {
           symbol: '玄',
@@ -629,40 +678,8 @@ export const zh = {
         },
       ],
     },
-    research: {
-      kicker: '02 · 研究方向',
-      title: '研究领域',
-      lead: ['不止给出结论，更给出每一条结论背后的原始依据、置信边界与审计留痕。'],
-      areas: [
-        {
-          index: '01',
-          title: '行业可信 AI',
-          description: '面向产业金融、农业供应链与具身智能数据产线，构建证据可溯源、边界可核查、人工可复核、可本地私有化部署的智能决策与数据治理系统。',
-        },
-        {
-          index: '02',
-          title: '垂类模型',
-          description: '研发面向工业维修工单、设备图像与工业文档的多模态专用模型，判断与证据同步给出。',
-        },
-        {
-          index: '03',
-          title: 'Agent 工程工具',
-          description: '为编码 Agent 与自动化提供仓库证据、上下文、Git 交付与 worktree 治理的开源工具链。',
-        },
-        {
-          index: '04',
-          title: '量化研究',
-          description: '基于数据、统计方法与计算模型，探索金融市场中的结构性规律。',
-        },
-      ],
-    },
-    selectedProjects: {
-      kicker: '01 · 项目',
-      title: '产品、模型与工具',
-      viewAll: '查看全部项目',
-    },
     aboutPreview: {
-      kicker: '03 · 关于玄衡',
+      kicker: '04 · 关于玄衡',
       title: '我们是谁',
       lead: '玄衡科技成立于 2026 年，位于江苏苏州。',
       paragraphs: [
@@ -672,8 +689,9 @@ export const zh = {
       linkLabel: '了解我们的研究理念',
     },
     contact: {
-      kicker: '04 · 联系',
-      title: '邮件联系',
+      kicker: '05 · 预约演示',
+      title: '预约一次演示',
+      lead: '告诉我们您的机构、关注的产品与使用场景，我们会安排线上或现场演示。',
     },
   },
   about: {
@@ -739,9 +757,9 @@ export const zh = {
   },
   projectsPage: {
     hero: {
-      kicker: 'PROJECTS · 研究与项目',
+      kicker: 'ALL PROJECTS · 全部项目',
       title: ['从问题出发，', '构建可信系统。'],
-      lead: '以下项目包括面向行业交付的可信 AI 工作台、正在研发的工业垂类模型、供开发者和编码 Agent 直接使用的开源工具，以及支撑长期研究的量化系统。行业产品可通过邮件预约演示。',
+      lead: '行业产品、模型研发、开源工具与研究系统的完整目录。',
     },
     listing: {
       kicker: 'SELECTED WORK · 2026',
@@ -752,16 +770,89 @@ export const zh = {
       linkLabel: '关于玄衡',
     },
   },
+  sections: {
+    products: {
+      hero: {
+        kicker: 'PRODUCTS · 行业产品',
+        title: ['证据在前，', '结论在后。'],
+        lead: '面向产业金融、农业供应链与具身智能数据产线的行业 AI 工作台。产品以介绍与预约演示的方式提供，欢迎来电或邮件联系。',
+      },
+      listing: {
+        kicker: 'PRODUCTS · 2026',
+        title: '产品目录',
+      },
+      next: {
+        label: '想看实际效果？',
+        linkLabel: '预约演示',
+      },
+    },
+    openSource: {
+      hero: {
+        kicker: 'OPEN SOURCE · 开源',
+        title: ['只做一件事，', '把边界写清楚。'],
+        lead: '四个以 Apache-2.0 开源的命令行工具，为编码 Agent 守住工程边界：只读的不写，未授权的不做，不确定就停下并说明原因。',
+      },
+      listing: {
+        kicker: 'TOOLS · APACHE-2.0',
+        title: '工具目录',
+      },
+      next: {
+        label: '源码与发布',
+        linkLabel: '前往 GitHub',
+      },
+      chainTitle: '一次编码任务，四道关口',
+      chain: [
+        { slug: PROJECT_SLUGS.worktreeController, step: '分配工作区', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.contextLoader, step: '加载上下文', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.snapshotRunner, step: '收集证据', distribution: 'PyPI' },
+        { slug: PROJECT_SLUGS.gitFinalizer, step: '提交发布', distribution: 'Releases' },
+      ],
+    },
+    research: {
+      hero: {
+        kicker: 'RESEARCH · 研究',
+        title: ['长期研究，', '如实呈现。'],
+        lead: '正在研发的工业垂类模型，以及支撑长期研究的量化系统。未经检验的能力，不作为已完成呈现。',
+      },
+      listing: {
+        kicker: 'RESEARCH · 2026',
+        title: '研究项目',
+      },
+      next: {
+        label: '进一步了解',
+        linkLabel: '关于玄衡',
+      },
+    },
+  },
   contact: {
     kicker: 'CONTACT · 联系',
-    title: '联系玄衡',
+    title: '联系与预约演示',
     companyLines: ['苏州玄衡科技有限公司', 'Suzhou Xuanheng Technology Co., Ltd.'],
+    demo: {
+      title: '预约产品演示',
+      lead: '发送邮件至 contact@xuanhengtech.cn，我们会与您联系，安排线上或现场演示。',
+      checklist: ['机构名称与您的角色', '关注的产品', '希望解决的业务问题或使用场景', '部署环境要求（如内网、私有化）'],
+      mailSubject: '预约产品演示',
+      buttonLabel: '写邮件预约',
+    },
     emailLabel: '邮箱',
+    phone: {
+      label: '电话',
+      display: '0512-57871517',
+      href: 'tel:0512-57871517',
+      hours: '工作日 9:00–11:30，13:00–18:00',
+    },
     wechat: {
-      label: '微信公众号',
-      caption: '微信扫码关注「玄衡科技」公众号。',
+      label: '微信服务号',
+      caption: '微信扫码关注「玄衡科技」服务号。',
       image: '/contact/wechat-official-account-qr.jpg',
-      imageAlt: '玄衡科技微信公众号二维码',
+      imageAlt: '玄衡科技微信服务号二维码',
+    },
+    wecom: {
+      label: '企业微信',
+      caption: '微信扫码添加企业微信，咨询产品与预约演示。',
+      image: '/contact/wecom-qr.png',
+      imageAlt: '玄衡科技企业微信二维码',
     },
   },
 } satisfies SiteContent;

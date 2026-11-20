@@ -1,6 +1,12 @@
 # Permanent redirects for the retired English-prefixed routes.
 /en / 301!
 /en/ / 301!
+/en/products /products/ 301!
+/en/products/ /products/ 301!
+/en/open-source /open-source/ 301!
+/en/open-source/ /open-source/ 301!
+/en/research /research/ 301!
+/en/research/ /research/ 301!
 /en/about /about/ 301!
 /en/about/ /about/ 301!
 /en/projects /projects/ 301!

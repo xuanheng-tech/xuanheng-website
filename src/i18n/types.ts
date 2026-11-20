@@ -1,6 +1,9 @@
 export type Locale = 'zh' | 'en';
 
-export type PageKey = 'home' | 'about' | 'projects' | 'contact';
+export type PageKey = 'home' | 'products' | 'openSource' | 'research' | 'projects' | 'about' | 'contact';
+
+/** Section index pages that each list one slice of the project catalogue. */
+export type SectionKey = 'products' | 'openSource' | 'research';
 
 export const PROJECT_SLUGS = {
   chainVerify: 'chainverify',
@@ -28,6 +31,9 @@ export interface ChromeCopy {
   mobileMenuLabel: string;
   languageSwitcherLabel: string;
   skipToContent: string;
+  demoCta: string;
+  themeSwitchLabel: string;
+  themeOptions: Record<'light' | 'dark' | 'system', string>;
   filingNavigationLabel: string;
   backToTop: string;
 }
@@ -45,6 +51,8 @@ export interface ProjectCopy {
   name: string;
   englishName: string;
   summary: string;
+  /** One-line product slogan shown under the name. */
+  slogan?: string;
   cardSummary?: string;
   status: string;
   focus: string[];
@@ -88,34 +96,50 @@ export interface ResearchAreaCopy {
   description: string;
 }
 
+export type TrustIcon = 'source' | 'boundary' | 'review' | 'private';
+
+export interface TrustItem {
+  icon: TrustIcon;
+  title: string;
+  description: string;
+}
+
+export interface SectionIntroCopy {
+  kicker: string;
+  title: string;
+  lead: string;
+  viewAll: string;
+}
+
+export interface OpenSourceChainStep {
+  slug: ProjectSlug;
+  step: string;
+  distribution: string;
+}
+
 export interface HomeCopy {
   hero: {
     kicker: string;
-    title: string;
-    statement: [string, string];
-    intro: string[];
+    title: [string, string];
+    intro: string;
     primaryCta: string;
     secondaryCta: string;
     brandMarkLabel: string;
     signature: [string, string];
   };
+  trust: {
+    label: string;
+    items: TrustItem[];
+  };
+  products: SectionIntroCopy;
+  openSource: SectionIntroCopy;
+  research: SectionIntroCopy;
   philosophy: {
     lead: string;
     concepts: Array<{
       symbol: string;
       description: string;
     }>;
-  };
-  research: {
-    kicker: string;
-    title: string;
-    lead: [string, string?];
-    areas: ResearchAreaCopy[];
-  };
-  selectedProjects: {
-    kicker: string;
-    title: string;
-    viewAll: string;
   };
   aboutPreview: {
     kicker: string;
@@ -127,6 +151,7 @@ export interface HomeCopy {
   contact: {
     kicker: string;
     title: string;
+    lead: string;
   };
 }
 
@@ -163,12 +188,14 @@ export interface AboutCopy {
   };
 }
 
-export interface ProjectsPageCopy {
-  hero: {
-    kicker: string;
-    title: [string, string];
-    lead: string;
-  };
+export interface PageHeroCopy {
+  kicker: string;
+  title: [string, string];
+  lead: string;
+}
+
+export interface ListingPageCopy {
+  hero: PageHeroCopy;
   listing: {
     kicker: string;
     title: string;
@@ -179,17 +206,45 @@ export interface ProjectsPageCopy {
   };
 }
 
+export interface SectionPagesCopy {
+  products: ListingPageCopy;
+  openSource: ListingPageCopy & {
+    chainTitle: string;
+    chain: OpenSourceChainStep[];
+  };
+  research: ListingPageCopy;
+}
+
 export interface ContactCopy {
   kicker: string;
   title: string;
   companyLines: string[];
+  demo: {
+    title: string;
+    lead: string;
+    checklist: string[];
+    mailSubject: string;
+    buttonLabel: string;
+  };
   emailLabel: string;
+  phone: {
+    label: string;
+    display: string;
+    href: string;
+    hours: string;
+  };
   x?: {
     label: string;
     value: string;
     href: string;
   };
   wechat?: {
+    label: string;
+    caption: string;
+    image: string;
+    imageAlt: string;
+  };
+  wecom?: {
     label: string;
     caption: string;
     image: string;
@@ -204,6 +259,7 @@ export interface ProjectLabels {
   viewProject: string;
   backToProjects: string;
   groups: Record<ProjectGroup, string>;
+  repository: string;
 }
 
 export interface ProjectDetailLabels {
@@ -234,6 +290,7 @@ export interface SiteContent {
   projects: ProjectCopy[];
   home: HomeCopy;
   about: AboutCopy;
-  projectsPage: ProjectsPageCopy;
+  projectsPage: ListingPageCopy;
+  sections: SectionPagesCopy;
   contact: ContactCopy;
 }

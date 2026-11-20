@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import BrandSymbol from '../components/BrandSymbol.astro';
 import Header from '../components/Header.astro';
 import { routeFor } from '../i18n/routes';
 import type { PageKey, SeoCopy, SiteContent } from '../i18n/types';
@@ -14,12 +15,10 @@ interface Props {
   chinesePath?: string;
   seo?: SeoCopy;
   faviconHref?: string;
-  markSrc?: string;
   indexable?: boolean;
 }
 
 const defaultFaviconHref = '/brand/xuanheng-mark.svg';
-const defaultMarkSrc = '/brand/xuanheng-mark.svg';
 
 const {
   content,
@@ -30,7 +29,6 @@ const {
   chinesePath: chinesePathOverride,
   seo,
   faviconHref = defaultFaviconHref,
-  markSrc = defaultMarkSrc,
   indexable = true,
 } = Astro.props;
 
@@ -50,7 +48,20 @@ const { title, description } = seo ?? content.seo[pageKey];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#F6F1E8" />
+    <meta name="theme-color" content="#F6F1E8" media="(prefers-color-scheme: light)" data-scheme="light" />
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)" data-scheme="dark" />
+    <meta name="color-scheme" content="light dark" />
+    {/* Applies a saved manual theme before first paint so the page never flashes the
+        other theme. Without JavaScript the site still follows the system setting. */}
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        root.classList.add('js');
+        let saved = null;
+        try { saved = localStorage.getItem('xh-theme'); } catch { /* storage blocked: follow system */ }
+        if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+      })();
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -82,11 +93,39 @@ const { title, description } = seo ?? content.seo[pageKey];
       activePage={activePage}
       englishPath={englishPath}
       chinesePath={chinesePath}
-      markSrc={markSrc}
     />
     <main id="main-content">
       <slot />
     </main>
     <Footer content={content} />
+    <BrandSymbol />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const colors = { light: '#F6F1E8', dark: '#141311' };
+        const metas = document.querySelectorAll('meta[name="theme-color"]');
+        const apply = (choice) => {
+          if (choice === 'system') delete root.dataset.theme;
+          else root.dataset.theme = choice;
+          metas.forEach((meta) => {
+            meta.content = colors[choice === 'system' ? meta.dataset.scheme : choice];
+          });
+          document.querySelectorAll('[data-theme-choice]').forEach((button) => {
+            button.setAttribute('aria-pressed', String(button.dataset.themeChoice === choice));
+          });
+        };
+        apply(root.dataset.theme ?? 'system');
+        document.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-theme-choice]');
+          if (!button) return;
+          const choice = button.dataset.themeChoice;
+          try {
+            if (choice === 'system') localStorage.removeItem('xh-theme');
+            else localStorage.setItem('xh-theme', choice);
+          } catch { /* storage blocked: the choice lasts for this page view */ }
+          apply(choice);
+        });
+      })();
+    </script>
   </body>
 </html>

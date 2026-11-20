@@ -70,8 +70,95 @@
     "STSong", "SimSun", serif;
   --font-serif-cjk: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC",
     "STSong", "SimSun", serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   --container: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Theme-aware site layers. The ink bands were written as background: ink + color: paper,
+     which would invert into light bands in the dark theme; they read these instead. */
+  --band-bg: #171717;
+  --band-text: #f6f1e8;
+  --oss-bg: #1f3434;               /* 黛青墨: the open-source band */
+  --oss-accent: #9fc7c3;           /* 8.0:1 on --oss-bg */
+  --oss-line: rgba(232, 239, 236, 0.18);
+  --accent-fill: var(--xh-accent); /* demo CTA fill */
+  --on-accent: #ffffff;            /* 5.85:1 on #b43a32 */
+  --status-research: #8a6a3e;      /* 金褐 */
+  --status-oss: #2f4f4f;           /* 黛青 */
+  --mark-color: var(--xh-accent);
+  color-scheme: light;
+}
+
+/* 墨夜 dark theme: follows the system unless the visitor picked light; an explicit
+   data-theme="dark" (theme switch) applies it regardless of the system setting.
+   The two blocks must stay identical. Contrast on #141311: text 14.8, muted 6.9,
+   accent 5.5, oss-accent 7.2, research 8.1. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --xh-bg: #141311;
+    --xh-surface: #1b1916;
+    --xh-text: #ece5d8;
+    --xh-muted: #a59d91;
+    --xh-accent: #e0675b;
+    --xh-focus-ring: #f08a7e;
+    --xh-border-subtle: rgba(236, 229, 216, 0.14);
+    --xh-border-strong-color: rgba(236, 229, 216, 0.34);
+    --band-accent: #e0675b;
+    --band-muted: #a59d91;
+    --line-heavy: rgba(236, 229, 216, 0.24);
+    --line-emphasis: rgba(236, 229, 216, 0.5);
+    --line-raised: rgba(236, 229, 216, 0.12);
+    --line-on-ink: rgba(236, 229, 216, 0.3);
+    --line-on-ink-subtle: rgba(236, 229, 216, 0.13);
+    --veil-ink: rgba(236, 229, 216, 0.1);
+    --tint-ink: rgba(0, 0, 0, 0.35);
+    --tint-paper: rgba(236, 229, 216, 0.03);
+    --shadow-pop: 0 18px 48px rgba(0, 0, 0, 0.55);
+    --shadow-card-hover: 0 0 0 1px rgba(236, 229, 216, 0.06), 0 12px 30px rgba(0, 0, 0, 0.4);
+    --band-bg: #0c0b0a;
+    --band-text: #ece5d8;
+    --oss-bg: #0f1a1a;
+    --oss-accent: #7fa9a6;
+    --oss-line: rgba(227, 236, 233, 0.13);
+    --on-accent: #141311;
+    --status-research: #c9a675;
+    --status-oss: #7fa9a6;
+    --mark-color: #d9584c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --xh-bg: #141311;
+  --xh-surface: #1b1916;
+  --xh-text: #ece5d8;
+  --xh-muted: #a59d91;
+  --xh-accent: #e0675b;
+  --xh-focus-ring: #f08a7e;
+  --xh-border-subtle: rgba(236, 229, 216, 0.14);
+  --xh-border-strong-color: rgba(236, 229, 216, 0.34);
+  --band-accent: #e0675b;
+  --band-muted: #a59d91;
+  --line-heavy: rgba(236, 229, 216, 0.24);
+  --line-emphasis: rgba(236, 229, 216, 0.5);
+  --line-raised: rgba(236, 229, 216, 0.12);
+  --line-on-ink: rgba(236, 229, 216, 0.3);
+  --line-on-ink-subtle: rgba(236, 229, 216, 0.13);
+  --veil-ink: rgba(236, 229, 216, 0.1);
+  --tint-ink: rgba(0, 0, 0, 0.35);
+  --tint-paper: rgba(236, 229, 216, 0.03);
+  --shadow-pop: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 0 0 1px rgba(236, 229, 216, 0.06), 0 12px 30px rgba(0, 0, 0, 0.4);
+  --band-bg: #0c0b0a;
+  --band-text: #ece5d8;
+  --oss-bg: #0f1a1a;
+  --oss-accent: #7fa9a6;
+  --oss-line: rgba(227, 236, 233, 0.13);
+  --on-accent: #141311;
+  --status-research: #c9a675;
+  --status-oss: #7fa9a6;
+  --mark-color: #d9584c;
+  color-scheme: dark;
 }
 
 *,
@@ -245,12 +332,13 @@ summary {
 
 .desktop-nav a {
   position: relative;
+  white-space: nowrap;
   min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   line-height: 1.3;
   transition: color 180ms ease;
 }
@@ -574,8 +662,8 @@ summary {
 }
 
 .research {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--band-bg);
+  color: var(--band-text);
 }
 
 .section-heading--light .eyebrow {
@@ -847,7 +935,7 @@ summary {
   line-height: 1.05;
 }
 
-.contact-band a {
+.contact-band__email {
   min-width: 0;
   padding-bottom: 10px;
   display: flex;
@@ -863,7 +951,7 @@ summary {
   transition: color 180ms ease, border-color 180ms ease;
 }
 
-.contact-band a:hover {
+.contact-band__email:hover {
   border-color: var(--red);
   color: var(--ink);
 }
@@ -873,7 +961,7 @@ summary {
   border-top: var(--xh-border) solid var(--line);
   background: var(--paper);
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.04em;
 }
 
@@ -933,8 +1021,8 @@ summary {
 }
 
 .fact-strip {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--band-bg);
+  color: var(--band-text);
 }
 
 .fact-strip dl {
@@ -997,8 +1085,8 @@ summary {
 }
 
 .research-belief {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--band-bg);
+  color: var(--band-text);
 }
 
 .research-belief .eyebrow {
@@ -1364,8 +1452,8 @@ summary {
 }
 
 .project-system-view {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--band-bg);
+  color: var(--band-text);
 }
 
 .project-system-view .eyebrow {
@@ -2514,4 +2602,711 @@ html[lang="zh-CN"] .fact-strip dt:not([lang="en"]) {
 
 .language-switch a[lang="zh-CN"] {
   letter-spacing: 0;
+}
+
+/* ==========================================================================
+   2026-11 refresh: brand mark symbol, theme switch, header demo CTA, trust strip,
+   product rows, open-source chain, demo request. Colours come only from tokens.
+   ========================================================================== */
+
+.brand-symbol {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.brand-mark {
+  aspect-ratio: 1002 / 1576;
+  color: var(--mark-color);
+  fill: currentColor;
+}
+
+.brand .brand-mark {
+  width: auto;
+  height: 46px;
+  flex: 0 0 auto;
+}
+
+.hero .hero__mark {
+  width: auto;
+}
+
+/* Theme switch: three icon buttons; hidden without JavaScript, where the site simply
+   follows the system colour scheme. */
+.theme-switch {
+  display: none;
+  padding: 2px;
+  gap: 2px;
+  border: var(--xh-border) solid var(--line-strong);
+  border-radius: 999px;
+}
+
+.js .theme-switch {
+  display: inline-flex;
+}
+
+.theme-switch button {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.theme-switch button:hover {
+  color: var(--ink);
+}
+
+.theme-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.theme-switch svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-switch .theme-switch__fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.header-cta {
+  min-height: 38px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  border: var(--xh-border) solid var(--accent-fill);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  font-size: 0.8125rem;
+  font-weight: var(--xh-weight-title);
+  white-space: nowrap;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.header-cta:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.mobile-menu__cta {
+  color: var(--red);
+  font-weight: var(--xh-weight-title);
+}
+
+.mobile-menu__theme {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: var(--xh-border) solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.button--accent {
+  border-color: var(--accent-fill);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+}
+
+.button--accent:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Home hero: the H1 is now the brand promise, two lines. */
+html .hero h1.hero__title {
+  margin-top: 28px;
+  font-size: clamp(2.6rem, 5.4vw, 4.9rem);
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero p.hero__intro {
+  max-width: 34em;
+  margin-top: 30px;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.hero__signature p:first-child,
+.hero__signature p:last-child {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: var(--xh-weight-label);
+  letter-spacing: 0.08em;
+}
+
+html[lang="zh-CN"] .hero__signature p {
+  letter-spacing: 0;
+}
+
+/* Trust strip */
+.trust-strip {
+  border-bottom: var(--xh-border) solid var(--line);
+}
+
+.trust-strip__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.trust-strip__list li {
+  padding: 30px 28px 32px;
+  border-left: var(--xh-border) solid var(--line);
+}
+
+.trust-strip__list li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.trust-strip svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trust-strip h3 {
+  margin-top: 16px;
+  font-size: 1.05rem;
+  font-weight: var(--xh-weight-title);
+  line-height: 1.4;
+}
+
+.trust-strip p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Product rows */
+.product-rows {
+  display: grid;
+  gap: 20px;
+}
+
+.product-row {
+  padding: clamp(28px, 3.5vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 72px);
+  border: var(--xh-border) solid var(--line-strong);
+  background: var(--paper-light);
+}
+
+.product-row__meta {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: var(--xh-weight-title);
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.product-row h3 {
+  margin-top: 14px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+  font-weight: var(--xh-weight-label);
+  line-height: 1.2;
+}
+
+.product-row h3 a:hover {
+  color: var(--red);
+}
+
+.product-row__english {
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+
+.product-row__slogan {
+  margin-top: 16px;
+  color: var(--red);
+  font-size: 1.08rem;
+  font-weight: var(--xh-weight-label);
+  line-height: 1.5;
+}
+
+.product-row__summary {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.product-row__actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+}
+
+.text-link--accent {
+  color: var(--red);
+}
+
+.text-link--accent:hover {
+  color: var(--ink);
+}
+
+.product-row__capabilities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--xh-border) solid var(--line-strong);
+}
+
+.product-row__capabilities li {
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  border-bottom: var(--xh-border) solid var(--line);
+}
+
+.product-row__index {
+  padding-top: 3px;
+  color: var(--red);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.product-row h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--xh-weight-title);
+  line-height: 1.5;
+}
+
+.product-row__capabilities p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.status-pill {
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: var(--xh-border) solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: var(--xh-weight-title);
+  line-height: 1.3;
+}
+
+.status-pill::before {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  content: "";
+  border-radius: var(--xh-radius-pill-circle);
+  background: var(--red);
+}
+
+.status-pill[data-group="model"]::before,
+.status-pill[data-group="researchSystem"]::before {
+  background: var(--status-research);
+}
+
+.status-pill[data-group="openSourceTool"]::before {
+  background: var(--status-oss);
+}
+
+/* Open-source band: four equal stages split by hairlines, the same grammar as the
+   trust strip. One accent (the stage number); everything else is text weight. */
+.oss-band {
+  background: var(--oss-bg);
+  color: var(--band-text);
+}
+
+.oss-band .section-heading .eyebrow {
+  color: var(--oss-accent);
+}
+
+.oss-band .section-heading__lead {
+  color: var(--band-muted);
+}
+
+.oss-chain__title {
+  margin-bottom: clamp(36px, 4vw, 52px);
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  font-weight: var(--xh-weight-label);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.oss-chain__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: var(--xh-border) solid var(--oss-line);
+  border-bottom: var(--xh-border) solid var(--oss-line);
+}
+
+.oss-chain__steps li {
+  padding: 32px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  border-left: var(--xh-border) solid var(--oss-line);
+}
+
+.oss-chain__steps li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.oss-chain__num {
+  color: var(--oss-accent);
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.oss-chain__step {
+  margin-top: 22px;
+  font-size: 1.2rem;
+  font-weight: var(--xh-weight-title);
+  line-height: 1.4;
+}
+
+.oss-chain__name {
+  margin-top: 6px;
+  align-self: flex-start;
+  color: var(--oss-accent);
+  font-size: 0.9rem;
+  font-weight: var(--xh-weight-label);
+  transition: color 180ms ease;
+}
+
+.oss-chain__name:hover {
+  color: var(--band-text);
+}
+
+.oss-chain__summary {
+  margin-top: 14px;
+  flex: 1;
+  color: var(--band-muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.oss-chain__meta {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--band-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.oss-chain__meta a {
+  transition: color 180ms ease;
+}
+
+.oss-chain__meta a:hover {
+  color: var(--band-text);
+}
+
+.oss-band__link {
+  margin-top: 40px;
+}
+
+/* Research cards on the home page */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Product page slogan */
+.project-hero__slogan {
+  margin-top: 18px;
+  color: var(--red);
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: var(--xh-weight-label);
+  line-height: 1.5;
+}
+
+/* Contact: demo request and home band */
+.contact-demo {
+  margin-top: clamp(36px, 4vw, 52px);
+  padding: clamp(24px, 3vw, 40px);
+  border: var(--xh-border) solid var(--line-strong);
+  background: var(--paper-light);
+  scroll-margin-top: 100px;
+}
+
+.contact-demo h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: var(--xh-weight-label);
+  line-height: 1.25;
+}
+
+.contact-demo__lead {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.contact-demo__checklist {
+  margin: 18px 0 28px;
+  display: grid;
+  gap: 8px;
+}
+
+.contact-demo__checklist li::before {
+  margin-right: 10px;
+  content: "—";
+  color: var(--red);
+}
+
+.contact-band__body {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-band__body > p {
+  max-width: 40em;
+  color: var(--muted);
+}
+
+.contact-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+}
+
+.contact-band__actions .contact-band__email {
+  flex: 1 1 260px;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.footer__links a:hover {
+  color: var(--red);
+}
+
+/* Product and diagram imagery keeps its own paper ground in the dark theme: it reads
+   as a paper plate on the ink page, so no artwork needs a second version. */
+.project-figure img {
+  border-radius: 2px;
+}
+
+/* Six nav items plus theme switch, demo button and language switch need ~1100px.
+   Below that the header collapses to the menu, which also carries the theme row. */
+@media (max-width: 1100px) {
+  .desktop-nav,
+  .theme-switch--header {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 1180px) {
+  .desktop-nav ul {
+    gap: 22px;
+  }
+
+  .header__actions {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .trust-strip__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-strip__list li:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .trust-strip__list li:nth-child(-n + 2) {
+    border-bottom: var(--xh-border) solid var(--line);
+  }
+
+  .product-row {
+    grid-template-columns: 1fr;
+  }
+
+  .oss-chain__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .oss-chain__steps li:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .oss-chain__steps li:nth-child(-n + 2) {
+    border-bottom: var(--xh-border) solid var(--oss-line);
+  }
+
+}
+
+@media (max-width: 760px) {
+  .header-cta {
+    display: none;
+  }
+
+  html .hero h1.hero__title {
+    font-size: clamp(2.1rem, 9vw, 2.75rem);
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .trust-strip__list {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip__list li {
+    padding: 22px 0;
+    border-left: 0;
+    border-bottom: var(--xh-border) solid var(--line);
+  }
+
+  .trust-strip__list li:last-child {
+    border-bottom: 0;
+  }
+
+  .oss-chain__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .oss-chain__steps li,
+  .oss-chain__steps li:nth-child(-n + 2) {
+    padding: 26px 0;
+    border-left: 0;
+    border-bottom: var(--xh-border) solid var(--oss-line);
+  }
+
+  .oss-chain__steps li:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Phone with office hours */
+.contact-channel__note,
+.contact-demo__phone span,
+.contact-band__phone span {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.contact-channel__note {
+  margin-top: 8px;
+}
+
+.contact-demo__phone,
+.contact-band__phone {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+}
+
+.contact-demo__phone a,
+.contact-band__phone a {
+  color: var(--red);
+  font-weight: var(--xh-weight-title);
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-demo__phone a:hover,
+.contact-band__phone a:hover {
+  color: var(--ink);
+}
+
+.contact-band__phone {
+  margin-top: 0;
+}
+
+/* Chinese display follows the site's zh system: one sans for every heading, sized and
+   worded for Chinese rather than mirroring the English; balanced wrapping stops a lone
+   character from falling onto its own line. */
+html[lang="zh-CN"] .hero h1.hero__title,
+html[lang="zh-CN"] .product-row h3,
+html[lang="zh-CN"] .oss-chain__title,
+html[lang="zh-CN"] .contact-demo h2 {
+  font-family: var(--sans-cjk);
+  letter-spacing: 0;
+}
+
+html[lang="zh-CN"] .hero h1.hero__title {
+  font-size: clamp(2.6rem, 5.8vw, 5.4rem);
+  font-weight: var(--xh-weight-title);
+  line-height: 1.22;
+}
+
+html[lang="zh-CN"] .product-row h3,
+html[lang="zh-CN"] .oss-chain__title,
+html[lang="zh-CN"] .contact-demo h2 {
+  font-weight: var(--xh-weight-label);
+}
+
+html[lang="zh-CN"] :is(h1, h2, h3, .section-heading__lead, .page-hero__lead, .product-row__slogan) {
+  text-wrap: balance;
+}
+
+html[lang="zh-CN"] :is(p, li) {
+  text-wrap: pretty;
+}
+
+@media (max-width: 760px) {
+  html[lang="zh-CN"] .hero h1.hero__title {
+    font-size: clamp(2.3rem, 10.5vw, 3rem);
+  }
 }

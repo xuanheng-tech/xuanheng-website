@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const site = 'https://www.xuanhengtech.cn';
-const english = ['/', '/about/', '/projects/', '/contact/',
+const english = ['/', '/products/', '/open-source/', '/research/', '/about/', '/projects/', '/contact/',
   ...['chainverify', 'agripulse', 'embodiedflow', 'mechlens', 'git-finalizer', 'context-loader',
     'snapshot-runner', 'worktree-controller', 'quantitative-research-platform']
     .map((slug) => `/projects/${slug}/`)];
@@ -30,7 +30,13 @@ for (const route of routes) {
   assert.equal(tags(html, 'html')[0]?.lang, chinese ? 'zh-CN' : 'en', `${route}: locale`);
   assert.match(html, /<main\b/);
   assert.equal(tags(html, 'h1').length, 1, `${route}: one h1`);
-  assert.doesNotMatch(html, /<script\b/i, `${route}: static page must have no client scripts`);
+  // The only client code is the colour-theme switch: one pre-paint script in <head> and one
+  // handler before </body>. Both inline; no external script may ever load.
+  const scripts = tags(html, 'script');
+  assert.equal(scripts.length, 2, `${route}: exactly the two inline theme scripts`);
+  assert(scripts.every((tag) => !tag.src), `${route}: no external scripts`);
+  assert.match(html, /localStorage\.getItem\('xh-theme'\)/, `${route}: theme pre-paint script`);
+  assert(tags(html, 'symbol').some((tag) => tag.id === 'xh-mark'), `${route}: brand mark symbol`);
   assert.doesNotMatch(html, /(?:localhost|127\.0\.0\.1|\/home\/hsd\/)/, `${route}: workstation data`);
 
   const linkTags = tags(html, 'link');
@@ -77,7 +83,7 @@ const redirects = new Map(read('/_redirects').split('\n')
     assert(routes.includes(to), `${from}: redirect must target a canonical route`);
     return [from, to];
   }));
-assert.equal(redirects.size, 38, 'all legacy and retired routes must be covered');
+assert.equal(redirects.size, 44, 'all legacy and retired routes must be covered');
 for (const route of english) {
   const alias = `/en${route}`;
   assert.equal(redirects.get(alias), route);
@@ -96,4 +102,4 @@ for (const prefix of ['', '/en', '/zh-cn']) {
   }
 }
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));
-console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, no client scripts, 404 noindex`);
+console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, 404 noindex`);

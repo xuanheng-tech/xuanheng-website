@@ -1,0 +1,84 @@
+---
+import { groupsForSection, routeFor } from '../i18n/routes';
+import type { SectionKey, SiteContent } from '../i18n/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OpenSourceChain from './OpenSourceChain.astro';
+import ProductRow from './ProductRow.astro';
+import ProjectCard from './ProjectCard.astro';
+import ProjectGroups from './ProjectGroups.astro';
+
+interface Props {
+  content: SiteContent;
+  section: SectionKey;
+}
+
+const { content, section } = Astro.props;
+const page = content.sections[section];
+const groups = groupsForSection[section];
+const projects = content.projects.filter((project) => groups.includes(project.group));
+const next = {
+  products: { href: `${routeFor(content.locale, 'contact')}#demo`, external: false },
+  openSource: { href: 'https://github.com/xuanheng-tech', external: true },
+  research: { href: routeFor(content.locale, 'about'), external: false },
+}[section];
+---
+
+<BaseLayout content={content} pageKey={section}>
+  <header class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">{page.hero.kicker}</p>
+        <h1>{page.hero.title[0]}<br />{page.hero.title[1]}</h1>
+      </div>
+      <p class="page-hero__lead">{page.hero.lead}</p>
+    </div>
+  </header>
+
+  {section === 'openSource' && (
+    <section class="section oss-band" aria-labelledby="oss-chain-title">
+      <div class="container">
+        <OpenSourceChain
+          content={content}
+          headingId="oss-chain-title"
+          title={content.sections.openSource.chainTitle}
+        />
+      </div>
+    </section>
+  )}
+
+  <section class="section projects-page" aria-labelledby="section-list-title">
+    <div class="container">
+      <div class="projects-page__heading">
+        <p class="eyebrow">{page.listing.kicker}</p>
+        <h2 id="section-list-title">{page.listing.title}</h2>
+      </div>
+      {section === 'products' && (
+        <div class="product-rows">
+          {projects.map((project) => <ProductRow content={content} project={project} />)}
+        </div>
+      )}
+      {section === 'openSource' && (
+        <div class="card-grid">
+          {projects.map((project) => <ProjectCard project={project} labels={content.projectLabels} />)}
+        </div>
+      )}
+      {section === 'research' && (
+        <ProjectGroups content={content} titleIdPrefix="research-group" groups={groups} />
+      )}
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="container page-next__inner">
+      <p>{page.next.label}</p>
+      <a
+        href={next.href}
+        target={next.external ? '_blank' : undefined}
+        rel={next.external ? 'noopener noreferrer' : undefined}
+      >
+        <span>{page.next.linkLabel}</span>
+        <span aria-hidden="true">{next.external ? '↗' : '→'}</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
