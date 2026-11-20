@@ -841,7 +841,7 @@ export const zh = {
     wechat: {
       label: '微信服务号',
       caption: '微信扫码，关注服务号',
-      image: '/contact/wechat-official-account-qr.jpg',
+      image: '/contact/wechat-qr.svg',
       imageAlt: '玄衡科技微信服务号二维码',
     },
     wecom: {
