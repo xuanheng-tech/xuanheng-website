@@ -2,6 +2,7 @@
 import { projectRouteFor, routeFor, sectionForGroup } from '../i18n/routes';
 import type { ProjectCopy, SeoCopy, SiteContent } from '../i18n/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { projectSchema } from '../i18n/structured-data';
 import ProjectCapabilities from './ProjectCapabilities.astro';
 import ProjectCurrentState from './ProjectCurrentState.astro';
 import ProjectHero from './ProjectHero.astro';
@@ -31,6 +32,7 @@ if (currentIndex < 0) {
 const previous = content.projects[currentIndex - 1];
 const next = content.projects[currentIndex + 1];
 const labels = content.projectDetailLabels;
+const schema = projectSchema(content, project);
 ---
 
 <BaseLayout
@@ -41,6 +43,7 @@ const labels = content.projectDetailLabels;
   englishPath={projectRouteFor('en', project.slug)}
   chinesePath={projectRouteFor('zh', project.slug)}
   seo={seo}
+  structuredData={schema ? [schema] : []}
 >
   <article class="project-detail">
     <ProjectHero project={project} labels={content.projectLabels} locale={content.locale} media={project.media} />

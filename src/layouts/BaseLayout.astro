@@ -16,6 +16,8 @@ interface Props {
   seo?: SeoCopy;
   faviconHref?: string;
   indexable?: boolean;
+  /** schema.org objects rendered as JSON-LD (data, not executable script). */
+  structuredData?: object[];
 }
 
 const defaultFaviconHref = '/brand/xuanheng-mark.svg';
@@ -30,7 +32,9 @@ const {
   seo,
   faviconHref = defaultFaviconHref,
   indexable = true,
+  structuredData = [],
 } = Astro.props;
+const jsonLd = (value: object) => JSON.stringify(value).replaceAll('<', '\\u003c');
 
 const siteUrl = Astro.site ?? new URL('https://www.xuanhengtech.cn');
 const canonicalPath = canonicalPathOverride ?? routeFor(content.locale, pageKey);
@@ -84,6 +88,7 @@ const { title, description } = seo ?? content.seo[pageKey];
     <meta property="og:description" content={description} />
     {indexable && <meta property="og:url" content={canonicalUrl} />}
     <meta name="twitter:card" content="summary" />
+    {structuredData.map((item) => <script type="application/ld+json" is:inline set:html={jsonLd(item)} />)}
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">{content.chrome.skipToContent}</a>

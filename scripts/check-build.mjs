@@ -39,9 +39,14 @@ for (const route of routes) {
   assert.equal(tags(html, 'h1').length, 1, `${route}: one h1`);
   // The only client code is the colour-theme switch: one pre-paint script in <head> and one
   // handler before </body>. Both inline; no external script may ever load.
-  const scripts = tags(html, 'script');
+  // JSON-LD blocks are data, not code: they are counted apart and must parse.
+  const allScripts = tags(html, 'script');
+  const scripts = allScripts.filter((tag) => tag.type !== 'application/ld+json');
   assert.equal(scripts.length, 2, `${route}: exactly the two inline theme scripts`);
-  assert(scripts.every((tag) => !tag.src), `${route}: no external scripts`);
+  assert(allScripts.every((tag) => !tag.src), `${route}: no external scripts`);
+  for (const match of html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/g)) {
+    assert.equal(JSON.parse(match[1])['@context'], 'https://schema.org', `${route}: JSON-LD`);
+  }
   assert.match(html, /localStorage\.getItem\('xh-theme'\)/, `${route}: theme pre-paint script`);
   assert(tags(html, 'symbol').some((tag) => tag.id === 'xh-mark'), `${route}: brand mark symbol`);
   assert.doesNotMatch(html, /(?:localhost|127\.0\.0\.1|\/home\/hsd\/)/, `${route}: workstation data`);
@@ -116,7 +121,10 @@ for (const prefix of ['', '/zh-cn']) {
   assert(tags(read(form.action), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')),
     `${form.action}: noindex`);
 }
+// llms.txt may only point at canonical routes.
+const llmsLinks = [...read('/llms.txt').matchAll(/\]\((https:[^)]+)\)/g)].map((match) => match[1]);
+for (const link of llmsLinks) assert(routes.includes(link.slice(site.length)), `llms.txt: ${link} is not canonical`);
 assert(tags(read('/404.html'), 'meta').some((tag) => tag.name === 'robots' && tag.content.includes('noindex')));
 assert.equal(missingGlyphs.size, 0, `zh-CN webfont subset is missing ${[...missingGlyphs].join('')}; run: uv run --with fonttools --with brotli python scripts/subset-cjk-font.py`);
 
-console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, inquiry form, 404 noindex`);
+console.log(`PASS - static build: ${routes.length} routes, ${redirects.size} redirects, ${linksChecked} local links/assets; SEO, language switches, theme scripts only, zh webfont coverage, inquiry form, JSON-LD, llms.txt, 404 noindex`);

@@ -2,6 +2,7 @@
 import { routeFor } from '../i18n/routes';
 import type { SiteContent } from '../i18n/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { organization } from '../i18n/structured-data';
 
 interface Props {
   content: SiteContent;
@@ -13,7 +14,7 @@ const { form } = contact;
 const thanksPath = `${routeFor(content.locale, 'contact')}thanks/`;
 ---
 
-<BaseLayout content={content} pageKey="contact">
+<BaseLayout content={content} pageKey="contact" structuredData={[organization(content)]}>
   <section class="contact-page" aria-labelledby="contact-page-title">
     <div class="container contact-page__inner">
       <p class="eyebrow">{contact.kicker}</p>

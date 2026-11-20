@@ -8,6 +8,7 @@ import ProductRow from './ProductRow.astro';
 import ProjectCard from './ProjectCard.astro';
 import TrustStrip from './TrustStrip.astro';
 import UpdatesList from './UpdatesList.astro';
+import { organization, website } from '../i18n/structured-data';
 
 interface Props {
   content: SiteContent;
@@ -21,7 +22,7 @@ const products = content.projects.filter((project) => groupsForSection.products.
 const research = content.projects.filter((project) => groupsForSection.research.includes(project.group));
 ---
 
-<BaseLayout content={content} pageKey="home">
+<BaseLayout content={content} pageKey="home" structuredData={[organization(content), website(content)]}>
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
