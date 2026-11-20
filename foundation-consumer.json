@@ -22,7 +22,7 @@
   "exceptions": [
     {
       "clause": "§2 / migration questions #9-14",
-      "difference": "brand paper/ink values retained; light-only; local band tokens",
+      "difference": "brand paper/ink values retained; light theme plus dark theme (follows system, manual light/dark/system toggle); local band tokens",
       "owner": "hsd",
       "reason": "Marketing-site scope is recorded and not a workbench layout",
       "removal_condition": "An owner ruling backed by applicable multi-product evidence",
