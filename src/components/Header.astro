@@ -19,7 +19,8 @@ const {
   englishPath,
   chinesePath,
 } = Astro.props;
-const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
+const navPages = pageOrder.filter((item) => item !== 'contact');
+const contactHref = routeFor(content.locale, 'contact');
 ---
 
 <header class="site-header">
@@ -39,7 +40,7 @@ const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
     <div class="header__actions">
       <nav class="desktop-nav" aria-label={content.chrome.mainNavigationLabel}>
         <ul>
-          {pageOrder.map((item) => (
+          {navPages.map((item) => (
             <li>
               <a
                 href={routeFor(content.locale, item)}
@@ -52,9 +53,15 @@ const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
         </ul>
       </nav>
 
-      <ThemeSwitch content={content} class="theme-switch--header" />
+      <a
+        class="header-cta"
+        href={contactHref}
+        aria-current={activePage === 'contact' ? 'page' : undefined}
+      >
+        {content.navigation.contact}
+      </a>
 
-      <a class="header-cta" href={demoHref}>{content.chrome.demoCta}</a>
+      <ThemeSwitch content={content} class="theme-switch--header" />
 
       <details class="mobile-menu">
         {/* WCAG 2.5.3 Label in Name: aria-label replaces content, so the accessible
@@ -66,7 +73,7 @@ const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
         </summary>
         <nav aria-label={content.chrome.mobileNavigationLabel}>
           <ul>
-            {pageOrder.map((item) => (
+            {navPages.map((item) => (
               <li>
                 <a
                   href={routeFor(content.locale, item)}
@@ -79,10 +86,10 @@ const demoHref = `${routeFor(content.locale, 'contact')}#demo`;
             <li>
               <a
                 class="mobile-menu__cta"
-                href={demoHref}
+                href={contactHref}
                 aria-current={activePage === 'contact' ? 'page' : undefined}
               >
-                {content.chrome.demoCta}
+                {content.navigation.contact}
               </a>
             </li>
           </ul>

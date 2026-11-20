@@ -180,7 +180,7 @@ export const en = {
         },
         {
           name: 'Structured Risk Alerts & Review Workflow',
-          description: 'Tracks chick-price drops, cash-breakeven breaches, supply crowding and capacity anomalies in an auditable alert ledger with human verification logs.',
+          description: 'Tracks chick-price drops, shrinking breakeven margins and breakeven breaches, supply crowding and capacity anomalies in an auditable alert ledger with human verification logs.',
         },
         {
           name: 'Privacy-Preserving Multi-Party Reconciliation',

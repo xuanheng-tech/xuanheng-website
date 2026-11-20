@@ -258,9 +258,9 @@ summary {
 
 .eyebrow {
   color: var(--red);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: var(--xh-weight-title);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -2743,7 +2743,8 @@ html[lang="zh-CN"] .fact-strip dt:not([lang="en"]) {
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
-.header-cta:hover {
+.header-cta:hover,
+.header-cta[aria-current="page"] {
   border-color: var(--ink);
   background: var(--ink);
   color: var(--paper);
@@ -3383,7 +3384,7 @@ html[lang="zh-CN"] .contact-thanks h1 {
   border-radius: 2px;
 }
 
-/* Six nav items plus theme switch, demo button and language switch need ~1100px.
+/* Five nav links, highlighted contact button, theme switch and language switch need ~1100px.
    Below that the header collapses to the menu, which also carries the theme row. */
 @media (max-width: 1100px) {
   .desktop-nav,
@@ -3685,4 +3686,37 @@ html[lang="zh-CN"] :is(p, li) {
   .updates-list li {
     grid-template-columns: 1fr;
   }
+}
+
+/* Kickers share one size: page-top kickers had stayed at 12px while section markers moved
+   to 0.85rem, so a page's first label read smaller than the sections below it. */
+@media (max-width: 767px) {
+  .eyebrow {
+    font-size: 0.8rem;
+  }
+}
+
+/* Chinese labels get a 13px floor: Han characters at 12px lose stroke detail, whereas
+   the English all-caps labels at 12px stay legible and keep their size. */
+html[lang="zh-CN"] :is(
+  .contact-channel__label,
+  .contact-channel__qr figcaption,
+  .status-pill,
+  .project-hero__status,
+  .project-hero__focus li,
+  .project-current-state__grid h3,
+  .project-workflow__steps li > span,
+  .project-principles__list span,
+  .project-system-view__layers span,
+  .project-navigation__project > span,
+  .project-navigation__all,
+  .project-figure figcaption,
+  .page-next__inner > p,
+  .fact-strip dt,
+  .directions__list article > span,
+  .project-card__meta,
+  .contact-form__field small,
+  .updates-list__meta span
+) {
+  font-size: 0.8125rem;
 }

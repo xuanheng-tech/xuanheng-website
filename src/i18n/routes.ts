@@ -1,7 +1,7 @@
 import type { Locale, PageKey, ProjectGroup, ProjectSlug, SectionKey } from './types';
 
-/** Main navigation. The header demo button stays as the primary CTA; 联系 covers phone, WeCom and email. */
-export const pageOrder: PageKey[] = ['home', 'products', 'openSource', 'research', 'about', 'contact'];
+/** Main navigation order; Header promotes `contact` into the highlighted CTA button. */
+export const pageOrder: PageKey[] = ['home', 'products', 'research', 'openSource', 'about', 'contact'];
 
 export const routes: Record<Locale, Record<PageKey, string>> = {
   en: {
