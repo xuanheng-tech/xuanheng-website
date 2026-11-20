@@ -38,10 +38,7 @@ const labels = content.projectLabels;
     {project.capabilities.map((capability, index) => (
       <li>
         <span class="product-row__index" lang="en">{String(index + 1).padStart(2, '0')}</span>
-        <div>
-          <h4>{capability.name}</h4>
-          <p>{capability.description}</p>
-        </div>
+        <h4>{capability.name}</h4>
       </li>
     ))}
   </ol>

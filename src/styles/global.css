@@ -2927,6 +2927,8 @@ html[lang="zh-CN"] .hero__signature p {
 }
 
 .product-row__capabilities {
+  /* Catalog cards list capability names only; descriptions live on the detail page. */
+  align-self: center;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2934,14 +2936,14 @@ html[lang="zh-CN"] .hero__signature p {
 }
 
 .product-row__capabilities li {
-  padding: 16px 0;
+  padding: 14px 0;
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr);
   border-bottom: var(--xh-border) solid var(--line);
 }
 
 .product-row__index {
-  padding-top: 3px;
+  padding-top: 4px;
   color: var(--red);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
@@ -2952,13 +2954,6 @@ html[lang="zh-CN"] .hero__signature p {
   font-size: 1rem;
   font-weight: var(--xh-weight-title);
   line-height: 1.5;
-}
-
-.product-row__capabilities p {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.75;
 }
 
 .status-pill {
